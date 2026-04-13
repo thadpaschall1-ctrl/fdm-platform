@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
+import { TrackingScripts } from "@/components/tracking-scripts";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -40,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-slate-950 text-white antialiased">
+        <TrackingScripts />
         <SiteNav />
         <main className="flex-1">{children}</main>
         <SiteFooter />
