@@ -5,6 +5,10 @@ export interface ServiceData {
   metaDescription: string;
   hero: string;
   intro: string;
+  price: string;
+  setupFee?: string;
+  planTier: "starter" | "growth" | "pro" | "custom";
+  includedIn?: string;
   features: { title: string; description: string }[];
   process: { step: string; title: string; description: string }[];
   faqs: { question: string; answer: string }[];
@@ -17,6 +21,9 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "AI Voice Callback | Never Lose a Lead to a Missed Call | Fast Digital Marketing",
     metaDescription: "Your AI calls back every missed caller within 60 seconds, speaks naturally, qualifies the lead, and books the appointment — 24/7, no staff needed.",
     hero: "Every Missed Call Returned in 60 Seconds",
+    price: "$197",
+    planTier: "starter",
+    includedIn: "Included in Starter, Growth & Pro plans",
     intro: "When a customer calls and nobody answers, they call your competitor. Our AI voice agent calls them back within 60 seconds, speaks naturally, qualifies the lead, and books the appointment — all without any human involvement. Works 24/7, including nights, weekends, and holidays.",
     features: [
       { title: "60-Second Callback", description: "The moment a call is missed, your AI calls the customer back. No delays, no voicemail tag, no lost leads." },
@@ -45,6 +52,9 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "AI Voice Receptionist | 24/7 Phone Answering | Fast Digital Marketing",
     metaDescription: "A natural-sounding AI receptionist that answers every call, handles questions, books appointments, and takes messages — 24/7, no staff required.",
     hero: "Your Receptionist That Never Sleeps",
+    price: "$197",
+    planTier: "starter",
+    includedIn: "Included in Starter, Growth & Pro plans",
     intro: "The average business misses 62% of incoming calls. Every missed call is a missed customer. Our AI voice receptionist answers every single call — instantly — with a natural voice that callers love. It handles questions, books appointments, and takes messages around the clock.",
     features: [
       { title: "24/7 Live Answering", description: "Every call answered on the first ring — 3am emergency, lunch rush, holiday weekend. No voicemail, no hold music, no missed revenue." },
@@ -73,6 +83,10 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Automated Review Generation | Get More 5-Star Reviews | Fast Digital Marketing",
     metaDescription: "Automatically request Google reviews after every job or appointment. Happy customers go to Google, unhappy ones come to you privately. Watch your rating climb.",
     hero: "5-Star Reviews on Autopilot",
+    price: "$397",
+    setupFee: "$297",
+    planTier: "growth",
+    includedIn: "Included in Growth & Pro plans",
     intro: "Businesses with 50+ Google reviews get 3x more calls than businesses with 10. But asking for reviews is awkward and time-consuming. Review Autopilot sends a personalized text after every appointment or completed job, making it easy for happy customers to leave a review — and routing unhappy ones to you privately before they post.",
     features: [
       { title: "Automated Requests", description: "After every appointment or job completion, your customer automatically receives a friendly text asking for a review." },
@@ -101,6 +115,10 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Client Reactivation Campaigns | Win Back Dormant Customers | Fast Digital Marketing",
     metaDescription: "Automatically reach out to past customers who haven't returned. Most businesses reactivate 15-25% of dormant clients — that's revenue sitting in your database.",
     hero: "Wake Up Your Dormant Revenue",
+    price: "$397",
+    setupFee: "$297",
+    planTier: "growth",
+    includedIn: "Included in Growth & Pro plans",
     intro: "Your database is full of customers who used to pay you but stopped coming back. They're not gone — they just forgot about you. Client Reactivation identifies customers who haven't visited in 3-6+ months and automatically reaches out with personalized messages to bring them back. Most businesses reactivate 15-25% of dormant clients.",
     features: [
       { title: "Dormant Client Identification", description: "We analyze your customer database and identify everyone who hasn't returned within your defined timeframe." },
@@ -129,6 +147,10 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Automated Lead Nurture | Convert Leads to Customers | Fast Digital Marketing",
     metaDescription: "Not every lead books immediately. Our automated nurture sequences follow up via text and email until they're ready — no leads fall through the cracks.",
     hero: "No Lead Left Behind",
+    price: "$397",
+    setupFee: "$297",
+    planTier: "growth",
+    includedIn: "Included in Growth & Pro plans",
     intro: "Only 2% of leads convert on the first contact. The other 98% need follow-up — but your team is too busy to chase every lead manually. New Client Nurture sends automated, personalized text and email sequences to every lead until they book, unsubscribe, or convert. No more leads dying in your inbox.",
     features: [
       { title: "Instant First Response", description: "Every new lead gets a response within 60 seconds — the #1 factor in lead conversion." },
@@ -157,6 +179,10 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Smart Websites | Fast, SEO-Ready Business Websites | Fast Digital Marketing",
     metaDescription: "Modern websites built with Next.js that load instantly, rank on Google, and convert visitors to customers. Delivered in 5 business days. No WordPress bloat.",
     hero: "A Website That Works as Hard as You Do",
+    price: "$397",
+    setupFee: "$297",
+    planTier: "growth",
+    includedIn: "Included in Growth & Pro plans",
     intro: "Most business websites are slow, outdated, and invisible on Google. A Smart Website is a fast, modern, SEO-ready site built on Next.js that loads in under 2 seconds, scores 95+ on Core Web Vitals, and is structured for both Google and AI search engines. Delivered in 5 business days.",
     features: [
       { title: "Sub-2-Second Load Time", description: "Built on Next.js with server-side rendering. Your site loads faster than 95% of competitors — speed is a Google ranking factor." },
@@ -185,6 +211,10 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Local SEO & AI Search Optimization | Fast Digital Marketing",
     metaDescription: "Rank on Google Maps, organic search, AND AI search engines. Local SEO, content strategy, and AI search optimization that gets your business found everywhere.",
     hero: "Get Found on Google and AI Search",
+    price: "$397",
+    setupFee: "$297",
+    planTier: "growth",
+    includedIn: "Included in Growth & Pro plans",
     intro: "Google isn't the only search engine anymore. Customers now ask ChatGPT, Perplexity, and Google's AI Overviews for recommendations. We optimize your online presence for all of them — traditional local SEO plus AI search optimization so your business gets cited no matter how people search.",
     features: [
       { title: "Google Business Profile Optimization", description: "We optimize every field, add posts weekly, manage Q&A, and keep your profile active and ranking in the Map Pack." },
@@ -213,6 +243,9 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Google Business Profile Optimization | Fast Digital Marketing",
     metaDescription: "Get your Google Business Profile ranking in the Map Pack. Weekly posts, photo optimization, Q&A management, and review strategy — fully managed.",
     hero: "Dominate the Google Map Pack",
+    price: "$197",
+    planTier: "starter",
+    includedIn: "Included in Starter, Growth & Pro plans",
     intro: "46% of all Google searches have local intent, and the Map Pack gets 42% of clicks. Your Google Business Profile is often the first thing potential customers see. We optimize it fully, keep it active with weekly posts, and build the signals Google uses to rank you above competitors.",
     features: [
       { title: "Full Profile Optimization", description: "Every field filled, every category selected, business description keyword-optimized, and services/products listed properly." },
@@ -241,6 +274,10 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Full Marketing Automation Stack | Everything Included | Fast Digital Marketing",
     metaDescription: "Every automated service in one package: AI receptionist, voice AI callback, review generation, client reactivation, lead nurture, smart website, and local SEO.",
     hero: "Everything. Automated. One Price.",
+    price: "$697",
+    setupFee: "$497",
+    planTier: "pro",
+    includedIn: "Our most popular plan — everything included",
     intro: "Stop buying marketing piecemeal. The Full Automation Stack includes every automated service we offer — AI voice receptionist, voice AI callback, review autopilot, client reactivation, new client nurture, smart website, and local SEO — all working together as one integrated system. Your entire marketing runs on autopilot.",
     features: [
       { title: "AI Voice Receptionist", description: "Every call answered 24/7 with natural conversation, appointment booking, and lead qualification." },
@@ -274,6 +311,10 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Social Media Management | Content Creation | Fast Digital Marketing",
     metaDescription: "Professional social media content for your business — created, scheduled, and managed. Build your brand and stay visible without lifting a finger.",
     hero: "Social Media That Runs Itself",
+    price: "$697",
+    setupFee: "$497",
+    planTier: "pro",
+    includedIn: "Included in Pro plan",
     intro: "Consistent social media builds trust and keeps your business top-of-mind. But who has time to create content every day? We handle everything — strategy, content creation, scheduling, and community management — so your social profiles stay active without taking you away from running your business.",
     features: [
       { title: "Content Strategy", description: "A custom content calendar aligned with your business goals, seasonal trends, and audience interests." },
@@ -302,6 +343,10 @@ export const SERVICES: ServiceData[] = [
     metaTitle: "Google Ads Management | PPC for Local Businesses | Fast Digital Marketing",
     metaDescription: "High-ROI Google Ads management that turns ad spend into booked jobs. Search, Local Service Ads, and Performance Max — managed by certified experts.",
     hero: "Turn Ad Spend Into Revenue",
+    price: "$697",
+    setupFee: "$497",
+    planTier: "pro",
+    includedIn: "Included in Pro plan",
     intro: "Google Ads puts your business in front of customers who are actively searching for your services right now. We build and manage campaigns that maximize return on ad spend with tight targeting, compelling copy, and relentless optimization. No wasted clicks — just qualified leads.",
     features: [
       { title: "Search Campaigns", description: "Target the exact keywords your customers type into Google. We handle match types, negative keywords, and bid strategies." },

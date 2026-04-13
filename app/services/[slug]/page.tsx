@@ -62,16 +62,41 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <p className="reveal reveal-delay-2 mx-auto mt-6 max-w-2xl text-lg text-slate-400 leading-relaxed">
             {service.intro}
           </p>
-          <Link
-            href="/#contact"
-            className="reveal reveal-delay-3 group mt-10 inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
-          >
-            <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-            <span className="relative">Get a Free Quote</span>
-            <svg className="relative w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </Link>
+
+          {/* Pricing block */}
+          <div className="reveal reveal-delay-3 mt-10 flex flex-col items-center gap-5">
+            <div className="flex flex-wrap items-end justify-center gap-3">
+              <div>
+                <span className="text-5xl font-black text-white">{service.price}</span>
+                <span className="text-xl text-slate-400">/mo</span>
+              </div>
+              {service.setupFee && (
+                <span className="text-sm text-slate-500 pb-1.5">+ {service.setupFee} one-time setup</span>
+              )}
+            </div>
+            {service.includedIn && (
+              <p className="text-sm text-blue-400 font-medium">{service.includedIn}</p>
+            )}
+            <p className="text-xs text-slate-500">No contracts &middot; Cancel anytime</p>
+            <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
+              <Link
+                href="/audit"
+                className="group relative inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
+              >
+                <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="relative">Get Your Free Audit</span>
+                <svg className="relative w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+              <Link
+                href="/demo"
+                className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 backdrop-blur-sm"
+              >
+                🎙 Try Live Demo
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -140,14 +165,19 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         <div className="mx-auto max-w-2xl">
           <div className="border-gradient rounded-3xl bg-slate-900 p-12 text-center">
             <h2 className="font-display text-3xl font-bold text-white tracking-tight">Ready to Get Started?</h2>
-            <p className="mx-auto mt-4 max-w-md text-slate-400 leading-relaxed">
-              Tell us about your business and goals. We&apos;ll put together a custom strategy — free, no commitment.
-            </p>
+            <div className="mt-4 flex items-end justify-center gap-2">
+              <span className="text-4xl font-black text-white">{service.price}</span>
+              <span className="text-lg text-slate-400 pb-0.5">/mo</span>
+              {service.setupFee && (
+                <span className="text-sm text-slate-500 pb-1">+ {service.setupFee} setup</span>
+              )}
+            </div>
+            <p className="mt-3 text-sm text-slate-500">No contracts &middot; Cancel anytime</p>
             <Link
-              href="/#contact"
+              href="/audit"
               className="group mt-8 inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-4 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
             >
-              Get a Free Quote
+              Start With a Free Audit
               <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
