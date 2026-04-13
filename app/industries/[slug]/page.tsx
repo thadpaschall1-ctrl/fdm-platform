@@ -7,8 +7,9 @@ export function generateStaticParams() {
   return INDUSTRIES.map((i) => ({ slug: i.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const industry = getIndustryBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const industry = getIndustryBySlug(slug);
   if (!industry) return { title: "Not Found" };
 
   return {
@@ -24,8 +25,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function IndustryPage({ params }: { params: { slug: string } }) {
-  const industry = getIndustryBySlug(params.slug);
+export default async function IndustryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const industry = getIndustryBySlug(slug);
   if (!industry) notFound();
 
   const schema = {
