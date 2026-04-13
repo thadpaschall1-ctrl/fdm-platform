@@ -40,15 +40,6 @@ const SERVICES = [
     glow: "group-hover:shadow-violet-500/20",
   },
   {
-    icon: "💬",
-    title: "Missed Call Text-Back",
-    slug: "missed-call-text-back",
-    description: "Instant text when a call goes unanswered. Recovers 30-40% of missed leads automatically.",
-    highlights: ["Instant response", "Two-way texting", "Booking links", "After-hours aware"],
-    color: "from-emerald-600 to-teal-500",
-    glow: "group-hover:shadow-emerald-500/20",
-  },
-  {
     icon: "⭐",
     title: "Review Autopilot",
     slug: "review-autopilot",
