@@ -4,11 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Industries", href: "#industries" },
+  { label: "Services", href: "/#services" },
+  { label: "Industries", href: "/#industries" },
   { label: "Live Demo", href: "/demo" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Process", href: "/#process" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function SiteNav() {
@@ -86,7 +86,7 @@ export function SiteNav() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               className="mt-2 rounded-lg bg-blue-600 px-5 py-2.5 text-center text-sm font-semibold text-white hover:bg-blue-500 transition-colors"
               onClick={() => setOpen(false)}
             >
