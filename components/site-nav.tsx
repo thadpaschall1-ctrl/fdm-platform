@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
+  { label: "Live Demo", href: "/demo" },
   { label: "Why FDM", href: "#why-fdm" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },

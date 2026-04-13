@@ -307,19 +307,27 @@ export default function HomePage() {
       {/* ── INDUSTRIES ───────────────────────────────────────────────────── */}
       <section className="border-t border-white/[0.06] bg-slate-900/30 px-6 py-14">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-4 text-sm text-slate-500">Industries We Serve</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-500">Industries We Serve</p>
+          <h2 className="mb-6 text-2xl font-bold text-white">Pre-Packaged Marketing for Your Industry</h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {[
-              "Healthcare", "Legal", "Home Services", "E-Commerce",
-              "Real Estate", "Dental", "Chiropractic", "Restaurants",
-              "Fitness & Wellness", "SaaS", "Financial Services", "Automotive",
+              { name: "Security Companies", slug: "security-companies" },
+              { name: "Chiropractors", slug: "chiropractors" },
+              { name: "Dental Practices", slug: "dental" },
+              { name: "Plumbing Companies", slug: "plumbers" },
+              { name: "HVAC Companies", slug: "hvac" },
+              { name: "Electricians", slug: "electricians" },
+              { name: "Roofing Companies", slug: "roofers" },
+              { name: "Law Firms", slug: "law-firms" },
+              { name: "Medical Spas", slug: "medical-spas" },
             ].map((industry) => (
-              <span
-                key={industry}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-slate-300"
+              <a
+                key={industry.slug}
+                href={`/industries/${industry.slug}`}
+                className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-slate-300 transition hover:border-blue-500/50 hover:bg-blue-950/30 hover:text-blue-300"
               >
-                {industry}
-              </span>
+                {industry.name} →
+              </a>
             ))}
           </div>
         </div>
