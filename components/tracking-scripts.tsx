@@ -3,7 +3,7 @@
 import Script from "next/script";
 
 const FB_PIXEL_ID = "1019042758966538";
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID; // Set in Vercel env vars
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "G-1S0E4F6X39";
 
 export function TrackingScripts() {
   return (
