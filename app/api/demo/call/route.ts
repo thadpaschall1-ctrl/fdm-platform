@@ -15,7 +15,7 @@ const callLog = new Map<string, number>();
 
 export async function POST(req: NextRequest) {
   if (!ELEVENLABS_API_KEY || !DEMO_AGENT_ID) {
-    return NextResponse.json({ error: "Demo calling not configured" }, { status: 500 });
+    return NextResponse.json({ error: "Voice demo is being set up. Please try again shortly." }, { status: 500 });
   }
 
   let body: { niche: string; phone: string };

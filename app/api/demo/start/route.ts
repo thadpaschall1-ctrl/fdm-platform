@@ -27,7 +27,7 @@ END OF DEMO:
 
 export async function POST(req: NextRequest) {
   if (!ELEVENLABS_API_KEY) {
-    return NextResponse.json({ error: "ElevenLabs not configured" }, { status: 500 });
+    return NextResponse.json({ error: "Voice demo is being set up. Please try again shortly." }, { status: 500 });
   }
 
   let body: { niche: string };
