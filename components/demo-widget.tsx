@@ -120,6 +120,18 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
                 <p className="text-xs text-slate-500">
                   Tell Holland you run a {selectedNiche.toLowerCase()} and she&apos;ll demo as your receptionist.
                 </p>
+                {/* Hide ElevenLabs branding from their widget */}
+                <style>{`
+                  elevenlabs-convai::part(powered-by),
+                  elevenlabs-convai [class*="powered"],
+                  elevenlabs-convai [class*="branding"],
+                  elevenlabs-convai a[href*="elevenlabs"] {
+                    display: none !important;
+                    visibility: hidden !important;
+                    height: 0 !important;
+                    overflow: hidden !important;
+                  }
+                `}</style>
               </div>
             )}
 
