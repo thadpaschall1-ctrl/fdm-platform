@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
@@ -10,13 +10,20 @@ const geist = Geist({
   subsets: ["latin"],
 });
 
+/* Bold display font — punchy headlines, nothing generic */
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-cabinet",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Fast Digital Marketing | Digital Marketing Agency",
     template: "%s | Fast Digital Marketing",
   },
   description:
-    "Fast Digital Marketing is a results-driven digital marketing agency specializing in SEO, Google Ads, web design, and AI-powered automation. We help businesses grow faster online.",
+    "Fast Digital Marketing helps businesses grow online with SEO, Google Ads, professional web design, and AI-powered marketing automation. Get measurable results — fast.",
   metadataBase: new URL("https://fastdigitalmarketing.com"),
   alternates: {
     canonical: "https://fastdigitalmarketing.com",
@@ -39,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geist.variable} h-full`}>
+    <html lang="en" className={`${geist.variable} ${spaceGrotesk.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-slate-950 text-white antialiased">
         <TrackingScripts />
         <SiteNav />

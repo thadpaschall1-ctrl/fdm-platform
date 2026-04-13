@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { AnimatedStats } from "@/components/animated-stats";
+import { ServiceCard } from "@/components/service-card";
+import { ProcessTimeline } from "@/components/process-timeline";
 
 export const metadata: Metadata = {
   title: "Fast Digital Marketing | SEO, Google Ads & Web Design Agency",
@@ -21,139 +25,104 @@ const SERVICES = [
     icon: "📞",
     title: "AI Voice Receptionist",
     slug: "ai-voice-receptionist",
-    description:
-      "Every call answered on the first ring — 24/7, nights, weekends, holidays. Natural conversation, appointment booking, and lead qualification. Never lose a caller to voicemail again.",
+    description: "Every call answered on the first ring — 24/7. Natural conversation, appointment booking, and lead qualification.",
     highlights: ["24/7 live answering", "Natural British accent", "Books appointments", "Transfers when needed"],
+    color: "from-blue-600 to-cyan-500",
+    glow: "group-hover:shadow-blue-500/20",
   },
   {
     icon: "⚡",
     title: "Voice AI Callback",
     slug: "voice-ai-callback",
-    description:
-      "Every missed call returned in under 60 seconds by your AI agent. She calls back, qualifies the lead, and books the appointment — automatically.",
+    description: "Every missed call returned in under 60 seconds by your AI agent. She calls back, qualifies, and books.",
     highlights: ["60-second callback", "Lead qualification", "Direct booking", "Call recordings"],
+    color: "from-violet-600 to-purple-500",
+    glow: "group-hover:shadow-violet-500/20",
   },
   {
     icon: "💬",
     title: "Missed Call Text-Back",
     slug: "missed-call-text-back",
-    description:
-      "When a call goes unanswered, the caller gets an instant text: 'Sorry we missed you! How can we help?' Recovers 30-40% of missed leads.",
+    description: "Instant text when a call goes unanswered. Recovers 30-40% of missed leads automatically.",
     highlights: ["Instant response", "Two-way texting", "Booking links", "After-hours aware"],
+    color: "from-emerald-600 to-teal-500",
+    glow: "group-hover:shadow-emerald-500/20",
   },
   {
     icon: "⭐",
     title: "Review Autopilot",
     slug: "review-autopilot",
-    description:
-      "Automated review requests after every job or appointment. Happy customers go to Google, unhappy ones come to you privately. Watch your rating climb.",
+    description: "Automated review requests after every job. Happy customers go to Google, unhappy ones come to you.",
     highlights: ["Automated requests", "Smart routing", "One-tap reviews", "Response templates"],
+    color: "from-amber-500 to-orange-500",
+    glow: "group-hover:shadow-amber-500/20",
   },
   {
     icon: "🔄",
     title: "Client Reactivation",
     slug: "client-reactivation",
-    description:
-      "Your database is full of dormant customers. We reach out automatically with personalized messages to bring them back. Most businesses reactivate 15-25%.",
+    description: "Your database is full of dormant customers. We reach out automatically to bring them back. 15-25% reactivation.",
     highlights: ["Dormant client ID", "Multi-step sequences", "Direct booking", "ROI tracking"],
+    color: "from-pink-600 to-rose-500",
+    glow: "group-hover:shadow-pink-500/20",
   },
   {
     icon: "🎯",
     title: "New Client Nurture",
     slug: "new-client-nurture",
-    description:
-      "Only 2% of leads convert on first contact. Our automated sequences follow up via text and email until they book — no leads fall through the cracks.",
+    description: "Only 2% of leads convert on first contact. Our sequences follow up until they book — no leads lost.",
     highlights: ["Instant first response", "Multi-channel", "Behavior triggers", "Hot lead alerts"],
+    color: "from-sky-600 to-blue-500",
+    glow: "group-hover:shadow-sky-500/20",
   },
   {
     icon: "💻",
     title: "Smart Website",
     slug: "smart-website",
-    description:
-      "Fast, modern websites built on Next.js that load in under 2 seconds and are optimized for Google and AI search engines. Delivered in 5 business days.",
+    description: "Next.js sites that load in under 2 seconds, optimized for Google AND AI search. Delivered in 5 days.",
     highlights: ["Sub-2s load time", "Mobile-first", "SEO-ready", "AI search optimized"],
+    color: "from-indigo-600 to-blue-500",
+    glow: "group-hover:shadow-indigo-500/20",
   },
   {
     icon: "📈",
     title: "Local SEO & AI Search",
     slug: "local-seo-ai",
-    description:
-      "Rank on Google Maps, organic search, AND AI search engines. We optimize your presence for everywhere customers search — Google, ChatGPT, Perplexity.",
+    description: "Rank on Google Maps, organic search, AND AI engines. Google, ChatGPT, Perplexity — everywhere customers search.",
     highlights: ["GBP optimization", "Citation building", "Content strategy", "AI search optimization"],
+    color: "from-teal-600 to-cyan-500",
+    glow: "group-hover:shadow-teal-500/20",
   },
   {
     icon: "🎰",
     title: "Paid Advertising",
     slug: "paid-advertising",
-    description:
-      "Google Ads and Local Service Ads that turn ad spend into booked jobs. Tight targeting, compelling copy, and weekly optimization for maximum ROI.",
+    description: "Google Ads that turn spend into booked jobs. Tight targeting, compelling copy, weekly optimization.",
     highlights: ["Search campaigns", "Local Service Ads", "Conversion tracking", "Weekly optimization"],
+    color: "from-red-600 to-orange-500",
+    glow: "group-hover:shadow-red-500/20",
   },
   {
     icon: "🚀",
     title: "Full Automation Stack",
     slug: "full-automation-stack",
-    description:
-      "Everything above in one integrated package. AI receptionist, callbacks, texts, reviews, reactivation, nurture, website, SEO, and ads — all on autopilot.",
+    description: "Everything in one package. AI receptionist, callbacks, texts, reviews, reactivation, website, SEO, ads.",
     highlights: ["Every service included", "One integrated system", "Live in 5 days", "Monthly strategy calls"],
+    color: "from-blue-600 to-violet-600",
+    glow: "group-hover:shadow-blue-500/20",
   },
 ];
 
-const STATS = [
-  { value: "10+", label: "Years in Business" },
-  { value: "200+", label: "Clients Served" },
-  { value: "3.8x", label: "Average ROAS" },
-  { value: "92%", label: "Client Retention Rate" },
-];
-
-const REASONS = [
-  {
-    title: "We Move Fast",
-    description:
-      "No 6-week onboarding. We get campaigns live and websites launched faster than any agency you've worked with — without cutting corners.",
-  },
-  {
-    title: "Transparent Reporting",
-    description:
-      "You'll know exactly what your money is doing. Monthly dashboards, real numbers, no fluff.",
-  },
-  {
-    title: "Industry Agnostic",
-    description:
-      "We've driven results for healthcare, legal, home services, e-commerce, SaaS, and more. If your customers are online, we can reach them.",
-  },
-  {
-    title: "AI-Enhanced Execution",
-    description:
-      "We use the latest AI tools to move faster, write better copy, and spot opportunities that human-only teams miss.",
-  },
-];
-
-const PROCESS = [
-  {
-    step: "01",
-    title: "Discovery & Audit",
-    description:
-      "We analyze your current online presence, competitors, and biggest growth opportunities. You get a plain-English breakdown — free, no commitment.",
-  },
-  {
-    step: "02",
-    title: "Strategy & Roadmap",
-    description:
-      "We build a custom plan targeting your highest-ROI channels. No generic templates — everything is tailored to your business and budget.",
-  },
-  {
-    step: "03",
-    title: "Launch & Execute",
-    description:
-      "Campaigns go live, websites get built, and content gets published. We execute fast and iterate based on data, not gut feelings.",
-  },
-  {
-    step: "04",
-    title: "Measure & Scale",
-    description:
-      "Monthly reporting shows exactly what's working. We double down on winners and eliminate waste — compounding your results over time.",
-  },
+const INDUSTRIES = [
+  { name: "Security Companies", slug: "security-companies" },
+  { name: "Chiropractors", slug: "chiropractors" },
+  { name: "Dental Practices", slug: "dental" },
+  { name: "Plumbing Companies", slug: "plumbers" },
+  { name: "HVAC Companies", slug: "hvac" },
+  { name: "Electricians", slug: "electricians" },
+  { name: "Roofing Companies", slug: "roofers" },
+  { name: "Law Firms", slug: "law-firms" },
+  { name: "Medical Spas", slug: "medical-spas" },
 ];
 
 export default function HomePage() {
@@ -162,156 +131,170 @@ export default function HomePage() {
     "@type": "ProfessionalService",
     name: "Fast Digital Marketing",
     url: "https://fastdigitalmarketing.com",
-    description:
-      "Digital marketing agency specializing in SEO, Google Ads, web design, social media, and AI-powered marketing automation.",
-    serviceType: [
-      "Search Engine Optimization",
-      "Pay-Per-Click Advertising",
-      "Web Design",
-      "Social Media Marketing",
-      "Marketing Automation",
-    ],
+    description: "Digital marketing agency specializing in SEO, Google Ads, web design, social media, and AI-powered marketing automation.",
+    serviceType: ["Search Engine Optimization", "Pay-Per-Click Advertising", "Web Design", "Social Media Marketing", "Marketing Automation"],
     areaServed: "United States",
     priceRange: "$$",
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
-      {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950 px-6 py-24 text-center lg:py-32">
-        {/* Background glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        >
-          <div className="h-[500px] w-[800px] rounded-full bg-blue-600/10 blur-3xl" />
+      {/* ══════════════════════════════════════════════════════════════════
+          HERO — Massive, bold, impossible to ignore
+          ══════════════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden min-h-[90vh] flex items-center justify-center px-6 py-28 lg:py-36">
+        {/* Animated gradient mesh background */}
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 h-[600px] w-[600px] rounded-full bg-blue-600/20 blur-[120px] animate-[float_8s_ease-in-out_infinite]" />
+          <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] rounded-full bg-violet-600/15 blur-[100px] animate-[float_10s_ease-in-out_infinite_2s]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[80px] animate-[float_6s_ease-in-out_infinite_1s]" />
         </div>
+        {/* Grid overlay */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-40" />
 
-        <div className="relative mx-auto max-w-4xl">
-          <p className="mb-4 inline-block rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-400">
-            Digital Marketing Agency
-          </p>
-          <h1 className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Grow Your Business Online.{" "}
-            <span className="text-blue-400">Fast.</span>
+        <div className="relative mx-auto max-w-5xl text-center">
+          {/* Badge */}
+          <div className="reveal inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-5 py-2 text-sm font-semibold text-blue-400 mb-8 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
+            </span>
+            Digital Marketing Agency — Tampa, FL
+          </div>
+
+          {/* Headline — absolutely massive */}
+          <h1 className="reveal reveal-delay-1 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-8xl">
+            Grow Your Business
+            <br />
+            <span className="text-gradient-blue">Online. Fast.</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 leading-relaxed">
+
+          <p className="reveal reveal-delay-2 mx-auto mt-8 max-w-2xl text-lg text-slate-400 leading-relaxed sm:text-xl">
             SEO, Google Ads, web design, and AI-powered automation — all under one roof.
-            We help businesses in any industry get more leads, more traffic, and more revenue online.
+            We help businesses in <span className="text-white font-medium">any industry</span> get more leads, more traffic, and more revenue.
           </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+
+          {/* CTA Row */}
+          <div className="reveal reveal-delay-3 mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href="/audit"
-              className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-4 text-base font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30"
+              className="group relative inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
             >
-              Get a Free Business Audit →
+              <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 opacity-0 transition-opacity group-hover:opacity-100" />
+              <span className="relative">Get a Free Business Audit</span>
+              <svg className="relative w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </a>
             <a
-              href="#services"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-8 py-4 text-base font-medium text-white transition hover:bg-white/10"
+              href="/demo"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 backdrop-blur-sm"
             >
-              See Our Services
+              <span className="text-xl">🎙</span> Try Live AI Demo
             </a>
           </div>
+
+          {/* Trust signals below hero */}
+          <div className="reveal reveal-delay-4 mt-16 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
+            <span className="flex items-center gap-1.5">
+              <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              No contracts
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              Cancel anytime
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              Results in 30 days
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              200+ businesses served
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* ── STATS ────────────────────────────────────────────────────────── */}
-      <section className="border-y border-white/[0.06] bg-slate-900/50 px-6 py-12">
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-8 text-center lg:grid-cols-4">
-          {STATS.map((s) => (
-            <div key={s.label}>
-              <div className="text-4xl font-bold text-blue-400">{s.value}</div>
-              <div className="mt-1 text-sm text-slate-400">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* ══════════════════════════════════════════════════════════════════
+          STATS — Animated marquee ticker
+          ══════════════════════════════════════════════════════════════════ */}
+      <AnimatedStats />
 
-      {/* ── SERVICES ─────────────────────────────────────────────────────── */}
-      <section id="services" className="px-6 py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center mb-14">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-500">
-              What We Do
+      {/* ══════════════════════════════════════════════════════════════════
+          SERVICES — Interactive cards with unique gradients
+          ══════════════════════════════════════════════════════════════════ */}
+      <section id="services" className="relative px-6 py-24 lg:py-32">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-30" />
+        <div className="relative mx-auto max-w-6xl">
+          <div className="text-center mb-16">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-violet-400">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-violet-400 animate-pulse" />
+              What We Build
             </p>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              Full-Service Digital Marketing
+            <h2 className="font-display text-4xl font-bold text-white sm:text-5xl tracking-tight">
+              Full-Service <span className="text-gradient-electric">Digital Marketing</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-slate-400">
-              Everything your business needs to dominate online — no piecemeal agencies, no finger-pointing.
-              One team, full accountability.
+            <p className="mx-auto mt-5 max-w-xl text-lg text-slate-400">
+              One team. Full accountability. No finger-pointing between five different agencies.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((s) => (
-              <a
-                key={s.title}
-                href={`/services/${s.slug}`}
-                className="group rounded-2xl border border-white/[0.08] bg-slate-900 p-7 transition hover:border-blue-700/50 hover:shadow-lg hover:shadow-blue-950/40"
-              >
-                <div className="mb-4 text-3xl">{s.icon}</div>
-                <h3 className="mb-2 text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">{s.title}</h3>
-                <p className="mb-4 text-sm text-slate-400 leading-relaxed">{s.description}</p>
-                <ul className="space-y-1.5">
-                  {s.highlights.map((h) => (
-                    <li key={h} className="flex items-center gap-2 text-xs text-slate-500">
-                      <svg className="h-3.5 w-3.5 shrink-0 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-500 group-hover:text-blue-400">
-                  Learn more →
-                </span>
-              </a>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((s, i) => (
+              <ServiceCard key={s.slug} service={s} index={i} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── WHY FDM ──────────────────────────────────────────────────────── */}
-      <section id="why-fdm" className="border-t border-white/[0.06] bg-slate-900/30 px-6 py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl">
+      {/* ══════════════════════════════════════════════════════════════════
+          WHY FDM — Split layout with animated accent
+          ══════════════════════════════════════════════════════════════════ */}
+      <section id="why-fdm" className="relative overflow-hidden px-6 py-24 lg:py-32">
+        <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-[500px] w-[500px] rounded-full bg-violet-600/10 blur-[120px]" />
+        <div className="relative mx-auto max-w-6xl">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-500">
+              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-emerald-400">
                 Why Choose Us
               </p>
-              <h2 className="text-3xl font-bold text-white sm:text-4xl leading-tight">
-                Marketing That Actually Moves the Needle
+              <h2 className="font-display text-4xl font-bold text-white sm:text-5xl tracking-tight leading-[1.1]">
+                Marketing That Actually
+                <br />
+                <span className="text-gradient-fire">Moves the Needle</span>
               </h2>
-              <p className="mt-4 text-slate-400 leading-relaxed">
+              <p className="mt-5 text-lg text-slate-400 leading-relaxed">
                 Most agencies talk about strategy. We obsess over execution.
                 Every dollar you spend should return more than a dollar — and we have the reporting to prove it.
               </p>
               <a
-                href="#contact"
-                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-7 py-3.5 text-sm font-bold text-white transition hover:bg-blue-500"
+                href="/#contact"
+                className="group mt-8 inline-flex items-center gap-2 rounded-2xl bg-white/5 border border-white/10 px-7 py-4 text-sm font-bold text-white transition hover:bg-white/10 hover:border-white/20"
               >
-                Start Growing →
+                Start Growing
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </a>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              {REASONS.map((r) => (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {[
+                { title: "We Move Fast", desc: "No 6-week onboarding. Campaigns live, websites launched — faster than any agency you've worked with.", icon: "⚡", color: "from-blue-600/20 to-blue-900/20 border-blue-500/20" },
+                { title: "Transparent Reporting", desc: "You'll know exactly what your money is doing. Monthly dashboards, real numbers, zero fluff.", icon: "📊", color: "from-emerald-600/20 to-emerald-900/20 border-emerald-500/20" },
+                { title: "Industry Agnostic", desc: "Healthcare, legal, home services, SaaS — if your customers are online, we can reach them.", icon: "🌐", color: "from-violet-600/20 to-violet-900/20 border-violet-500/20" },
+                { title: "AI-Enhanced", desc: "We use the latest AI to move faster, write better copy, and spot opportunities others miss.", icon: "🤖", color: "from-amber-600/20 to-amber-900/20 border-amber-500/20" },
+              ].map((r) => (
                 <div
                   key={r.title}
-                  className="rounded-xl border border-white/[0.08] bg-slate-900 p-6"
+                  className={`card-hover rounded-2xl border bg-gradient-to-br ${r.color} p-6`}
                 >
-                  <div className="mb-2 h-8 w-8 rounded-lg bg-blue-600/20 flex items-center justify-center">
-                    <div className="h-3 w-3 rounded-full bg-blue-500" />
-                  </div>
-                  <h3 className="mb-1.5 font-semibold text-white">{r.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">{r.description}</p>
+                  <div className="text-2xl mb-3">{r.icon}</div>
+                  <h3 className="mb-2 font-bold text-white">{r.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed">{r.desc}</p>
                 </div>
               ))}
             </div>
@@ -319,108 +302,96 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PROCESS ──────────────────────────────────────────────────────── */}
-      <section id="process" className="border-t border-white/[0.06] px-6 py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl">
-          <div className="text-center mb-14">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-blue-500">
-              How It Works
-            </p>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              From Audit to Revenue in 4 Steps
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-slate-400">
-              No endless kick-off calls. We learn your business, build your strategy, and get to work.
-            </p>
-          </div>
+      {/* ══════════════════════════════════════════════════════════════════
+          PROCESS — Animated timeline
+          ══════════════════════════════════════════════════════════════════ */}
+      <ProcessTimeline />
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS.map((p) => (
-              <div key={p.step} className="relative">
-                <div className="mb-4 text-4xl font-bold text-blue-600/30">{p.step}</div>
-                <h3 className="mb-2 font-semibold text-white">{p.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{p.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── INDUSTRIES ───────────────────────────────────────────────────── */}
-      <section id="industries" className="border-t border-white/[0.06] bg-slate-900/30 px-6 py-14">
+      {/* ══════════════════════════════════════════════════════════════════
+          INDUSTRIES — Pill cloud with hover glow
+          ══════════════════════════════════════════════════════════════════ */}
+      <section id="industries" className="relative px-6 py-20">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-500">Industries We Serve</p>
-          <h2 className="mb-6 text-2xl font-bold text-white">Pre-Packaged Marketing for Your Industry</h2>
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-cyan-400">
+            Industries We Serve
+          </p>
+          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl tracking-tight mb-8">
+            Pre-Packaged for <span className="text-gradient-electric">Your Industry</span>
+          </h2>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            {[
-              { name: "Security Companies", slug: "security-companies" },
-              { name: "Chiropractors", slug: "chiropractors" },
-              { name: "Dental Practices", slug: "dental" },
-              { name: "Plumbing Companies", slug: "plumbers" },
-              { name: "HVAC Companies", slug: "hvac" },
-              { name: "Electricians", slug: "electricians" },
-              { name: "Roofing Companies", slug: "roofers" },
-              { name: "Law Firms", slug: "law-firms" },
-              { name: "Medical Spas", slug: "medical-spas" },
-            ].map((industry) => (
+            {INDUSTRIES.map((industry, i) => (
               <a
                 key={industry.slug}
                 href={`/industries/${industry.slug}`}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-slate-300 transition hover:border-blue-500/50 hover:bg-blue-950/30 hover:text-blue-300"
+                className="group relative rounded-full border border-white/10 bg-white/5 px-5 py-2.5 text-sm font-medium text-slate-300 transition-all hover:border-blue-500/50 hover:bg-blue-950/30 hover:text-white hover:shadow-[0_0_20px_rgba(37,99,235,0.15)] hover:-translate-y-0.5"
+                style={{ animationDelay: `${i * 0.05}s` }}
               >
-                {industry.name} →
+                {industry.name}
+                <svg className="inline-block ml-1.5 w-3 h-3 text-slate-500 group-hover:text-blue-400 transition-all group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CONTACT / CTA ────────────────────────────────────────────────── */}
-      <section id="contact" className="border-t border-white/[0.06] px-6 py-20 lg:py-28">
-        <div className="mx-auto max-w-4xl">
-          {/* Primary CTA — Free Audit */}
-          <div className="rounded-2xl border border-blue-900/40 bg-gradient-to-br from-blue-950/60 to-slate-900 p-10 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-2 text-sm font-medium text-blue-400 mb-6">
-              FREE · INSTANT · NO CREDIT CARD
+      {/* ══════════════════════════════════════════════════════════════════
+          CONTACT / CTA — Big and bold
+          ══════════════════════════════════════════════════════════════════ */}
+      <section id="contact" className="relative px-6 py-24 lg:py-32">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-blue-600/10 blur-[120px]" />
+        </div>
+        <div className="relative mx-auto max-w-4xl">
+          {/* Primary CTA */}
+          <div className="border-gradient rounded-3xl bg-slate-900 p-12 text-center lg:p-16">
+            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-5 py-2 text-sm font-bold text-blue-400 mb-8">
+              FREE &middot; INSTANT &middot; NO CREDIT CARD
             </div>
-            <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              Get Your Free Business Audit
+            <h2 className="font-display text-4xl font-bold text-white sm:text-5xl tracking-tight">
+              Get Your Free
+              <br />
+              <span className="text-gradient-blue">Business Audit</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-slate-400 leading-relaxed">
+            <p className="mx-auto mt-5 max-w-xl text-lg text-slate-400 leading-relaxed">
               See exactly how your business appears online — Google reputation, website quality,
-              SEO health, AI search readiness, and more. Takes 60 seconds. No call required.
+              SEO health, AI search readiness. Takes 60 seconds.
             </p>
             <a
               href="/audit"
-              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-10 py-4 text-lg font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30"
+              className="group mt-10 inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-12 py-5 text-xl font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
             >
-              Start My Free Audit →
+              Start My Free Audit
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
             </a>
-            <p className="mt-4 text-xs text-slate-600">
-              No signup. No sales call. Just instant results with actionable recommendations.
+            <p className="mt-5 text-sm text-slate-600">
+              No signup. No sales call. Just instant results.
             </p>
           </div>
 
-          {/* Secondary CTA — Talk to Someone */}
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
-            <a
+          {/* Secondary CTAs */}
+          <div className="mt-8 grid gap-5 sm:grid-cols-2">
+            <Link
               href="/demo"
-              className="rounded-xl border border-white/[0.08] bg-slate-900 p-6 text-center transition hover:border-blue-700/50"
+              className="card-hover rounded-2xl border border-white/[0.08] bg-slate-900 p-8 text-center"
             >
-              <div className="mb-2 text-2xl">🎙</div>
-              <h3 className="font-semibold text-white">Try a Live AI Demo</h3>
-              <p className="mt-1 text-sm text-slate-400">
-                Hear Holland — our AI receptionist — handle calls for your industry. No signup needed.
+              <div className="mb-3 text-3xl">🎙</div>
+              <h3 className="text-lg font-bold text-white">Try a Live AI Demo</h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Hear Holland handle calls for your industry. No signup needed.
               </p>
-            </a>
+            </Link>
             <a
               href="tel:+18889834449"
-              className="rounded-xl border border-white/[0.08] bg-slate-900 p-6 text-center transition hover:border-blue-700/50"
+              className="card-hover rounded-2xl border border-white/[0.08] bg-slate-900 p-8 text-center"
             >
-              <div className="mb-2 text-2xl">📞</div>
-              <h3 className="font-semibold text-white">Call Us: (888) 983-4449</h3>
-              <p className="mt-1 text-sm text-slate-400">
-                Want to talk to someone? Our AI answers 24/7 — experience the product firsthand.
+              <div className="mb-3 text-3xl">📞</div>
+              <h3 className="text-lg font-bold text-white">Call: (888) 983-4449</h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Our AI answers 24/7 — experience the product firsthand.
               </p>
             </a>
           </div>

@@ -31,78 +31,81 @@ const POPULAR_NICHES = [
 
 export default function DemoPage() {
   return (
-    <div className="min-h-screen bg-slate-950">
+    <div className="min-h-screen">
       {/* Hero */}
-      <section className="border-b border-white/[0.06] bg-gradient-to-b from-slate-900 to-slate-950 px-6 py-20 text-center">
-        <p className="mb-4 inline-block rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-blue-400">
-          Live Demo — No Signup Required
-        </p>
-        <h1 className="mx-auto max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl">
-          Hear How AI Sounds for{" "}
-          <span className="text-blue-400">Your Business</span>
-        </h1>
-        <p className="mx-auto mt-4 max-w-xl text-lg text-slate-400">
-          Pick your industry, click start, and have a live conversation with an AI
-          receptionist trained for your niche. No phone number needed.
-        </p>
+      <section className="relative overflow-hidden px-6 py-20 text-center">
+        <div aria-hidden className="pointer-events-none absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[120px] animate-[float_8s_ease-in-out_infinite]" />
+          <div className="absolute bottom-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-violet-600/10 blur-[100px] animate-[float_10s_ease-in-out_infinite_2s]" />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-30" />
+        <div className="relative">
+          <p className="reveal mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-5 py-2 text-sm font-bold text-blue-400">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
+            </span>
+            Live Demo — No Signup Required
+          </p>
+          <h1 className="reveal reveal-delay-1 mx-auto max-w-3xl font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl tracking-tight">
+            Hear How AI Sounds for{" "}
+            <span className="text-gradient-blue">Your Business</span>
+          </h1>
+          <p className="reveal reveal-delay-2 mx-auto mt-5 max-w-xl text-lg text-slate-400">
+            Pick your industry, click start, and have a live conversation with an AI
+            receptionist trained for your niche.
+          </p>
+        </div>
       </section>
 
-      {/* Demo */}
-      <section className="mx-auto max-w-4xl px-6 py-16">
+      {/* Demo Widget */}
+      <section className="mx-auto max-w-4xl px-6 py-12">
         <DemoWidget popularNiches={POPULAR_NICHES} />
       </section>
 
       {/* What You're Experiencing */}
-      <section className="border-t border-white/[0.06] bg-slate-900/30 px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-10 text-center text-2xl font-bold text-white">
-            What You&apos;re About to Experience
+      <section className="relative overflow-hidden px-6 py-20">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-20" />
+        <div className="relative mx-auto max-w-4xl">
+          <h2 className="mb-12 text-center font-display text-3xl font-bold text-white tracking-tight">
+            What You&apos;re About to <span className="text-gradient-electric">Experience</span>
           </h2>
-          <div className="grid gap-8 sm:grid-cols-3">
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600/20 text-2xl">
-                🎯
+          <div className="grid gap-6 sm:grid-cols-3">
+            {[
+              { icon: "🎯", title: "Niche-Trained", desc: "The AI knows your industry — appointment types, common questions, services, and terminology.", color: "from-blue-600/20 to-blue-900/20 border-blue-500/20" },
+              { icon: "🇬🇧", title: "British Accent", desc: "Meet Holland — your AI receptionist with a natural British accent that customers love.", color: "from-violet-600/20 to-violet-900/20 border-violet-500/20" },
+              { icon: "⚡", title: "Works 24/7", desc: "Never miss a call again. Your AI receptionist handles calls at 2am the same as 2pm.", color: "from-emerald-600/20 to-emerald-900/20 border-emerald-500/20" },
+            ].map((item) => (
+              <div key={item.title} className={`card-hover rounded-2xl border bg-gradient-to-br ${item.color} p-7 text-center`}>
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 text-2xl">
+                  {item.icon}
+                </div>
+                <h3 className="mb-2 text-lg font-bold text-white">{item.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
               </div>
-              <h3 className="mb-2 font-semibold text-white">Niche-Trained</h3>
-              <p className="text-sm text-slate-400">
-                The AI knows your industry — appointment types, common questions, services, and terminology.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600/20 text-2xl">
-                🇬🇧
-              </div>
-              <h3 className="mb-2 font-semibold text-white">British Accent</h3>
-              <p className="text-sm text-slate-400">
-                Meet Holland — your AI receptionist with a natural British accent that customers love.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600/20 text-2xl">
-                ⚡
-              </div>
-              <h3 className="mb-2 font-semibold text-white">Works 24/7</h3>
-              <p className="text-sm text-slate-400">
-                Never miss a call again. Your AI receptionist handles calls at 2am the same as 2pm.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="border-t border-white/[0.06] px-6 py-16">
-        <div className="mx-auto max-w-2xl rounded-2xl border border-blue-900/40 bg-gradient-to-br from-blue-950/60 to-slate-900 p-10 text-center">
-          <h2 className="text-2xl font-bold text-white">Ready to Put This to Work?</h2>
-          <p className="mx-auto mt-3 max-w-md text-slate-400">
-            Get a custom AI receptionist for your business — handles calls, books appointments, and never takes a day off.
-          </p>
-          <a
-            href="/audit"
-            className="mt-6 inline-block rounded-xl bg-blue-600 px-8 py-3 font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-500"
-          >
-            Get Your Free Audit →
-          </a>
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-2xl">
+          <div className="border-gradient rounded-3xl bg-slate-900 p-12 text-center">
+            <h2 className="font-display text-3xl font-bold text-white tracking-tight">Ready to Put This to Work?</h2>
+            <p className="mx-auto mt-4 max-w-md text-slate-400">
+              Get a custom AI receptionist for your business — handles calls, books appointments, and never takes a day off.
+            </p>
+            <a
+              href="/audit"
+              className="group mt-8 inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-4 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
+            >
+              Get Your Free Audit
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
     </div>
