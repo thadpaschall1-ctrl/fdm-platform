@@ -4,7 +4,7 @@ import { DemoWidget } from "@/components/demo-widget";
 export const metadata: Metadata = {
   title: "Live AI Voice Demo | Try It For Your Business",
   description:
-    "Hear how an AI voice receptionist sounds for YOUR business. Pick your industry, start a live conversation, and experience the future of customer service — free, no signup required.",
+    "Hear how an AI voice receptionist sounds for YOUR business. Pick your industry, start a live conversation — free, no signup required.",
   alternates: {
     canonical: "https://fastdigitalmarketing.com/demo",
   },
@@ -47,12 +47,12 @@ export default function DemoPage() {
         </p>
       </section>
 
-      {/* Demo Section */}
+      {/* Demo */}
       <section className="mx-auto max-w-4xl px-6 py-16">
         <DemoWidget popularNiches={POPULAR_NICHES} />
       </section>
 
-      {/* How It Works */}
+      {/* What You're Experiencing */}
       <section className="border-t border-white/[0.06] bg-slate-900/30 px-6 py-16">
         <div className="mx-auto max-w-4xl">
           <h2 className="mb-10 text-center text-2xl font-bold text-white">
@@ -65,8 +65,7 @@ export default function DemoPage() {
               </div>
               <h3 className="mb-2 font-semibold text-white">Niche-Trained</h3>
               <p className="text-sm text-slate-400">
-                The AI knows your industry — appointment types, common questions,
-                services, and terminology.
+                The AI knows your industry — appointment types, common questions, services, and terminology.
               </p>
             </div>
             <div className="text-center">
@@ -75,8 +74,7 @@ export default function DemoPage() {
               </div>
               <h3 className="mb-2 font-semibold text-white">British Accent</h3>
               <p className="text-sm text-slate-400">
-                Meet Holland — your AI receptionist with a natural British accent
-                that customers love.
+                Meet Holland — your AI receptionist with a natural British accent that customers love.
               </p>
             </div>
             <div className="text-center">
@@ -85,8 +83,7 @@ export default function DemoPage() {
               </div>
               <h3 className="mb-2 font-semibold text-white">Works 24/7</h3>
               <p className="text-sm text-slate-400">
-                Never miss a call again. Your AI receptionist handles calls at 2am
-                the same as 2pm.
+                Never miss a call again. Your AI receptionist handles calls at 2am the same as 2pm.
               </p>
             </div>
           </div>
@@ -96,18 +93,15 @@ export default function DemoPage() {
       {/* CTA */}
       <section className="border-t border-white/[0.06] px-6 py-16">
         <div className="mx-auto max-w-2xl rounded-2xl border border-blue-900/40 bg-gradient-to-br from-blue-950/60 to-slate-900 p-10 text-center">
-          <h2 className="text-2xl font-bold text-white">
-            Ready to Put This to Work?
-          </h2>
+          <h2 className="text-2xl font-bold text-white">Ready to Put This to Work?</h2>
           <p className="mx-auto mt-3 max-w-md text-slate-400">
-            Get a custom AI receptionist for your business — handles calls,
-            books appointments, and never takes a day off.
+            Get a custom AI receptionist for your business — handles calls, books appointments, and never takes a day off.
           </p>
           <a
-            href="/#contact"
+            href="/audit"
             className="mt-6 inline-block rounded-xl bg-blue-600 px-8 py-3 font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-500"
           >
-            Get Started →
+            Get Your Free Audit →
           </a>
         </div>
       </section>
