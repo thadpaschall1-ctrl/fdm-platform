@@ -23,11 +23,13 @@ export function SiteFooter() {
               Services
             </h3>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#services" className="hover:text-white transition-colors">SEO</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Google Ads & PPC</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Web Design</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">Social Media</a></li>
-              <li><a href="#services" className="hover:text-white transition-colors">AI & Automation</a></li>
+              <li><a href="/services/ai-voice-receptionist" className="hover:text-white transition-colors">AI Voice Receptionist</a></li>
+              <li><a href="/services/voice-ai-callback" className="hover:text-white transition-colors">Voice AI Callback</a></li>
+              <li><a href="/services/review-autopilot" className="hover:text-white transition-colors">Review Autopilot</a></li>
+              <li><a href="/services/smart-website" className="hover:text-white transition-colors">Smart Website</a></li>
+              <li><a href="/services/local-seo-ai" className="hover:text-white transition-colors">Local SEO & AI</a></li>
+              <li><a href="/services/paid-advertising" className="hover:text-white transition-colors">Google Ads</a></li>
+              <li><a href="/services/full-automation-stack" className="hover:text-white transition-colors">Full Automation Stack</a></li>
             </ul>
           </div>
 
@@ -37,10 +39,14 @@ export function SiteFooter() {
               Company
             </h3>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#why-fdm" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#process" className="hover:text-white transition-colors">Our Process</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/#contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/demo" className="hover:text-white transition-colors">Live AI Demo</a></li>
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li>
+                <a href="tel:+18889834449" className="hover:text-white transition-colors">
+                  (888) 983-4449
+                </a>
+              </li>
             </ul>
           </div>
         </div>

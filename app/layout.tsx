@@ -43,6 +43,13 @@ export default function RootLayout({
         <SiteNav />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        {/* GHL Chat Widget */}
+        <script
+          src="https://beta.leadconnectorhq.com/loader.js"
+          data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="67e5cb8c14647189c01cde65"
+          async
+        />
       </body>
     </html>
   );

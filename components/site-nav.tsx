@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const NAV_LINKS = [
   { label: "Services", href: "#services" },
+  { label: "Industries", href: "#industries" },
   { label: "Live Demo", href: "/demo" },
-  { label: "Why FDM", href: "#why-fdm" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
 ];
@@ -38,12 +38,20 @@ export function SiteNav() {
         </nav>
 
         {/* CTA */}
-        <a
-          href="#contact"
-          className="hidden md:inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition-colors"
-        >
-          Get a Free Quote
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="tel:+18889834449"
+            className="text-sm text-slate-400 hover:text-white transition-colors"
+          >
+            (888) 983-4449
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-500 transition-colors"
+          >
+            Get a Free Quote
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button

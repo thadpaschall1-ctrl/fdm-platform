@@ -18,46 +18,84 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
-    icon: "📈",
-    title: "Search Engine Optimization",
+    icon: "📞",
+    title: "AI Voice Receptionist",
+    slug: "ai-voice-receptionist",
     description:
-      "Rank higher on Google and get found by customers who are actively searching for what you offer. We build sustainable organic traffic that compounds over time.",
-    highlights: ["On-page & technical SEO", "Local SEO & Google Maps", "Link building", "Monthly reporting"],
+      "Every call answered on the first ring — 24/7, nights, weekends, holidays. Natural conversation, appointment booking, and lead qualification. Never lose a caller to voicemail again.",
+    highlights: ["24/7 live answering", "Natural British accent", "Books appointments", "Transfers when needed"],
+  },
+  {
+    icon: "⚡",
+    title: "Voice AI Callback",
+    slug: "voice-ai-callback",
+    description:
+      "Every missed call returned in under 60 seconds by your AI agent. She calls back, qualifies the lead, and books the appointment — automatically.",
+    highlights: ["60-second callback", "Lead qualification", "Direct booking", "Call recordings"],
+  },
+  {
+    icon: "💬",
+    title: "Missed Call Text-Back",
+    slug: "missed-call-text-back",
+    description:
+      "When a call goes unanswered, the caller gets an instant text: 'Sorry we missed you! How can we help?' Recovers 30-40% of missed leads.",
+    highlights: ["Instant response", "Two-way texting", "Booking links", "After-hours aware"],
+  },
+  {
+    icon: "⭐",
+    title: "Review Autopilot",
+    slug: "review-autopilot",
+    description:
+      "Automated review requests after every job or appointment. Happy customers go to Google, unhappy ones come to you privately. Watch your rating climb.",
+    highlights: ["Automated requests", "Smart routing", "One-tap reviews", "Response templates"],
+  },
+  {
+    icon: "🔄",
+    title: "Client Reactivation",
+    slug: "client-reactivation",
+    description:
+      "Your database is full of dormant customers. We reach out automatically with personalized messages to bring them back. Most businesses reactivate 15-25%.",
+    highlights: ["Dormant client ID", "Multi-step sequences", "Direct booking", "ROI tracking"],
   },
   {
     icon: "🎯",
-    title: "Google Ads & PPC",
+    title: "New Client Nurture",
+    slug: "new-client-nurture",
     description:
-      "Turn ad spend into revenue. We build and manage high-ROI Google Ads campaigns that bring in qualified leads — not just clicks.",
-    highlights: ["Search & display campaigns", "Shopping ads", "Conversion tracking", "A/B testing"],
+      "Only 2% of leads convert on first contact. Our automated sequences follow up via text and email until they book — no leads fall through the cracks.",
+    highlights: ["Instant first response", "Multi-channel", "Behavior triggers", "Hot lead alerts"],
   },
   {
     icon: "💻",
-    title: "Web Design & Development",
+    title: "Smart Website",
+    slug: "smart-website",
     description:
-      "Fast, mobile-first websites built to convert visitors into customers. We use modern frameworks that score 95+ on Core Web Vitals out of the box.",
-    highlights: ["Next.js & React", "Mobile-first design", "Speed optimized", "SEO-ready architecture"],
+      "Fast, modern websites built on Next.js that load in under 2 seconds and are optimized for Google and AI search engines. Delivered in 5 business days.",
+    highlights: ["Sub-2s load time", "Mobile-first", "SEO-ready", "AI search optimized"],
   },
   {
-    icon: "📱",
-    title: "Social Media Marketing",
+    icon: "📈",
+    title: "Local SEO & AI Search",
+    slug: "local-seo-ai",
     description:
-      "Build your brand and engage your audience across Facebook, Instagram, LinkedIn, and more. Content that stops the scroll and drives action.",
-    highlights: ["Content strategy", "Paid social ads", "Community management", "Analytics & reporting"],
+      "Rank on Google Maps, organic search, AND AI search engines. We optimize your presence for everywhere customers search — Google, ChatGPT, Perplexity.",
+    highlights: ["GBP optimization", "Citation building", "Content strategy", "AI search optimization"],
   },
   {
-    icon: "🤖",
-    title: "AI & Automation",
+    icon: "🎰",
+    title: "Paid Advertising",
+    slug: "paid-advertising",
     description:
-      "Stop losing leads to missed calls and slow follow-up. We implement AI voice agents, automated follow-up sequences, and CRM integrations that work 24/7.",
-    highlights: ["AI voice receptionist", "Missed call text-back", "Lead nurture automation", "Review generation"],
+      "Google Ads and Local Service Ads that turn ad spend into booked jobs. Tight targeting, compelling copy, and weekly optimization for maximum ROI.",
+    highlights: ["Search campaigns", "Local Service Ads", "Conversion tracking", "Weekly optimization"],
   },
   {
-    icon: "✉️",
-    title: "Email Marketing",
+    icon: "🚀",
+    title: "Full Automation Stack",
+    slug: "full-automation-stack",
     description:
-      "Your email list is your most valuable asset. We build sequences that onboard, upsell, and reactivate customers — all on autopilot.",
-    highlights: ["Welcome sequences", "Reactivation campaigns", "Promotional blasts", "Segmentation & A/B testing"],
+      "Everything above in one integrated package. AI receptionist, callbacks, texts, reviews, reactivation, nurture, website, SEO, and ads — all on autopilot.",
+    highlights: ["Every service included", "One integrated system", "Live in 5 days", "Monthly strategy calls"],
   },
 ];
 
@@ -213,12 +251,13 @@ export default function HomePage() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s) => (
-              <div
+              <a
                 key={s.title}
+                href={`/services/${s.slug}`}
                 className="group rounded-2xl border border-white/[0.08] bg-slate-900 p-7 transition hover:border-blue-700/50 hover:shadow-lg hover:shadow-blue-950/40"
               >
                 <div className="mb-4 text-3xl">{s.icon}</div>
-                <h3 className="mb-2 text-lg font-semibold text-white">{s.title}</h3>
+                <h3 className="mb-2 text-lg font-semibold text-white group-hover:text-blue-300 transition-colors">{s.title}</h3>
                 <p className="mb-4 text-sm text-slate-400 leading-relaxed">{s.description}</p>
                 <ul className="space-y-1.5">
                   {s.highlights.map((h) => (
@@ -230,7 +269,10 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-500 group-hover:text-blue-400">
+                  Learn more →
+                </span>
+              </a>
             ))}
           </div>
         </div>
@@ -305,7 +347,7 @@ export default function HomePage() {
       </section>
 
       {/* ── INDUSTRIES ───────────────────────────────────────────────────── */}
-      <section className="border-t border-white/[0.06] bg-slate-900/30 px-6 py-14">
+      <section id="industries" className="border-t border-white/[0.06] bg-slate-900/30 px-6 py-14">
         <div className="mx-auto max-w-4xl text-center">
           <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-500">Industries We Serve</p>
           <h2 className="mb-6 text-2xl font-bold text-white">Pre-Packaged Marketing for Your Industry</h2>
