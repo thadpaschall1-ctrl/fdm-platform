@@ -1,18 +1,39 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Conversation } from "@elevenlabs/client";
 
 interface DemoWidgetProps {
   popularNiches: string[];
 }
 
-const DEMO_AGENT_ID = "agent_0601kp3z63v1fk19pj9txffr31tg";
+interface ChatMessage {
+  role: "ai" | "user";
+  text: string;
+}
+
+function SoundBars({ active, color = "#93c5fd" }: { active: boolean; color?: string }) {
+  return (
+    <div className="flex items-center justify-center gap-[3px] h-6">
+      {[0, 1, 2, 3, 4].map((i) => (
+        <div
+          key={i}
+          className="w-[3px] rounded-full transition-all duration-200"
+          style={{
+            backgroundColor: color,
+            height: active ? undefined : "6px",
+            animation: active ? `fdmSoundWave 0.7s ease-in-out infinite ${i * 0.08}s` : "none",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 export function DemoWidget({ popularNiches }: DemoWidgetProps) {
   const [niche, setNiche] = useState("");
   const [customNiche, setCustomNiche] = useState("");
   const [started, setStarted] = useState(false);
-  const scriptLoaded = useRef(false);
 
   const selectedNiche = niche || customNiche;
 
@@ -22,16 +43,93 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
   const [callState, setCallState] = useState<"idle" | "calling" | "sent">("idle");
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!started || scriptLoaded.current) return;
-    scriptLoaded.current = true;
+  // Voice conversation state
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [isConnected, setIsConnected] = useState(false);
+  const [isAgentSpeaking, setIsAgentSpeaking] = useState(false);
+  const [isUserSpeaking, setIsUserSpeaking] = useState(false);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [voiceStatus, setVoiceStatus] = useState<"idle" | "connecting" | "active" | "ended">("idle");
 
-    const script = document.createElement("script");
-    script.src = "https://elevenlabs.io/convai-widget/index.js";
-    script.async = true;
-    script.type = "text/javascript";
-    document.head.appendChild(script);
-  }, [started]);
+  const conversationRef = useRef<Awaited<ReturnType<typeof Conversation.startSession>> | null>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll messages
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isAgentSpeaking]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => { conversationRef.current?.endSession().catch(() => {}); };
+  }, []);
+
+  const startConversation = useCallback(async () => {
+    setIsConnecting(true);
+    setError(null);
+    setVoiceStatus("connecting");
+    setMessages([]);
+
+    try {
+      const tokenRes = await fetch("/api/demo/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ niche: (niche || customNiche).trim() }),
+      });
+      const tokenData = await tokenRes.json();
+
+      if (!tokenRes.ok || !tokenData.signed_url) {
+        throw new Error(tokenData.error || "Failed to get voice session");
+      }
+
+      const conversation = await Conversation.startSession({
+        signedUrl: tokenData.signed_url,
+        connectionType: "websocket",
+        onConnect: () => {
+          setIsConnected(true);
+          setIsConnecting(false);
+          setVoiceStatus("active");
+        },
+        onDisconnect: () => {
+          setIsConnected(false);
+          setIsAgentSpeaking(false);
+          setIsUserSpeaking(false);
+          setVoiceStatus("ended");
+        },
+        onMessage: (message: { source: string; message: string }) => {
+          setMessages((prev) => [
+            ...prev,
+            { role: message.source === "ai" ? "ai" : "user", text: message.message },
+          ]);
+        },
+        onModeChange: (mode: { mode: string }) => {
+          setIsAgentSpeaking(mode.mode === "speaking");
+          setIsUserSpeaking(mode.mode === "listening");
+        },
+        onError: (err: unknown) => {
+          console.error("ElevenLabs error:", err);
+          setError("Connection interrupted. Click Start to try again.");
+          setVoiceStatus("ended");
+        },
+      });
+
+      conversationRef.current = conversation;
+    } catch (err) {
+      console.error("Failed to start conversation:", err);
+      setError(err instanceof Error ? err.message : "Failed to connect. Check your microphone permissions.");
+      setIsConnecting(false);
+      setVoiceStatus("idle");
+    }
+  }, [niche, customNiche]);
+
+  const endConversation = useCallback(async () => {
+    try { await conversationRef.current?.endSession(); } catch { /* ignore */ }
+    conversationRef.current = null;
+    setIsConnected(false);
+    setIsAgentSpeaking(false);
+    setIsUserSpeaking(false);
+    setVoiceStatus("ended");
+  }, []);
 
   async function handlePhoneDemo() {
     if (!selectedNiche.trim() || !phoneNumber.trim()) return;
@@ -105,69 +203,186 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
 
             {!started ? (
               <button
-                onClick={() => setStarted(true)}
+                onClick={() => { setStarted(true); setVoiceStatus("idle"); setMessages([]); setError(null); }}
                 className="w-full rounded-xl bg-blue-600 py-4 text-base font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30"
               >
                 🎙 Start Live Voice Demo
               </button>
             ) : (
-              <div className="flex flex-col items-center gap-4">
-                <p className="text-sm text-green-400 font-medium">
-                  Holland is ready — click the mic below to start talking!
-                </p>
-                <div className="fdm-widget-container w-full flex justify-center">
-                  {/* @ts-expect-error — elevenlabs-convai is a custom HTML element */}
-                  <elevenlabs-convai agent-id={DEMO_AGENT_ID} />
+              <div className="rounded-xl border border-white/10 bg-slate-950 overflow-hidden">
+                {/* Header */}
+                <div className="flex items-center justify-between bg-slate-800 px-5 py-3 border-b border-white/[0.06]">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-blue-600/20 flex items-center justify-center">
+                      {(isAgentSpeaking || isUserSpeaking) ? (
+                        <SoundBars active={true} color="#60a5fa" />
+                      ) : (
+                        <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                          <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                          <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                        </svg>
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white">Holland — AI Receptionist</p>
+                      <div className="flex items-center gap-1.5">
+                        <span className={`w-1.5 h-1.5 rounded-full ${isConnected ? "bg-green-400 animate-pulse" : "bg-slate-500"}`} />
+                        <span className="text-[11px] text-slate-400">
+                          {isAgentSpeaking ? "Speaking..." : isUserSpeaking ? "Listening to you..." : isConnected ? "Connected — speak anytime" : isConnecting ? "Connecting..." : "Ready"}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  {isConnected && (
+                    <button onClick={endConversation} className="px-3 py-1 rounded-full bg-white/10 text-[10px] font-medium text-slate-400 hover:bg-white/20 hover:text-white transition-colors">
+                      End Call
+                    </button>
+                  )}
                 </div>
-                <p className="text-xs text-slate-500">
-                  Tell Holland you run a {selectedNiche.toLowerCase()} and she&apos;ll demo as your receptionist.
-                </p>
-                <style>{`
-                  /* Pull widget out of fixed corner → inline in the demo box */
-                  .fdm-widget-container elevenlabs-convai {
-                    position: relative !important;
-                    bottom: auto !important;
-                    right: auto !important;
-                    left: auto !important;
-                    z-index: 1 !important;
-                  }
-                  /* Override the widget's internal fixed-position wrapper */
-                  elevenlabs-convai::part(widget) {
-                    position: relative !important;
-                    bottom: auto !important;
-                    right: auto !important;
-                  }
-                  /* Match FDM dark theme colors */
-                  elevenlabs-convai {
-                    --elevenlabs-convai-widget-color: #2563eb !important;
-                    --elevenlabs-convai-widget-bg: #0f172a !important;
-                    --elevenlabs-convai-widget-text: #e2e8f0 !important;
-                  }
-                  elevenlabs-convai::part(widget),
-                  elevenlabs-convai::part(chat) {
-                    background: #0f172a !important;
-                    border: 1px solid rgba(255,255,255,0.1) !important;
-                    border-radius: 1rem !important;
-                  }
-                  elevenlabs-convai::part(header) {
-                    background: #1e293b !important;
-                    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
-                  }
-                  elevenlabs-convai::part(toggle) {
-                    background: #2563eb !important;
-                    box-shadow: 0 0 20px rgba(37,99,235,0.4) !important;
-                  }
-                  /* Hide ElevenLabs branding */
-                  elevenlabs-convai::part(powered-by),
-                  elevenlabs-convai [class*="powered"],
-                  elevenlabs-convai [class*="branding"],
-                  elevenlabs-convai a[href*="elevenlabs"] {
-                    display: none !important;
-                    visibility: hidden !important;
-                    height: 0 !important;
-                    overflow: hidden !important;
-                  }
-                `}</style>
+
+                {/* Messages area */}
+                <div className="h-[300px] overflow-y-auto p-4 space-y-3">
+                  {/* Idle — start prompt */}
+                  {voiceStatus === "idle" && (
+                    <div className="h-full flex flex-col items-center justify-center text-center px-4">
+                      <div className="w-16 h-16 rounded-full bg-blue-600/15 flex items-center justify-center mb-4 relative">
+                        <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                          <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                          <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                          <line x1="12" y1="19" x2="12" y2="23" />
+                          <line x1="8" y1="23" x2="16" y2="23" />
+                        </svg>
+                        <div className="absolute inset-0 rounded-full border-2 border-blue-500/20 animate-ping" />
+                      </div>
+                      <p className="text-white font-semibold text-base">Talk to Holland</p>
+                      <p className="text-sm text-slate-400 mt-2 leading-relaxed">
+                        Click below, allow your microphone, and have a real conversation. Holland will act as the AI receptionist for your <span className="text-blue-400 font-medium">{selectedNiche.toLowerCase()}</span>.
+                      </p>
+                      <button
+                        onClick={startConversation}
+                        className="mt-5 px-8 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/20 flex items-center gap-2"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                          <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                        </svg>
+                        Start Conversation
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Connecting */}
+                  {voiceStatus === "connecting" && (
+                    <div className="h-full flex flex-col items-center justify-center text-center px-4">
+                      <div className="w-14 h-14 rounded-full border-[3px] border-slate-700 border-t-blue-500 animate-spin mb-4" />
+                      <p className="font-semibold text-white">Connecting to Holland...</p>
+                      <p className="text-sm text-slate-400 mt-1">Please allow microphone access when prompted.</p>
+                    </div>
+                  )}
+
+                  {/* Active — waiting for first message */}
+                  {voiceStatus === "active" && messages.length === 0 && (
+                    <div className="h-full flex items-center justify-center">
+                      <div className="text-center px-4">
+                        <SoundBars active={true} color="#3b82f6" />
+                        <p className="text-sm text-slate-400 mt-3">Connected! Holland will greet you...</p>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Chat messages */}
+                  {messages.map((msg, i) => (
+                    <div key={i} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`} style={{ animation: "fdmMsgIn 0.3s ease-out" }}>
+                      {msg.role === "ai" && (
+                        <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center shrink-0 mr-2 mt-1">
+                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                            <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                          </svg>
+                        </div>
+                      )}
+                      <div className={`max-w-[80%] px-4 py-2.5 text-[13px] leading-relaxed ${
+                        msg.role === "user"
+                          ? "bg-blue-600 text-white rounded-2xl rounded-tr-md"
+                          : "bg-slate-800 text-slate-200 rounded-2xl rounded-tl-md border border-white/[0.06]"
+                      }`}>
+                        {msg.text}
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Agent speaking indicator */}
+                  {isAgentSpeaking && messages.length > 0 && (
+                    <div className="flex items-start" style={{ animation: "fdmMsgIn 0.2s ease-out" }}>
+                      <div className="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center shrink-0 mr-2 mt-1">
+                        <SoundBars active={true} color="white" />
+                      </div>
+                      <div className="bg-slate-800 border border-white/[0.06] rounded-2xl rounded-tl-md px-4 py-2.5">
+                        <SoundBars active={true} color="#3b82f6" />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* User speaking indicator */}
+                  {isUserSpeaking && (
+                    <div className="flex justify-end" style={{ animation: "fdmMsgIn 0.2s ease-out" }}>
+                      <div className="bg-blue-600/10 border border-blue-500/20 rounded-2xl rounded-tr-md px-4 py-2.5 flex items-center gap-2">
+                        <SoundBars active={true} color="#3b82f6" />
+                        <span className="text-xs font-medium text-blue-400">Listening...</span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Error */}
+                  {error && (
+                    <div className="text-center py-4">
+                      <p className="text-sm text-red-400 mb-3">{error}</p>
+                      <button onClick={startConversation} className="text-sm text-blue-400 font-medium hover:underline">Try Again</button>
+                    </div>
+                  )}
+
+                  <div ref={bottomRef} />
+                </div>
+
+                {/* Bottom bar */}
+                <div className="px-4 py-3 border-t border-white/[0.06] bg-slate-900/50">
+                  {voiceStatus === "active" && isConnected ? (
+                    <div className="flex items-center gap-3">
+                      <div className="flex-1 h-10 rounded-full bg-slate-800 border border-white/[0.06] flex items-center px-4">
+                        <span className="text-xs text-slate-500">
+                          {isUserSpeaking ? "Listening..." : isAgentSpeaking ? "Holland is responding..." : "Speak anytime..."}
+                        </span>
+                      </div>
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                        isUserSpeaking ? "bg-green-500 shadow-lg shadow-green-500/30 scale-110" : "bg-blue-600"
+                      }`}>
+                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+                          <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+                          <path d="M19 10v2a7 7 0 01-14 0v-2" />
+                        </svg>
+                      </div>
+                    </div>
+                  ) : voiceStatus === "ended" ? (
+                    <div className="text-center">
+                      <p className="text-xs text-slate-500 mb-2">{messages.length > 0 ? "Conversation ended" : "Session ended"}</p>
+                      <div className="flex items-center justify-center gap-2">
+                        <button
+                          onClick={() => { setVoiceStatus("idle"); setMessages([]); setError(null); }}
+                          className="px-4 py-2 rounded-full border border-white/10 text-xs font-medium text-slate-400 hover:bg-white/5 transition-colors"
+                        >
+                          New Conversation
+                        </button>
+                        <a href="/audit" className="px-4 py-2 rounded-full bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition-colors">
+                          Get Your Free Audit
+                        </a>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-[10px] text-center text-slate-600">
+                      AI Voice Technology &middot; <a href="/audit" className="underline hover:text-blue-400">Get this for your business</a>
+                    </p>
+                  )}
+                </div>
               </div>
             )}
 
@@ -210,12 +425,27 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
 
       {started && (
         <button
-          onClick={() => { setStarted(false); setNiche(""); setCustomNiche(""); setCallState("idle"); setPhoneNumber(""); setShowPhoneOption(false); setError(null); scriptLoaded.current = false; }}
+          onClick={() => {
+            if (isConnected) endConversation();
+            setStarted(false); setNiche(""); setCustomNiche(""); setCallState("idle"); setPhoneNumber(""); setShowPhoneOption(false); setError(null);
+            setVoiceStatus("idle"); setMessages([]);
+          }}
           className="text-sm text-slate-500 hover:text-white transition-colors"
         >
           ← Try a different niche
         </button>
       )}
+
+      <style>{`
+        @keyframes fdmSoundWave {
+          0%, 100% { height: 6px; }
+          50% { height: 18px; }
+        }
+        @keyframes fdmMsgIn {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 }
