@@ -206,10 +206,10 @@ export default function HomePage() {
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href="#contact"
+              href="/audit"
               className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-4 text-base font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30"
             >
-              Get a Free Marketing Audit →
+              Get a Free Business Audit →
             </a>
             <a
               href="#services"
@@ -378,56 +378,51 @@ export default function HomePage() {
       {/* ── CONTACT / CTA ────────────────────────────────────────────────── */}
       <section id="contact" className="border-t border-white/[0.06] px-6 py-20 lg:py-28">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl border border-blue-900/40 bg-gradient-to-br from-blue-950/60 to-slate-900 p-10">
-            <div className="text-center mb-8">
-              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-500">
-                Schedule Your AI Strategy Call
-              </p>
-              <h2 className="text-3xl font-bold text-white">
-                See How AI Can Work for Your Business
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-slate-400 leading-relaxed">
-                On this call, you&apos;ll sit down with Thad Paschall — the entrepreneur who built an
-                800,000-installation home services company from scratch, disrupted the industry with the
-                DIY model, and now deploys AI systems that run businesses 24/7.
-              </p>
+          {/* Primary CTA — Free Audit */}
+          <div className="rounded-2xl border border-blue-900/40 bg-gradient-to-br from-blue-950/60 to-slate-900 p-10 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-2 text-sm font-medium text-blue-400 mb-6">
+              FREE · INSTANT · NO CREDIT CARD
             </div>
-
-            <div className="mb-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-xl border border-white/[0.08] bg-white/5 p-4 text-center">
-                <div className="mb-1 text-lg font-bold text-blue-400">1</div>
-                <p className="text-xs text-slate-400">Review your current lead flow and where you&apos;re losing customers</p>
-              </div>
-              <div className="rounded-xl border border-white/[0.08] bg-white/5 p-4 text-center">
-                <div className="mb-1 text-lg font-bold text-blue-400">2</div>
-                <p className="text-xs text-slate-400">Live walkthrough of AI receptionist, review automation, and follow-up systems</p>
-              </div>
-              <div className="rounded-xl border border-white/[0.08] bg-white/5 p-4 text-center">
-                <div className="mb-1 text-lg font-bold text-blue-400">3</div>
-                <p className="text-xs text-slate-400">Custom recommendation with clear pricing — no surprises</p>
-              </div>
-            </div>
-
-            {/* GHL Calendar Embed */}
-            <div className="rounded-xl overflow-hidden bg-white">
-              <iframe
-                src="https://link.fastaiautomationagency.com/widget/booking/PNYld3gQjtIioQrzWA3K"
-                style={{ width: "100%", height: "700px", border: "none", overflow: "hidden" }}
-                scrolling="no"
-                id="JUCcDTW3W6EHYyQNNjR4_1776101092179"
-                title="Schedule Your AI Strategy Call"
-              />
-            </div>
-            {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-            <script src="https://link.fastaiautomationagency.com/js/form_embed.js" type="text/javascript" />
-
-            <p className="mt-4 text-center text-xs text-slate-600">
-              This call is for business owners ready to grow — not vendors.
-              If you&apos;re selling something, we admire the hustle:{" "}
-              <a href="mailto:info@fastdigitalmarketing.com" className="text-slate-500 hover:text-blue-400">
-                info@fastdigitalmarketing.com
-              </a>
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">
+              Get Your Free Business Audit
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-slate-400 leading-relaxed">
+              See exactly how your business appears online — Google reputation, website quality,
+              SEO health, AI search readiness, and more. Takes 60 seconds. No call required.
             </p>
+            <a
+              href="/audit"
+              className="mt-8 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-10 py-4 text-lg font-bold text-white transition hover:-translate-y-0.5 hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-600/30"
+            >
+              Start My Free Audit →
+            </a>
+            <p className="mt-4 text-xs text-slate-600">
+              No signup. No sales call. Just instant results with actionable recommendations.
+            </p>
+          </div>
+
+          {/* Secondary CTA — Talk to Someone */}
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <a
+              href="/demo"
+              className="rounded-xl border border-white/[0.08] bg-slate-900 p-6 text-center transition hover:border-blue-700/50"
+            >
+              <div className="mb-2 text-2xl">🎙</div>
+              <h3 className="font-semibold text-white">Try a Live AI Demo</h3>
+              <p className="mt-1 text-sm text-slate-400">
+                Hear Holland — our AI receptionist — handle calls for your industry. No signup needed.
+              </p>
+            </a>
+            <a
+              href="tel:+18889834449"
+              className="rounded-xl border border-white/[0.08] bg-slate-900 p-6 text-center transition hover:border-blue-700/50"
+            >
+              <div className="mb-2 text-2xl">📞</div>
+              <h3 className="font-semibold text-white">Call Us: (888) 983-4449</h3>
+              <p className="mt-1 text-sm text-slate-400">
+                Want to talk to someone? Our AI answers 24/7 — experience the product firsthand.
+              </p>
+            </a>
           </div>
         </div>
       </section>
