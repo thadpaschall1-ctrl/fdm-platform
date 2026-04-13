@@ -113,15 +113,51 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
             ) : (
               <div className="flex flex-col items-center gap-4">
                 <p className="text-sm text-green-400 font-medium">
-                  Holland is ready — click the widget below to start talking!
+                  Holland is ready — click the mic below to start talking!
                 </p>
-                {/* @ts-expect-error — elevenlabs-convai is a custom HTML element */}
-                <elevenlabs-convai agent-id={DEMO_AGENT_ID} />
+                <div className="fdm-widget-container w-full flex justify-center">
+                  {/* @ts-expect-error — elevenlabs-convai is a custom HTML element */}
+                  <elevenlabs-convai agent-id={DEMO_AGENT_ID} />
+                </div>
                 <p className="text-xs text-slate-500">
                   Tell Holland you run a {selectedNiche.toLowerCase()} and she&apos;ll demo as your receptionist.
                 </p>
-                {/* Hide ElevenLabs branding from their widget */}
                 <style>{`
+                  /* Pull widget out of fixed corner → inline in the demo box */
+                  .fdm-widget-container elevenlabs-convai {
+                    position: relative !important;
+                    bottom: auto !important;
+                    right: auto !important;
+                    left: auto !important;
+                    z-index: 1 !important;
+                  }
+                  /* Override the widget's internal fixed-position wrapper */
+                  elevenlabs-convai::part(widget) {
+                    position: relative !important;
+                    bottom: auto !important;
+                    right: auto !important;
+                  }
+                  /* Match FDM dark theme colors */
+                  elevenlabs-convai {
+                    --elevenlabs-convai-widget-color: #2563eb !important;
+                    --elevenlabs-convai-widget-bg: #0f172a !important;
+                    --elevenlabs-convai-widget-text: #e2e8f0 !important;
+                  }
+                  elevenlabs-convai::part(widget),
+                  elevenlabs-convai::part(chat) {
+                    background: #0f172a !important;
+                    border: 1px solid rgba(255,255,255,0.1) !important;
+                    border-radius: 1rem !important;
+                  }
+                  elevenlabs-convai::part(header) {
+                    background: #1e293b !important;
+                    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+                  }
+                  elevenlabs-convai::part(toggle) {
+                    background: #2563eb !important;
+                    box-shadow: 0 0 20px rgba(37,99,235,0.4) !important;
+                  }
+                  /* Hide ElevenLabs branding */
                   elevenlabs-convai::part(powered-by),
                   elevenlabs-convai [class*="powered"],
                   elevenlabs-convai [class*="branding"],
