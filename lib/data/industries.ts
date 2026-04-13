@@ -41,7 +41,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A fast, mobile-optimized website built to convert visitors into booked consultations — with online scheduling, click-to-call, and trust signals." },
     ],
     packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Local SEO (5 target keywords)", "Review Autopilot", "Automated Lead Nurture Sequence", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management ($500 ad budget included)", "15 target keywords", "Social Media Management", "Monthly Strategy Call"] },
     ],
@@ -79,7 +79,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A modern, fast website that showcases your practice, ranks on Google, and converts visitors into booked appointments — not a template, a custom-built site." },
     ],
     packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Review Autopilot", "Patient Reactivation Campaign", "Local SEO (5 keywords)", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "Social Media Content", "Monthly Strategy Call"] },
     ],
@@ -117,7 +117,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A fast, modern website with online scheduling, before/after galleries, and trust signals that convert visitors into patients." },
     ],
     packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Review Autopilot", "Recall & Reactivation", "Local SEO (5 keywords)", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads (implants, cosmetic, emergency)", "15 target keywords", "Social Media Content", "Monthly Strategy Call"] },
     ],
@@ -155,7 +155,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A fast website with click-to-call, online booking, service area maps, and trust signals that convert panicked homeowners into booked jobs." },
     ],
     packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Review Autopilot", "Local SEO (5 keywords)", "Automated Lead Nurture", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "LSA (Local Service Ads) Management", "Monthly Strategy Call"] },
     ],
@@ -193,7 +193,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A modern website with emergency click-to-call, online scheduling for tune-ups, and financing information that converts visitors into booked jobs." },
     ],
     packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Seasonal SEO (5 keywords)", "Review Autopilot", "Maintenance Agreement Campaigns", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "LSA Management", "Monthly Strategy Call"] },
     ],
@@ -231,7 +231,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A professional website with your services, service area, licensing info, and online booking that makes homeowners confident in hiring you." },
     ],
     packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Local SEO (5 keywords)", "Review Autopilot", "Estimate Follow-Up Automation", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "LSA Management", "Monthly Strategy Call"] },
     ],
@@ -269,7 +269,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A professional site with before/after galleries, financing info, manufacturer certifications, and instant quote requests." },
     ],
     packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Local SEO (5 keywords)", "Review Autopilot", "Speed-to-Lead Automation", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads (storm + commercial)", "15 target keywords", "LSA Management", "Monthly Strategy Call"] },
     ],
@@ -307,7 +307,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A professional, trust-building website with attorney profiles, practice area pages, case results, and clear calls-to-action that converts visitors into consultations." },
     ],
     packages: [
-      { name: "Starter", price: "$297/mo", features: ["AI Intake Receptionist (24/7)", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$297/mo", features: ["AI Intake Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$597/mo", setup: "$497 setup", features: ["Everything in Starter", "Practice Area SEO (5 keywords)", "Review Management", "Speed-to-Lead Automation", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$997/mo", setup: "$697 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "LSA Management", "Monthly Strategy Call", "Content Marketing (2 articles/mo)"] },
     ],
@@ -345,7 +345,7 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Smart Website", description: "A visually stunning website with treatment menus, before/after galleries, provider bios, and online booking that converts browsers into booked consultations." },
     ],
     packages: [
-      { name: "Starter", price: "$297/mo", features: ["AI Voice & Chat Receptionist", "Missed Call Text-Back", "Google Business Profile Optimization", "Monthly Performance Report"] },
+      { name: "Starter", price: "$297/mo", features: ["AI Voice & Chat Receptionist", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
       { name: "Growth", price: "$597/mo", setup: "$497 setup", features: ["Everything in Starter", "Aesthetics SEO (5 keywords)", "Review Autopilot", "Instagram Content (8 posts/mo)", "Smart Website"], highlighted: true },
       { name: "Pro", price: "$997/mo", setup: "$697 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "TikTok + Instagram Ads", "Monthly Strategy Call", "Email Campaigns (memberships)"] },
     ],

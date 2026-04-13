@@ -7,7 +7,7 @@ const STATS_ROW = [
   { value: "92%", label: "Client Retention", icon: "🤝" },
   { value: "24/7", label: "AI Answering", icon: "🤖" },
   { value: "<2s", label: "Page Load Speed", icon: "⚡" },
-  { value: "60s", label: "Missed Call Callback", icon: "📞" },
+  { value: "60s", label: "Voice AI Callback", icon: "📞" },
   { value: "5 Days", label: "Website Delivery", icon: "🚀" },
 ];
 

@@ -12,14 +12,14 @@ Fast Digital Marketing is a full-service digital marketing agency based in Tampa
 - Google Ads & PPC: Search campaigns, Performance Max, display ads, conversion tracking, A/B testing
 - Web Design & Development: Next.js/React websites, mobile-first design, SEO-ready architecture, Core Web Vitals optimization
 - Social Media Marketing: Content strategy, paid social, community management across all platforms
-- AI & Marketing Automation: AI voice receptionist, missed call text-back, automated follow-up, review generation, CRM integration
+- AI & Marketing Automation: AI voice receptionist, voice AI callback, automated follow-up, review generation, CRM integration
 - Email Marketing: Welcome sequences, lead nurture, promotional campaigns, re-engagement, segmentation
 
 ## Industries We Serve
 Security & alarm companies, chiropractors, dental practices, plumbing companies, HVAC companies, electrical contractors, roofing companies, law firms, medical spas, and more.
 
 ## Pre-Packaged Plans
-- Starter: $197/mo — AI voice receptionist, missed call text-back, GBP optimization
+- Starter: $197/mo — AI voice receptionist, voice AI callback, GBP optimization
 - Growth: $397/mo + $297 setup — Starter + local SEO, review autopilot, smart website
 - Pro: $697/mo + $497 setup — Growth + Google Ads, 15 keywords, social media, strategy calls
 
