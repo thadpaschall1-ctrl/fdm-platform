@@ -377,83 +377,57 @@ export default function HomePage() {
 
       {/* ── CONTACT / CTA ────────────────────────────────────────────────── */}
       <section id="contact" className="border-t border-white/[0.06] px-6 py-20 lg:py-28">
-        <div className="mx-auto max-w-2xl">
-          <div className="rounded-2xl border border-blue-900/40 bg-gradient-to-br from-blue-950/60 to-slate-900 p-10 text-center">
-            <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-500">
-              Get Started Today
-            </p>
-            <h2 className="text-3xl font-bold text-white">
-              Ready to Grow Your Business?
-            </h2>
-            <p className="mx-auto mt-3 max-w-md text-slate-400">
-              Tell us about your business and goals. We&apos;ll put together a free audit and a
-              custom strategy — no pressure, no commitment.
-            </p>
-
-            <form
-              className="mt-8 space-y-4"
-              action="https://formspree.io/f/placeholder"
-              method="POST"
-            >
-              <div className="grid gap-4 sm:grid-cols-2">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  required
-                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  required
-                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
-                />
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Phone Number"
-                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
-                />
-                <input
-                  type="text"
-                  name="website"
-                  placeholder="Your Website URL"
-                  className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
-                />
-              </div>
-              <select
-                name="service"
-                className="w-full rounded-xl border border-white/10 bg-slate-900 px-4 py-3 text-sm text-slate-300 outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
-              >
-                <option value="">What are you looking for?</option>
-                <option value="seo">SEO / Local SEO</option>
-                <option value="ppc">Google Ads / PPC</option>
-                <option value="web">Web Design</option>
-                <option value="social">Social Media</option>
-                <option value="ai">AI & Automation</option>
-                <option value="full">Full-Service Marketing</option>
-                <option value="other">Not Sure — Advise Me</option>
-              </select>
-              <textarea
-                name="message"
-                rows={4}
-                placeholder="Tell us about your business and biggest marketing challenge..."
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 resize-none"
-              />
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-blue-600 py-4 font-bold text-white transition hover:bg-blue-500 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-blue-600/30"
-              >
-                Send My Free Audit Request →
-              </button>
-              <p className="text-xs text-slate-600">
-                We typically respond within 1 business day. No spam, ever.
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-2xl border border-blue-900/40 bg-gradient-to-br from-blue-950/60 to-slate-900 p-10">
+            <div className="text-center mb-8">
+              <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-500">
+                Schedule Your AI Strategy Call
               </p>
-            </form>
+              <h2 className="text-3xl font-bold text-white">
+                See How AI Can Work for Your Business
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-slate-400 leading-relaxed">
+                On this call, you&apos;ll sit down with Thad Paschall — the entrepreneur who built an
+                800,000-installation home services company from scratch, disrupted the industry with the
+                DIY model, and now deploys AI systems that run businesses 24/7.
+              </p>
+            </div>
+
+            <div className="mb-8 grid gap-4 sm:grid-cols-3">
+              <div className="rounded-xl border border-white/[0.08] bg-white/5 p-4 text-center">
+                <div className="mb-1 text-lg font-bold text-blue-400">1</div>
+                <p className="text-xs text-slate-400">Review your current lead flow and where you&apos;re losing customers</p>
+              </div>
+              <div className="rounded-xl border border-white/[0.08] bg-white/5 p-4 text-center">
+                <div className="mb-1 text-lg font-bold text-blue-400">2</div>
+                <p className="text-xs text-slate-400">Live walkthrough of AI receptionist, review automation, and follow-up systems</p>
+              </div>
+              <div className="rounded-xl border border-white/[0.08] bg-white/5 p-4 text-center">
+                <div className="mb-1 text-lg font-bold text-blue-400">3</div>
+                <p className="text-xs text-slate-400">Custom recommendation with clear pricing — no surprises</p>
+              </div>
+            </div>
+
+            {/* GHL Calendar Embed */}
+            <div className="rounded-xl overflow-hidden bg-white">
+              <iframe
+                src="https://link.fastaiautomationagency.com/widget/booking/PNYld3gQjtIioQrzWA3K"
+                style={{ width: "100%", height: "700px", border: "none", overflow: "hidden" }}
+                scrolling="no"
+                id="JUCcDTW3W6EHYyQNNjR4_1776101092179"
+                title="Schedule Your AI Strategy Call"
+              />
+            </div>
+            {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+            <script src="https://link.fastaiautomationagency.com/js/form_embed.js" type="text/javascript" />
+
+            <p className="mt-4 text-center text-xs text-slate-600">
+              This call is for business owners ready to grow — not vendors.
+              If you&apos;re selling something, we admire the hustle:{" "}
+              <a href="mailto:info@fastdigitalmarketing.com" className="text-slate-500 hover:text-blue-400">
+                info@fastdigitalmarketing.com
+              </a>
+            </p>
           </div>
         </div>
       </section>
