@@ -277,14 +277,16 @@ export default function HomePage() {
 
           {/* Headline — absolutely massive */}
           <h1 className="reveal reveal-delay-1 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-8xl">
-            Grow Your Business
+            Tampa&apos;s #1
             <br />
-            <span className="text-gradient-blue">Online. Fast.</span>
+            <span className="text-gradient-blue">Digital Marketing Agency</span>
           </h1>
 
           <p className="reveal reveal-delay-2 mx-auto mt-8 max-w-2xl text-lg text-slate-400 leading-relaxed sm:text-xl">
-            SEO, Google Ads, web design, and AI-powered automation — all under one roof.
-            We help businesses in <span className="text-white font-medium">any industry</span> get more leads, more traffic, and more revenue.
+            Fast Digital Marketing is a full-service digital marketing agency in Tampa, FL
+            helping businesses grow online with SEO, Google Ads, AI-powered voice receptionists,
+            professional web design, and marketing automation. We deliver measurable results
+            for companies in <span className="text-white font-medium">any industry</span> — more leads, more traffic, and more revenue, fast.
           </p>
 
           {/* CTA Row */}
@@ -350,6 +352,7 @@ export default function HomePage() {
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-slate-400">
               One team. Full accountability. No finger-pointing between five different agencies.
+              Every service is built, managed, and optimized by our Tampa-based digital marketing team.
             </p>
           </div>
 
@@ -380,6 +383,8 @@ export default function HomePage() {
               <p className="mt-5 text-lg text-slate-400 leading-relaxed">
                 Most agencies talk about strategy. We obsess over execution.
                 Every dollar you spend should return more than a dollar — and we have the reporting to prove it.
+                Based in Tampa, we combine local market expertise with national-scale digital marketing systems
+                that drive real, trackable growth for businesses across the country.
               </p>
               <a
                 href="/#contact"
@@ -394,7 +399,7 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[
-                { title: "We Move Fast", desc: "No 6-week onboarding. Campaigns live, websites launched — faster than any agency you've worked with.", icon: "⚡", color: "from-blue-600/20 to-blue-900/20 border-blue-500/20" },
+                { title: "We Move Fast", desc: "No 6-week onboarding. Campaigns live, websites launched — faster than any other Tampa digital marketing agency you've worked with.", icon: "⚡", color: "from-blue-600/20 to-blue-900/20 border-blue-500/20" },
                 { title: "Transparent Reporting", desc: "You'll know exactly what your money is doing. Monthly dashboards, real numbers, zero fluff.", icon: "📊", color: "from-emerald-600/20 to-emerald-900/20 border-emerald-500/20" },
                 { title: "Industry Agnostic", desc: "Healthcare, legal, home services, SaaS — if your customers are online, we can reach them.", icon: "🌐", color: "from-violet-600/20 to-violet-900/20 border-violet-500/20" },
                 { title: "AI-Enhanced", desc: "We use the latest AI to move faster, write better copy, and spot opportunities others miss.", icon: "🤖", color: "from-amber-600/20 to-amber-900/20 border-amber-500/20" },
@@ -426,9 +431,13 @@ export default function HomePage() {
           <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-cyan-400">
             Industries We Serve
           </p>
-          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl tracking-tight mb-8">
+          <h2 className="font-display text-3xl font-bold text-white sm:text-4xl tracking-tight mb-4">
             Pre-Packaged for <span className="text-gradient-electric">Your Industry</span>
           </h2>
+          <p className="mx-auto max-w-xl text-lg text-slate-400 mb-8">
+            From our Tampa headquarters, we serve businesses nationwide with industry-specific
+            digital marketing playbooks built on real performance data.
+          </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {INDUSTRIES.map((industry, i) => (
               <a
@@ -515,6 +524,93 @@ export default function HomePage() {
                 </div>
               </details>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          ABOUT — Who we are, track record, credibility
+          ══════════════════════════════════════════════════════════════════ */}
+      <section id="about" className="relative px-6 py-24 lg:py-32">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-20" />
+        <div className="relative mx-auto max-w-6xl">
+          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+                About Fast Digital Marketing
+              </p>
+              <h2 className="font-display text-4xl font-bold text-white sm:text-5xl tracking-tight leading-[1.1]">
+                About <span className="text-gradient-blue">Fast Digital Marketing</span>
+              </h2>
+              <p className="mt-6 text-lg text-slate-400 leading-relaxed">
+                Fast Digital Marketing was founded by Thad Paschall, a business owner with over
+                25 years of hands-on experience building and scaling companies. Thad grew a home
+                service business from a single truck to a $130 million enterprise, learning
+                firsthand what works in marketing and what wastes money. That experience is the
+                foundation of everything we build for our clients.
+              </p>
+              <p className="mt-4 text-lg text-slate-400 leading-relaxed">
+                Headquartered in Tampa, Florida, Fast Digital Marketing is a full-service digital
+                marketing agency that combines proven growth strategies with modern AI-powered
+                technology. We specialize in SEO, Google Ads, high-performance web design,
+                AI voice receptionists, review management, client reactivation, and complete
+                marketing automation systems.
+              </p>
+              <p className="mt-4 text-lg text-slate-400 leading-relaxed">
+                We work with businesses in every industry — from security companies and
+                chiropractors to law firms and medical spas. Our approach is simple: build
+                systems that generate measurable results, report on them transparently, and
+                never lock you into a long-term contract. If we are not earning our keep, you
+                can walk away at any time.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div className="rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-600/10 to-blue-900/10 p-6 text-center">
+                <div className="font-display text-4xl font-bold text-white">25+</div>
+                <p className="mt-2 text-sm text-slate-400">Years of Business Experience</p>
+              </div>
+              <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-600/10 to-emerald-900/10 p-6 text-center">
+                <div className="font-display text-4xl font-bold text-white">$130M</div>
+                <p className="mt-2 text-sm text-slate-400">Revenue Track Record</p>
+              </div>
+              <div className="rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-600/10 to-violet-900/10 p-6 text-center">
+                <div className="font-display text-4xl font-bold text-white">200+</div>
+                <p className="mt-2 text-sm text-slate-400">Businesses Served</p>
+              </div>
+              <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-600/10 to-amber-900/10 p-6 text-center">
+                <div className="font-display text-4xl font-bold text-white">4.9</div>
+                <p className="mt-2 text-sm text-slate-400">Average Client Rating</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-8">
+              <h3 className="mb-3 text-lg font-bold text-white">Our Mission</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Give every business access to the same digital marketing firepower that
+                large corporations use — at a price point that makes sense. No fluff,
+                no vanity metrics, just more leads and more revenue.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-8">
+              <h3 className="mb-3 text-lg font-bold text-white">Our Approach</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                We build integrated systems, not isolated campaigns. Your AI receptionist,
+                your website, your SEO, your ads, and your automation all work together
+                as one revenue engine — managed by one team with full accountability.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-8">
+              <h3 className="mb-3 text-lg font-bold text-white">Our Guarantee</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                No long-term contracts. No setup fees on most services. Cancel anytime.
+                We earn your business every month by delivering results you can see in
+                your dashboard and feel in your bottom line.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -59,6 +59,7 @@ export const metadata: Metadata = {
   },
   other: {
     sitemap: "/sitemap.xml",
+    "llms-txt": "/llms.txt",
   },
 };
 
@@ -69,6 +70,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geist.variable} ${spaceGrotesk.variable} h-full`}>
+      <head>
+        <link rel="author" href="/llms.txt" />
+      </head>
       <body className="min-h-full flex flex-col bg-slate-950 text-white antialiased">
         <script
           type="application/ld+json"
