@@ -2,12 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient, FDM_SITE_ID } from "@/lib/supabase";
 import { notifyAudit } from "@/lib/notify";
 import { runFullAudit } from "@/lib/aso-engine";
+import { generateNarrative } from "@/lib/aso-engine/narrative";
 import { randomUUID } from "crypto";
 
 /**
  * POST /api/audit/full
  * Runs the full 6-pillar ASO audit using the ASO engine.
- * Used for: $497 paid Full Business Report AND internal site audits.
+ * Used for: $197 paid Full Business Report AND internal site audits.
  *
  * Body: { businessName, niche, cityState, websiteUrl, email, phone }
  *
@@ -30,6 +31,9 @@ export async function POST(request: NextRequest) {
     // Run the full ASO engine
     const report = await runFullAudit({ businessName, niche, cityState, websiteUrl });
 
+    // Generate AI-written narrative summary
+    const narrative = await generateNarrative(report);
+
     const auditId = randomUUID();
 
     // Save to Supabase
@@ -47,6 +51,7 @@ export async function POST(request: NextRequest) {
         overall_grade: report.overallGrade,
         overall_score: report.overallScore,
         categories: report.pillars,
+        narrative,
         audit_type: "full",
       });
     } catch (err) {
@@ -64,7 +69,7 @@ export async function POST(request: NextRequest) {
       overallScore: report.overallScore,
     }).catch((err) => console.error("[audit/full] Notification failed:", err));
 
-    return NextResponse.json({ auditId, report });
+    return NextResponse.json({ auditId, report, narrative });
   } catch (err) {
     console.error("[audit/full] Audit failed:", err);
     return NextResponse.json({ error: "Audit failed. Please try again." }, { status: 500 });
@@ -109,6 +114,7 @@ export async function GET(request: NextRequest) {
           topPriorities,
           generatedAt: data.created_at,
         },
+        narrative: data.narrative || null,
       });
     }
   } catch (err) {

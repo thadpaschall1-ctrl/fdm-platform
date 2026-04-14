@@ -152,7 +152,7 @@ const PLANS = [
   },
   {
     name: "Pro",
-    setup: "$497",
+    setup: "$197",
     monthly: "$697",
     badge: "BEST VALUE",
     borderClass: "border-violet-500/40 ring-1 ring-violet-500/20",
@@ -293,7 +293,7 @@ export function AuditResults() {
             <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-8 text-center">
               <p className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-3">Full Business Report</p>
               <div className="mb-1">
-                <span className="text-5xl font-black text-white">$497</span>
+                <span className="text-5xl font-black text-white">$197</span>
               </div>
               <p className="text-sm text-slate-400 mb-6">One-time &middot; Instant delivery</p>
               <a
