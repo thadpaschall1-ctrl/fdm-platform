@@ -39,6 +39,7 @@ export async function POST(request: NextRequest) {
         id: auditId,
         site_id: FDM_SITE_ID,
         practice_name: businessName,
+        niche,
         city_state: cityState,
         website_url: websiteUrl,
         email,
@@ -85,15 +86,27 @@ export async function GET(request: NextRequest) {
       .maybeSingle();
 
     if (data) {
+      // Regenerate summary and priorities from stored pillar data
+      const { generateSummary, getTopPriorities } = await import("@/lib/aso-engine/scoring");
+      const { getNicheConfig } = await import("@/lib/aso-engine/niche-configs");
+      const config = getNicheConfig(data.niche || "");
+      const pillars = data.categories || [];
+      const summary = generateSummary(data.overall_score, data.practice_name, config.entityLabel);
+      const topPriorities = Array.isArray(pillars) ? getTopPriorities(pillars) : [];
+
       return NextResponse.json({
         auditId: data.id,
         report: {
           businessName: data.practice_name,
+          niche: data.niche || "",
+          nicheLabel: config.entityLabel,
           cityState: data.city_state,
           websiteUrl: data.website_url,
           overallGrade: data.overall_grade,
           overallScore: data.overall_score,
-          pillars: data.categories,
+          pillars,
+          summary,
+          topPriorities,
           generatedAt: data.created_at,
         },
       });
