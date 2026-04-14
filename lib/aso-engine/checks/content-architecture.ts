@@ -18,20 +18,41 @@ export function checkContentArchitecture(
   const lower = markdown.toLowerCase();
   const city = cityState.split(",")[0]?.trim().toLowerCase() || "";
 
-  // 1. H1 includes city + service type
+  // 1. H1 includes relevant signals (city for local, service type for all)
   const h1Match = markdown.match(/^#\s+(.+)$/m);
   const h1Text = (h1Match?.[1] || "").toLowerCase();
   const h1HasCity = city ? h1Text.includes(city) : false;
   const h1HasNiche = h1Text.includes(config.entityLabel.split("/")[0].trim().toLowerCase());
 
-  if (h1HasCity && h1HasNiche) {
-    findings.push({ status: "pass", message: `H1 includes city and service type — strong local + niche signal`, weight: 15 });
-  } else if (h1HasCity || h1HasNiche) {
-    findings.push({ status: "warn", message: `H1 has ${h1HasCity ? "city" : "service type"} but missing ${h1HasCity ? "service type" : "city"}`, weight: 15 });
-  } else if (h1Match) {
-    findings.push({ status: "fail", message: "H1 exists but doesn't include city or service type", weight: 15 });
+  if (config.scope === "national") {
+    // National businesses: H1 should have service type/brand, city not required
+    if (h1HasNiche || h1Text.includes("marketing") || h1Text.includes("agency") || h1Text.includes("consulting")) {
+      findings.push({ status: "pass", message: "H1 includes service type/brand — strong identity signal", weight: 15 });
+    } else if (h1Match) {
+      findings.push({ status: "warn", message: "H1 exists but doesn't clearly state what the business does", weight: 15 });
+    } else {
+      findings.push({ status: "fail", message: "No H1 tag found — critical for SEO and AI citation", weight: 15 });
+    }
+  } else if (config.scope === "regional") {
+    // Regional: H1 should have region + service type
+    if (h1HasNiche) {
+      findings.push({ status: "pass", message: "H1 includes service type — good regional signal", weight: 15 });
+    } else if (h1Match) {
+      findings.push({ status: "warn", message: "H1 exists but missing service type", weight: 15 });
+    } else {
+      findings.push({ status: "fail", message: "No H1 tag found", weight: 15 });
+    }
   } else {
-    findings.push({ status: "fail", message: "No H1 tag found — critical for both SEO and AI citation", weight: 15 });
+    // Local: H1 should have city + service type
+    if (h1HasCity && h1HasNiche) {
+      findings.push({ status: "pass", message: "H1 includes city and service type — strong local + niche signal", weight: 15 });
+    } else if (h1HasCity || h1HasNiche) {
+      findings.push({ status: "warn", message: `H1 has ${h1HasCity ? "city" : "service type"} but missing ${h1HasCity ? "service type" : "city"}`, weight: 15 });
+    } else if (h1Match) {
+      findings.push({ status: "fail", message: "H1 exists but doesn't include city or service type", weight: 15 });
+    } else {
+      findings.push({ status: "fail", message: "No H1 tag found — critical for both SEO and AI citation", weight: 15 });
+    }
   }
 
   // 2. Content depth (word count)
@@ -75,14 +96,24 @@ export function checkContentArchitecture(
     findings.push({ status: "fail", message: "No numeric specificity — vague content is never cited by AI", weight: 10 });
   }
 
-  // 6. Geographic anchoring
-  const cityMentions = city ? (lower.match(new RegExp(city, "gi")) || []).length : 0;
-  if (cityMentions >= 3) {
-    findings.push({ status: "pass", message: `City mentioned ${cityMentions} times — strong geographic anchor`, weight: 12 });
-  } else if (cityMentions >= 1) {
-    findings.push({ status: "warn", message: `City only mentioned ${cityMentions} time(s) — add more local context`, weight: 12 });
+  // 6. Geographic anchoring (adjusted for scope)
+  if (config.scope === "national") {
+    // National businesses: check for service area language instead of city mentions
+    const hasServiceArea = /nationwide|united states|across the country|any industry|all industries|businesses everywhere/i.test(markdown);
+    if (hasServiceArea) {
+      findings.push({ status: "pass", message: "National service area clearly stated", weight: 12 });
+    } else {
+      findings.push({ status: "warn", message: "No clear national service area language — mention you serve businesses nationwide", weight: 12 });
+    }
   } else {
-    findings.push({ status: "fail", message: "No city/location mentions — invisible for local AI queries", weight: 12 });
+    const cityMentions = city ? (lower.match(new RegExp(city, "gi")) || []).length : 0;
+    if (cityMentions >= 3) {
+      findings.push({ status: "pass", message: `City mentioned ${cityMentions} times — strong geographic anchor`, weight: 12 });
+    } else if (cityMentions >= 1) {
+      findings.push({ status: "warn", message: `City only mentioned ${cityMentions} time(s) — add more local context`, weight: 12 });
+    } else {
+      findings.push({ status: "fail", message: "No city/location mentions — invisible for local AI queries", weight: 12 });
+    }
   }
 
   // 7. Marketing superlatives (negative signal)

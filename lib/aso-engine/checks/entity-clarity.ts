@@ -37,11 +37,18 @@ export function checkEntityClarity(
     findings.push({ status: "fail", message: "Missing page title — critical entity signal", weight: 10 });
   }
 
-  // 3. NAP (Name, Address, Phone) visible
+  // 3. NAP (Name, Address, Phone) visible — adjusted for scope
   const hasPhone = /\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}|tel:/i.test(html);
   const hasAddress = /\d+\s+\w+\s+(st|street|ave|avenue|blvd|boulevard|dr|drive|rd|road|ln|lane|way|ct|court)/i.test(html);
 
-  if (hasPhone && hasAddress) {
+  if (config.scope === "national" || config.scope === "regional") {
+    // National/regional businesses don't need a street address
+    if (hasPhone) {
+      findings.push({ status: "pass", message: "Phone number visible (address not required for national business)", weight: 15 });
+    } else {
+      findings.push({ status: "fail", message: "No phone number visible", weight: 15 });
+    }
+  } else if (hasPhone && hasAddress) {
     findings.push({ status: "pass", message: "Phone and address visible on page (NAP present)", weight: 15 });
   } else if (hasPhone) {
     findings.push({ status: "warn", message: "Phone visible but no street address detected", weight: 15 });

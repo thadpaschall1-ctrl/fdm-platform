@@ -6,6 +6,7 @@
 
 export interface NicheConfig {
   slug: string;
+  scope: "local" | "regional" | "national";
   businessType: string;
   entityLabel: string;
   customerLabel: string;
@@ -21,6 +22,7 @@ export interface NicheConfig {
 export const NICHE_CONFIGS: Record<string, NicheConfig> = {
   chiropractic: {
     slug: "chiropractic",
+    scope: "local",
     businessType: "MedicalBusiness",
     entityLabel: "chiropractic practice",
     customerLabel: "patients",
@@ -35,6 +37,7 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
   security: {
     slug: "security",
+    scope: "local",
     businessType: "LocalBusiness",
     entityLabel: "security alarm dealer / home security company",
     customerLabel: "homeowners and business owners",
@@ -49,6 +52,7 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
   dental: {
     slug: "dental",
+    scope: "local",
     businessType: "MedicalBusiness",
     entityLabel: "dental practice",
     customerLabel: "patients",
@@ -63,6 +67,7 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
   plumbing: {
     slug: "plumbing",
+    scope: "local",
     businessType: "HomeAndConstructionBusiness",
     entityLabel: "plumbing company",
     customerLabel: "homeowners",
@@ -77,6 +82,7 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
   hvac: {
     slug: "hvac",
+    scope: "local",
     businessType: "HomeAndConstructionBusiness",
     entityLabel: "HVAC company",
     customerLabel: "homeowners",
@@ -91,6 +97,7 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
   electrician: {
     slug: "electrician",
+    scope: "local",
     businessType: "HomeAndConstructionBusiness",
     entityLabel: "electrical contractor",
     customerLabel: "homeowners",
@@ -105,6 +112,7 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
   roofing: {
     slug: "roofing",
+    scope: "local",
     businessType: "HomeAndConstructionBusiness",
     entityLabel: "roofing contractor",
     customerLabel: "homeowners / property managers",
@@ -119,6 +127,7 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
   "law-firm": {
     slug: "law-firm",
+    scope: "local",
     businessType: "LegalService",
     entityLabel: "law firm",
     customerLabel: "clients",
@@ -133,6 +142,7 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
   "medical-spa": {
     slug: "medical-spa",
+    scope: "local",
     businessType: "MedicalBusiness",
     entityLabel: "medical spa / medspa",
     customerLabel: "clients / patients",
@@ -145,19 +155,65 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
     exampleEntity: "[Name] Med Spa is a medical aesthetics practice in [City] offering Botox, fillers, laser treatments, and body contouring.",
   },
 
+  "digital-marketing": {
+    slug: "digital-marketing",
+    scope: "national",
+    businessType: "ProfessionalService",
+    entityLabel: "digital marketing agency",
+    customerLabel: "businesses",
+    serviceDomain: "marketing / technology",
+    credentialField: "industry certifications, case studies, years of experience",
+    primaryDirectories: ["Clutch", "DesignRush", "Upcity", "BBB", "Google"],
+    ymyl: false,
+    schemaTypes: ["ProfessionalService", "Service", "FAQPage"],
+    faqTopics: ["pricing", "services offered", "results timeline", "industries served", "AI capabilities", "contracts"],
+    exampleEntity: "[Name] is a digital marketing agency helping businesses grow online with SEO, Google Ads, web design, and AI-powered automation.",
+  },
+
+  "security-consulting": {
+    slug: "security-consulting",
+    scope: "national",
+    businessType: "ProfessionalService",
+    entityLabel: "security industry consulting agency",
+    customerLabel: "security dealers and alarm companies",
+    serviceDomain: "security industry consulting",
+    credentialField: "industry experience, dealer network, case studies",
+    primaryDirectories: ["BBB", "Clutch", "LinkedIn", "Google"],
+    ymyl: false,
+    schemaTypes: ["ProfessionalService", "Service", "FAQPage"],
+    faqTopics: ["dealer onboarding", "AI voice agents", "marketing for dealers", "pricing", "results"],
+    exampleEntity: "[Name] is a consulting agency helping security alarm dealers grow with AI-powered tools and marketing automation.",
+  },
+
+  "chiropractic-marketing": {
+    slug: "chiropractic-marketing",
+    scope: "national",
+    businessType: "ProfessionalService",
+    entityLabel: "chiropractic marketing agency",
+    customerLabel: "chiropractic practices",
+    serviceDomain: "healthcare marketing",
+    credentialField: "industry specialization, case studies, years of experience",
+    primaryDirectories: ["Clutch", "DesignRush", "BBB", "Google"],
+    ymyl: false,
+    schemaTypes: ["ProfessionalService", "MedicalBusiness", "Service", "FAQPage"],
+    faqTopics: ["chiropractic marketing cost", "patient acquisition", "review management", "AI receptionist", "results timeline", "contracts"],
+    exampleEntity: "[Name] is a marketing agency specializing in AI-powered patient acquisition for chiropractic practices.",
+  },
+
   // Generic fallback for any unrecognized niche
   generic: {
     slug: "generic",
-    businessType: "LocalBusiness",
-    entityLabel: "local business",
+    scope: "national",
+    businessType: "Organization",
+    entityLabel: "business",
     customerLabel: "customers",
-    serviceDomain: "local services",
+    serviceDomain: "general services",
     credentialField: "business license, industry certifications",
-    primaryDirectories: ["Yelp", "BBB", "Angi", "Google"],
+    primaryDirectories: ["Yelp", "BBB", "Google", "LinkedIn"],
     ymyl: false,
-    schemaTypes: ["LocalBusiness", "Service", "FAQPage"],
-    faqTopics: ["cost", "service area", "hours", "guarantees", "process", "credentials"],
-    exampleEntity: "[Name] is a local business serving [City].",
+    schemaTypes: ["Organization", "Service", "FAQPage"],
+    faqTopics: ["cost", "services", "process", "guarantees", "experience", "credentials"],
+    exampleEntity: "[Name] is a business helping customers with professional services.",
   },
 };
 
@@ -168,6 +224,12 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 export function getNicheConfig(industry: string): NicheConfig {
   const lower = (industry || "").toLowerCase();
 
+  // National/agency niches first (more specific)
+  if (lower.includes("digital marketing") || lower.includes("marketing agency") || lower.includes("seo agency")) return NICHE_CONFIGS["digital-marketing"];
+  if (lower.includes("chiropractic marketing") || lower.includes("chiro") && lower.includes("marketing")) return NICHE_CONFIGS["chiropractic-marketing"];
+  if (lower.includes("security") && (lower.includes("consult") || lower.includes("agency") || lower.includes("edge"))) return NICHE_CONFIGS["security-consulting"];
+
+  // Local business niches
   if (lower.includes("chiro")) return NICHE_CONFIGS.chiropractic;
   if (lower.includes("security") || lower.includes("alarm")) return NICHE_CONFIGS.security;
   if (lower.includes("dental") || lower.includes("dentist")) return NICHE_CONFIGS.dental;
