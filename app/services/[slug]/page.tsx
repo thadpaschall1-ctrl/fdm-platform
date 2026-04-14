@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SERVICES, getServiceBySlug } from "@/lib/data/services";
+import { ServiceCheckoutButton } from "@/components/service-checkout-button";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -109,16 +110,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             )}
             <p className="text-xs text-slate-500">No contracts &middot; Cancel anytime</p>
             <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
-              <Link
-                href="/audit"
-                className="group relative inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
-              >
-                <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <span className="relative">Get Your Free Audit</span>
-                <svg className="relative w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </Link>
+              <ServiceCheckoutButton
+                plan={service.planTier}
+                serviceTitle={service.title}
+                price={service.price}
+                setupFee={service.setupFee}
+              />
               <Link
                 href="/demo"
                 className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 backdrop-blur-sm"
@@ -203,15 +200,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               )}
             </div>
             <p className="mt-3 text-sm text-slate-500">No contracts &middot; Cancel anytime</p>
-            <Link
-              href="/audit"
-              className="group mt-8 inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-4 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
-            >
-              Start With a Free Audit
-              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
+            <div className="mt-8">
+              <ServiceCheckoutButton
+                plan={service.planTier}
+                serviceTitle={service.title}
+                price={service.price}
+                setupFee={service.setupFee}
+              />
+            </div>
+            <p className="mt-4 text-xs text-slate-600">
+              Or <Link href="/audit" className="text-blue-400 hover:underline">run a free audit first</Link>
+            </p>
           </div>
         </div>
       </section>
