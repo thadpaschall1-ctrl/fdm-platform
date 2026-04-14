@@ -102,11 +102,17 @@ async function fallbackFetch(url: string): Promise<{ markdown: string; metadata:
 
 async function fetchRawHtml(url: string): Promise<string> {
   try {
+    // Add cache-buster to bypass edge caches
+    const bustUrl = url + (url.includes("?") ? "&" : "?") + "_cb=" + Date.now();
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
-    const res = await fetch(url, {
+    const res = await fetch(bustUrl, {
       signal: controller.signal,
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; FDMAuditBot/1.0)" },
+      headers: {
+        "User-Agent": "Mozilla/5.0 (compatible; FDMAuditBot/1.0)",
+        "Cache-Control": "no-cache, no-store",
+        "Pragma": "no-cache",
+      },
     });
     clearTimeout(timeout);
     return await res.text();
