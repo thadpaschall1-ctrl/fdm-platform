@@ -79,21 +79,21 @@ export async function POST(request: NextRequest) {
 
   try {
     // Build line items dynamically using Stripe price_data
-    const lineItems: Stripe.Checkout.SessionCreateParams.LineItem[] = planConfig.lineItems.map((item) => {
+    const lineItems = planConfig.lineItems.map((item) => {
       if (item.recurring) {
         return {
           price_data: {
-            currency: "usd",
+            currency: "usd" as const,
             product_data: { name: item.description },
             unit_amount: item.amount,
-            recurring: { interval: "month" },
+            recurring: { interval: "month" as const },
           },
           quantity: 1,
         };
       }
       return {
         price_data: {
-          currency: "usd",
+          currency: "usd" as const,
           product_data: { name: item.description },
           unit_amount: item.amount,
         },
