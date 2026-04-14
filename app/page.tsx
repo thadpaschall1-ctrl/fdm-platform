@@ -138,17 +138,118 @@ export default function HomePage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://fastdigitalmarketing.com/#organization",
     name: "Fast Digital Marketing",
     url: "https://fastdigitalmarketing.com",
-    description: "Digital marketing agency specializing in SEO, Google Ads, web design, social media, and AI-powered marketing automation.",
-    serviceType: ["Search Engine Optimization", "Pay-Per-Click Advertising", "Web Design", "Social Media Marketing", "Marketing Automation"],
-    areaServed: "United States",
+    logo: "https://fastdigitalmarketing.com/logo.png",
+    image: "https://fastdigitalmarketing.com/og-image.png",
+    description:
+      "Fast Digital Marketing is a full-service digital marketing agency in Tampa, FL specializing in SEO, Google Ads, web design, AI voice receptionists, and marketing automation for businesses across all industries.",
+    telephone: "+18889834449",
+    email: "hello@fastdigitalmarketing.com",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Tampa",
+      addressRegion: "FL",
+      postalCode: "33602",
+      addressCountry: "US",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "United States",
+    },
+    serviceType: [
+      "Search Engine Optimization",
+      "Pay-Per-Click Advertising",
+      "Web Design",
+      "AI Voice Receptionist",
+      "Marketing Automation",
+      "Review Management",
+      "Client Reactivation",
+    ],
     priceRange: "$$",
+    sameAs: [
+      "https://www.facebook.com/fastdigitalmarketing",
+      "https://www.linkedin.com/company/fast-digital-marketing",
+      "https://www.yelp.com/biz/fast-digital-marketing-tampa",
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "47",
+      bestRating: "5",
+      worstRating: "1",
+    },
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://fastdigitalmarketing.com/#faq",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What does Fast Digital Marketing do?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Fast Digital Marketing is a full-service digital marketing agency based in Tampa, FL. We help businesses grow online through SEO, Google Ads, professional web design, AI-powered voice receptionists, review management, client reactivation campaigns, and complete marketing automation. We work with businesses in any industry across the United States.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How much does the AI voice receptionist cost?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The AI Voice Receptionist starts at $197 per month with no long-term contracts. It answers every call 24/7 with a natural-sounding voice, qualifies leads, and books appointments directly into your calendar. You can cancel anytime. It is also included in our Growth and Pro plans.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How long does it take to build a website?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Our Smart Websites are built on Next.js and delivered in as few as 5 business days. Every site loads in under 2 seconds, is mobile-first, SEO-optimized, and designed for both Google and AI search engines. The monthly cost is $397 with no setup fee.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What industries does Fast Digital Marketing work with?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We work with businesses in any industry. Our most popular verticals include security companies, chiropractors, dental practices, plumbing companies, HVAC companies, electricians, roofing companies, law firms, and medical spas. If your customers search online, we can help you reach them.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How does the free business audit work?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Our free business audit takes about 60 seconds. Enter your business name and we instantly analyze your Google reputation, website performance, SEO health, and AI search readiness. There is no signup, no credit card, and no sales call required -- just instant, actionable results you can use right away.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Can I try the AI receptionist before buying?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. You can try a live AI demo right on our website at no cost. You can also call our main number at (888) 983-4449 to experience the AI receptionist firsthand -- Holland answers 24/7. There is no obligation to buy.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What is included in the Full Automation Stack?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "The Full Automation Stack at $697/month includes every service we offer in one integrated package: AI voice receptionist, voice AI callback, review autopilot, client reactivation, new client nurture sequences, a smart website, local SEO and AI search optimization, and paid advertising management. It also includes monthly strategy calls and is live within 5 days.",
+        },
+      },
+    ],
   };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       {/* ══════════════════════════════════════════════════════════════════
           HERO — Massive, bold, impossible to ignore

@@ -256,11 +256,65 @@ export function AuditResults() {
         ))}
       </div>
 
-      {/* ═══════ UPGRADE CTA — Pricing Plans ═══════ */}
+      {/* ═══════ FULL REPORT UPSELL ═══════ */}
+      <section className="mb-12">
+        <div className="border-gradient rounded-3xl bg-slate-900 p-10 lg:p-12">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-amber-400 mb-4">
+                Upgrade Available
+              </p>
+              <h2 className="font-display text-2xl font-bold text-white sm:text-3xl tracking-tight">
+                Want the <span className="text-gradient-fire">Full Picture?</span>
+              </h2>
+              <p className="mt-3 text-slate-400 leading-relaxed">
+                This free audit covers the basics. The <strong className="text-white">Full Business Report</strong> goes
+                deeper — competitor analysis, keyword gaps, backlink profile, page-by-page SEO teardown,
+                AI search citation audit, and a custom action plan ranked by ROI.
+              </p>
+              <ul className="mt-5 space-y-2.5">
+                {[
+                  "Side-by-side competitor comparison (top 5 in your market)",
+                  "Keyword gap analysis — what your competitors rank for that you don't",
+                  "Backlink profile audit with link-building opportunities",
+                  "Page-by-page SEO teardown with fix priorities",
+                  "AI search citation audit (ChatGPT, Perplexity, Google AI)",
+                  "Custom 90-day action plan ranked by impact",
+                  "30-minute strategy call to walk through findings (auto-scheduled)",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-slate-300">
+                    <span className="shrink-0 mt-0.5 text-amber-500">✦</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-8 text-center">
+              <p className="text-xs font-bold uppercase tracking-widest text-amber-400 mb-3">Full Business Report</p>
+              <div className="mb-1">
+                <span className="text-5xl font-black text-white">$497</span>
+              </div>
+              <p className="text-sm text-slate-400 mb-6">One-time &middot; Instant delivery</p>
+              <a
+                href="/#contact"
+                className="block w-full rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 py-4 text-base font-bold text-slate-900 hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] transition-all hover:-translate-y-0.5"
+              >
+                Get Your Full Report →
+              </a>
+              <p className="mt-4 text-xs text-slate-500">
+                Includes auto-scheduled strategy call
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ MONTHLY PLANS ═══════ */}
       <section id="pricing" className="mb-12">
         <div className="text-center mb-10">
           <p className="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-violet-400 mb-4">
-            Fix Everything Today
+            Or Let Us Fix Everything
           </p>
           <h2 className="font-display text-3xl font-bold text-white tracking-tight">
             Choose Your <span className="text-gradient-blue">Plan</span>

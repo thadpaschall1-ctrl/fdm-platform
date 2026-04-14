@@ -33,6 +33,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `https://fastdigitalmarketing.com/services/${service.slug}/#faq`,
     mainEntity: service.faqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -40,9 +41,38 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
     })),
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `https://fastdigitalmarketing.com/services/${service.slug}/#service`,
+    name: service.title,
+    description: service.metaDescription,
+    provider: {
+      "@type": "ProfessionalService",
+      "@id": "https://fastdigitalmarketing.com/#organization",
+      name: "Fast Digital Marketing",
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "United States",
+    },
+    offers: {
+      "@type": "Offer",
+      price: service.price.replace("$", ""),
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: service.price.replace("$", ""),
+        priceCurrency: "USD",
+        unitText: "MONTH",
+      },
+    },
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
       {/* Hero */}
       <section className="relative overflow-hidden px-6 py-24 text-center lg:py-32">
