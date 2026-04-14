@@ -143,6 +143,7 @@ export default function HomePage() {
     url: "https://fastdigitalmarketing.com",
     logo: "https://fastdigitalmarketing.com/logo.png",
     image: "https://fastdigitalmarketing.com/og-image.png",
+    dateModified: "2026-04-14",
     description:
       "Fast Digital Marketing is a full-service digital marketing agency in Tampa, FL specializing in SEO, Google Ads, web design, AI voice receptionists, and marketing automation for businesses across all industries.",
     telephone: "+18889834449",
@@ -441,6 +442,78 @@ export default function HomePage() {
                   <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════
+          FAQ — Visible content matching FAQPage schema
+          ══════════════════════════════════════════════════════════════════ */}
+      <section id="faq" className="relative px-6 py-24 lg:py-32">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-20" />
+        <div className="relative mx-auto max-w-3xl">
+          <div className="text-center mb-14">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
+              Common Questions
+            </p>
+            <h2 className="font-display text-3xl font-bold text-white sm:text-4xl tracking-tight">
+              Frequently Asked <span className="text-gradient-blue">Questions</span>
+            </h2>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "What does Fast Digital Marketing do?",
+                a: "Fast Digital Marketing is a full-service digital marketing agency based in Tampa, FL. We help businesses grow online through SEO, Google Ads, professional web design, AI-powered voice receptionists, review management, client reactivation campaigns, and complete marketing automation. We work with businesses in any industry across the United States.",
+              },
+              {
+                q: "How much does the AI voice receptionist cost?",
+                a: "The AI Voice Receptionist starts at $197 per month with no long-term contracts. It answers every call 24/7 with a natural-sounding voice, qualifies leads, and books appointments directly into your calendar. You can cancel anytime. It is also included in our Growth and Pro plans.",
+              },
+              {
+                q: "How long does it take to build a website?",
+                a: "Our Smart Websites are built on Next.js and delivered in as few as 5 business days. Every site loads in under 2 seconds, is mobile-first, SEO-optimized, and designed for both Google and AI search engines. The monthly cost is $397 with no setup fee.",
+              },
+              {
+                q: "What industries does Fast Digital Marketing work with?",
+                a: "We work with businesses in any industry. Our most popular verticals include security companies, chiropractors, dental practices, plumbing companies, HVAC companies, electricians, roofing companies, law firms, and medical spas. If your customers search online, we can help you reach them.",
+              },
+              {
+                q: "How does the free business audit work?",
+                a: "Our free business audit takes about 60 seconds. Enter your business name and we instantly analyze your Google reputation, website performance, SEO health, and AI search readiness. There is no signup, no credit card, and no sales call required -- just instant, actionable results you can use right away.",
+              },
+              {
+                q: "Can I try the AI receptionist before buying?",
+                a: "Yes. You can try a live AI demo right on our website at no cost. You can also call our main number at (888) 983-4449 to experience the AI receptionist firsthand -- Holland answers 24/7. There is no obligation to buy.",
+              },
+              {
+                q: "What is included in the Full Automation Stack?",
+                a: "The Full Automation Stack at $697/month includes every service we offer in one integrated package: AI voice receptionist, voice AI callback, review autopilot, client reactivation, new client nurture sequences, a smart website, local SEO and AI search optimization, and paid advertising management. It also includes monthly strategy calls and is live within 5 days.",
+              },
+            ].map((item) => (
+              <details
+                key={item.q}
+                className="group rounded-2xl border border-white/[0.08] bg-slate-900 transition-colors hover:border-white/[0.15]"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-white select-none [&::-webkit-details-marker]:hidden list-none">
+                  <span>{item.q}</span>
+                  <svg
+                    className="h-5 w-5 flex-shrink-0 text-slate-500 transition-transform group-open:rotate-45"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 5v14m-7-7h14" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </summary>
+                <div className="px-6 pb-5 text-slate-400 leading-relaxed">
+                  {item.a}
+                </div>
+              </details>
             ))}
           </div>
         </div>

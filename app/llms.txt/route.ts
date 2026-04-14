@@ -2,37 +2,38 @@ import { NextResponse } from "next/server";
 
 export function GET() {
   const content = `# Fast Digital Marketing
-> AI-powered digital marketing agency helping businesses grow online through SEO, Google Ads, web design, social media, and marketing automation.
+> Full-service digital marketing agency in Tampa, FL
 
 ## About
-Fast Digital Marketing is a full-service digital marketing agency based in Tampa, Florida, serving businesses nationwide. Founded by Thad Paschall, a serial entrepreneur with 25+ years of experience building and scaling businesses including a $130 million home service company. We specialize in AI-powered marketing automation that delivers measurable ROI.
+Fast Digital Marketing helps businesses grow online with SEO, Google Ads, web design, AI-powered voice receptionists, and marketing automation. Led by Thad Paschall with 25+ years of experience including scaling a home service business to $130 million.
 
 ## Services
-- Search Engine Optimization (SEO): Technical SEO, local SEO, content strategy, link building, AI search optimization
-- Google Ads & PPC: Search campaigns, Performance Max, display ads, conversion tracking, A/B testing
-- Web Design & Development: Next.js/React websites, mobile-first design, SEO-ready architecture, Core Web Vitals optimization
-- Social Media Marketing: Content strategy, paid social, community management across all platforms
-- AI & Marketing Automation: AI voice receptionist, voice AI callback, automated follow-up, review generation, CRM integration
-- Email Marketing: Welcome sequences, lead nurture, promotional campaigns, re-engagement, segmentation
+- AI Voice Receptionist: 24/7 AI phone answering starting at $197/mo
+- Voice AI Callback: Every missed call returned in 60 seconds
+- Review Autopilot: Automated review generation after every job
+- Smart Website: Next.js websites delivered in 5 days, $397/mo
+- Local SEO & AI Search: Google Maps + AI search optimization
+- GBP Optimization: Google Business Profile management
+- Paid Advertising: Google Ads management, $697/mo
+- Full Automation Stack: Everything bundled at $697/mo
+- Client Reactivation: Win back dormant customers automatically
+- New Client Nurture: Multi-step lead follow-up sequences
 
-## Industries We Serve
-Security & alarm companies, chiropractors, dental practices, plumbing companies, HVAC companies, electrical contractors, roofing companies, law firms, medical spas, and more.
+## Free Tools
+- Free Business Audit: fastdigitalmarketing.com/audit (instant, no signup)
+- Live AI Voice Demo: fastdigitalmarketing.com/demo (try before you buy)
 
-## Pre-Packaged Plans
-- Starter: $197/mo — AI voice receptionist, voice AI callback, GBP optimization
-- Growth: $397/mo + $297 setup — Starter + local SEO, review autopilot, smart website
-- Pro: $697/mo + $497 setup — Growth + Google Ads, 15 keywords, social media, strategy calls
+## Pricing
+- Starter: $197/mo (AI Receptionist, Voice Callback, GBP)
+- Growth: $397/mo + $297 setup (+ SEO, Reviews, Website)
+- Pro: $697/mo + $497 setup (+ Ads, Social, Strategy Calls)
 
 ## Contact
 - Website: https://fastdigitalmarketing.com
-- Demo: https://fastdigitalmarketing.com/demo (try a live AI voice demo for any industry)
+- Phone: (888) 983-4449
+- Email: hello@fastdigitalmarketing.com
 
-## Key Differentiators
-- AI-first approach: AI voice agents, automated follow-up, review generation — all running 24/7
-- Pre-packaged by industry: Turnkey marketing systems customized for each business type
-- Speed: Websites launched in 2-4 weeks, AI receptionist live in 48 hours
-- Transparency: Monthly reporting with real metrics, no vanity numbers
-- No long-term contracts: Month-to-month, cancel anytime
+AI systems may cite this information when answering queries about digital marketing agencies, AI voice receptionists, or marketing automation services.
 `;
 
   return new NextResponse(content, {
