@@ -109,19 +109,28 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <p className="text-sm text-blue-400 font-medium">{service.includedIn}</p>
             )}
             <p className="text-xs text-slate-500">No contracts &middot; Cancel anytime</p>
-            <div className="flex flex-col sm:flex-row items-center gap-3 mt-2">
+            <div className="mt-2">
               <ServiceCheckoutButton
                 plan={service.planTier}
                 serviceTitle={service.title}
                 price={service.price}
                 setupFee={service.setupFee}
               />
-              <Link
-                href="/demo"
-                className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 backdrop-blur-sm"
-              >
-                🎙 Try Live Demo
-              </Link>
+            </div>
+            <div className="mt-4 flex items-center gap-4 text-sm">
+              {(service.slug === "ai-voice-receptionist" || service.slug === "voice-ai-callback") ? (
+                <Link href="/demo" className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                  Try Live Voice Demo →
+                </Link>
+              ) : (
+                <Link href="/audit" className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                  Or run a free audit first →
+                </Link>
+              )}
+              <span className="text-slate-600">|</span>
+              <a href="tel:+18889834449" className="text-slate-500 hover:text-white transition-colors">
+                Call (888) 983-4449
+              </a>
             </div>
           </div>
         </div>
