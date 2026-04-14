@@ -38,6 +38,7 @@ export function AuditForm() {
   const [form, setForm] = useState({
     businessName: "",
     niche: "",
+    scope: "",
     cityState: "",
     websiteUrl: "",
     email: "",
@@ -166,7 +167,26 @@ export function AuditForm() {
 
       <div>
         <label className="block text-sm font-medium text-slate-300 mb-1.5">
-          City, State *
+          Business Type *
+        </label>
+        <select
+          name="scope"
+          value={form.scope}
+          onChange={handleChange}
+          required
+          className="w-full rounded-xl border border-white/10 bg-slate-800 px-4 py-3 text-sm text-white outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
+        >
+          <option value="">How does your business operate?</option>
+          <option value="local">Local Business (single location)</option>
+          <option value="local-multi">Local Business (multiple locations)</option>
+          <option value="regional">Regional Business (state or multi-state)</option>
+          <option value="national">National Business (serves all of US)</option>
+        </select>
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-slate-300 mb-1.5">
+          {form.scope === "national" ? "Headquarters City, State" : "City, State"} *
         </label>
         <input
           type="text"

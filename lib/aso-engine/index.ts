@@ -155,12 +155,13 @@ async function fetchGooglePlaces(businessName: string, cityState: string) {
 export interface AuditInput {
   businessName: string;
   niche: string;
+  scope?: string;
   cityState: string;
   websiteUrl: string;
 }
 
 export async function runFullAudit(input: AuditInput): Promise<FullAuditReport> {
-  const config = getNicheConfig(input.niche);
+  const config = getNicheConfig(input.niche, input.scope);
   const normalizedUrl = input.websiteUrl.startsWith("http") ? input.websiteUrl : `https://${input.websiteUrl}`;
 
   console.log(`[ASO] Starting full audit for "${input.businessName}" (${config.slug}) in ${input.cityState}`);

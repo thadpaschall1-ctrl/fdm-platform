@@ -219,26 +219,48 @@ export const NICHE_CONFIGS: Record<string, NicheConfig> = {
 
 /**
  * Find the best niche config for a given industry string.
+ * Optionally override the scope (local/regional/national) from user selection.
  * Falls back to 'generic' if no match.
  */
-export function getNicheConfig(industry: string): NicheConfig {
+export function getNicheConfig(industry: string, scopeOverride?: string): NicheConfig {
   const lower = (industry || "").toLowerCase();
 
   // National/agency niches first (more specific)
-  if (lower.includes("digital marketing") || lower.includes("marketing agency") || lower.includes("seo agency")) return NICHE_CONFIGS["digital-marketing"];
-  if (lower.includes("chiropractic marketing") || lower.includes("chiro") && lower.includes("marketing")) return NICHE_CONFIGS["chiropractic-marketing"];
-  if (lower.includes("security") && (lower.includes("consult") || lower.includes("agency") || lower.includes("edge"))) return NICHE_CONFIGS["security-consulting"];
+  let config: NicheConfig;
 
-  // Local business niches
-  if (lower.includes("chiro")) return NICHE_CONFIGS.chiropractic;
-  if (lower.includes("security") || lower.includes("alarm")) return NICHE_CONFIGS.security;
-  if (lower.includes("dental") || lower.includes("dentist")) return NICHE_CONFIGS.dental;
-  if (lower.includes("plumb")) return NICHE_CONFIGS.plumbing;
-  if (lower.includes("hvac") || lower.includes("heating") || lower.includes("cooling")) return NICHE_CONFIGS.hvac;
-  if (lower.includes("electri")) return NICHE_CONFIGS.electrician;
-  if (lower.includes("roof")) return NICHE_CONFIGS.roofing;
-  if (lower.includes("law") || lower.includes("attorney") || lower.includes("legal")) return NICHE_CONFIGS["law-firm"];
-  if (lower.includes("med") && lower.includes("spa") || lower.includes("medspa") || lower.includes("aestheti")) return NICHE_CONFIGS["medical-spa"];
+  if (lower.includes("digital marketing") || lower.includes("marketing agency") || lower.includes("seo agency")) {
+    config = NICHE_CONFIGS["digital-marketing"];
+  } else if (lower.includes("chiropractic marketing") || (lower.includes("chiro") && lower.includes("marketing"))) {
+    config = NICHE_CONFIGS["chiropractic-marketing"];
+  } else if (lower.includes("security") && (lower.includes("consult") || lower.includes("agency") || lower.includes("edge"))) {
+    config = NICHE_CONFIGS["security-consulting"];
+  } else if (lower.includes("chiro")) {
+    config = NICHE_CONFIGS.chiropractic;
+  } else if (lower.includes("security") || lower.includes("alarm")) {
+    config = NICHE_CONFIGS.security;
+  } else if (lower.includes("dental") || lower.includes("dentist")) {
+    config = NICHE_CONFIGS.dental;
+  } else if (lower.includes("plumb")) {
+    config = NICHE_CONFIGS.plumbing;
+  } else if (lower.includes("hvac") || lower.includes("heating") || lower.includes("cooling")) {
+    config = NICHE_CONFIGS.hvac;
+  } else if (lower.includes("electri")) {
+    config = NICHE_CONFIGS.electrician;
+  } else if (lower.includes("roof")) {
+    config = NICHE_CONFIGS.roofing;
+  } else if (lower.includes("law") || lower.includes("attorney") || lower.includes("legal")) {
+    config = NICHE_CONFIGS["law-firm"];
+  } else if ((lower.includes("med") && lower.includes("spa")) || lower.includes("medspa") || lower.includes("aestheti")) {
+    config = NICHE_CONFIGS["medical-spa"];
+  } else {
+    config = NICHE_CONFIGS.generic;
+  }
 
-  return NICHE_CONFIGS.generic;
+  // Override scope if user explicitly selected it
+  if (scopeOverride && (scopeOverride === "local" || scopeOverride === "local-multi" || scopeOverride === "regional" || scopeOverride === "national")) {
+    const mappedScope: "local" | "regional" | "national" = scopeOverride === "local-multi" ? "local" : scopeOverride as "local" | "regional" | "national";
+    return { ...config, scope: mappedScope };
+  }
+
+  return config;
 }
