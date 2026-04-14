@@ -109,7 +109,8 @@ export async function POST(request: NextRequest) {
       ? `https://fastdigitalmarketing.com/audit/full-report?id=${auditId}&checkout=success`
       : `https://fastdigitalmarketing.com/checkout/success?plan=${plan}`;
 
-    const session = await stripe.checkout.sessions.create({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const sessionParams: any = {
       mode,
       customer_email: email,
       line_items: lineItems,
@@ -122,7 +123,17 @@ export async function POST(request: NextRequest) {
         site: "fdm",
       },
       allow_promotion_codes: true,
-    });
+    };
+
+    // Add branding for one-time payments
+    if (mode === "payment") {
+      sessionParams.payment_intent_data = {
+        statement_descriptor: "FAST DIGITAL MKT",
+        description: `Fast Digital Marketing — ${planConfig.name}`,
+      };
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionParams);
 
     // Log to Supabase
     try {
