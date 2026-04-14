@@ -29,24 +29,32 @@ interface CreateContactPayload {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function ghlFetch(path: string, method: string, body?: unknown): Promise<any> {
+  const apiKey = getApiKey();
+
+  // Log for debugging (will show in Vercel function logs)
+  console.log(`[GHL] ${method} ${path} — key prefix: ${apiKey.substring(0, 8)}...`);
+
   const res = await fetch(`${GHL_BASE_URL}${path}`, {
     method,
     headers: {
-      Authorization: `Bearer ${getApiKey()}`,
+      Authorization: `Bearer ${apiKey}`,
       Version: GHL_API_VERSION,
       "Content-Type": "application/json",
     },
     body: body ? JSON.stringify(body) : undefined,
   });
 
+  const text = await res.text().catch(() => "");
+
   if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    console.error(`[GHL] ${method} ${path} failed: ${res.status} ${text}`);
+    console.error(`[GHL] ${method} ${path} failed: ${res.status} — ${text}`);
     return null;
   }
 
-  if (res.status === 204) return null;
-  return res.json();
+  console.log(`[GHL] ${method} ${path} success: ${res.status}`);
+
+  if (res.status === 204 || !text) return null;
+  try { return JSON.parse(text); } catch { return null; }
 }
 
 /**
