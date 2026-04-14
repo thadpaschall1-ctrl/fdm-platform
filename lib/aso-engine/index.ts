@@ -98,6 +98,23 @@ async function fallbackFetch(url: string): Promise<{ markdown: string; metadata:
   }
 }
 
+// ── Raw HTML fetch (for script tags that Firecrawl strips) ──────────────────
+
+async function fetchRawHtml(url: string): Promise<string> {
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; FDMAuditBot/1.0)" },
+    });
+    clearTimeout(timeout);
+    return await res.text();
+  } catch {
+    return "";
+  }
+}
+
 // ── Google Places helper ────────────────────────────────────────────────────
 
 async function fetchGooglePlaces(businessName: string, cityState: string) {
@@ -142,14 +159,18 @@ export async function runFullAudit(input: AuditInput): Promise<FullAuditReport> 
 
   console.log(`[ASO] Starting full audit for "${input.businessName}" (${config.slug}) in ${input.cityState}`);
 
-  // Fetch all data in parallel
-  const [scrapeResult, pageUrls, googleData] = await Promise.all([
+  // Fetch all data in parallel — Firecrawl for content + raw fetch for HTML (script tags)
+  const [scrapeResult, pageUrls, googleData, rawHtmlResult] = await Promise.all([
     firecrawlScrape(normalizedUrl),
     firecrawlMap(normalizedUrl),
     fetchGooglePlaces(input.businessName, input.cityState),
+    fetchRawHtml(normalizedUrl),
   ]);
 
-  const { html, markdown, metadata } = scrapeResult;
+  // Use raw HTML for schema/structured data checks (Firecrawl strips <script> tags)
+  // Use Firecrawl markdown for content analysis (better parsing)
+  const { markdown, metadata } = scrapeResult;
+  const html = rawHtmlResult || scrapeResult.html;
 
   console.log(`[ASO] Data collected — HTML: ${html.length} bytes, Pages: ${pageUrls.length}, Google: ${googleData.found ? "found" : "not found"}`);
 
