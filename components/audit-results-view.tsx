@@ -168,24 +168,30 @@ const PLANS = [
   },
 ];
 
-function CheckoutButton({ plan, label, className, email, businessName, auditId }: {
+function CheckoutButton({ plan, label, className, email: initialEmail, businessName, auditId }: {
   plan: string; label: string; className: string; email?: string; businessName?: string; auditId?: string;
 }) {
   const [busy, setBusy] = useState(false);
+  const [showEmail, setShowEmail] = useState(false);
+  const [emailInput, setEmailInput] = useState(initialEmail || "");
 
-  async function handleClick() {
+  async function handleCheckout() {
+    if (!emailInput || !emailInput.includes("@")) {
+      setShowEmail(true);
+      return;
+    }
     setBusy(true);
     try {
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan, email: email || "", businessName: businessName || "", auditId: auditId || "" }),
+        body: JSON.stringify({ plan, email: emailInput, businessName: businessName || "", auditId: auditId || "" }),
       });
-      const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
+      const d = await res.json();
+      if (d.url) {
+        window.location.href = d.url;
       } else {
-        alert(data.error || "Checkout failed. Please try again.");
+        alert(d.error || "Checkout failed. Please try again.");
         setBusy(false);
       }
     } catch {
@@ -194,8 +200,27 @@ function CheckoutButton({ plan, label, className, email, businessName, auditId }
     }
   }
 
+  if (showEmail) {
+    return (
+      <div className="space-y-3">
+        <input
+          type="email"
+          placeholder="Enter your email to continue"
+          value={emailInput}
+          onChange={(e) => setEmailInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleCheckout()}
+          className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-slate-500 outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30"
+          autoFocus
+        />
+        <button onClick={handleCheckout} disabled={busy} className={`${className} disabled:opacity-60 disabled:cursor-wait`}>
+          {busy ? "Processing..." : "Continue to Checkout →"}
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <button onClick={handleClick} disabled={busy} className={`${className} disabled:opacity-60 disabled:cursor-wait`}>
+    <button onClick={handleCheckout} disabled={busy} className={`${className} disabled:opacity-60 disabled:cursor-wait`}>
       {busy ? "Processing..." : label}
     </button>
   );
