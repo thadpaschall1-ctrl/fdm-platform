@@ -58,35 +58,37 @@ async function sendEmail(subject: string, html: string): Promise<void> {
   }
 }
 
-// ── SMS (when Twilio/10DLC is approved) ──────────────────────────────────────
+// ── SMS via Telnyx (10DLC approved — campaign CX9OJ5J) ──────────────────────
 
 async function sendSms(message: string): Promise<void> {
-  const sid = process.env.TWILIO_ACCOUNT_SID;
-  const auth = process.env.TWILIO_AUTH_TOKEN;
-  const from = process.env.TWILIO_PHONE_NUMBER;
+  const apiKey = process.env.TELNYX_API_KEY;
+  const from = process.env.TELNYX_PHONE_NUMBER;
   const to = process.env.NOTIFY_PHONE_NUMBER;
 
-  if (!sid || !auth || !from || !to) {
-    console.log("[Notify] Twilio not configured — skipping SMS");
+  if (!apiKey || !from || !to) {
+    console.log("[Notify] Telnyx not configured — skipping SMS");
     return;
   }
 
   try {
-    const url = `https://api.twilio.com/2010-04-01/Accounts/${sid}/Messages.json`;
-    const res = await fetch(url, {
+    const res = await fetch("https://api.telnyx.com/v2/messages", {
       method: "POST",
       headers: {
-        Authorization: `Basic ${Buffer.from(`${sid}:${auth}`).toString("base64")}`,
-        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
       },
-      body: new URLSearchParams({ To: to, From: from, Body: message }).toString(),
+      body: JSON.stringify({
+        from,
+        to,
+        text: message,
+      }),
     });
 
     if (!res.ok) {
       const err = await res.text();
-      console.error("[Notify] SMS failed:", err);
+      console.error("[Notify] Telnyx SMS failed:", err);
     } else {
-      console.log("[Notify] SMS sent");
+      console.log("[Notify] SMS sent via Telnyx");
     }
   } catch (err) {
     console.error("[Notify] SMS error:", err);
