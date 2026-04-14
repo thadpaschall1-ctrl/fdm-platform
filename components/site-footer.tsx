@@ -69,6 +69,7 @@ export function SiteFooter() {
               <li><a href="/#contact" className="hover:text-white transition-colors">Contact</a></li>
               <li><a href="/demo" className="hover:text-white transition-colors">Live AI Demo</a></li>
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li>
                 <a href="tel:+18889834449" className="hover:text-white transition-colors">
                   (888) 983-4449

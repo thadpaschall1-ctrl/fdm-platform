@@ -1,5 +1,5 @@
 /**
- * ASO Engine — AI Narrative Summary Generator
+ * ASO Engine --AI Narrative Summary Generator
  * Uses Anthropic Claude API to write a personalized, human-readable report
  * narrative from the raw pillar data.
  *
@@ -19,7 +19,7 @@ interface NarrativeResult {
 
 export async function generateNarrative(report: FullAuditReport): Promise<NarrativeResult> {
   if (!ANTHROPIC_API_KEY) {
-    console.log("[Narrative] Anthropic API key not set — using template fallback");
+    console.log("[Narrative] Anthropic API key not set --using template fallback");
     return generateFallbackNarrative(report);
   }
 
@@ -32,7 +32,7 @@ export async function generateNarrative(report: FullAuditReport): Promise<Narrat
         .slice(0, 3)
         .map((f) => f.message)
         .join("; ");
-      return `${p.pillarLabel}: ${p.grade} (${p.score}/100) — ${passes} passing, ${fails} failing. Top issues: ${topFails || "None"}`;
+      return `${p.pillarLabel}: ${p.grade} (${p.score}/100) --${passes} passing, ${fails} failing. Top issues: ${topFails || "None"}`;
     }).join("\n");
 
     const prompt = `You are writing a professional business audit report narrative for ${report.businessName}, a ${report.nicheLabel} in ${report.cityState}. Their website is ${report.websiteUrl}.
@@ -48,13 +48,13 @@ Write the following sections in a direct, professional tone. No fluff. Be specif
 
 1. EXECUTIVE SUMMARY (3-4 sentences): Overall assessment. What's working, what's broken, and what it's costing them.
 
-2. PILLAR NARRATIVES (one short paragraph per pillar): For each of the 6 pillars, explain what we found and why it matters in plain English. Reference their specific findings — not generic advice.
+2. PILLAR NARRATIVES (one short paragraph per pillar): For each of the 6 pillars, explain what we found and why it matters in plain English. Reference their specific findings --not generic advice.
 
-3. ACTION PLAN (numbered list of 5-7 items): Prioritized list of exactly what needs to be fixed, in order of impact. Be specific — "Add FAQPage schema with 7 industry-specific questions" not "improve SEO."
+3. ACTION PLAN (numbered list of 5-7 items): Prioritized list of exactly what needs to be fixed, in order of impact. Be specific --"Add FAQPage schema with 7 industry-specific questions" not "improve SEO."
 
 4. CLOSING (2-3 sentences): If they want help fixing everything, Fast Digital Marketing can implement all recommendations. Mention our plans start at $197/mo and include a link to the free audit at fastdigitalmarketing.com/audit.
 
-Output as JSON with keys: executiveSummary, pillarNarratives (array of {pillar, narrative}), actionPlan, closingPitch. No markdown formatting in values — just plain text with line breaks where needed.`;
+Output as JSON with keys: executiveSummary, pillarNarratives (array of {pillar, narrative}), actionPlan, closingPitch. No markdown formatting in values --just plain text with line breaks where needed.`;
 
     const res = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
@@ -123,7 +123,7 @@ function generateFallbackNarrative(report: FullAuditReport): NarrativeResult {
       narrative = `${p.pillarLabel} is one of your strongest areas at ${p.grade} (${p.score}/100). ${passes.length} of ${p.findings.length} checks passed. ` +
         (fails.length > 0 ? `Minor gaps remain: ${fails.map(f => f.message).join(". ")}.` : "No critical issues found.");
     } else if (p.score >= 60) {
-      narrative = `${p.pillarLabel} scored ${p.grade} (${p.score}/100) — functional but leaving opportunities on the table. ` +
+      narrative = `${p.pillarLabel} scored ${p.grade} (${p.score}/100) --functional but leaving opportunities on the table. ` +
         `Key issues: ${fails.slice(0, 3).map(f => f.message).join(". ")}. ` +
         `Fixing these would improve your AI search visibility significantly.`;
     } else {
@@ -146,7 +146,7 @@ function generateFallbackNarrative(report: FullAuditReport): NarrativeResult {
 
   const closingPitch = `If you'd rather have experts handle all of this, Fast Digital Marketing specializes in exactly these fixes. ` +
     `Our plans start at $197/mo and include implementation of every recommendation in this report. ` +
-    `We also offer a complete done-for-you setup — website rebuild, schema implementation, AI search optimization, and ongoing management. ` +
+    `We also offer a complete done-for-you setup --website rebuild, schema implementation, AI search optimization, and ongoing management. ` +
     `Visit fastdigitalmarketing.com or call (888) 983-4449 to get started.`;
 
   return { executiveSummary, pillarNarratives, actionPlan, closingPitch };

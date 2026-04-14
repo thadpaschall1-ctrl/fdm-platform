@@ -168,6 +168,39 @@ const PLANS = [
   },
 ];
 
+function CheckoutButton({ plan, label, className, email, businessName, auditId }: {
+  plan: string; label: string; className: string; email?: string; businessName?: string; auditId?: string;
+}) {
+  const [busy, setBusy] = useState(false);
+
+  async function handleClick() {
+    setBusy(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ plan, email: email || "", businessName: businessName || "", auditId: auditId || "" }),
+      });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data.error || "Checkout failed. Please try again.");
+        setBusy(false);
+      }
+    } catch {
+      alert("Something went wrong. Please try again.");
+      setBusy(false);
+    }
+  }
+
+  return (
+    <button onClick={handleClick} disabled={busy} className={`${className} disabled:opacity-60 disabled:cursor-wait`}>
+      {busy ? "Processing..." : label}
+    </button>
+  );
+}
+
 export function AuditResults() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
@@ -296,12 +329,14 @@ export function AuditResults() {
                 <span className="text-5xl font-black text-white">$197</span>
               </div>
               <p className="text-sm text-slate-400 mb-6">One-time &middot; Instant delivery</p>
-              <a
-                href="/#contact"
+              <CheckoutButton
+                plan="full-report"
+                label="Get Your Full Report →"
                 className="block w-full rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 py-4 text-base font-bold text-slate-900 hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] transition-all hover:-translate-y-0.5"
-              >
-                Get Your Full Report →
-              </a>
+                email={data?.categories ? undefined : undefined}
+                businessName={data?.businessName}
+                auditId={id || undefined}
+              />
               <p className="mt-4 text-xs text-slate-500">
                 Includes auto-scheduled strategy call
               </p>
@@ -360,12 +395,13 @@ export function AuditResults() {
                 ))}
               </ul>
 
-              <a
-                href="/#contact"
-                className={`mt-8 block rounded-xl px-4 py-3.5 text-center text-sm font-bold transition-all ${plan.buttonClass}`}
-              >
-                Get Started →
-              </a>
+              <CheckoutButton
+                plan={plan.name.toLowerCase().split(" ")[0]}
+                label="Get Started →"
+                className={`mt-8 w-full block rounded-xl px-4 py-3.5 text-center text-sm font-bold transition-all ${plan.buttonClass}`}
+                businessName={data?.businessName}
+                auditId={id || undefined}
+              />
             </div>
           ))}
         </div>
