@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient, FDM_SITE_ID } from "@/lib/supabase";
-import { syncContactToGHL } from "@/lib/ghl";
+import { notifyAudit } from "@/lib/notify";
 import { randomUUID } from "crypto";
 
 // ── Types ────────────────────────────────────────────────────────────────────
@@ -385,19 +385,16 @@ export async function POST(request: NextRequest) {
     console.error("[audit] Supabase write failed:", err);
   }
 
-  // 2. Sync to GHL (non-blocking)
-  syncContactToGHL({
-    name: businessName,
+  // 2. Notify Thad (email + SMS when available)
+  notifyAudit({
+    businessName,
+    niche,
+    cityState,
     email,
     phone,
-    businessName,
-    industry: niche,
-    cityState,
-    source: "fdm-free-audit",
-    tags: ["free-audit", `audit-score-${overallScore}`, `audit-grade-${overallGrade.toLowerCase()}`],
-    auditScore: overallScore,
-    auditGrade: overallGrade,
-  }).catch((err) => console.error("[audit] GHL sync failed:", err));
+    overallGrade,
+    overallScore,
+  }).catch((err) => console.error("[audit] Notification failed:", err));
 
   return NextResponse.json({ auditId });
 }
