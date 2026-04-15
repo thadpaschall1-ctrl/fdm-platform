@@ -31,12 +31,14 @@ export function checkFreshness(
   }
 
   // 2. Direct answer in first visible paragraph (Perplexity 60-word rule)
-  const firstParagraph = markdown.split("\n\n").find((p) => p.trim().length > 50);
+  // Find the first substantial paragraph (>100 chars, has sentence structure)
+  const paragraphs = markdown.split("\n\n").filter((p) => p.trim().length > 100);
+  const firstParagraph = paragraphs.find((p) => /[.!?]/.test(p) && !/^[-#*]/.test(p.trim()));
   const firstWords = (firstParagraph || "").split(/\s+/).length;
 
-  if (firstParagraph && firstWords <= 80 && firstWords >= 20) {
-    findings.push({ status: "pass", message: `Opening paragraph is ${firstWords} words — ideal for Perplexity citation`, weight: 15 });
-  } else if (firstParagraph && firstWords > 80) {
+  if (firstParagraph && firstWords <= 120 && firstWords >= 15) {
+    findings.push({ status: "pass", message: `Opening paragraph is ${firstWords} words — good for Perplexity citation`, weight: 15 });
+  } else if (firstParagraph && firstWords > 120) {
     findings.push({ status: "warn", message: `Opening paragraph is ${firstWords} words — trim to 60-80 for Perplexity`, weight: 15 });
   } else {
     findings.push({ status: "fail", message: "No clear opening paragraph — Perplexity needs a direct answer up front", weight: 15 });

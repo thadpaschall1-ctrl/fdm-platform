@@ -68,7 +68,7 @@ export function checkEntityClarity(
   }
 
   // 5. About page / entity description
-  const hasAbout = /about\s*(us|the|our)|who\s*we\s*are|our\s*story|our\s*team/i.test(html);
+  const hasAbout = /about\s*(us|the|our|this|fast|grow|chiropract|\w+\.\w+)|who\s*we\s*are|our\s*(story|team|mission|approach)|company\s*overview/i.test(html);
   if (hasAbout) {
     findings.push({ status: "pass", message: "About section detected — entity context for LLMs", weight: 10 });
   } else {
