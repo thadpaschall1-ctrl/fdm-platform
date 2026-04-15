@@ -174,10 +174,36 @@ export async function runFullAudit(input: AuditInput): Promise<FullAuditReport> 
     fetchRawHtml(normalizedUrl),
   ]);
 
-  // Use raw HTML for schema/structured data checks (Firecrawl strips <script> tags)
-  // Use Firecrawl markdown for content analysis (better parsing)
-  const { markdown, metadata } = scrapeResult;
+  // Use raw HTML as primary source (always fresh due to cache-busting)
   const html = rawHtmlResult || scrapeResult.html;
+
+  // Convert raw HTML to pseudo-markdown for content analysis (Firecrawl may cache stale content)
+  function htmlToMarkdown(h: string): string {
+    return h
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
+      .replace(/<h1[^>]*>([\s\S]*?)<\/h1>/gi, "\n# $1\n")
+      .replace(/<h2[^>]*>([\s\S]*?)<\/h2>/gi, "\n## $1\n")
+      .replace(/<h3[^>]*>([\s\S]*?)<\/h3>/gi, "\n### $1\n")
+      .replace(/<h4[^>]*>([\s\S]*?)<\/h4>/gi, "\n#### $1\n")
+      .replace(/<p[^>]*>([\s\S]*?)<\/p>/gi, "\n$1\n")
+      .replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, "- $1\n")
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<[^>]+>/g, "")
+      .replace(/&amp;/g, "&")
+      .replace(/&lt;/g, "<")
+      .replace(/&gt;/g, ">")
+      .replace(/&apos;/g, "'")
+      .replace(/&quot;/g, '"')
+      .replace(/&#39;/g, "'")
+      .replace(/&middot;/g, " ")
+      .replace(/\n{3,}/g, "\n\n")
+      .trim();
+  }
+
+  // Use raw HTML-derived markdown (always fresh), fall back to Firecrawl if raw is empty
+  const markdown = rawHtmlResult ? htmlToMarkdown(rawHtmlResult) : (scrapeResult.markdown || htmlToMarkdown(html));
+  const metadata = scrapeResult.metadata || {};
 
   console.log(`[ASO] Data collected — HTML: ${html.length} bytes, Pages: ${pageUrls.length}, Google: ${googleData.found ? "found" : "not found"}`);
 
