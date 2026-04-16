@@ -370,7 +370,7 @@ export const SERVICES: ServiceData[] = [
       { step: "04", title: "Optimize (Ongoing)", description: "Monthly AI performance reports, weekly optimizations, and continuous improvement." },
     ],
     faqs: [
-      { question: "How much does the Full Automation Stack cost?", answer: "Pricing depends on your industry and market. Typically $697-997/month with a one-time setup fee. Contact us for a custom quote — we'll show you the expected ROI before you commit." },
+      { question: "How much does the Full Automation Stack cost?", answer: "Pricing depends on your industry and market. Typically $697-997/month with a one-time build cost. Contact us for a custom quote — we'll show you the expected ROI before you commit." },
       { question: "Can I start with individual services and upgrade later?", answer: "Absolutely. Many clients start with the AI receptionist and review autopilot, then upgrade to the full stack once they see results." },
       { question: "How long until everything is running?", answer: "5 business days from signup to full deployment. AI receptionist is live in 48 hours, website in 5 days, and all automations activated on day 5." },
       { question: "What's the ROI?", answer: "Most clients see positive ROI within the first month from recovered missed calls alone. By month three, the full stack typically generates 3-5x return on investment." },

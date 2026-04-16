@@ -84,7 +84,7 @@ export function ServiceCheckoutButton({ plan, serviceTitle, price, setupFee, cla
         {busy ? "Processing..." : `Get Started -- ${price}/mo`}
       </button>
       {setupFee && (
-        <p className="text-xs text-slate-500 text-center">+ {setupFee} one-time setup</p>
+        <p className="text-xs text-slate-500 text-center">+ {setupFee} build cost</p>
       )}
       {error && (
         <p className="text-xs text-red-400 text-center">{error}</p>

@@ -102,7 +102,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 <span className="text-xl text-slate-400">/mo</span>
               </div>
               {service.setupFee && (
-                <span className="text-sm text-slate-500 pb-1.5">+ {service.setupFee} one-time setup</span>
+                <span className="text-sm text-slate-500 pb-1.5">+ {service.setupFee} build cost</span>
               )}
             </div>
             {service.includedIn && (
@@ -172,7 +172,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <p className="font-display text-lg font-bold text-white">{pkg.name}</p>
                   <div className="mt-3">
                     {pkg.setup !== "FREE" ? (
-                      <p className="text-sm text-slate-400">{pkg.setup} <span className="text-slate-500">one-time setup</span></p>
+                      <p className="text-sm text-slate-400">{pkg.setup} <span className="text-slate-500">build cost</span></p>
                     ) : (
                       <p className="text-sm font-bold text-emerald-400">FREE to build</p>
                     )}
@@ -309,7 +309,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <span className="text-4xl font-black text-white">{service.price}</span>
                   <span className="text-lg text-slate-400 pb-0.5">/mo</span>
                   {service.setupFee && (
-                    <span className="text-sm text-slate-500 pb-1">+ {service.setupFee} setup</span>
+                    <span className="text-sm text-slate-500 pb-1">+ {service.setupFee} build cost</span>
                   )}
                 </div>
                 <p className="mt-3 text-sm text-slate-500">No contracts &middot; Cancel anytime</p>
@@ -325,7 +325,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             )}
             {service.packages && (
               <p className="mt-4 text-slate-400">
-                Plans start at just <span className="text-white font-bold">{service.price}/mo</span> with free setup. Scroll up to compare plans.
+                Plans start at just <span className="text-white font-bold">{service.price}/mo</span> with a free build. Scroll up to compare plans.
               </p>
             )}
             <p className="mt-4 text-xs text-slate-600">
