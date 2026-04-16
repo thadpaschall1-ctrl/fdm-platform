@@ -171,7 +171,7 @@ export default function OnboardingForm() {
         </select></Field>
         <Field label="Year Established"><input className={input} value={form.year_established} onChange={e => upd("year_established", e.target.value)} placeholder="2015" /></Field>
         <Field label="Owner / Founder Name"><input className={input} value={form.owner_name} onChange={e => upd("owner_name", e.target.value)} /></Field>
-        <Field label="Owner Credentials"><input className={input} value={form.owner_credentials} onChange={e => upd("owner_credentials", e.target.value)} placeholder="DC, JD, CISSP..." /></Field>
+        <Field label="Owner Title / License (optional)"><input className={input} value={form.owner_credentials} onChange={e => upd("owner_credentials", e.target.value)} placeholder="e.g. Owner, Master Electrician, DC, MD, Licensed Contractor #12345" /></Field>
         <Field label="2–3 Sentence Description" full><textarea rows={3} className={`${input} resize-none`} value={form.short_description} onChange={e => upd("short_description", e.target.value)} placeholder="What you do, who you serve, why clients pick you." /></Field>
       </Section>
 
