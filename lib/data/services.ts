@@ -264,16 +264,17 @@ export const SERVICES: ServiceData[] = [
       },
     ],
     process: [
-      { step: "01", title: "Discovery (Day 1)", description: "We learn your business, collect your content, and confirm the design direction." },
-      { step: "02", title: "Build (Days 2-4)", description: "We build the site, optimize for speed and SEO, and prepare all content." },
-      { step: "03", title: "Review (Day 4)", description: "You review the site and request any changes." },
-      { step: "04", title: "Launch (Day 5)", description: "Site goes live with SSL, analytics, and search console connected." },
+      { step: "01", title: "Onboarding (Day 1)", description: "Fill out a short onboarding form with your business details. If you already have a website, we automatically pull your content, services, and info from it -- so you barely have to type anything." },
+      { step: "02", title: "Build (Days 2-4)", description: "Our system builds your site automatically -- optimized for speed, SEO, and AI search. Your content, branding, and business info are all woven in." },
+      { step: "03", title: "Launch (Day 5)", description: "Your site goes live with security, analytics, and search engine connections all set up. You get access to your portal where you can make updates anytime." },
+      { step: "04", title: "Grow (Ongoing)", description: "Your site is live and working for you. Use your portal to update content anytime. AI Search Optimization keeps working in the background." },
     ],
     faqs: [
       { question: "Why Next.js instead of WordPress?", answer: "Next.js sites load 3-5x faster, are more secure (no plugins to hack), score higher on Core Web Vitals, and cost less to host. For a business that needs to rank and convert, modern frameworks win." },
-      { question: "Can I update the site myself?", answer: "Yes. We set up a simple content management system for text edits, blog posts, and basic updates." },
+      { question: "Can I make changes to my site?", answer: "Yes. You get access to a portal where you can update text, upload photos, and manage your content anytime -- no coding needed. Need additional pages? Upgrade to our Pro plan for a multi-page site." },
+      { question: "What if I already have a website?", answer: "We automatically pull your existing content, services, hours, and business info from your current site. You just review and approve -- no retyping everything from scratch." },
       { question: "What about my existing website's SEO?", answer: "We set up 301 redirects from every old URL so you don't lose any rankings. Your SEO equity transfers to the new site." },
-      { question: "Is 5 days realistic?", answer: "Yes. We've delivered hundreds of business websites in this timeframe. The key is our pre-built component library and streamlined discovery process." },
+      { question: "Is 5 days realistic?", answer: "Yes. Our automated build system handles most of the heavy lifting. You fill out the onboarding form on day one, and your site is live by day five." },
     ],
   },
   {
