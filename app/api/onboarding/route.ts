@@ -21,9 +21,15 @@ export async function POST(req: NextRequest) {
   // Always force brand = 'fdm' on this endpoint
   body.brand = "fdm";
 
-  if (!body.email || !body.business_name) {
+  if (!body.business_name) {
     return NextResponse.json(
-      { error: "email and business_name required" },
+      { error: "business_name required" },
+      { status: 400 }
+    );
+  }
+  if (!body.email && !body.phone) {
+    return NextResponse.json(
+      { error: "Provide at least one of email or phone" },
       { status: 400 }
     );
   }

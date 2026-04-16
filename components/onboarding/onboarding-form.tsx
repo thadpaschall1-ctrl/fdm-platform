@@ -83,6 +83,12 @@ export default function OnboardingForm() {
     setStatus("submitting");
     setErrorMessage("");
 
+    if (!form.phone.trim() && !form.email.trim()) {
+      setStatus("error");
+      setErrorMessage("Please provide either a phone number or email so we can reach you.");
+      return;
+    }
+
     const payload = {
       brand: "fdm",
       email: form.email,
@@ -176,8 +182,9 @@ export default function OnboardingForm() {
       </Section>
 
       <Section title="Contact" subtitle="Where should we reach you — and the public?">
-        <Field label="Email *"><input required type="email" className={input} value={form.email} onChange={e => upd("email", e.target.value)} /></Field>
-        <Field label="Phone"><input className={input} value={form.phone} onChange={e => upd("phone", e.target.value)} /></Field>
+        <Field label="Phone"><input type="tel" className={input} value={form.phone} onChange={e => upd("phone", e.target.value)} placeholder="(813) 555-0123" /></Field>
+        <Field label="Email (optional)"><input type="email" className={input} value={form.email} onChange={e => upd("email", e.target.value)} placeholder="you@example.com" /></Field>
+        <Field label="" full><p className="text-xs text-slate-500 -mt-1">We need at least one — phone or email — so we can reach you.</p></Field>
       </Section>
 
       {(form.business_type === "local" || form.business_type === "multi-location") && (

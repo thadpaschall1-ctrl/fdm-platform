@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import OnboardingForm from "@/components/onboarding/onboarding-form";
+import SmartOnboarding from "@/components/onboarding/smart-onboarding";
 
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Client Onboarding — Fast Digital Marketing",
-  description: "Submit your business details and we'll launch your AI-optimized website.",
+  description: "Drop your website and we'll build you an A-rated site this week.",
   robots: { index: false, follow: false },
 };
 
@@ -26,12 +26,11 @@ export default function OnboardingPage() {
           Welcome to Fast Digital Marketing
         </h1>
         <p className="text-slate-400 text-lg max-w-xl mx-auto">
-          Tell us about your business and we&apos;ll launch your site — A-rated
-          for AI search from day one.
+          Drop your website URL and we&apos;ll do the rest. A-rated site live this week.
         </p>
       </div>
 
-      <OnboardingForm />
+      <SmartOnboarding />
     </div>
   );
 }
