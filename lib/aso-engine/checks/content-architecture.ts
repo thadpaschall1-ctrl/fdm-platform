@@ -22,7 +22,8 @@ export function checkContentArchitecture(
   const h1Match = markdown.match(/^#\s+(.+)$/m);
   const h1Text = (h1Match?.[1] || "").toLowerCase();
   const h1HasCity = city ? h1Text.includes(city) : false;
-  const h1HasNiche = h1Text.includes(config.entityLabel.split("/")[0].trim().toLowerCase());
+  const nicheTerms = config.entityLabel.toLowerCase().split(/[\s\/]+/).filter((t: string) => t.length > 3);
+  const h1HasNiche = nicheTerms.some((t: string) => h1Text.includes(t));
 
   if (config.scope === "national") {
     // National businesses: H1 should have service type/brand, city not required
