@@ -22,6 +22,15 @@ export const metadata: Metadata = {
 
 const SERVICES = [
   {
+    icon: "💻",
+    title: "Free Smart Website",
+    slug: "smart-website",
+    description: "We build your website for free. $49/mo covers everything. AI Search Optimized, fast, mobile-first, and live in 5 days.",
+    highlights: ["Free to build", "$49/mo — everything included", "AI Search Optimized", "Live in 5 days"],
+    color: "from-emerald-600 to-teal-500",
+    glow: "group-hover:shadow-emerald-500/20",
+  },
+  {
     icon: "📞",
     title: "AI Voice Receptionist",
     slug: "ai-voice-receptionist",
@@ -65,15 +74,6 @@ const SERVICES = [
     highlights: ["Instant first response", "Multi-channel", "Behavior triggers", "Hot lead alerts"],
     color: "from-sky-600 to-blue-500",
     glow: "group-hover:shadow-sky-500/20",
-  },
-  {
-    icon: "💻",
-    title: "Smart Website",
-    slug: "smart-website",
-    description: "Next.js sites that load in under 2 seconds, optimized for Google AND AI search. Delivered in 5 days.",
-    highlights: ["Sub-2s load time", "Mobile-first", "SEO-ready", "AI search optimized"],
-    color: "from-indigo-600 to-blue-500",
-    glow: "group-hover:shadow-indigo-500/20",
   },
   {
     icon: "📈",
@@ -127,7 +127,7 @@ export default function HomePage() {
     image: "https://fastdigitalmarketing.com/og-image.png",
     dateModified: "2026-04-14",
     description:
-      "Fast Digital Marketing is a full-service digital marketing agency in Tampa, FL specializing in SEO, Google Ads, web design, AI voice receptionists, and marketing automation for businesses across all industries.",
+      "Fast Digital Marketing is a U.S.-based full-service digital marketing agency specializing in SEO, Google Ads, web design, AI voice receptionists, and marketing automation for businesses across all industries.",
     telephone: "+18889834449",
     email: "hello@fastdigitalmarketing.com",
     address: {
@@ -175,7 +175,7 @@ export default function HomePage() {
         name: "What does Fast Digital Marketing do?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Fast Digital Marketing is a full-service digital marketing agency based in Tampa, FL. We help businesses grow online through SEO, Google Ads, professional web design, AI-powered voice receptionists, review management, client reactivation campaigns, and complete marketing automation. We work with businesses in any industry across the United States.",
+          text: "Fast Digital Marketing is a U.S.-based full-service digital marketing agency. We help businesses grow online through SEO, Google Ads, professional web design, AI-powered voice receptionists, review management, client reactivation campaigns, and complete marketing automation. We work with businesses in any industry across the United States.",
         },
       },
       {
@@ -268,8 +268,8 @@ export default function HomePage() {
             Fast Digital Marketing is a full-service digital marketing agency helping businesses
             across the United States grow online with SEO, Google Ads, AI-powered voice receptionists,
             professional web design, and marketing automation. Every website and campaign we build
-            is <span className="text-white font-medium">AI Search Optimized</span> — meaning you show up on Google,
-            ChatGPT, Perplexity, and AI search engines from day one. Not just indexed. <span className="text-white font-medium">Cited.</span>
+            is <span className="text-white font-medium">AI Search Optimized</span> — built to be found and cited
+            by Google, ChatGPT, Perplexity, and every major AI search engine. Not just indexed. <span className="text-white font-medium">Cited.</span>
           </p>
 
           {/* CTA Row */}
@@ -308,7 +308,7 @@ export default function HomePage() {
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              200+ businesses served
+              $130M+ in revenue generated
             </span>
           </div>
         </div>
@@ -335,7 +335,7 @@ export default function HomePage() {
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-slate-400">
               One team. Full accountability. No finger-pointing between five different agencies.
-              Every service is built, managed, and optimized by our Tampa-based digital marketing team.
+              Every service is built, managed, and optimized by our U.S.-based digital marketing team.
             </p>
           </div>
 
@@ -366,7 +366,7 @@ export default function HomePage() {
               <p className="mt-5 text-lg text-slate-400 leading-relaxed">
                 Most agencies talk about strategy. We obsess over execution.
                 Every dollar you spend should return more than a dollar — and we have the reporting to prove it.
-                Based in Tampa, we combine local market expertise with national-scale digital marketing systems
+                Our U.S.-based team combines deep marketing expertise with AI-powered systems
                 that drive real, trackable growth for businesses across the country.
               </p>
               <a
@@ -382,7 +382,7 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[
-                { title: "We Move Fast", desc: "No 6-week onboarding. Campaigns live, websites launched — faster than any other Tampa digital marketing agency you've worked with.", icon: "⚡", color: "from-blue-600/20 to-blue-900/20 border-blue-500/20" },
+                { title: "We Move Fast", desc: "No 6-week onboarding. Campaigns live, websites launched — faster than any agency you've worked with.", icon: "⚡", color: "from-blue-600/20 to-blue-900/20 border-blue-500/20" },
                 { title: "Transparent Reporting", desc: "You'll know exactly what your money is doing. Monthly dashboards, real numbers, zero fluff.", icon: "📊", color: "from-emerald-600/20 to-emerald-900/20 border-emerald-500/20" },
                 { title: "Industry Agnostic", desc: "Healthcare, legal, home services, SaaS — if your customers are online, we can reach them.", icon: "🌐", color: "from-violet-600/20 to-violet-900/20 border-violet-500/20" },
                 { title: "AI-Enhanced", desc: "We use the latest AI to move faster, write better copy, and spot opportunities others miss.", icon: "🤖", color: "from-amber-600/20 to-amber-900/20 border-amber-500/20" },
@@ -418,7 +418,7 @@ export default function HomePage() {
             Pre-Packaged for <span className="text-gradient-electric">Your Industry</span>
           </h2>
           <p className="mx-auto max-w-xl text-lg text-slate-400 mb-8">
-            From our Tampa headquarters, we serve businesses nationwide with industry-specific
+            We serve businesses nationwide with industry-specific
             digital marketing playbooks built on real performance data.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
@@ -459,7 +459,7 @@ export default function HomePage() {
             {[
               {
                 q: "What does Fast Digital Marketing do?",
-                a: "Fast Digital Marketing is a full-service digital marketing agency based in Tampa, FL. We help businesses grow online through SEO, Google Ads, professional web design, AI-powered voice receptionists, review management, client reactivation campaigns, and complete marketing automation. We work with businesses in any industry across the United States.",
+                a: "Fast Digital Marketing is a U.S.-based full-service digital marketing agency. We help businesses grow online through SEO, Google Ads, professional web design, AI-powered voice receptionists, review management, client reactivation campaigns, and complete marketing automation. We work with businesses in any industry across the United States.",
               },
               {
                 q: "How much does the AI voice receptionist cost?",
@@ -534,7 +534,7 @@ export default function HomePage() {
                 foundation of everything we build for our clients.
               </p>
               <p className="mt-4 text-lg text-slate-400 leading-relaxed">
-                Headquartered in Tampa, Florida, Fast Digital Marketing is a full-service digital
+                Fast Digital Marketing is a U.S.-based full-service digital
                 marketing agency that combines proven growth strategies with modern AI-powered
                 technology. We specialize in SEO, Google Ads, high-performance web design,
                 AI voice receptionists, review management, client reactivation, and complete
