@@ -181,10 +181,10 @@ export const SERVICES: ServiceData[] = [
     hero: "Free Website. $49/Month. Built for AI Search.",
     price: "$49",
     planTier: "starter",
-    includedIn: "Free setup + $49/mo hosting -- our most popular plan",
-    intro: "Get a professionally built website for your business -- completely free. Just $49/month covers hosting, SSL, maintenance, and updates. Every site is AI Search Optimized out of the box, meaning you show up on Google, ChatGPT, Perplexity, and Google AI Overviews from day one. Most agency websites score under 50 on AI search readiness. Ours score 90+. Delivered in 5 business days.",
+    includedIn: "We build your website for free -- just $49/mo for everything",
+    intro: "We build your website for free. $49 a month is all it takes to have a professionally designed, lightning-fast website that is live and working for your business. That includes everything -- design, setup, security, updates, and AI Search Optimization so you show up on Google, ChatGPT, Perplexity, and every AI search engine from day one. Most websites score under 50 on AI search readiness. Ours score 90+. Delivered in 5 business days.",
     features: [
-      { title: "Free Professional Website", description: "$0 setup. We build your entire site for free -- a real, custom-designed website, not a template. You just pay $49/month for hosting and maintenance." },
+      { title: "Free Professional Website", description: "$0 to build. We design and launch your entire website for free -- a real, custom-designed site, not a template. Just $49/month covers everything to keep it live and running." },
       { title: "AI Search Optimized (ASO)", description: "Every site scores 90+ on our 6-pillar AI Search audit. You show up on ChatGPT, Perplexity, Google AI Overviews, and Gemini from day one. Most agency sites score under 50." },
       { title: "Sub-2-Second Load Time", description: "Built on Next.js with server-side rendering. Your site loads faster than 95% of competitors -- speed is a Google ranking factor." },
       { title: "Mobile-First Design", description: "Designed for phones first. Over 60% of your traffic is mobile -- your site needs to be flawless there." },

@@ -257,46 +257,38 @@ export default function HomePage() {
             Full-Service Digital Marketing Agency
           </div>
 
-          {/* Headline — free website lead */}
+          {/* Headline */}
           <h1 className="reveal reveal-delay-1 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-8xl">
-            Free Website.
+            Grow Your Business
             <br />
-            <span className="text-gradient-blue">$49/Month. Seriously.</span>
+            <span className="text-gradient-blue">Online. Fast.</span>
           </h1>
 
           <p className="reveal reveal-delay-2 mx-auto mt-8 max-w-2xl text-lg text-slate-400 leading-relaxed sm:text-xl">
             Fast Digital Marketing is a full-service digital marketing agency helping businesses
-            across the nation grow online. Get a professionally built website for free — just $49/month
-            for hosting, maintenance, and updates. Every site is built with AI Search Optimization
-            so you show up on Google, ChatGPT, Perplexity, and AI search engines from day one.
+            across the United States grow online with SEO, Google Ads, AI-powered voice receptionists,
+            professional web design, and marketing automation. Every website and campaign we build
+            is <span className="text-white font-medium">AI Search Optimized</span> — meaning you show up on Google,
+            ChatGPT, Perplexity, and AI search engines from day one. Not just indexed. <span className="text-white font-medium">Cited.</span>
           </p>
 
-          {/* Free website badge */}
-          <div className="reveal reveal-delay-2 mt-6 inline-flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-6 py-3 backdrop-blur-sm">
-            <span className="text-2xl">🌐</span>
-            <div className="text-left">
-              <p className="text-sm font-bold text-emerald-400">Free Professional Website</p>
-              <p className="text-xs text-slate-400">$0 setup + $49/mo hosting &middot; AI Search Optimized &middot; Live in 5 days</p>
-            </div>
-          </div>
-
           {/* CTA Row */}
-          <div className="reveal reveal-delay-3 mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="reveal reveal-delay-3 mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href="/services/smart-website"
+              href="/audit"
               className="group relative inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
             >
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 opacity-0 transition-opacity group-hover:opacity-100" />
-              <span className="relative">Get Your Free Website</span>
+              <span className="relative">Get a Free Business Audit</span>
               <svg className="relative w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
             <a
-              href="/audit"
+              href="/services/smart-website"
               className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 backdrop-blur-sm"
             >
-              Run Free AI Audit
+              Free Website — $49/mo
             </a>
           </div>
 
