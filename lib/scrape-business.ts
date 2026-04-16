@@ -73,9 +73,10 @@ async function firecrawlScrape(url: string, apiKey: string): Promise<{ title: st
 }
 
 const PAGE_KEYWORDS = [
-  ["about", "our-team", "team", "staff", "meet", "provider"],
-  ["service", "treatment", "what-we-do", "solutions", "offerings"],
-  ["contact", "location", "hours", "directions"],
+  ["meet-the-team", "meet-the-doctor", "meet-our", "our-doctor", "our-team", "our-staff", "providers", "physicians", "attorneys", "practitioners"],
+  ["about", "about-us", "who-we-are", "story"],
+  ["service", "treatment", "what-we-do", "solutions", "offerings", "specialties"],
+  ["contact", "location", "hours", "directions", "find-us"],
   ["faq", "questions"],
   ["testimonial", "review", "case-stud"],
 ];
@@ -159,7 +160,7 @@ export async function scrapeBusinessSite(websiteUrl: string): Promise<ScrapedBus
     const response = await client.messages.create({
       model: "claude-haiku-4-5-20250929",
       max_tokens: 3000,
-      system: `You extract structured business information from website content for ANY industry — chiropractic, plumbing, law, security, marketing, etc. Return ONLY valid JSON. Use null for unknown strings, [] for unknown arrays.`,
+      system: `You extract structured business information from website content for ANY industry — chiropractic, plumbing, law, security, marketing, etc. Return ONLY valid JSON. Use null for unknown strings, [] for unknown arrays. Be decisive: if the site names ANY doctor, owner, attorney, or lead practitioner, extract it — don't leave owner_name null because there are multiple options. Pick the first/lead person shown.`,
       messages: [{
         role: "user",
         content: `Extract this business's information from its website content:
@@ -169,12 +170,12 @@ ${combined}
 Return JSON with these fields:
 {
   "business_name": "Exact legal/display name of the business",
-  "owner_name": "Full name of the primary owner/founder/lead practitioner",
-  "owner_credentials": "Certifications, licenses, awards combined (e.g. 'Licensed & Insured, BBB A+, Google Partner')",
+  "owner_name": "Full name of the primary doctor, owner, founder, attorney, or lead practitioner. If a 'Meet the Team' or 'Our Doctors' section exists, use the first person listed or whoever is labeled as owner/founder/lead. DO NOT leave blank just because multiple people are named — pick the most senior or first-listed.",
+  "owner_credentials": "Certifications, licenses, awards combined",
   "short_description": "2-3 sentence plain-English summary of what the business does and who they serve",
-  "phone": "Primary business phone number",
+  "phone": "PRIMARY business phone number — the main click-to-call number displayed in the header, hero, or 'Call Us' button. IGNORE fax numbers. If both a toll-free and a local number exist, prefer the local one. Return in format like (813) 555-0123.",
   "email": "Public contact email if listed",
-  "street_address": "Street address (number + street name only)",
+  "street_address": "Street address (number + street name only, no city/state)",
   "city": "City",
   "state": "State (2-letter code if possible)",
   "zip": "ZIP / postal code",

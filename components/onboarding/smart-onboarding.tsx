@@ -197,9 +197,9 @@ export default function SmartOnboarding() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-300 mb-1.5">Email <span className="text-slate-500">(optional)</span></label>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Email</label>
             <input type="email" className={input} value={email} onChange={e => setEmail(e.target.value)} placeholder="you@example.com" />
-            <p className="mt-1 text-xs text-slate-500">We&apos;ll text you at the phone above either way.</p>
+            <p className="mt-1 text-xs text-slate-500">This is how you&apos;ll sign into your dashboard to edit your site and see your new leads.</p>
           </div>
 
           <div>
