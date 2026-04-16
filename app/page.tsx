@@ -25,8 +25,6 @@ const SERVICES = [
     icon: "📞",
     title: "AI Voice Receptionist",
     slug: "ai-voice-receptionist",
-    price: "$197/mo",
-    tier: "Starter",
     description: "Every call answered on the first ring — 24/7. Natural conversation, appointment booking, and lead qualification.",
     highlights: ["24/7 live answering", "Natural British accent", "Books appointments", "Transfers when needed"],
     color: "from-blue-600 to-cyan-500",
@@ -36,8 +34,6 @@ const SERVICES = [
     icon: "⚡",
     title: "Voice AI Callback",
     slug: "voice-ai-callback",
-    price: "$197/mo",
-    tier: "Starter",
     description: "Every missed call returned in under 60 seconds by your AI agent. She calls back, qualifies, and books.",
     highlights: ["60-second callback", "Lead qualification", "Direct booking", "Call recordings"],
     color: "from-violet-600 to-purple-500",
@@ -47,8 +43,6 @@ const SERVICES = [
     icon: "⭐",
     title: "Review Autopilot",
     slug: "review-autopilot",
-    price: "$397/mo",
-    tier: "Growth",
     description: "Automated review requests after every job. Happy customers go to Google, unhappy ones come to you.",
     highlights: ["Automated requests", "Smart routing", "One-tap reviews", "Response templates"],
     color: "from-amber-500 to-orange-500",
@@ -58,8 +52,6 @@ const SERVICES = [
     icon: "🔄",
     title: "Client Reactivation",
     slug: "client-reactivation",
-    price: "$397/mo",
-    tier: "Growth",
     description: "Your database is full of dormant customers. We reach out automatically to bring them back. 15-25% reactivation.",
     highlights: ["Dormant client ID", "Multi-step sequences", "Direct booking", "ROI tracking"],
     color: "from-pink-600 to-rose-500",
@@ -69,8 +61,6 @@ const SERVICES = [
     icon: "🎯",
     title: "New Client Nurture",
     slug: "new-client-nurture",
-    price: "$397/mo",
-    tier: "Growth",
     description: "Only 2% of leads convert on first contact. Our sequences follow up until they book — no leads lost.",
     highlights: ["Instant first response", "Multi-channel", "Behavior triggers", "Hot lead alerts"],
     color: "from-sky-600 to-blue-500",
@@ -80,8 +70,6 @@ const SERVICES = [
     icon: "💻",
     title: "Smart Website",
     slug: "smart-website",
-    price: "$397/mo",
-    tier: "Growth",
     description: "Next.js sites that load in under 2 seconds, optimized for Google AND AI search. Delivered in 5 days.",
     highlights: ["Sub-2s load time", "Mobile-first", "SEO-ready", "AI search optimized"],
     color: "from-indigo-600 to-blue-500",
@@ -91,8 +79,6 @@ const SERVICES = [
     icon: "📈",
     title: "Local SEO & AI Search",
     slug: "local-seo-ai",
-    price: "$397/mo",
-    tier: "Growth",
     description: "Rank on Google Maps, organic search, AND AI engines. Google, ChatGPT, Perplexity — everywhere customers search.",
     highlights: ["GBP optimization", "Citation building", "Content strategy", "AI search optimization"],
     color: "from-teal-600 to-cyan-500",
@@ -102,8 +88,6 @@ const SERVICES = [
     icon: "🎰",
     title: "Paid Advertising",
     slug: "paid-advertising",
-    price: "$697/mo",
-    tier: "Pro",
     description: "Google Ads that turn spend into booked jobs. Tight targeting, compelling copy, weekly optimization.",
     highlights: ["Search campaigns", "Local Service Ads", "Conversion tracking", "Weekly optimization"],
     color: "from-red-600 to-orange-500",
@@ -113,8 +97,6 @@ const SERVICES = [
     icon: "🚀",
     title: "Full Automation Stack",
     slug: "full-automation-stack",
-    price: "$697/mo",
-    tier: "Pro",
     description: "Everything in one package. AI receptionist, callbacks, reviews, reactivation, website, SEO, ads.",
     highlights: ["Every service included", "One integrated system", "Live in 5 days", "Monthly strategy calls"],
     color: "from-blue-600 to-violet-600",
@@ -272,40 +254,49 @@ export default function HomePage() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
             </span>
-            Digital Marketing Agency — Tampa, FL
+            Full-Service Digital Marketing Agency
           </div>
 
-          {/* Headline — absolutely massive */}
+          {/* Headline — free website lead */}
           <h1 className="reveal reveal-delay-1 font-display text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-8xl">
-            Tampa&apos;s #1
+            Free Website.
             <br />
-            <span className="text-gradient-blue">Digital Marketing Agency</span>
+            <span className="text-gradient-blue">$49/Month. Seriously.</span>
           </h1>
 
           <p className="reveal reveal-delay-2 mx-auto mt-8 max-w-2xl text-lg text-slate-400 leading-relaxed sm:text-xl">
-            Fast Digital Marketing is a full-service digital marketing agency in Tampa, FL
-            helping businesses grow online with SEO, Google Ads, AI-powered voice receptionists,
-            professional web design, and marketing automation. We deliver measurable results
-            for companies in <span className="text-white font-medium">any industry</span> — more leads, more traffic, and more revenue, fast.
+            Fast Digital Marketing is a full-service digital marketing agency helping businesses
+            across the nation grow online. Get a professionally built website for free — just $49/month
+            for hosting, maintenance, and updates. Every site is built with AI Search Optimization
+            so you show up on Google, ChatGPT, Perplexity, and AI search engines from day one.
           </p>
 
+          {/* Free website badge */}
+          <div className="reveal reveal-delay-2 mt-6 inline-flex items-center gap-3 rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-6 py-3 backdrop-blur-sm">
+            <span className="text-2xl">🌐</span>
+            <div className="text-left">
+              <p className="text-sm font-bold text-emerald-400">Free Professional Website</p>
+              <p className="text-xs text-slate-400">$0 setup + $49/mo hosting &middot; AI Search Optimized &middot; Live in 5 days</p>
+            </div>
+          </div>
+
           {/* CTA Row */}
-          <div className="reveal reveal-delay-3 mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <div className="reveal reveal-delay-3 mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href="/audit"
+              href="/services/smart-website"
               className="group relative inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
             >
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 opacity-0 transition-opacity group-hover:opacity-100" />
-              <span className="relative">Get a Free Business Audit</span>
+              <span className="relative">Get Your Free Website</span>
               <svg className="relative w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
             <a
-              href="/demo"
+              href="/audit"
               className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 backdrop-blur-sm"
             >
-              <span className="text-xl">🎙</span> Try Live AI Demo
+              Run Free AI Audit
             </a>
           </div>
 

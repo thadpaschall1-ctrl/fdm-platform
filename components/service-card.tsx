@@ -5,8 +5,8 @@ interface ServiceProps {
     icon: string;
     title: string;
     slug: string;
-    price: string;
-    tier: string;
+    price?: string;
+    tier?: string;
     description: string;
     highlights: string[];
     color: string;
@@ -35,20 +35,9 @@ export function ServiceCard({ service: s, index }: ServiceProps) {
       <div className={`absolute inset-0 bg-gradient-to-br ${s.color} opacity-0 group-hover:opacity-[0.04] transition-opacity duration-300 rounded-2xl`} />
 
       <div className="relative">
-        <div className="mb-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">{s.icon}</span>
-            <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors">{s.title}</h3>
-          </div>
-          <span className={`shrink-0 rounded-full border px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${tierColors[s.tier] || tierColors.Starter}`}>
-            {s.tier}
-          </span>
-        </div>
-
-        {/* Price */}
-        <div className="mb-4">
-          <span className="text-2xl font-black text-white">{s.price.split("/")[0]}</span>
-          <span className="text-sm text-slate-400">/mo</span>
+        <div className="mb-4 flex items-center gap-3">
+          <span className="text-2xl">{s.icon}</span>
+          <h3 className="text-lg font-bold text-white group-hover:text-blue-300 transition-colors">{s.title}</h3>
         </div>
 
         <p className="mb-5 text-sm text-slate-400 leading-relaxed">{s.description}</p>
