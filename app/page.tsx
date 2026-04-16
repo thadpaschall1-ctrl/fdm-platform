@@ -114,6 +114,17 @@ const INDUSTRIES = [
   { name: "Roofing Companies", slug: "roofers" },
   { name: "Law Firms", slug: "law-firms" },
   { name: "Medical Spas", slug: "medical-spas" },
+  { name: "Real Estate Agents", slug: "real-estate" },
+  { name: "Auto Repair Shops", slug: "auto-repair" },
+  { name: "Veterinary Clinics", slug: "veterinary" },
+  { name: "Insurance Agencies", slug: "insurance" },
+  { name: "Accounting Firms", slug: "accounting" },
+  { name: "Landscaping Companies", slug: "landscaping" },
+  { name: "Pest Control", slug: "pest-control" },
+  { name: "Home Cleaning Services", slug: "home-cleaning" },
+  { name: "Fitness Studios & Gyms", slug: "fitness" },
+  { name: "Photography Studios", slug: "photography" },
+  { name: "Window & Door Companies", slug: "windows-doors" },
 ];
 
 export default function HomePage() {

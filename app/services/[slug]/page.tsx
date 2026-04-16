@@ -136,69 +136,9 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      {/* Features */}
-      <section className="relative px-6 py-20 lg:py-24">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-20" />
-        <div className="relative mx-auto max-w-5xl">
-          <h2 className="mb-12 text-center font-display text-3xl font-bold text-white sm:text-4xl tracking-tight">
-            What&apos;s <span className="text-gradient-electric">Included</span>
-          </h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {service.features.map((f, i) => (
-              <div
-                key={f.title}
-                className="card-hover rounded-2xl border border-white/[0.08] bg-slate-900/80 p-7"
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
-                <h3 className="mb-2 text-lg font-bold text-white">{f.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{f.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="relative overflow-hidden px-6 py-20 lg:py-24">
-        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-20" />
-        <div className="relative mx-auto max-w-5xl">
-          <h2 className="mb-12 text-center font-display text-3xl font-bold text-white sm:text-4xl tracking-tight">
-            Our <span className="text-gradient-fire">Process</span>
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {service.process.map((p) => (
-              <div key={p.step} className="card-hover rounded-2xl border border-white/[0.08] bg-slate-900/80 p-6 text-center">
-                <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                  <span className="text-xl font-bold text-gradient-blue">{p.step}</span>
-                </div>
-                <h3 className="mb-2 font-bold text-white">{p.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{p.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQs */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="mb-10 text-center font-display text-3xl font-bold text-white tracking-tight">
-            Frequently Asked <span className="text-gradient-blue">Questions</span>
-          </h2>
-          <div className="space-y-4">
-            {service.faqs.map((faq) => (
-              <div key={faq.question} className="rounded-2xl border border-white/[0.08] bg-slate-900/80 p-7">
-                <h3 className="font-bold text-white text-lg">{faq.question}</h3>
-                <p className="mt-3 text-sm text-slate-400 leading-relaxed">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Packages (if service has multiple tiers) */}
+      {/* Packages (if service has multiple tiers) — shown prominently after hero */}
       {service.packages && service.packages.length > 0 && (
-        <section className="px-6 py-20">
+        <section className="px-6 py-16">
           <div className="mx-auto max-w-6xl">
             <div className="text-center mb-12">
               <p className="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-violet-400 mb-4">
@@ -270,6 +210,93 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           </div>
         </section>
       )}
+
+      {/* Features */}
+      <section className="relative px-6 py-20 lg:py-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-20" />
+        <div className="relative mx-auto max-w-5xl">
+          <h2 className="mb-12 text-center font-display text-3xl font-bold text-white sm:text-4xl tracking-tight">
+            What&apos;s <span className="text-gradient-electric">Included</span>
+          </h2>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {service.features.map((f, i) => (
+              <div
+                key={f.title}
+                className="card-hover rounded-2xl border border-white/[0.08] bg-slate-900/80 p-7"
+                style={{ animationDelay: `${i * 0.05}s` }}
+              >
+                <h3 className="mb-2 text-lg font-bold text-white">{f.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{f.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="relative overflow-hidden px-6 py-20 lg:py-24">
+        <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-20" />
+        <div className="relative mx-auto max-w-5xl">
+          <h2 className="mb-12 text-center font-display text-3xl font-bold text-white sm:text-4xl tracking-tight">
+            Our <span className="text-gradient-fire">Process</span>
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {service.process.map((p) => (
+              <div key={p.step} className="card-hover rounded-2xl border border-white/[0.08] bg-slate-900/80 p-6 text-center">
+                <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                  <span className="text-xl font-bold text-gradient-blue">{p.step}</span>
+                </div>
+                <h3 className="mb-2 font-bold text-white">{p.title}</h3>
+                <p className="text-sm text-slate-400 leading-relaxed">{p.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Voice Demo CTA */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-3xl">
+          <div className="rounded-2xl border border-blue-500/20 bg-blue-950/20 p-8 sm:p-10 text-center">
+            <p className="text-3xl mb-4">🎙</p>
+            <h2 className="font-display text-2xl font-bold text-white tracking-tight">
+              Try Our AI Voice Receptionist — Live
+            </h2>
+            <p className="mt-3 text-slate-400 max-w-lg mx-auto">
+              Pick your industry and have a real conversation with Holland, our AI receptionist.
+              She&apos;ll handle calls, answer questions, and book appointments — just like she would for your business.
+            </p>
+            <Link
+              href="/demo"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-8 py-4 font-bold text-white hover:bg-blue-500 transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+            >
+              Start Live Voice Demo
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            <p className="mt-3 text-xs text-slate-500">No signup needed. Works for any industry.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="mb-10 text-center font-display text-3xl font-bold text-white tracking-tight">
+            Frequently Asked <span className="text-gradient-blue">Questions</span>
+          </h2>
+          <div className="space-y-4">
+            {service.faqs.map((faq) => (
+              <div key={faq.question} className="rounded-2xl border border-white/[0.08] bg-slate-900/80 p-7">
+                <h3 className="font-bold text-white text-lg">{faq.question}</h3>
+                <p className="mt-3 text-sm text-slate-400 leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
 
       {/* CTA */}
       <section className="px-6 py-20">
