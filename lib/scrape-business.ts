@@ -158,7 +158,7 @@ export async function scrapeBusinessSite(websiteUrl: string): Promise<ScrapedBus
   try {
     const client = new Anthropic({ apiKey: anthropicKey });
     const response = await client.messages.create({
-      model: "claude-haiku-4-5-20250929",
+      model: "claude-haiku-4-5",
       max_tokens: 3000,
       system: `You extract structured business information from website content for ANY industry — chiropractic, plumbing, law, security, marketing, etc. Return ONLY valid JSON. Use null for unknown strings, [] for unknown arrays. Be decisive: if the site names ANY doctor, owner, attorney, or lead practitioner, extract it — don't leave owner_name null because there are multiple options. Pick the first/lead person shown.`,
       messages: [{
