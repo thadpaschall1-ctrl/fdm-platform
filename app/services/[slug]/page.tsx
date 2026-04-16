@@ -196,27 +196,111 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
+      {/* Packages (if service has multiple tiers) */}
+      {service.packages && service.packages.length > 0 && (
+        <section className="px-6 py-20">
+          <div className="mx-auto max-w-6xl">
+            <div className="text-center mb-12">
+              <p className="inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-violet-400 mb-4">
+                Choose Your Plan
+              </p>
+              <h2 className="font-display text-3xl font-bold text-white sm:text-4xl tracking-tight">
+                Simple, Transparent <span className="text-gradient-blue">Pricing</span>
+              </h2>
+              <p className="mt-4 text-slate-400 max-w-lg mx-auto">
+                No long-term contracts. No hidden fees. Cancel anytime. Every plan includes AI Search Optimization.
+              </p>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-4">
+              {service.packages.map((pkg) => (
+                <div
+                  key={pkg.name}
+                  className={`card-hover relative rounded-2xl border p-7 flex flex-col ${
+                    pkg.highlighted
+                      ? "border-blue-500/40 bg-blue-950/20 ring-1 ring-blue-500/20"
+                      : "border-white/[0.08] bg-slate-900/80"
+                  }`}
+                >
+                  {pkg.badge && (
+                    <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                      <span className="rounded-full bg-blue-600 px-4 py-1 text-[10px] font-bold uppercase tracking-wider text-white whitespace-nowrap">
+                        {pkg.badge}
+                      </span>
+                    </div>
+                  )}
+                  <p className="font-display text-lg font-bold text-white">{pkg.name}</p>
+                  <div className="mt-3">
+                    {pkg.setup !== "FREE" ? (
+                      <p className="text-sm text-slate-400">{pkg.setup} <span className="text-slate-500">one-time setup</span></p>
+                    ) : (
+                      <p className="text-sm font-bold text-emerald-400">FREE to build</p>
+                    )}
+                    <p className="text-3xl font-black text-white mt-1">
+                      {pkg.monthly}<span className="text-base font-normal text-slate-400">/mo</span>
+                    </p>
+                  </div>
+                  <ul className="mt-5 flex flex-col gap-2.5 flex-1">
+                    {pkg.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-sm text-slate-300">
+                        <span className="shrink-0 font-bold text-blue-500 mt-0.5">&#x2713;</span>
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-7">
+                    <ServiceCheckoutButton
+                      plan={pkg.name.toLowerCase().replace(/\s+/g, "-")}
+                      serviceTitle={pkg.name}
+                      price={pkg.monthly}
+                      setupFee={pkg.setup !== "FREE" ? pkg.setup : undefined}
+                      className={`w-full block rounded-xl px-4 py-3.5 text-center text-sm font-bold transition-all ${
+                        pkg.highlighted
+                          ? "bg-blue-600 text-white hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+                          : "bg-white/10 text-white hover:bg-white/20"
+                      }`}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-center text-xs text-slate-500 mt-6">
+              Secure checkout via Stripe &middot; Cancel anytime &middot; No long-term contracts
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
       <section className="px-6 py-20">
         <div className="mx-auto max-w-2xl">
           <div className="border-gradient rounded-3xl bg-slate-900 p-12 text-center">
             <h2 className="font-display text-3xl font-bold text-white tracking-tight">Ready to Get Started?</h2>
-            <div className="mt-4 flex items-end justify-center gap-2">
-              <span className="text-4xl font-black text-white">{service.price}</span>
-              <span className="text-lg text-slate-400 pb-0.5">/mo</span>
-              {service.setupFee && (
-                <span className="text-sm text-slate-500 pb-1">+ {service.setupFee} setup</span>
-              )}
-            </div>
-            <p className="mt-3 text-sm text-slate-500">No contracts &middot; Cancel anytime</p>
-            <div className="mt-8">
-              <ServiceCheckoutButton
-                plan={service.planTier}
-                serviceTitle={service.title}
-                price={service.price}
-                setupFee={service.setupFee}
-              />
-            </div>
+            {!service.packages && (
+              <>
+                <div className="mt-4 flex items-end justify-center gap-2">
+                  <span className="text-4xl font-black text-white">{service.price}</span>
+                  <span className="text-lg text-slate-400 pb-0.5">/mo</span>
+                  {service.setupFee && (
+                    <span className="text-sm text-slate-500 pb-1">+ {service.setupFee} setup</span>
+                  )}
+                </div>
+                <p className="mt-3 text-sm text-slate-500">No contracts &middot; Cancel anytime</p>
+                <div className="mt-8">
+                  <ServiceCheckoutButton
+                    plan={service.planTier}
+                    serviceTitle={service.title}
+                    price={service.price}
+                    setupFee={service.setupFee}
+                  />
+                </div>
+              </>
+            )}
+            {service.packages && (
+              <p className="mt-4 text-slate-400">
+                Plans start at just <span className="text-white font-bold">{service.price}/mo</span> with free setup. Scroll up to compare plans.
+              </p>
+            )}
             <p className="mt-4 text-xs text-slate-600">
               Or <Link href="/audit" className="text-blue-400 hover:underline">run a free audit first</Link>
             </p>

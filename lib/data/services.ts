@@ -1,3 +1,12 @@
+export interface ServicePackage {
+  name: string;
+  setup: string;
+  monthly: string;
+  badge?: string;
+  highlighted?: boolean;
+  features: string[];
+}
+
 export interface ServiceData {
   slug: string;
   title: string;
@@ -9,6 +18,7 @@ export interface ServiceData {
   setupFee?: string;
   planTier: "starter" | "growth" | "pro" | "custom";
   includedIn?: string;
+  packages?: ServicePackage[];
   features: { title: string; description: string }[];
   process: { step: string; title: string; description: string }[];
   faqs: { question: string; answer: string }[];
@@ -181,10 +191,10 @@ export const SERVICES: ServiceData[] = [
     hero: "Free Website. $49/Month. Built for AI Search.",
     price: "$49",
     planTier: "starter",
-    includedIn: "We build your website for free -- just $49/mo for everything",
-    intro: "We build your website for free. $49 a month is all it takes to have a professionally designed, lightning-fast website that is live and working for your business. That includes everything -- design, setup, security, updates, and AI Search Optimization so your site is built to be found on Google, ChatGPT, Perplexity, and every major AI search engine. Most websites score under 50 on AI search readiness. Ours score 90+. Delivered in 5 business days.",
+    includedIn: "We build it free -- $49/mo keeps it live, secure, and updated",
+    intro: "We build your website for free. $49 a month keeps it live, fast, and secure on the internet. That covers your website address (domain), keeping your site online 24/7, security so customer data stays safe, software updates so nothing breaks, and AI Search Optimization so your business is built to be found on Google, ChatGPT, Perplexity, and every major search engine. Most websites score under 50 on AI search readiness. Ours score 90+. Delivered in 5 business days.",
     features: [
-      { title: "Free Professional Website", description: "$0 to build. We design and launch your entire website for free -- a real, custom-designed site, not a template. Just $49/month covers everything to keep it live and running." },
+      { title: "Free Professional Website", description: "$0 to build. We design and launch your entire website for free -- a real, custom-designed site, not a template. $49/month keeps it live on the internet, secure, and updated." },
       { title: "AI Search Optimized (ASO)", description: "Every site scores 90+ on our 6-pillar AI Search audit. Built to be found and cited by ChatGPT, Perplexity, Google AI Overviews, and Gemini. Most agency sites score under 50." },
       { title: "Sub-2-Second Load Time", description: "Built on Next.js with server-side rendering. Your site loads faster than 95% of competitors -- speed is a Google ranking factor." },
       { title: "Mobile-First Design", description: "Designed for phones first. Over 60% of your traffic is mobile -- your site needs to be flawless there." },
@@ -192,6 +202,66 @@ export const SERVICES: ServiceData[] = [
       { title: "Conversion Focused", description: "Click-to-call, online booking, strategic CTAs, trust signals, and clear user flows designed to turn visitors into customers." },
       { title: "Hosted on Vercel Edge", description: "Deployed on Vercel's global edge network. 99.99% uptime, automatic SSL, no shared hosting nightmares." },
       { title: "Delivered in 5 Days", description: "Not 5 weeks. Not 5 months. Your site goes live in 5 business days from signup." },
+    ],
+    packages: [
+      {
+        name: "Starter",
+        setup: "FREE",
+        monthly: "$49",
+        features: [
+          "Professional one-page website",
+          "Mobile-friendly design",
+          "AI Search Optimized (ASO)",
+          "Your website address (domain) included",
+          "Site stays live and online 24/7",
+          "Security certificate (SSL) included",
+          "Software updates and maintenance",
+          "Monthly performance report",
+        ],
+      },
+      {
+        name: "Pro",
+        setup: "$495",
+        monthly: "$297",
+        badge: "MOST POPULAR",
+        highlighted: true,
+        features: [
+          "Everything in Starter",
+          "Multi-page custom website",
+          "Google Business Profile optimization",
+          "Online booking integration",
+          "Click-to-call and contact forms",
+          "AI Search visibility (ChatGPT, Perplexity, Google AI)",
+          "Monthly performance report",
+        ],
+      },
+      {
+        name: "Pro + SEO",
+        setup: "$995",
+        monthly: "$397",
+        features: [
+          "Everything in Pro",
+          "Local SEO and Map Pack optimization",
+          "Review automation -- get 5-star reviews on autopilot",
+          "Voice AI -- 60-second missed call recovery",
+          "5 target keyword rankings",
+          "Monthly SEO performance report",
+        ],
+      },
+      {
+        name: "Full Stack",
+        setup: "$1,747",
+        monthly: "$497",
+        badge: "BEST VALUE",
+        features: [
+          "Everything in Pro + SEO",
+          "Google and Facebook Ads management",
+          "Client reactivation campaigns",
+          "New client nurture sequences",
+          "Social media content (3x/week)",
+          "Monthly strategy call with AI insights",
+        ],
+      },
     ],
     process: [
       { step: "01", title: "Discovery (Day 1)", description: "We learn your business, collect your content, and confirm the design direction." },
