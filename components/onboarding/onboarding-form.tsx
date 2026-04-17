@@ -41,6 +41,8 @@ export default function OnboardingForm() {
     faqs_text: "",
     testimonials_text: "",
     logo_url: "",
+    practice_photo_url: "",
+    team_photo_urls_text: "",
     primary_color: "",
     tone: "professional",
     competitor_urls_text: "",
@@ -117,6 +119,8 @@ export default function OnboardingForm() {
       faqs: parseFaqs(form.faqs_text),
       testimonials: parseTestimonials(form.testimonials_text),
       logo_url: form.logo_url || null,
+      practice_photo_url: form.practice_photo_url || null,
+      team_photo_urls: parseList(form.team_photo_urls_text),
       primary_color: form.primary_color || null,
       tone: form.tone,
       competitor_urls: parseList(form.competitor_urls_text),
@@ -220,9 +224,16 @@ export default function OnboardingForm() {
         </Field>
       </Section>
 
-      <Section title="Branding" subtitle="Optional — we pick sensible defaults if blank.">
+      <Section title="Branding & Photos" subtitle="Optional — we pick sensible defaults if blank.">
         <Field label="Logo URL"><input className={input} value={form.logo_url} onChange={e => upd("logo_url", e.target.value)} /></Field>
         <Field label="Primary Color (hex)"><input className={input} value={form.primary_color} onChange={e => upd("primary_color", e.target.value)} placeholder="#f59e0b" /></Field>
+        <Field label="Owner / Doctor Photo URL" full>
+          <input className={input} value={form.practice_photo_url} onChange={e => upd("practice_photo_url", e.target.value)} placeholder="https://... (paste the URL to your professional headshot)" />
+          <p className="mt-1 text-xs text-slate-500">Helps visitors instantly connect with who they&apos;ll be working with. If you don&apos;t have one hosted, you can add it later from your dashboard.</p>
+        </Field>
+        <Field label="Team Photo URLs (one per line, optional)" full>
+          <textarea rows={2} className={`${input} resize-none`} value={form.team_photo_urls_text} onChange={e => upd("team_photo_urls_text", e.target.value)} placeholder="https://..." />
+        </Field>
         <Field label="Tone"><select className={input} value={form.tone} onChange={e => upd("tone", e.target.value)}>
           <option value="professional">Professional</option>
           <option value="friendly">Friendly</option>

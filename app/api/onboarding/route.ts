@@ -73,6 +73,8 @@ export async function POST(req: NextRequest) {
     team: body.team ?? null,
     pricing_notes: body.pricing_notes ?? null,
     logo_url: body.logo_url ?? null,
+    practice_photo_url: body.practice_photo_url ?? null,
+    team_photo_urls: body.team_photo_urls ?? null,
     primary_color: body.primary_color ?? null,
     secondary_color: body.secondary_color ?? null,
     tone: body.tone ?? null,
