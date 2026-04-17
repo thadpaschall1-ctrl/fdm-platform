@@ -3,6 +3,7 @@ import { createAdminClient, FDM_SITE_ID } from "@/lib/supabase";
 import { notifyAudit } from "@/lib/notify";
 import { runFullAudit } from "@/lib/aso-engine";
 import { generateNarrative } from "@/lib/aso-engine/narrative";
+import { checkRateLimit, getClientIp, validateEmail, honeypotFilled } from "@/lib/bot-protection";
 import { randomUUID } from "crypto";
 
 /**
@@ -19,6 +20,23 @@ import { randomUUID } from "crypto";
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const { businessName = "", niche = "", cityState = "", websiteUrl = "", email = "", phone = "" } = body;
+
+  // ── Bot protection ──────────────────────────────────────────
+  if (honeypotFilled(body)) {
+    return NextResponse.json({ error: "Invalid submission." }, { status: 400 });
+  }
+  const emailCheck = validateEmail(email);
+  if (!emailCheck.ok) {
+    return NextResponse.json({ error: "Please enter a valid business email address." }, { status: 400 });
+  }
+  const ip = getClientIp(request);
+  const rl = await checkRateLimit(ip, "fdm.audit-full", 3, 60 * 24);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: "You've reached today's audit limit. Please try again tomorrow." },
+      { status: 429 }
+    );
+  }
 
   if (!businessName || !cityState || !websiteUrl) {
     return NextResponse.json(

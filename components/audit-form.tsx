@@ -43,6 +43,7 @@ export function AuditForm() {
     websiteUrl: "",
     email: "",
     phone: "",
+    website_confirm: "", // honeypot — hidden from real users
   });
   const [loading, setLoading] = useState(false);
   const [stepIndex, setStepIndex] = useState(0);
@@ -129,6 +130,24 @@ export function AuditForm() {
           {error}
         </div>
       )}
+
+      {/* Honeypot — hidden from real users; bots fill it; submission rejected server-side */}
+      <div
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", top: "-9999px", opacity: 0, pointerEvents: "none", height: 0, width: 0, overflow: "hidden" }}
+      >
+        <label>
+          Website confirmation (leave blank):
+          <input
+            type="text"
+            name="website_confirm"
+            value={form.website_confirm}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+      </div>
 
       <div>
         <label className="block text-sm font-medium text-slate-300 mb-1.5">
