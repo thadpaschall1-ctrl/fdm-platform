@@ -103,6 +103,27 @@ function findSocial(text: string, pattern: RegExp): string | null {
   return m ? m[0] : null;
 }
 
+const NON_PERSON_PATTERNS = [
+  /accident/i, /treatment/i, /procedure/i, /adjustment-/i, /screenshot/i,
+  /service(s)?-/i, /logo/i, /icon/i, /banner/i, /hero-bg/i, /background/i,
+  /before-after/i, /xray/i, /x-ray/i, /anatomy/i, /chart/i, /diagram/i,
+  /equipment/i, /office-interior/i, /facility/i, /exterior/i,
+  /stock-/i, /placeholder/i, /demo/i,
+];
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function filterPersonImages(raw: any): Array<{ url: string; alt: string }> {
+  if (!Array.isArray(raw)) return [];
+  return raw
+    .filter((img: { url?: string; alt?: string }) => {
+      if (!img.url || !/^https?:\/\//i.test(img.url)) return false;
+      const haystack = `${img.url} ${img.alt || ""}`;
+      return !NON_PERSON_PATTERNS.some(p => p.test(haystack));
+    })
+    .map((img: { url: string; alt?: string }) => ({ url: img.url, alt: img.alt || "" }))
+    .slice(0, 4);
+}
+
 export async function scrapeBusinessSite(websiteUrl: string): Promise<ScrapedBusiness> {
   const firecrawlKey = process.env.FIRECRAWL_API_KEY;
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
@@ -186,11 +207,17 @@ Return JSON with these fields:
   "faqs": [{"question": "...", "answer": "..."}],
   "testimonials": [{"name": "Reviewer name or 'Anonymous'", "quote": "..."}],
   "team": [{"name": "...", "title": "...", "bio": "..."}],
-  "doctor_images": [{"url": "FULL absolute image URL", "alt": "Who or what is in the photo"}],
+  "doctor_images": [{"url": "FULL absolute image URL", "alt": "Name of the person in the photo"}],
   "certifications": "Combined string of certs/awards/licenses visible on site"
 }
 
-IMPORTANT for doctor_images: Look for markdown image URLs (![alt](url)). Prefer photos of real people — doctors, owners, team — from about/team/staff pages. Full absolute URLs only. Skip logos, icons, stock. Aim for 1-4 people photos.`,
+STRICT RULES for doctor_images:
+- Return ONLY photos of actual PEOPLE (doctors, named practitioners, owners, named team members).
+- The alt text should name a specific person. If you can't identify the person, DO NOT include the image.
+- Order by seniority: main doctor/owner/founder first.
+- STRICTLY EXCLUDE: treatment demonstrations, service illustrations, equipment photos, office interiors, stock photography, logos, icons, screenshots, patient photos, before-after comparisons.
+- If alt text or URL contains "accident", "treatment", "screenshot", "service", "logo", "icon", "demo", "procedure" — skip it.
+- Full absolute URLs only. Empty array is better than bad images.`,
       }],
     });
 
@@ -216,9 +243,7 @@ IMPORTANT for doctor_images: Look for markdown image URLs (![alt](url)). Prefer 
       faqs: Array.isArray(parsed.faqs) ? parsed.faqs : [],
       testimonials: Array.isArray(parsed.testimonials) ? parsed.testimonials : [],
       team: Array.isArray(parsed.team) ? parsed.team : [],
-      doctor_images: Array.isArray(parsed.doctor_images)
-        ? parsed.doctor_images.filter((img: { url?: string }) => img.url && /^https?:\/\//i.test(img.url))
-        : [],
+      doctor_images: filterPersonImages(parsed.doctor_images),
       certifications: parsed.certifications ?? null,
       ...socials,
       raw_markdown_chars: allText.length,
