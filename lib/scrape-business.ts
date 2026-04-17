@@ -23,6 +23,7 @@ export interface ScrapedBusiness {
   faqs: Array<{ question: string; answer: string }>;
   testimonials: Array<{ name: string; quote: string }>;
   team: Array<{ name: string; title: string; bio: string }>;
+  doctor_images: Array<{ url: string; alt: string }>;
   certifications: string | null;
   facebook_url: string | null;
   instagram_url: string | null;
@@ -111,7 +112,7 @@ export async function scrapeBusinessSite(websiteUrl: string): Promise<ScrapedBus
     short_description: null, phone: null, email: null,
     street_address: null, city: null, state: null, zip: null,
     service_area: null, hours: null,
-    services: [], faqs: [], testimonials: [], team: [],
+    services: [], faqs: [], testimonials: [], team: [], doctor_images: [],
     certifications: null,
     facebook_url: null, instagram_url: null, linkedin_url: null,
     youtube_url: null, yelp_url: null, bbb_url: null,
@@ -185,8 +186,11 @@ Return JSON with these fields:
   "faqs": [{"question": "...", "answer": "..."}],
   "testimonials": [{"name": "Reviewer name or 'Anonymous'", "quote": "..."}],
   "team": [{"name": "...", "title": "...", "bio": "..."}],
+  "doctor_images": [{"url": "FULL absolute image URL", "alt": "Who or what is in the photo"}],
   "certifications": "Combined string of certs/awards/licenses visible on site"
-}`,
+}
+
+IMPORTANT for doctor_images: Look for markdown image URLs (![alt](url)). Prefer photos of real people — doctors, owners, team — from about/team/staff pages. Full absolute URLs only. Skip logos, icons, stock. Aim for 1-4 people photos.`,
       }],
     });
 
@@ -212,12 +216,40 @@ Return JSON with these fields:
       faqs: Array.isArray(parsed.faqs) ? parsed.faqs : [],
       testimonials: Array.isArray(parsed.testimonials) ? parsed.testimonials : [],
       team: Array.isArray(parsed.team) ? parsed.team : [],
+      doctor_images: Array.isArray(parsed.doctor_images)
+        ? parsed.doctor_images.filter((img: { url?: string }) => img.url && /^https?:\/\//i.test(img.url))
+        : [],
       certifications: parsed.certifications ?? null,
       ...socials,
       raw_markdown_chars: allText.length,
     };
   } catch (err) {
-    console.error("[scrape-business] claude failed:", err);
-    return { ...empty, ...socials, raw_markdown_chars: allText.length };
+    console.error("[scrape-business] HARD FAILURE — claude extraction threw:", err);
+    throw new Error(
+      `Claude extraction failed after successful scrape: ${err instanceof Error ? err.message : String(err)}`
+    );
   }
+}
+
+export function detectSilentFailure(result: ScrapedBusiness): string | null {
+  if (result.raw_markdown_chars === 0) return null;
+  if (result.raw_markdown_chars < 1000) return null;
+
+  const hasAnyText =
+    !!result.business_name ||
+    !!result.phone ||
+    !!result.owner_name ||
+    !!result.short_description ||
+    !!result.city;
+
+  const hasAnyArray =
+    result.services.length > 0 ||
+    result.faqs.length > 0 ||
+    result.testimonials.length > 0 ||
+    result.team.length > 0;
+
+  if (!hasAnyText && !hasAnyArray) {
+    return `silent extraction failure — ${result.raw_markdown_chars} chars scraped but every field is empty`;
+  }
+  return null;
 }
