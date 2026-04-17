@@ -43,6 +43,7 @@ export default function SmartOnboarding() {
   const [ownerName, setOwnerName] = useState("");
   const [packageTier, setPackageTier] = useState("");
   const [notes, setNotes] = useState("");
+  const [practicePhotoUrl, setPracticePhotoUrl] = useState("");
 
   const input = "w-full rounded-lg border border-white/10 bg-slate-900/60 px-4 py-2.5 text-white placeholder-slate-500 outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/50";
   const btn = "rounded-xl bg-amber-500 px-6 py-3 font-bold text-slate-900 transition hover:-translate-y-0.5 hover:bg-amber-600 disabled:opacity-50";
@@ -108,6 +109,7 @@ export default function SmartOnboarding() {
       tone: "professional",
       package_tier: packageTier || null,
       notes: notes.trim() || null,
+      practice_photo_url: practicePhotoUrl.trim() || null,
       scraped_data: scraped,
     };
 
@@ -216,6 +218,12 @@ export default function SmartOnboarding() {
               <option value="pro-seo">Pro + SEO — $995 / $397 mo</option>
               <option value="full-stack">Full Stack — $1,747 / $497 mo</option>
             </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-slate-300 mb-1.5">Owner / Doctor photo URL <span className="text-slate-500">(optional)</span></label>
+            <input type="url" className={input} value={practicePhotoUrl} onChange={e => setPracticePhotoUrl(e.target.value)} placeholder="https://... paste a link to your professional headshot" />
+            <p className="mt-1 text-xs text-slate-500">If your site doesn&apos;t have your photo publicly, add one here. You can also add it later from your dashboard.</p>
           </div>
 
           <div>
