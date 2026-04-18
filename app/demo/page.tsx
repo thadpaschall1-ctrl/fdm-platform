@@ -10,23 +10,76 @@ export const metadata: Metadata = {
   },
 };
 
+// Niches shown as tiles on /demo. Ordered so the most-recognized industries
+// appear first (top of the grid, above the fold on both mobile and desktop),
+// then Fast Start priority niches, then specialty + long-tail verticals.
+// Users can also type a custom niche via the "Other" input.
 const POPULAR_NICHES = [
-  "Dental Office",
-  "Law Firm",
-  "Plumbing Company",
-  "HVAC Company",
+  // Row 1 — the 4 most-searched industries (always visible first)
+  "Security Company",
   "Chiropractic Practice",
-  "Real Estate Agency",
+  "Dental Office",
+  "Plumbing Company",
+
+  // Row 2 — core home services
+  "HVAC Company",
+  "Electrical Contractor",
+  "Roofing Company",
+  "Law Firm",
+
+  // Row 3 — Fast Start high-ticket urgency niches
+  "Foundation Repair",
+  "Mold Remediation",
+  "Crawl Space Encapsulation",
+  "Spray Foam Insulation",
+
+  // Row 4 — Florida / Sunbelt plays
+  "Pool Resurfacing & Remodeling",
+  "Screen Enclosure / Lanai Builder",
+  "Hurricane Shutter / Impact Window",
+  "Soft Wash Roof & Exterior Cleaning",
+
+  // Row 5 — Outdoor living / hardscape
+  "Artificial Turf Installation",
+  "Paver & Hardscape Contractor",
+  "Deck Builder",
+  "Landscaping Company",
+
+  // Row 6 — Concrete / floors
+  "Polished Concrete (Commercial)",
+  "Concrete Coatings / Garage Floors",
+  "Stained / Stamped Decorative Concrete",
+  "Epoxy Flooring",
+
+  // Row 7 — Specialty plumbing & water
+  "Tankless Water Heater Install",
+  "Whole-Home Water Filtration / Softeners",
+  "Bathtub Reglazing / Refinishing",
+  "Dryer Vent Cleaning",
+
+  // Row 8 — Auto / mobile services
   "Auto Repair Shop",
+  "Paintless Dent Repair",
+  "Auto Window Tinting",
+  "Commercial Pressure Washing",
+
+  // Row 9 — Aging-in-place + sensitive cleanup
+  "Stair Lift Installation",
+  "Senior Bathroom Remodels (Walk-in Tubs)",
+  "Biohazard / Crime Scene / Hoarding Cleanup",
+  "Home Cleaning Service",
+
+  // Row 10 — Health, professional, lifestyle
   "Medical Spa / Medspa",
   "Veterinary Clinic",
-  "Insurance Agency",
-  "Roofing Company",
-  "Landscaping Company",
-  "Security Company",
   "Fitness Studio / Gym",
+  "Photography Studio",
+
+  // Row 11 — Professional services
   "Accounting Firm",
-  "Home Cleaning Service",
+  "Insurance Agency",
+  "Real Estate Agency",
+  "Window & Door Company",
 ];
 
 export default function DemoPage() {
