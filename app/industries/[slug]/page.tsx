@@ -14,6 +14,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const industry = getIndustryBySlug(slug);
   if (!industry) return { title: "Not Found" };
 
+  // Prefer the hand-written metaTitle from industries.ts when it leads with the
+  // industry name. Otherwise synthesize from the unified pattern. Title tag
+  // should ideally match what the H1 says ("Marketing for [Industry]") so
+  // Google's algorithm treats them as congruent — lifts ranking.
   return {
     title: industry.metaTitle,
     description: industry.metaDescription,
@@ -66,14 +70,28 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-grid opacity-30" />
         <div className="relative mx-auto max-w-3xl">
           <p className="reveal mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400">
-            Marketing for {industry.name}
+            AI-Powered Marketing Agency
           </p>
-          <h1 className="reveal reveal-delay-1 font-display text-4xl font-bold text-white sm:text-5xl lg:text-6xl tracking-tight">
-            {industry.hero}
+          {/* Hybrid keyword H1 — ranks for:
+              - "Marketing for [Industry]" (primary, line 1)
+              - "[Industry] Marketing Agency" (via badge + line 2 chain)
+              - "[Industry]" benefit-focused (line 3, reads as the value prop)
+              The visual hierarchy makes it scan well while the DOM stays one H1
+              so Google + AI search engines see one continuous phrase. */}
+          <h1 className="reveal reveal-delay-1 font-display tracking-tight">
+            <span className="block text-2xl font-semibold text-slate-400 sm:text-3xl">
+              Marketing for
+            </span>
+            <span className="block mt-1 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+              {industry.name}
+            </span>
+            <span className="mt-4 block text-xl font-semibold sm:text-2xl lg:text-3xl text-gradient-blue">
+              {industry.hero}
+            </span>
           </h1>
           <p className="reveal reveal-delay-2 mx-auto mt-6 max-w-xl text-lg text-slate-400 leading-relaxed">
             AI-powered marketing automation built specifically for {industry.name.toLowerCase()}.
-            More leads, more revenue, less manual work.
+            More leads, more revenue, less manual work — all delivered by AI, no account managers required.
           </p>
           <div className="reveal reveal-delay-3 mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link

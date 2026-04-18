@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { scrapeBusinessSite } from "@/lib/scrape-business";
+import { scrapeBusinessSite, detectSilentFailure } from "@/lib/scrape-business";
+import { sendAlertSms } from "@/lib/alert";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -22,9 +23,18 @@ export async function POST(req: NextRequest) {
 
   try {
     const scraped = await scrapeBusinessSite(url);
+    const silentFailure = detectSilentFailure(scraped);
+    if (silentFailure) {
+      void sendAlertSms(`⚠️ FDM scraper silent failure on ${url}: ${silentFailure}`);
+      return NextResponse.json(
+        { error: "Scrape produced no usable data", detail: silentFailure, scraped },
+        { status: 502 }
+      );
+    }
     return NextResponse.json({ success: true, url, scraped });
   } catch (err) {
     console.error("[onboarding/scrape] failed:", err);
+    void sendAlertSms(`⚠️ FDM scraper hard failure on ${url}: ${err instanceof Error ? err.message : String(err)}`);
     return NextResponse.json(
       { error: "Scrape failed", detail: err instanceof Error ? err.message : String(err) },
       { status: 500 }
