@@ -71,7 +71,7 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
     features: [
       {
         label: "1–3 pages (home, about, contact)",
-        explainer: "A small website with up to 3 pages. Enough to tell folks who you are, what you do, and how to reach you. Perfect if you just need a solid online presence without a bunch of extra stuff.",
+        explainer: "A small website with up to 3 pages. Enough to tell folks who you are, what you do, and how to reach you. Basic is a simple online brochure — if you want the phone ringing, step up to Smart Website.",
       },
       {
         label: "Up to 750 words of professional copy",
@@ -79,15 +79,11 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
       },
       {
         label: "Mobile-optimized, fast-loading",
-        explainer: "Your site works perfectly on phones, tablets, and computers — loads in under 2 seconds. When somebody's standing in their driveway with a broken pipe and they Google you, your site opens before they lose patience.",
+        explainer: "Your site works perfectly on phones, tablets, and computers — loads in under 2 seconds. Shows up looking sharp no matter how someone finds you.",
       },
       {
-        label: "Contact form with email alerts",
-        explainer: "When somebody fills out the form on your website, we send you an email right away. You can call them back before they call the next guy on the list.",
-      },
-      {
-        label: "Click-to-call button",
-        explainer: "On a phone, folks just tap one button and it calls you — no typing numbers. Sounds small, but it means 3x more people actually pick up the phone to hire you.",
+        label: "Your phone number + email displayed clearly",
+        explainer: "Your phone and email are shown in big, easy-to-read type so customers can reach out on their own. No tap-to-call button — that's on Smart Website. Basic is a static business card online.",
       },
       {
         label: "SSL security + hosting + daily backups",
@@ -98,12 +94,8 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
         explainer: "Your site can live at YourCompany.com if you already own a web address. If you don't, we give you a free one like YourCompany.fdmsites.com so you can get started right now without buying anything.",
       },
       {
-        label: "Self-service dashboard",
-        explainer: "You get a simple login to change anything on your site yourself — hours, phone number, photos, prices, you name it. Takes 30 seconds, no phone call needed. Most folks never have to contact us at all.",
-      },
-      {
         label: "Help Center with 100+ step-by-step guides",
-        explainer: "Any question you could have is already answered in a library with screenshots and click-by-click instructions. Plus an AI assistant that finds the right answer in seconds. You help yourself on your own schedule.",
+        explainer: "Any question you could have is already answered in a library with screenshots and click-by-click instructions. Plus an AI assistant that finds the right answer in seconds.",
       },
       {
         label: "Live in 5 business days",
@@ -111,8 +103,8 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
       },
     ],
     limits: [
-      "Up to 15 content updates/month via dashboard",
-      "5 GB storage for photos and documents",
+      "Content updates available with paid support or by upgrading to Smart Website",
+      "2 GB storage for photos",
     ],
   },
   {
@@ -125,6 +117,18 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
     features: [
       {
         label: "Everything in Basic",
+      },
+      {
+        label: "Click-to-call button",
+        explainer: "On a phone, folks just tap one button and it calls you — no typing numbers. Sounds small, but it means 3x more people actually pick up the phone to hire you. Included in Smart and up.",
+      },
+      {
+        label: "Contact + lead capture forms with email & SMS alerts",
+        explainer: "Forms on your site that grab a lead's name, phone, and what they need — then text AND email you the second somebody fills one out. First one to call back wins the job. Speed matters.",
+      },
+      {
+        label: "Self-service dashboard — edit anything, anytime",
+        explainer: "A simple login to change anything on your site yourself — hours, phone number, photos, prices, services, you name it. Takes 30 seconds per change, no phone calls to us needed. Most folks never have to contact support at all.",
       },
       {
         label: "Up to 15 pages",
@@ -153,10 +157,6 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
       {
         label: "Advanced schema markup",
         explainer: "Special hidden code we add to your site that helps Google understand what you do. That's how your business shows up with stars, hours, prices, and the map pin on Google instead of just a blue link. It's free traffic other folks leave on the table.",
-      },
-      {
-        label: "Lead capture forms with instant alerts",
-        explainer: "Forms on your site that grab a lead's name, phone, and what they need — then text AND email you the second somebody fills one out. First one to call back wins the job. Speed matters.",
       },
       {
         label: "Monthly performance report",

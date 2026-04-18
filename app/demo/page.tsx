@@ -29,6 +29,7 @@ const POPULAR_NICHES = [
 
   // Row 3 — Fast Start high-ticket urgency niches
   "Foundation Repair",
+  "Solar Panel Installation",
   "Mold Remediation",
   "Crawl Space Encapsulation",
   "Spray Foam Insulation",
