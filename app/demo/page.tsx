@@ -62,24 +62,33 @@ const POPULAR_NICHES = [
   "Auto Repair Shop",
   "Paintless Dent Repair",
   "Auto Window Tinting",
-  "Commercial Pressure Washing",
+  "Mobile Pet Grooming",
 
-  // Row 9 — Aging-in-place + sensitive cleanup
+  // Row 9 — Commercial B2B
+  "Commercial Pressure Washing",
+  "Commercial Cleaning / Janitorial",
   "Stair Lift Installation",
   "Senior Bathroom Remodels (Walk-in Tubs)",
+
+  // Row 10 — Sensitive cleanup + residential cleaning
   "Biohazard / Crime Scene / Hoarding Cleanup",
   "Home Cleaning Service",
-
-  // Row 10 — Health, professional, lifestyle
-  "Medical Spa / Medspa",
   "Veterinary Clinic",
+  "Mobile Veterinarian",
+
+  // Row 11 — Health, beauty, lifestyle
+  "Medical Spa / Medspa",
+  "Hair Salon / Beautician",
   "Fitness Studio / Gym",
   "Photography Studio",
 
-  // Row 11 — Professional services
+  // Row 12 — Professional services
   "Accounting Firm",
+  "Business Consultant",
   "Insurance Agency",
   "Real Estate Agency",
+
+  // Row 13 — Other specialty
   "Window & Door Company",
 ];
 
