@@ -10,6 +10,23 @@ export interface IndustryData {
   faqs: { question: string; answer: string }[];
   /** Old URLs that should 301 redirect to this page */
   redirectFrom?: string[];
+  /**
+   * If set, every "Get Started" / "Try Demo" CTA on this page routes to this
+   * external URL instead of FDM's own /pricing or /demo. Used for verticals
+   * where FDM already ranks for the keyword but we have a better-specialized
+   * brand elsewhere (e.g. chiropractors → growyourchiropracticpractice.com).
+   * The FDM page keeps its Google ranking, but conversions flow to the
+   * specialist platform.
+   */
+  externalCtaUrl?: string;
+  /** Label shown on external-CTA buttons. Defaults to "Get Started →" */
+  externalCtaLabel?: string;
+  /**
+   * Short explanatory line shown above the pricing section when
+   * externalCtaUrl is set (e.g. "We built a platform specifically for
+   * chiropractors. Check it out →").
+   */
+  externalCtaCallout?: string;
 }
 // NOTE: Pricing was removed per-industry. All industries share UNIFIED_PACKAGES
 // from `./packages.ts`. Change pricing once, updates across all 34 industries.
@@ -80,6 +97,12 @@ export const INDUSTRIES: IndustryData[] = [
       { question: "Is this HIPAA compliant?", answer: "Yes. We don't access or store protected health information. Our systems handle appointment scheduling and marketing communications only — no clinical data." },
     ],
     redirectFrom: ["/seo-for-chiropractors", "/ai-for-chiropractors"],
+    // FDM ranks #1 for "Fast Digital Marketing for Chiropractors" — we keep the
+    // SEO equity here and funnel converting traffic to GYCP (our specialized
+    // chiropractic platform with patient reactivation + EHR integration etc.)
+    externalCtaUrl: "https://growyourchiropracticpractice.com",
+    externalCtaLabel: "Visit Our Chiropractic Platform →",
+    externalCtaCallout: "We built a whole platform specifically for chiropractors — Grow Your Chiropractic Practice. Purpose-designed for patient reactivation, HIPAA-compliant workflows, and chiro-specific SEO. Check it out to see everything tailored to your practice.",
   },
   {
     slug: "dental",

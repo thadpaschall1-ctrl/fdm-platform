@@ -71,10 +71,11 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
     setMessages([]);
 
     try {
+      const pickedNiche = (niche || customNiche).trim();
       const tokenRes = await fetch("/api/demo/start", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ niche: (niche || customNiche).trim() }),
+        body: JSON.stringify({ niche: pickedNiche }),
       });
       const tokenData = await tokenRes.json();
 
@@ -82,9 +83,31 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
         throw new Error(tokenData.error || "Failed to get voice session");
       }
 
+      // Apply niche-aware overrides so Holland already knows the caller's
+      // industry when the call connects. Without these, the ElevenLabs
+      // agent's default dashboard prompt runs — and Holland asks "what
+      // industry are you in?" because she has no idea.
+      //
+      // Requires: ElevenLabs agent config has "Allow prompt override" and
+      // "Allow first message override" enabled under Security. If they're
+      // off, overrides are silently ignored and we fall back to the agent's
+      // static prompt — same broken behavior as before.
       const conversation = await Conversation.startSession({
         signedUrl: tokenData.signed_url,
         connectionType: "websocket",
+        overrides: {
+          agent: {
+            prompt: { prompt: tokenData.system_prompt },
+            firstMessage: tokenData.first_message,
+            language: "en",
+          },
+        },
+        // Also expose niche as a dynamic variable. If overrides are blocked
+        // in the dashboard, an operator can reference {{niche}} in the
+        // agent's static prompt to still get niche context.
+        dynamicVariables: {
+          niche: pickedNiche,
+        },
         onConnect: () => {
           setIsConnected(true);
           setIsConnecting(false);

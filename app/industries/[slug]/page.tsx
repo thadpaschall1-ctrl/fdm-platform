@@ -94,21 +94,39 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             More leads, more revenue, less manual work — all delivered by AI, no account managers required.
           </p>
           <div className="reveal reveal-delay-3 mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link
-              href="/demo"
-              className="group inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
-            >
-              🎙 Try a Live AI Demo
-              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 backdrop-blur-sm"
-            >
-              Get a Free Quote
-            </Link>
+            {industry.externalCtaUrl ? (
+              // External-CTA mode — send prospects to the specialist brand
+              // instead of FDM's generic demo/pricing flow
+              <Link
+                href={industry.externalCtaUrl}
+                target="_blank"
+                rel="noopener"
+                className="group inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
+              >
+                {industry.externalCtaLabel || "Get Started →"}
+                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
+            ) : (
+              <>
+                <Link
+                  href="/demo"
+                  className="group inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(37,99,235,0.4)]"
+                >
+                  🎙 Try a Live AI Demo
+                  <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 backdrop-blur-sm"
+                >
+                  Get a Free Quote
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </section>
@@ -180,6 +198,19 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <p className="mx-auto mb-12 max-w-lg text-center text-slate-400">
             No long-term contracts. No hidden fees. Cancel anytime.
           </p>
+          {industry.externalCtaUrl && industry.externalCtaCallout && (
+            <div className="mx-auto mb-10 max-w-2xl rounded-2xl border border-blue-500/30 bg-blue-950/30 p-6 text-center">
+              <p className="text-sm text-slate-300 leading-relaxed">{industry.externalCtaCallout}</p>
+              <Link
+                href={industry.externalCtaUrl}
+                target="_blank"
+                rel="noopener"
+                className="mt-4 inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+              >
+                {industry.externalCtaLabel || "Visit the specialist platform →"}
+              </Link>
+            </div>
+          )}
           <div className="grid gap-6 lg:grid-cols-4">
             {UNIFIED_PACKAGES.map((pkg) => (
               <div
@@ -220,14 +251,17 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                   ))}
                 </ul>
                 <Link
-                  href={`/pricing?tier=${pkg.slug}`}
+                  href={industry.externalCtaUrl || `/pricing?tier=${pkg.slug}`}
+                  {...(industry.externalCtaUrl
+                    ? { target: "_blank", rel: "noopener" }
+                    : {})}
                   className={`mt-6 block rounded-xl py-3 text-center text-sm font-bold transition-all ${
                     pkg.highlighted
                       ? "bg-blue-600 text-white hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
                       : "bg-white/10 text-white hover:bg-white/20"
                   }`}
                 >
-                  Get Started →
+                  {industry.externalCtaUrl ? (industry.externalCtaLabel || "Get Started →") : "Get Started →"}
                 </Link>
               </div>
             ))}
@@ -238,7 +272,10 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      {/* Demo CTA */}
+      {/* Demo CTA — hidden when externalCtaUrl is set, since the specialist
+          brand runs its own demo experience and we don't want to dilute with
+          FDM's generic one. */}
+      {!industry.externalCtaUrl && (
       <section className="px-6 py-16">
         <div className="mx-auto max-w-2xl">
           <div className="border-gradient rounded-3xl bg-slate-900 p-12 text-center">
@@ -260,6 +297,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </section>
+      )}
 
       {/* FAQs */}
       <section className="px-6 py-20">

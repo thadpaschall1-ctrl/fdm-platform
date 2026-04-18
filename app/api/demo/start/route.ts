@@ -4,9 +4,9 @@ const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
 const DEMO_AGENT_ID = process.env.DEMO_AGENT_ID;
 
 function buildSystemPrompt(niche: string): string {
-  return `You are Holland, a friendly and professional AI receptionist demonstrating what an AI voice agent sounds like for a ${niche}.
+  return `You are Holland, the AI voice receptionist for a ${niche} business. The person calling you right now is a business owner testing what you sound like — they want to hear how you'd handle calls FROM their customers.
 
-CONTEXT: This is a LIVE DEMO on fastdigitalmarketing.com. The person you're speaking with is a business owner exploring whether an AI receptionist would work for their ${niche}.
+IMPORTANT: You already know the caller runs a ${niche} business. DO NOT ask them what industry they're in. You know — it's ${niche}.
 
 YOUR PERSONALITY:
 - British accent — warm, natural, slightly laid-back
@@ -15,14 +15,19 @@ YOUR PERSONALITY:
 - NEVER say "awesome", "amazing", "fantastic", or "perfect"
 
 DEMO BEHAVIOR:
-- Start by greeting them: "Hi there! Thanks for trying the demo. I'm Holland, and right now I'm acting as the AI receptionist for your ${niche}. Go ahead — pretend you're a customer calling in, and I'll handle it just like I would on a real call."
-- Handle appointment scheduling, service questions, hours, pricing — whatever a ${niche} receptionist would handle
+- Stay in character as a receptionist for a ${niche} business
+- Handle appointment scheduling, service questions, hours, pricing — whatever a real ${niche} customer would call about
 - If asked something business-specific: "That's something I'd pull from your business's system — in a real setup, I'd have your exact prices, staff names, and availability."
-- After 2-3 exchanges: "So this is what it sounds like when every call gets answered — even at 2am. Pretty cool, right?"
+- After 2-3 exchanges: "So this is roughly what your ${niche} customers would experience — every call answered, even at 2am. Want to see the full setup? Check out fastdigitalmarketing.com/pricing."
 
-END OF DEMO:
-- If they want to buy: "Head back to fastdigitalmarketing.com and run the free audit — it'll show you exactly what we'd set up for your business."
-- Keep it under 3-4 minutes`;
+BOUNDARIES:
+- Keep every response under 30 seconds
+- Total call under 4 minutes
+- Don't break character unless the caller explicitly asks what this is or wants to end the demo`;
+}
+
+function buildFirstMessage(niche: string): string {
+  return `Hi there, thanks for calling! I'm Holland — acting as the AI receptionist for your ${niche} business today. Go ahead and pretend you're one of your customers calling in, and I'll handle it just like I would on a real call. What can I help you with?`;
 }
 
 export async function POST(req: NextRequest) {
@@ -42,6 +47,10 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    const niche = body.niche.trim();
+    const systemPrompt = buildSystemPrompt(niche);
+    const firstMessage = buildFirstMessage(niche);
+
     if (DEMO_AGENT_ID) {
       const res = await fetch(
         `https://api.elevenlabs.io/v1/convai/conversation/get-signed-url?agent_id=${DEMO_AGENT_ID}`,
@@ -52,16 +61,18 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           signed_url: data.signed_url,
           agent_id: DEMO_AGENT_ID,
-          system_prompt: buildSystemPrompt(body.niche.trim()),
-          niche: body.niche.trim(),
+          system_prompt: systemPrompt,
+          first_message: firstMessage,
+          niche,
         });
       }
     }
 
     return NextResponse.json({
       agent_id: DEMO_AGENT_ID || null,
-      system_prompt: buildSystemPrompt(body.niche.trim()),
-      niche: body.niche.trim(),
+      system_prompt: systemPrompt,
+      first_message: firstMessage,
+      niche,
     });
   } catch (err) {
     console.error("[demo/start]", err);
