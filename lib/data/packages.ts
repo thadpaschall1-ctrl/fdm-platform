@@ -13,6 +13,17 @@
 
 export type PackageSlug = "basic" | "smart" | "voice" | "full";
 
+export interface PackageFeature {
+  /** Short label displayed on the pricing card */
+  label: string;
+  /**
+   * Plain-English explainer shown in an (i) tooltip when the user taps the icon.
+   * Written at a 9th-grade reading level for blue-collar contractors.
+   * Undefined = no tooltip (feature is self-evident).
+   */
+  explainer?: string;
+}
+
 export interface PackageTier {
   slug: PackageSlug;
   name: string;
@@ -23,7 +34,7 @@ export interface PackageTier {
   /** One-liner shown under the tier name on the pricing card */
   tagline: string;
   /** Bullet list shown on pricing cards + industry page feature lists */
-  features: string[];
+  features: PackageFeature[];
   /** Fine-print caps that appear in TOS + dashboard usage meters */
   limits: string[];
   /** Visually highlight this tier as "recommended" on the pricing card */
@@ -58,16 +69,46 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
     priceAnnual: 470,
     tagline: "Professional web presence, built and hosted for you.",
     features: [
-      "1–3 pages (home, about, contact)",
-      "Up to 750 words of professional copy",
-      "Mobile-optimized, fast-loading",
-      "Contact form with email alerts",
-      "Click-to-call button",
-      "SSL security + hosting + daily backups",
-      "Custom domain connection (or free subdomain)",
-      "Self-service dashboard",
-      "Help Center access (100+ how-to guides)",
-      "Live in 5 business days",
+      {
+        label: "1–3 pages (home, about, contact)",
+        explainer: "A small website with up to 3 pages. Enough to tell folks who you are, what you do, and how to reach you. Perfect if you just need a solid online presence without a bunch of extra stuff.",
+      },
+      {
+        label: "Up to 750 words of professional copy",
+        explainer: "We write the words on your website for you. 750 words is enough to cover your services, your experience, and why people should hire you. You don't write a thing.",
+      },
+      {
+        label: "Mobile-optimized, fast-loading",
+        explainer: "Your site works perfectly on phones, tablets, and computers — loads in under 2 seconds. When somebody's standing in their driveway with a broken pipe and they Google you, your site opens before they lose patience.",
+      },
+      {
+        label: "Contact form with email alerts",
+        explainer: "When somebody fills out the form on your website, we send you an email right away. You can call them back before they call the next guy on the list.",
+      },
+      {
+        label: "Click-to-call button",
+        explainer: "On a phone, folks just tap one button and it calls you — no typing numbers. Sounds small, but it means 3x more people actually pick up the phone to hire you.",
+      },
+      {
+        label: "SSL security + hosting + daily backups",
+        explainer: "Your site shows that little padlock in the browser (people trust it more), it's hosted on our servers (nothing for you to manage), and we save a copy every single day. If anything ever breaks, we have you back online in minutes.",
+      },
+      {
+        label: "Custom domain connection (or free subdomain)",
+        explainer: "Your site can live at YourCompany.com if you already own a web address. If you don't, we give you a free one like YourCompany.fdmsites.com so you can get started right now without buying anything.",
+      },
+      {
+        label: "Self-service dashboard",
+        explainer: "You get a simple login to change anything on your site yourself — hours, phone number, photos, prices, you name it. Takes 30 seconds, no phone call needed. Most folks never have to contact us at all.",
+      },
+      {
+        label: "Help Center with 100+ step-by-step guides",
+        explainer: "Any question you could have is already answered in a library with screenshots and click-by-click instructions. Plus an AI assistant that finds the right answer in seconds. You help yourself on your own schedule.",
+      },
+      {
+        label: "Live in 5 business days",
+        explainer: "You sign up Monday, your website is live by Friday. No months of back-and-forth. No meetings. We build it, you review it, we publish it.",
+      },
     ],
     limits: [
       "Up to 15 content updates/month via dashboard",
@@ -77,21 +118,50 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
   {
     slug: "smart",
     name: "Smart Website",
-    priceMonthly: 147,
-    priceAnnual: 1470,
+    priceMonthly: 197,
+    priceAnnual: 1970,
     tagline: "Everything in Basic plus the growth engine.",
     highlighted: true,
     features: [
-      "Everything in Basic",
-      "Up to 15 pages",
-      "Up to 3,000 words of professional copy",
-      "Keyword Research Engine — 50 low-competition keywords for your market",
-      "New AI-written blog post every week (4/month)",
-      "FAQ that auto-expands from real customer questions",
-      "AI search optimization (ChatGPT, Perplexity, Google AI Overviews)",
-      "Advanced schema markup",
-      "Lead capture forms with instant alerts",
-      "Monthly performance report",
+      {
+        label: "Everything in Basic",
+      },
+      {
+        label: "Up to 15 pages",
+        explainer: "A bigger site — room for every single service you offer, a FAQ page, testimonials, photos of your work, a blog, and more. Plenty of space to grow into.",
+      },
+      {
+        label: "Up to 3,000 words of professional copy",
+        explainer: "We write up to 3,000 words for you — enough to cover every service in real depth, plus the kind of pages that actually help you show up on Google.",
+      },
+      {
+        label: "Keyword Research Engine — 50 local keywords",
+        explainer: "We find 50 Google search phrases that people in your area are actually typing — ones your competitors are ignoring — so you can show up higher with less work. Think 'foundation crack repair Tulsa' or 'emergency plumber Ada' — real words customers use.",
+      },
+      {
+        label: "New AI-written blog post every week",
+        explainer: "Every week we publish a new article on your site, targeting one of those keywords. Over a year that's 52 brand-new pages helping you get found on Google. You approve each one from your dashboard before it goes live.",
+      },
+      {
+        label: "FAQ that grows on its own",
+        explainer: "When your customers ask questions we haven't answered yet, we add those questions and answers to your FAQ page automatically. Your site gets smarter every week — you never have to type a word.",
+      },
+      {
+        label: "AI search optimization (ChatGPT, Perplexity, Google AI)",
+        explainer: "People don't just Google anymore — they ask ChatGPT, Perplexity, and Google's new AI answers. We set up your site so those AI tools recommend your business when people ask about what you do. It's how you get found in the next 5 years.",
+      },
+      {
+        label: "Advanced schema markup",
+        explainer: "Special hidden code we add to your site that helps Google understand what you do. That's how your business shows up with stars, hours, prices, and the map pin on Google instead of just a blue link. It's free traffic other folks leave on the table.",
+      },
+      {
+        label: "Lead capture forms with instant alerts",
+        explainer: "Forms on your site that grab a lead's name, phone, and what they need — then text AND email you the second somebody fills one out. First one to call back wins the job. Speed matters.",
+      },
+      {
+        label: "Monthly performance report",
+        explainer: "A one-page summary emailed to you every month. Shows how many people visited, how many became leads, which Google searches are bringing you business, and where you rank. No jargon — just the numbers that matter.",
+      },
     ],
     limits: [
       "4 blog posts/month included (upgrade: Content Velocity add-on)",
@@ -102,17 +172,37 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
   {
     slug: "voice",
     name: "Smart Site + Voice",
-    priceMonthly: 247,
-    priceAnnual: 2470,
+    priceMonthly: 297,
+    priceAnnual: 2970,
     tagline: "Never miss a lead. Holland answers 24/7.",
     features: [
-      "Everything in Smart Website",
-      "24/7 AI Voice Receptionist (Holland)",
-      "Niche-trained knowledge base",
-      "Dedicated business phone number",
-      "Auto-updated knowledge base from your site",
-      "SMS booking confirmations",
-      "Guided Google Business Profile Setup included (normally $97)",
+      {
+        label: "Everything in Smart Website",
+      },
+      {
+        label: "24/7 AI Voice Receptionist (Holland)",
+        explainer: "Holland is an AI that answers your phone — day, night, weekends, holidays. She sounds like a real person. She never takes a break, never calls in sick, and never sends a caller to voicemail. Every call gets handled.",
+      },
+      {
+        label: "Niche-trained knowledge base",
+        explainer: "Holland knows YOUR business — your services, your pricing, your hours, what makes you different from the other guy. She's not a generic robot; she's been trained on everything a customer of yours would ask.",
+      },
+      {
+        label: "Dedicated business phone number",
+        explainer: "A brand-new phone number just for your business that we set up for you. Calls and texts both come in to Holland. You put it on your truck, your business cards, your Google listing — wherever.",
+      },
+      {
+        label: "Knowledge base auto-updates from your site",
+        explainer: "When you change something on your website — new service, different hours, a price change — Holland learns it automatically within minutes. You never have to update her separately. One change, everywhere.",
+      },
+      {
+        label: "SMS booking confirmations",
+        explainer: "When Holland books an appointment, the customer gets a text right away confirming the date and time. Fewer no-shows, fewer people forgetting their appointment, fewer headaches for you.",
+      },
+      {
+        label: "Guided Google Business Profile setup (normally $97)",
+        explainer: "Your Google Business Profile is that big listing with stars, photos, and the map that people see before your website — 70% of your customers look there first. We help you claim it, fill it in, and make it look good. Included free with this plan.",
+      },
     ],
     limits: [
       "1,000 inbound minutes/month ($0.12/min overage)",
@@ -127,12 +217,29 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
     priceAnnual: 3970,
     tagline: "The entire growth engine on autopilot.",
     features: [
-      "Everything in Smart Site + Voice",
-      "Review Autopilot — automated review requests after every job",
-      "New-Client Nurture drips (SMS + email)",
-      "Local SEO & AI Search content strategy",
-      "Guided Google Business Profile Setup included",
-      "Priority AI support in dashboard",
+      {
+        label: "Everything in Smart Site + Voice",
+      },
+      {
+        label: "Review Autopilot — automatic review requests",
+        explainer: "After you finish a job, we automatically text your customer asking for a Google review. Happy customers go straight to Google (and boost your stars). If somebody's unhappy, they come to you privately first so you can fix it before they blast you online. This is how shops end up with 500+ 5-star reviews.",
+      },
+      {
+        label: "New-Client Nurture drips (SMS + email)",
+        explainer: "When somebody fills out your lead form but doesn't book yet, we automatically text and email them over the next few weeks — friendly reminders, helpful tips, a soft nudge to book. Most folks need 3–5 touches before they hire you. We do all of them for you.",
+      },
+      {
+        label: "Local SEO & AI Search content strategy",
+        explainer: "The full playbook to get you ranked on Google Maps, regular Google search, AND the new AI search engines. Citations built (mentions of your business on other sites), content published regularly, schema maintained — all of it, ongoing, no effort from you.",
+      },
+      {
+        label: "Guided Google Business Profile setup included",
+        explainer: "Same as Smart+Voice — we help you claim and set up your Google Business Profile. Normally $97, included free.",
+      },
+      {
+        label: "Priority AI support in dashboard",
+        explainer: "Faster response from our AI support assistant, plus your support requests get bumped to the front of the line if anything needs human eyes.",
+      },
     ],
     limits: [
       "3,000 outbound SMS/month",
