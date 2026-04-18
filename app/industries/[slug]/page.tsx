@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { INDUSTRIES, getIndustryBySlug } from "@/lib/data/industries";
+import { UNIFIED_PACKAGES } from "@/lib/data/packages";
 
 export function generateStaticParams() {
   return INDUSTRIES.map((i) => ({ slug: i.slug }));
@@ -160,11 +161,11 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <p className="mx-auto mb-12 max-w-lg text-center text-slate-400">
             No long-term contracts. No hidden fees. Cancel anytime.
           </p>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {industry.packages.map((pkg) => (
+          <div className="grid gap-6 lg:grid-cols-4">
+            {UNIFIED_PACKAGES.map((pkg) => (
               <div
-                key={pkg.name}
-                className={`card-hover rounded-2xl border p-8 ${
+                key={pkg.slug}
+                className={`card-hover rounded-2xl border p-7 ${
                   pkg.highlighted
                     ? "border-blue-500/40 bg-blue-950/20 ring-1 ring-blue-500/20 relative"
                     : "border-white/[0.08] bg-slate-900/80"
@@ -177,17 +178,19 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                     </span>
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-white">{pkg.name}</h3>
-                <div className="mt-3">
-                  <span className="text-4xl font-bold text-white">{pkg.price}</span>
-                  {pkg.setup && (
-                    <span className="ml-2 text-sm text-slate-500">+ {pkg.setup}</span>
-                  )}
+                <h3 className="text-lg font-bold text-white">{pkg.name}</h3>
+                <p className="mt-1 text-xs text-slate-500">{pkg.tagline}</p>
+                <div className="mt-4">
+                  <span className="text-4xl font-bold text-white">${pkg.priceMonthly}</span>
+                  <span className="ml-1 text-sm text-slate-500">/mo</span>
                 </div>
-                <ul className="mt-7 space-y-3">
+                <p className="mt-1 text-xs text-slate-500">
+                  or ${pkg.priceAnnual}/yr (2 months free)
+                </p>
+                <ul className="mt-6 space-y-2.5">
                   {pkg.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5 text-sm text-slate-300">
-                      <svg className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                    <li key={f} className="flex items-start gap-2 text-xs text-slate-300 leading-relaxed">
+                      <svg className="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                       {f}
@@ -195,8 +198,8 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                   ))}
                 </ul>
                 <Link
-                  href="/#contact"
-                  className={`mt-7 block rounded-xl py-3.5 text-center text-sm font-bold transition-all ${
+                  href={`/pricing?tier=${pkg.slug}`}
+                  className={`mt-6 block rounded-xl py-3 text-center text-sm font-bold transition-all ${
                     pkg.highlighted
                       ? "bg-blue-600 text-white hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
                       : "bg-white/10 text-white hover:bg-white/20"
@@ -207,6 +210,9 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
               </div>
             ))}
           </div>
+          <p className="mt-8 text-center text-xs text-slate-500">
+            $0 setup · month-to-month · cancel anytime · all services fully automated
+          </p>
         </div>
       </section>
 

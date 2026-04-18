@@ -6,18 +6,13 @@ export interface IndustryData {
   hero: string;
   painPoints: string[];
   solutions: { title: string; description: string }[];
-  packages: {
-    name: string;
-    price: string;
-    setup?: string;
-    features: string[];
-    highlighted?: boolean;
-  }[];
   stats: { value: string; label: string }[];
   faqs: { question: string; answer: string }[];
   /** Old URLs that should 301 redirect to this page */
   redirectFrom?: string[];
 }
+// NOTE: Pricing was removed per-industry. All industries share UNIFIED_PACKAGES
+// from `./packages.ts`. Change pricing once, updates across all 34 industries.
 
 export const INDUSTRIES: IndustryData[] = [
   {
@@ -39,11 +34,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Automated Lead Follow-Up", description: "Every lead gets an instant text and email response, followed by a multi-step nurture sequence. No more leads slipping through the cracks." },
       { title: "Review Autopilot", description: "After every installation, customers automatically receive a review request. Your 5-star reviews build trust and boost your Google Maps ranking." },
       { title: "Smart Website", description: "A fast, mobile-optimized website built to convert visitors into booked consultations — with online scheduling, click-to-call, and trust signals." },
-    ],
-    packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Local SEO (5 target keywords)", "Review Autopilot", "Automated Lead Nurture Sequence", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management ($500 ad budget included)", "15 target keywords", "Social Media Management", "Monthly Strategy Call"] },
     ],
     stats: [
       { value: "62%", label: "of calls to security companies go unanswered" },
@@ -78,11 +68,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Local SEO & AI Search", description: "We optimize your Google Business Profile, build local citations, and structure your site so Google, ChatGPT, and Perplexity recommend you when patients search." },
       { title: "Smart Website", description: "A modern, fast website that showcases your practice, ranks on Google, and converts visitors into booked appointments — not a template, a custom-built site." },
     ],
-    packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Review Autopilot", "Patient Reactivation Campaign", "Local SEO (5 keywords)", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "Social Media Content", "Monthly Strategy Call"] },
-    ],
     stats: [
       { value: "35M+", label: "Americans visit chiropractors annually" },
       { value: "47%", label: "of patients find their chiropractor via Google" },
@@ -115,11 +100,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Recall & Reactivation", description: "Patients overdue for cleanings get automated text and email reminders. We fill hygiene gaps without your staff making phone calls." },
       { title: "High-Value Case SEO", description: "We rank you for 'dental implants [city]', 'cosmetic dentist near me', and other high-CPC keywords that attract profitable cases." },
       { title: "Smart Website", description: "A fast, modern website with online scheduling, before/after galleries, and trust signals that convert visitors into patients." },
-    ],
-    packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Review Autopilot", "Recall & Reactivation", "Local SEO (5 keywords)", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads (implants, cosmetic, emergency)", "15 target keywords", "Social Media Content", "Monthly Strategy Call"] },
     ],
     stats: [
       { value: "$140", label: "average CPC for 'dental implants near me'" },
@@ -154,11 +134,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Review Autopilot", description: "After every completed job, your customer gets an automated review request. Plumbers with 100+ Google reviews dominate the Map Pack." },
       { title: "Smart Website", description: "A fast website with click-to-call, online booking, service area maps, and trust signals that convert panicked homeowners into booked jobs." },
     ],
-    packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Review Autopilot", "Local SEO (5 keywords)", "Automated Lead Nurture", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "LSA (Local Service Ads) Management", "Monthly Strategy Call"] },
-    ],
     stats: [
       { value: "85%", label: "of plumbing calls are emergencies needing same-day service" },
       { value: "$35-65", label: "average CPC for plumbing keywords" },
@@ -191,11 +166,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Maintenance Agreement Campaigns", description: "Automated campaigns to sell new maintenance agreements and renew existing ones — creating predictable recurring revenue through slow seasons." },
       { title: "Review Autopilot", description: "Automated review requests after every install and service call. HVAC companies with 200+ reviews dominate their local market." },
       { title: "Smart Website", description: "A modern website with emergency click-to-call, online scheduling for tune-ups, and financing information that converts visitors into booked jobs." },
-    ],
-    packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Seasonal SEO (5 keywords)", "Review Autopilot", "Maintenance Agreement Campaigns", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "LSA Management", "Monthly Strategy Call"] },
     ],
     stats: [
       { value: "$50-80", label: "average CPC for HVAC emergency keywords" },
@@ -230,11 +200,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Review Autopilot", description: "After every completed job, your customer gets an automated review request. More reviews = higher Google rankings = more calls." },
       { title: "Smart Website", description: "A professional website with your services, service area, licensing info, and online booking that makes homeowners confident in hiring you." },
     ],
-    packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Local SEO (5 keywords)", "Review Autopilot", "Estimate Follow-Up Automation", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "LSA Management", "Monthly Strategy Call"] },
-    ],
     stats: [
       { value: "$30-55", label: "average CPC for electrician keywords" },
       { value: "78%", label: "of homeowners hire the first electrician who answers" },
@@ -267,11 +232,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Speed-to-Lead Automation", description: "The first roofer to respond usually wins the job. Our system responds to every lead in under 60 seconds with a text, email, and call-back — automatically." },
       { title: "Review Autopilot", description: "After every completed roof, your customer automatically gets a review request. Roofers with 200+ reviews charge more and close faster." },
       { title: "Smart Website", description: "A professional site with before/after galleries, financing info, manufacturer certifications, and instant quote requests." },
-    ],
-    packages: [
-      { name: "Starter", price: "$197/mo", features: ["AI Voice Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$397/mo", setup: "$297 setup", features: ["Everything in Starter", "Local SEO (5 keywords)", "Review Autopilot", "Speed-to-Lead Automation", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$697/mo", setup: "$497 setup", features: ["Everything in Growth", "Google Ads (storm + commercial)", "15 target keywords", "LSA Management", "Monthly Strategy Call"] },
     ],
     stats: [
       { value: "$40-90", label: "average CPC for roofing keywords" },
@@ -306,11 +266,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Speed-to-Lead Follow-Up", description: "In legal, the first firm to respond wins 50% of the time. Our system responds to every inquiry in under 60 seconds — 24/7." },
       { title: "Smart Website", description: "A professional, trust-building website with attorney profiles, practice area pages, case results, and clear calls-to-action that converts visitors into consultations." },
     ],
-    packages: [
-      { name: "Starter", price: "$297/mo", features: ["AI Intake Receptionist (24/7)", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$597/mo", setup: "$497 setup", features: ["Everything in Starter", "Practice Area SEO (5 keywords)", "Review Management", "Speed-to-Lead Automation", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$997/mo", setup: "$697 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "LSA Management", "Monthly Strategy Call", "Content Marketing (2 articles/mo)"] },
-    ],
     stats: [
       { value: "$100-500", label: "average CPC for personal injury keywords" },
       { value: "79%", label: "of legal consumers search online first" },
@@ -344,11 +299,6 @@ export const INDUSTRIES: IndustryData[] = [
       { title: "Review & Reputation Management", description: "Automated review requests, professional responses to all reviews, and a reputation monitoring system that protects your brand." },
       { title: "Smart Website", description: "A visually stunning website with treatment menus, before/after galleries, provider bios, and online booking that converts browsers into booked consultations." },
     ],
-    packages: [
-      { name: "Starter", price: "$297/mo", features: ["AI Voice & Chat Receptionist", "Voice AI Callback", "Google Business Profile Optimization", "Monthly Performance Report"] },
-      { name: "Growth", price: "$597/mo", setup: "$497 setup", features: ["Everything in Starter", "Aesthetics SEO (5 keywords)", "Review Autopilot", "Instagram Content (8 posts/mo)", "Smart Website"], highlighted: true },
-      { name: "Pro", price: "$997/mo", setup: "$697 setup", features: ["Everything in Growth", "Google Ads Management", "15 target keywords", "TikTok + Instagram Ads", "Monthly Strategy Call", "Email Campaigns (memberships)"] },
-    ],
     stats: [
       { value: "$21B", label: "US medical aesthetics market (2026)" },
       { value: "$60-150", label: "average CPC for Botox/filler keywords" },
@@ -359,6 +309,39 @@ export const INDUSTRIES: IndustryData[] = [
       { question: "Can the AI handle sensitive aesthetic questions?", answer: "Yes. We train the AI to answer common questions about treatments, downtime, pricing ranges, and candidacy — while appropriately directing medical questions to your providers. It's trained to be warm and non-judgmental." },
       { question: "How do you help sell memberships and packages?", answer: "Through targeted email campaigns, social media promotions, and website optimization that highlights the value of your membership programs. We also set up automated renewal reminders and win-back campaigns for lapsed members." },
       { question: "Do you create before/after content?", answer: "We help you set up a system for capturing and organizing before/after photos, then we optimize and deploy them across your website, social media, and Google Business Profile. You take the photos; we make them work for you." },
+    ],
+    redirectFrom: [],
+  },
+  {
+    slug: "foundation-repair",
+    name: "Foundation Repair Contractors",
+    metaTitle: "Foundation Repair Marketing | AI Lead Generation for Foundation Contractors | Fast Digital Marketing",
+    metaDescription: "Marketing automation for foundation repair companies. AI voice agent handles panicked homeowners 24/7, SEO for urgent foundation searches, and follow-up that books more $10K+ assessments.",
+    hero: "Book More Assessments. Close More $10K+ Jobs.",
+    painPoints: [
+      "Panicked homeowners call after seeing a crack — and go to voicemail if your crew is out on a job",
+      "Every missed call is a $5K–$30K job that went to the next contractor on Google",
+      "Big-ticket decisions mean long sales cycles — 'just getting quotes' prospects disappear without follow-up",
+      "Technical questions (piering vs. wall anchors vs. crack injection) confuse callers before you can even quote",
+      "Heavy rain and freeze-thaw seasons spike call volume beyond what you can staff for",
+    ],
+    solutions: [
+      { title: "AI Voice Receptionist (Panic-Trained)", description: "Holland answers every call 24/7 with empathy first — 'That sounds scary, tell me what you're seeing.' She triages severity (cracks, water, sloping floors), handles technical questions, and books a free on-site assessment before the homeowner calls your competitor." },
+      { title: "Emergency-Intent SEO", description: "We rank you for the searches that actually bring buyers — 'foundation repair near me,' 'foundation crack [city],' 'settling foundation [city],' 'water in basement.' Not vanity keywords — revenue keywords." },
+      { title: "Long-Cycle Nurture Automation", description: "Not every caller is ready to sign today. Our 30/60/90-day text + email sequences keep you top-of-mind so when the crack spreads or water comes back, they call you — not someone they found on TikTok." },
+      { title: "Review Autopilot", description: "A $15K foundation job is a trust purchase. Every completed job triggers an automated review request so your Google reviews climb — and 'foundation repair [city]' searchers pick you over the competition." },
+      { title: "Smart Website (Warranty-Forward)", description: "Built-in before/after gallery, written lifetime warranty, structural engineer credentials, and online assessment booking. Every page is written to answer the #1 homeowner question: 'How do I know these people aren't going to rip me off on a $20K job?'" },
+    ],
+    stats: [
+      { value: "40%+", label: "of calls to foundation repair companies go unanswered" },
+      { value: "$8–15K", label: "average foundation repair ticket" },
+      { value: "$24B", label: "US foundation repair market (2026)" },
+      { value: "68%", label: "of homeowners pick the contractor based on reviews + warranty" },
+    ],
+    faqs: [
+      { question: "Do you work with piering installers, slab lifters, crawlspace specialists, AND crack injection shops?", answer: "Yes — every sub-vertical. Whether you do helical piers, push piers, polyurethane slab jacking, carbon fiber wall reinforcement, crack injection, or crawlspace encapsulation, we customize the messaging and SEO keywords to your specialty so you attract the right jobs." },
+      { question: "Can the AI handle technical questions like 'is it settling or just a cosmetic crack'?", answer: "Yes. Holland is trained on settlement vs. heave vs. hydrostatic pressure vs. thermal movement. She won't diagnose — that's what your inspector does — but she qualifies severity with the right triage questions (size/location/water/doors/floors) and books the assessment. She also handles 'how much does it cost' without scaring callers off: 'Every foundation's different, which is why the on-site inspection is free.'" },
+      { question: "How fast will leads start coming in?", answer: "Google Ads: booked appointments within 48–72 hours of launch. Local SEO: 60–90 days for organic rankings to compound. The AI receptionist starts converting missed-call leakage into booked assessments the day it goes live — which for most foundation shops is 3–5x bigger than any new-lead channel." },
     ],
     redirectFrom: [],
   },
