@@ -47,6 +47,16 @@ const CATEGORIES: {
       "solar-installers",
       "dryer-vent-cleaning",
       "biohazard-cleanup",
+      "gutter-services",
+      "garage-door",
+      "fence-installers",
+      "tree-service",
+      "appliance-repair",
+      "painters",
+      "kitchen-bath-remodel",
+      "home-inspectors",
+      "restoration-water-fire",
+      "outdoor-lighting",
     ],
   },
   {
@@ -76,6 +86,7 @@ const CATEGORIES: {
       "deck-builders",
       "artificial-turf",
       "landscaping",
+      "irrigation-sprinkler",
     ],
   },
   {
@@ -90,6 +101,8 @@ const CATEGORIES: {
       "pest-control",
       "mosquito-control",
       "bathtub-reglazing",
+      "carpet-cleaning",
+      "junk-removal",
     ],
   },
   {
@@ -97,7 +110,11 @@ const CATEGORIES: {
     blurb:
       "Adult-child buyer, benefits-navigation intensive, long research cycles. Huge 2026–2035 tailwind.",
     accent: "violet",
-    slugs: ["stair-lift", "senior-bathroom-remodel"],
+    slugs: [
+      "stair-lift",
+      "senior-bathroom-remodel",
+      "home-health-senior-care",
+    ],
   },
   {
     name: "Health, Wellness & Beauty",
@@ -108,6 +125,7 @@ const CATEGORIES: {
       "chiropractors",
       "dental",
       "medical-spas",
+      "weight-loss-hrt",
       "fitness",
       "hair-salons",
     ],
@@ -115,16 +133,28 @@ const CATEGORIES: {
   {
     name: "Pet & Veterinary",
     blurb:
-      "Clinic-based and mobile pet services — wellness, grooming, and in-home vet care.",
+      "Clinic-based and mobile pet services — wellness, grooming, boarding, and training.",
     accent: "teal",
-    slugs: ["veterinary", "mobile-vet", "mobile-pet-grooming"],
+    slugs: [
+      "veterinary",
+      "mobile-vet",
+      "mobile-pet-grooming",
+      "pet-boarding",
+      "dog-trainers",
+    ],
   },
   {
     name: "Automotive",
     blurb:
       "Shop-based and mobile technicians. The phone rings while you're on a car — AI solves that.",
     accent: "orange",
-    slugs: ["auto-repair", "paintless-dent-repair", "auto-window-tint"],
+    slugs: [
+      "auto-repair",
+      "auto-body",
+      "paintless-dent-repair",
+      "auto-window-tint",
+      "car-detailing",
+    ],
   },
   {
     name: "Professional Services",
@@ -137,6 +167,8 @@ const CATEGORIES: {
       "insurance",
       "accounting",
       "business-consultants",
+      "financial-advisors",
+      "mortgage-brokers",
       "photography",
     ],
   },
