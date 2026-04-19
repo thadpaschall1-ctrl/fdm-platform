@@ -43,12 +43,11 @@ export function SiteFooter() {
             </h3>
             <ul className="space-y-2.5 text-sm text-slate-400">
               {[
+                { label: "Smart Website", href: "/services/smart-website" },
                 { label: "AI Voice Receptionist", href: "/services/ai-voice-receptionist" },
                 { label: "Voice AI Callback", href: "/services/voice-ai-callback" },
                 { label: "Review Autopilot", href: "/services/review-autopilot" },
-                { label: "Smart Website", href: "/services/smart-website" },
-                { label: "Local SEO & AI", href: "/services/local-seo-ai" },
-                { label: "Google Ads", href: "/services/paid-advertising" },
+                { label: "AI Search Optimization", href: "/services/local-seo-ai" },
                 { label: "Full Automation Stack", href: "/services/full-automation-stack" },
               ].map((s) => (
                 <li key={s.href}>

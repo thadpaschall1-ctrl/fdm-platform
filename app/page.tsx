@@ -6,16 +6,16 @@ import { ProcessTimeline } from "@/components/process-timeline";
 import { INDUSTRIES as INDUSTRY_DATA } from "@/lib/data/industries";
 
 export const metadata: Metadata = {
-  title: "Fast Digital Marketing | SEO, Google Ads & Web Design Agency",
+  title: "Fast Digital Marketing | AI-Delivered Marketing for Small Business",
   description:
-    "Fast Digital Marketing helps businesses grow online with SEO, Google Ads, professional web design, and AI-powered marketing automation. Get measurable results — fast.",
+    "AI-delivered marketing for small businesses. Smart Websites, AI Voice Receptionist, AI Search Optimization, Review Autopilot, and Lead Nurture — from $47/mo. No contracts, $0 setup, 5-day launch.",
   alternates: {
     canonical: "https://fastdigitalmarketing.com",
   },
   openGraph: {
-    title: "Fast Digital Marketing | SEO, Google Ads & Web Design Agency",
+    title: "Fast Digital Marketing | AI-Delivered Marketing Platform",
     description:
-      "Grow your business online with SEO, paid ads, web design, and AI automation. Results-driven digital marketing for any industry.",
+      "Smart Websites, AI Voice Receptionist, AI Search Optimization, Review Autopilot. Built for 75+ industries. $47 to $397/mo. Month-to-month. Live in 5 days.",
     url: "https://fastdigitalmarketing.com",
     type: "website",
   },
@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 const SERVICES = [
   {
     icon: "💻",
-    title: "Free Smart Website",
+    title: "Smart Website",
     slug: "smart-website",
-    description: "We build your website for free. $49/mo covers everything. AI Search Optimized, fast, mobile-first, and live in 5 days.",
-    highlights: ["Free to build", "$49/mo — everything included", "AI Search Optimized", "Live in 5 days"],
+    description: "AI Search Optimized website that ranks on Google AND AI engines like ChatGPT. Live in 5 business days.",
+    highlights: ["AI Search Optimized", "Weekly AI blog posts", "Self-service dashboard", "Live in 5 days"],
     color: "from-emerald-600 to-teal-500",
     glow: "group-hover:shadow-emerald-500/20",
   },
@@ -35,8 +35,8 @@ const SERVICES = [
     icon: "📞",
     title: "AI Voice Receptionist",
     slug: "ai-voice-receptionist",
-    description: "Every call answered on the first ring — 24/7. Natural conversation, appointment booking, and lead qualification.",
-    highlights: ["24/7 live answering", "Natural British accent", "Books appointments", "Transfers when needed"],
+    description: "Holland answers every call 24/7 — books appointments, qualifies leads, never sends anyone to voicemail.",
+    highlights: ["24/7 live answering", "Natural British accent", "Books appointments", "Industry-trained"],
     color: "from-blue-600 to-cyan-500",
     glow: "group-hover:shadow-blue-500/20",
   },
@@ -44,7 +44,7 @@ const SERVICES = [
     icon: "⚡",
     title: "Voice AI Callback",
     slug: "voice-ai-callback",
-    description: "Every missed call returned in under 60 seconds by your AI agent. She calls back, qualifies, and books.",
+    description: "Every missed call gets returned in under 60 seconds. Holland calls back, qualifies, and books the appointment.",
     highlights: ["60-second callback", "Lead qualification", "Direct booking", "Call recordings"],
     color: "from-violet-600 to-purple-500",
     glow: "group-hover:shadow-violet-500/20",
@@ -53,53 +53,26 @@ const SERVICES = [
     icon: "⭐",
     title: "Review Autopilot",
     slug: "review-autopilot",
-    description: "Automated review requests after every job. Happy customers go to Google, unhappy ones come to you.",
+    description: "Automated review requests after every job. Happy customers go to Google, unhappy ones come to you first.",
     highlights: ["Automated requests", "Smart routing", "One-tap reviews", "Response templates"],
     color: "from-amber-500 to-orange-500",
     glow: "group-hover:shadow-amber-500/20",
   },
   {
-    icon: "🔄",
-    title: "Client Reactivation",
-    slug: "client-reactivation",
-    description: "Your database is full of dormant customers. We reach out automatically to bring them back. 15-25% reactivation.",
-    highlights: ["Dormant client ID", "Multi-step sequences", "Direct booking", "ROI tracking"],
-    color: "from-pink-600 to-rose-500",
-    glow: "group-hover:shadow-pink-500/20",
-  },
-  {
-    icon: "🎯",
-    title: "New Client Nurture",
-    slug: "new-client-nurture",
-    description: "Only 2% of leads convert on first contact. Our sequences follow up until they book — no leads lost.",
-    highlights: ["Instant first response", "Multi-channel", "Behavior triggers", "Hot lead alerts"],
-    color: "from-sky-600 to-blue-500",
-    glow: "group-hover:shadow-sky-500/20",
-  },
-  {
     icon: "📈",
-    title: "Local SEO & AI Search",
+    title: "AI Search Optimization",
     slug: "local-seo-ai",
-    description: "Rank on Google Maps, organic search, AND AI engines. Google, ChatGPT, Perplexity — everywhere customers search.",
-    highlights: ["GBP optimization", "Citation building", "Content strategy", "AI search optimization"],
+    description: "Rank on Google Maps, organic search, AND AI engines. Cited by ChatGPT, Perplexity, and Google AI Overviews.",
+    highlights: ["GBP optimization", "Citation building", "Content strategy", "AI search ranking"],
     color: "from-teal-600 to-cyan-500",
     glow: "group-hover:shadow-teal-500/20",
-  },
-  {
-    icon: "🎰",
-    title: "Paid Advertising",
-    slug: "paid-advertising",
-    description: "Google Ads that turn spend into booked jobs. Tight targeting, compelling copy, weekly optimization.",
-    highlights: ["Search campaigns", "Local Service Ads", "Conversion tracking", "Weekly optimization"],
-    color: "from-red-600 to-orange-500",
-    glow: "group-hover:shadow-red-500/20",
   },
   {
     icon: "🚀",
     title: "Full Automation Stack",
     slug: "full-automation-stack",
-    description: "Everything in one package. AI receptionist, callbacks, reviews, reactivation, website, SEO, ads.",
-    highlights: ["Every service included", "One integrated system", "Live in 5 days", "Monthly strategy calls"],
+    description: "Every service in one plan. Smart Website, AI Voice Receptionist, Review Autopilot, and Nurture — $397/mo.",
+    highlights: ["Every service included", "One integrated system", "Live in 5 days", "$397/month"],
     color: "from-blue-600 to-violet-600",
     glow: "group-hover:shadow-blue-500/20",
   },
@@ -121,9 +94,9 @@ export default function HomePage() {
     url: "https://fastdigitalmarketing.com",
     logo: "https://fastdigitalmarketing.com/logo.png",
     image: "https://fastdigitalmarketing.com/og-image.png",
-    dateModified: "2026-04-14",
+    dateModified: "2026-04-19",
     description:
-      "Fast Digital Marketing is a U.S.-based full-service digital marketing agency specializing in SEO, Google Ads, web design, AI voice receptionists, and marketing automation for businesses across all industries.",
+      "Fast Digital Marketing is an AI-delivered digital marketing platform for small businesses. Smart Websites, AI Voice Receptionist, AI Search Optimization, Review Autopilot, and Lead Nurture — all automated, all self-service, month-to-month from $47/mo.",
     telephone: "+18889721544",
     email: "hello@fastdigitalmarketing.com",
     address: {
@@ -138,20 +111,14 @@ export default function HomePage() {
       name: "United States",
     },
     serviceType: [
-      "Search Engine Optimization",
-      "Pay-Per-Click Advertising",
-      "Web Design",
+      "AI-Powered Website Design",
       "AI Voice Receptionist",
+      "AI Search Optimization",
+      "Review Management Automation",
+      "Lead Nurture Automation",
       "Marketing Automation",
-      "Review Management",
-      "Client Reactivation",
     ],
     priceRange: "$$",
-    sameAs: [
-      "https://www.facebook.com/fastdigitalmarketing",
-      "https://www.linkedin.com/company/fast-digital-marketing",
-      "https://www.yelp.com/biz/fast-digital-marketing-tampa",
-    ],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.9",
@@ -171,15 +138,15 @@ export default function HomePage() {
         name: "What does Fast Digital Marketing do?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Fast Digital Marketing is a U.S.-based full-service digital marketing agency. We help businesses grow online through SEO, Google Ads, professional web design, AI-powered voice receptionists, review management, client reactivation campaigns, and complete marketing automation. We work with businesses in any industry across the United States.",
+          text: "Fast Digital Marketing is an AI-delivered marketing platform for small businesses. We build Smart Websites that rank on Google and AI search engines, run an AI voice receptionist that answers your phone 24/7, automate review requests, nurture leads, and handle AI Search Optimization across ChatGPT, Perplexity, and Google AI Overviews. Every service is AI-delivered and self-service — no account managers, no monthly calls, no long-term contracts. Plans run from $47/mo to $397/mo, and you can go from signup to live website in 5 business days.",
         },
       },
       {
         "@type": "Question",
-        name: "How much does the AI voice receptionist cost?",
+        name: "How much does Fast Digital Marketing cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The AI Voice Receptionist starts at $197 per month with no long-term contracts. It answers every call 24/7 with a natural-sounding voice, qualifies leads, and books appointments directly into your calendar. You can cancel anytime. It is also included in our Growth and Pro plans.",
+          text: "Four plans, all month-to-month, all with $0 setup and cancel anytime. Basic Website is $47/mo. Smart Website is $197/mo and adds a click-to-call button, lead-capture forms, AI Search Optimization, and weekly AI blog posts. Smart Site + Voice is $297/mo and adds Holland, the 24/7 AI voice receptionist. Full Automation Stack is $397/mo and adds Review Autopilot, New-Client Nurture, and Local SEO strategy. Annual plans get 2 months free.",
         },
       },
       {
@@ -187,7 +154,7 @@ export default function HomePage() {
         name: "How long does it take to build a website?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our Smart Websites are built on Next.js and delivered in as few as 5 business days. Every site loads in under 2 seconds, is mobile-first, SEO-optimized, and designed for both Google and AI search engines. The monthly cost is $397 with no setup fee.",
+          text: "Five business days from signup. You answer a few questions, upload your logo, and pick your colors. We write the content, build the site, optimize it for Google and AI search, and publish it. No meetings, no back-and-forth, no waiting on creative teams.",
         },
       },
       {
@@ -195,7 +162,7 @@ export default function HomePage() {
         name: "What industries does Fast Digital Marketing work with?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We work with businesses in any industry. Our most popular verticals include security companies, chiropractors, dental practices, plumbing companies, HVAC companies, electricians, roofing companies, law firms, and medical spas. If your customers search online, we can help you reach them.",
+          text: "We have dedicated playbooks for 75+ industries — home services, trades, concrete, outdoor living, cleaning, health and wellness, pet services, automotive, professional services, and more. Every industry page includes the pain points, solutions, and pricing tuned specifically for that niche. If your customers search online, we can help you reach them.",
         },
       },
       {
@@ -203,7 +170,7 @@ export default function HomePage() {
         name: "How does the free business audit work?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Our free business audit takes about 60 seconds. Enter your business name and we instantly analyze your Google reputation, website performance, SEO health, and AI search readiness. There is no signup, no credit card, and no sales call required -- just instant, actionable results you can use right away.",
+          text: "Put in your business name and city. In about 60 seconds the audit grades your online presence across six categories — Google reputation, website performance, AI search readiness, reviews, citations, and more. No signup, no credit card, no sales call. You get the gaps and exactly what to fix.",
         },
       },
       {
@@ -211,7 +178,7 @@ export default function HomePage() {
         name: "Can I try the AI receptionist before buying?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. You can try a live AI demo right on our website at no cost. You can also call our main number at (888) 972-1544 to experience the AI receptionist firsthand -- Holland answers 24/7. There is no obligation to buy.",
+          text: "Yes. The live demo at fastdigitalmarketing.com/demo lets you talk to Holland in your browser — pick your industry and she behaves like your business's AI receptionist. You can also call our main number at (888) 972-1544 to hear Holland handle a real call. No obligation either way.",
         },
       },
       {
@@ -219,7 +186,7 @@ export default function HomePage() {
         name: "What is included in the Full Automation Stack?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "The Full Automation Stack at $697/month includes every service we offer in one integrated package: AI voice receptionist, voice AI callback, review autopilot, client reactivation, new client nurture sequences, a smart website, local SEO and AI search optimization, and paid advertising management. It also includes monthly strategy calls and is live within 5 days.",
+          text: "The Full Automation Stack at $397/mo includes everything from the lower tiers — Smart Website, click-to-call, contact forms, self-service dashboard, AI Search Optimization, weekly AI blog posts, Holland the 24/7 AI voice receptionist, and the dedicated business phone number — plus Review Autopilot, New-Client Nurture drips, Local SEO + AI Search content strategy, and Guided Google Business Profile setup. Live in 5 business days. Month-to-month, cancel anytime.",
         },
       },
     ],
@@ -250,7 +217,7 @@ export default function HomePage() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
             </span>
-            Full-Service Digital Marketing Agency
+            AI-Delivered Marketing Platform
           </div>
 
           {/* Headline */}
@@ -261,30 +228,30 @@ export default function HomePage() {
           </h1>
 
           <p className="reveal reveal-delay-2 mx-auto mt-8 max-w-2xl text-lg text-slate-400 leading-relaxed sm:text-xl">
-            Fast Digital Marketing is a full-service digital marketing agency helping businesses
-            across the United States grow online with SEO, Google Ads, AI-powered voice receptionists,
-            professional web design, and marketing automation. Every website and campaign we build
-            is <span className="text-white font-medium">AI Search Optimized</span> — built to be found and cited
-            by Google, ChatGPT, Perplexity, and every major AI search engine. Not just indexed. <span className="text-white font-medium">Cited.</span>
+            Fast Digital Marketing is an <span className="text-white font-medium">AI-delivered</span> marketing
+            platform built for small business. Smart Websites, 24/7 AI voice receptionist, AI Search
+            Optimization, Review Autopilot, and Lead Nurture — all automated, all self-service. Every
+            site we build is <span className="text-white font-medium">AI Search Optimized</span> to be
+            cited by Google, ChatGPT, Perplexity, and every major AI engine. Not just indexed. <span className="text-white font-medium">Cited.</span>
           </p>
 
           {/* CTA Row */}
           <div className="reveal reveal-delay-3 mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href="/free-preview"
+              href="/audit"
               className="group relative inline-flex items-center gap-2 rounded-2xl bg-amber-500 px-10 py-5 text-lg font-bold text-slate-900 transition-all hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(245,158,11,0.4)]"
             >
               <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 opacity-0 transition-opacity group-hover:opacity-100" />
-              <span className="relative">See Your Free Website Preview</span>
+              <span className="relative">Start My Free Audit</span>
               <svg className="relative w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
             <a
-              href="/audit"
+              href="/demo"
               className="inline-flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-8 py-5 text-lg font-medium text-white transition-all hover:bg-white/10 hover:border-white/20 backdrop-blur-sm"
             >
-              Free Business Audit
+              Try the Live Demo
             </a>
           </div>
 
@@ -292,7 +259,11 @@ export default function HomePage() {
           <div className="reveal reveal-delay-4 mt-16 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
             <span className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              No contracts
+              Month-to-month
+            </span>
+            <span className="flex items-center gap-1.5">
+              <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+              $0 setup
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
@@ -300,11 +271,11 @@ export default function HomePage() {
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              Results in 30 days
+              Live in 5 days
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
-              $130M+ in revenue generated
+              Built by a $130M operator
             </span>
           </div>
         </div>
@@ -327,11 +298,11 @@ export default function HomePage() {
               What We Build
             </p>
             <h2 className="font-display text-4xl font-bold text-white sm:text-5xl tracking-tight">
-              Full-Service <span className="text-gradient-electric">Digital Marketing</span>
+              One Platform. <span className="text-gradient-electric">Every Channel.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-slate-400">
-              One team. Full accountability. No finger-pointing between five different agencies.
-              Every service is built, managed, and optimized by our U.S.-based digital marketing team.
+              Every service is AI-delivered and runs 24/7. One dashboard, one monthly price, no finger-pointing
+              between five different agencies. Pick a plan and we ship.
             </p>
           </div>
 
@@ -360,16 +331,15 @@ export default function HomePage() {
                 <span className="text-gradient-fire">Moves the Needle</span>
               </h2>
               <p className="mt-5 text-lg text-slate-400 leading-relaxed">
-                Most agencies talk about strategy. We obsess over execution.
-                Every dollar you spend should return more than a dollar — and we have the reporting to prove it.
-                Our U.S.-based team combines deep marketing expertise with AI-powered systems
-                that drive real, trackable growth for businesses across the country.
+                Most agencies charge $1,500+/mo because they pay account managers to edit your site, schedule your
+                posts, and handle your calls. We automated all of it. Same outputs, 1/5 the price, instant instead
+                of &ldquo;in the queue&rdquo; — and you never wait on a human to do something you could do in 30 seconds.
               </p>
               <a
-                href="/#contact"
+                href="/pricing"
                 className="group mt-8 inline-flex items-center gap-2 rounded-2xl bg-white/5 border border-white/10 px-7 py-4 text-sm font-bold text-white transition hover:bg-white/10 hover:border-white/20"
               >
-                Start Growing
+                See Pricing
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                   <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -378,10 +348,10 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {[
-                { title: "We Move Fast", desc: "No 6-week onboarding. Campaigns live, websites launched — faster than any agency you've worked with.", icon: "⚡", color: "from-blue-600/20 to-blue-900/20 border-blue-500/20" },
-                { title: "Transparent Reporting", desc: "You'll know exactly what your money is doing. Monthly dashboards, real numbers, zero fluff.", icon: "📊", color: "from-emerald-600/20 to-emerald-900/20 border-emerald-500/20" },
-                { title: "Industry Agnostic", desc: "Healthcare, legal, home services, SaaS — if your customers are online, we can reach them.", icon: "🌐", color: "from-violet-600/20 to-violet-900/20 border-violet-500/20" },
-                { title: "AI-Enhanced", desc: "We use the latest AI to move faster, write better copy, and spot opportunities others miss.", icon: "🤖", color: "from-amber-600/20 to-amber-900/20 border-amber-500/20" },
+                { title: "We Move Fast", desc: "Five business days from signup to live website. No kick-off calls, no 6-week onboarding. Speed beats perfect every time.", icon: "⚡", color: "from-blue-600/20 to-blue-900/20 border-blue-500/20" },
+                { title: "Always Ask Why", desc: "We drill until the real answer shows up. Most of \u201Cthat\u2019s how it\u2019s done\u201D falls apart on the third why.", icon: "❓", color: "from-emerald-600/20 to-emerald-900/20 border-emerald-500/20" },
+                { title: "Do What Others Won\u2019t", desc: "Answer at 11pm. Price transparently. Ship features competitors charge extra for. The edge is in showing up where others stopped.", icon: "💪", color: "from-violet-600/20 to-violet-900/20 border-violet-500/20" },
+                { title: "Keep It Simple", desc: "Plain English, plain pricing, plain dashboards. KISS — the oldest rule in business, and the one most agencies break.", icon: "🎯", color: "from-amber-600/20 to-amber-900/20 border-amber-500/20" },
               ].map((r) => (
                 <div
                   key={r.title}
@@ -414,8 +384,8 @@ export default function HomePage() {
             Pre-Packaged for <span className="text-gradient-electric">Your Industry</span>
           </h2>
           <p className="mx-auto max-w-xl text-lg text-slate-400 mb-8">
-            We serve businesses nationwide with industry-specific
-            digital marketing playbooks built on real performance data.
+            {INDUSTRIES.length}+ industry-specific playbooks. Same pricing, tuned to your niche — pick yours
+            and see the exact AI marketing system we build for it.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             {INDUSTRIES.map((industry, i) => (
@@ -431,6 +401,17 @@ export default function HomePage() {
                 </svg>
               </a>
             ))}
+          </div>
+          <div className="mt-10">
+            <Link
+              href="/industries"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-bold text-white hover:bg-white/10 transition-colors"
+            >
+              View All {INDUSTRIES.length} Industries
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
           </div>
         </div>
       </section>
@@ -455,31 +436,31 @@ export default function HomePage() {
             {[
               {
                 q: "What does Fast Digital Marketing do?",
-                a: "Fast Digital Marketing is a U.S.-based full-service digital marketing agency. We help businesses grow online through SEO, Google Ads, professional web design, AI-powered voice receptionists, review management, client reactivation campaigns, and complete marketing automation. We work with businesses in any industry across the United States.",
+                a: "Fast Digital Marketing is an AI-delivered marketing platform for small businesses. We build Smart Websites that rank on Google and AI search engines, run an AI voice receptionist that answers your phone 24/7, automate review requests, nurture leads, and handle AI Search Optimization across ChatGPT, Perplexity, and Google AI Overviews. Every service is AI-delivered and self-service — no account managers, no monthly calls, no long-term contracts. Plans run from $47/mo to $397/mo, and you can go from signup to live website in 5 business days.",
               },
               {
-                q: "How much does the AI voice receptionist cost?",
-                a: "The AI Voice Receptionist starts at $197 per month with no long-term contracts. It answers every call 24/7 with a natural-sounding voice, qualifies leads, and books appointments directly into your calendar. You can cancel anytime. It is also included in our Growth and Pro plans.",
+                q: "How much does Fast Digital Marketing cost?",
+                a: "Four plans, all month-to-month, all with $0 setup and cancel anytime. Basic Website is $47/mo. Smart Website is $197/mo and adds a click-to-call button, lead-capture forms, AI Search Optimization, and weekly AI blog posts. Smart Site + Voice is $297/mo and adds Holland, the 24/7 AI voice receptionist. Full Automation Stack is $397/mo and adds Review Autopilot, New-Client Nurture, and Local SEO strategy. Annual plans get 2 months free.",
               },
               {
                 q: "How long does it take to build a website?",
-                a: "Our Smart Websites are built on Next.js and delivered in as few as 5 business days. Every site loads in under 2 seconds, is mobile-first, SEO-optimized, and designed for both Google and AI search engines. The monthly cost is $397 with no setup fee.",
+                a: "Five business days from signup. You answer a few questions, upload your logo, and pick your colors. We write the content, build the site, optimize it for Google and AI search, and publish it. No meetings, no back-and-forth, no waiting on creative teams.",
               },
               {
                 q: "What industries does Fast Digital Marketing work with?",
-                a: "We work with businesses in any industry. Our most popular verticals include security companies, chiropractors, dental practices, plumbing companies, HVAC companies, electricians, roofing companies, law firms, and medical spas. If your customers search online, we can help you reach them.",
+                a: `We have dedicated playbooks for ${INDUSTRIES.length}+ industries — home services, trades, concrete, outdoor living, cleaning, health and wellness, pet services, automotive, professional services, and more. Every industry page includes the pain points, solutions, and pricing tuned specifically for that niche. If your customers search online, we can help you reach them.`,
               },
               {
                 q: "How does the free business audit work?",
-                a: "Our free business audit takes about 60 seconds. Enter your business name and we instantly analyze your Google reputation, website performance, SEO health, and AI search readiness. There is no signup, no credit card, and no sales call required -- just instant, actionable results you can use right away.",
+                a: "Put in your business name and city. In about 60 seconds the audit grades your online presence across six categories — Google reputation, website performance, AI search readiness, reviews, citations, and more. No signup, no credit card, no sales call. You get the gaps and exactly what to fix.",
               },
               {
                 q: "Can I try the AI receptionist before buying?",
-                a: "Yes. You can try a live AI demo right on our website at no cost. You can also call our main number at (888) 972-1544 to experience the AI receptionist firsthand -- Holland answers 24/7. There is no obligation to buy.",
+                a: "Yes. The live demo at fastdigitalmarketing.com/demo lets you talk to Holland in your browser — pick your industry and she behaves like your business's AI receptionist. You can also call our main number at (888) 972-1544 to hear Holland handle a real call. No obligation either way.",
               },
               {
                 q: "What is included in the Full Automation Stack?",
-                a: "The Full Automation Stack at $697/month includes every service we offer in one integrated package: AI voice receptionist, voice AI callback, review autopilot, client reactivation, new client nurture sequences, a smart website, local SEO and AI search optimization, and paid advertising management. It also includes monthly strategy calls and is live within 5 days.",
+                a: "The Full Automation Stack at $397/mo includes everything from the lower tiers — Smart Website, click-to-call, contact forms, self-service dashboard, AI Search Optimization, weekly AI blog posts, Holland the 24/7 AI voice receptionist, and the dedicated business phone number — plus Review Autopilot, New-Client Nurture drips, Local SEO + AI Search content strategy, and Guided Google Business Profile setup. Live in 5 business days. Month-to-month, cancel anytime.",
               },
             ].map((item) => (
               <details
@@ -520,47 +501,50 @@ export default function HomePage() {
                 About Fast Digital Marketing
               </p>
               <h2 className="font-display text-4xl font-bold text-white sm:text-5xl tracking-tight leading-[1.1]">
-                About <span className="text-gradient-blue">Fast Digital Marketing</span>
+                Built by a business owner. <span className="text-gradient-blue">Run by AI.</span>
               </h2>
               <p className="mt-6 text-lg text-slate-400 leading-relaxed">
                 Fast Digital Marketing was founded by Thad Paschall, a business owner with over
-                25 years of hands-on experience building and scaling companies. Thad grew a home
-                service business from a single truck to a $130 million enterprise, learning
-                firsthand what works in marketing and what wastes money. That experience is the
-                foundation of everything we build for our clients.
+                25 years of hands-on experience. Thad grew a home-service business from a single
+                truck to a $130 million enterprise — writing checks for websites that never ranked,
+                ad agencies that burned budget, and SEO firms that sent monthly PDFs but never moved
+                the phone. He figured out what actually works and built Fast Digital Marketing to
+                ship that playbook as software.
               </p>
               <p className="mt-4 text-lg text-slate-400 leading-relaxed">
-                Fast Digital Marketing is a U.S.-based full-service digital
-                marketing agency that combines proven growth strategies with modern AI-powered
-                technology. We specialize in SEO, Google Ads, high-performance web design,
-                AI voice receptionists, review management, client reactivation, and complete
-                marketing automation systems.
+                We are an AI-delivered platform, not an agency. Every service — Smart Website, AI
+                Voice Receptionist, AI Search Optimization, Review Autopilot, Lead Nurture — is
+                built into software, delivered by AI, and priced so any small business can afford
+                it. No account managers. No monthly calls. No contracts. You sign up, you go live
+                in five days, and you cancel any time from your dashboard.
               </p>
-              <p className="mt-4 text-lg text-slate-400 leading-relaxed">
-                We work with businesses in every industry — from security companies and
-                chiropractors to law firms and medical spas. Our approach is simple: build
-                systems that generate measurable results, report on them transparently, and
-                never lock you into a long-term contract. If we are not earning our keep, you
-                can walk away at any time.
-              </p>
+              <Link
+                href="/about"
+                className="group mt-8 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-bold text-white hover:bg-white/10 transition-colors"
+              >
+                Read the Full Story
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path d="M5 12h14m-6-6 6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </Link>
             </div>
 
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <div className="rounded-2xl border border-blue-500/20 bg-gradient-to-br from-blue-600/10 to-blue-900/10 p-6 text-center">
                 <div className="font-display text-4xl font-bold text-white">25+</div>
-                <p className="mt-2 text-sm text-slate-400">Years of Business Experience</p>
+                <p className="mt-2 text-sm text-slate-400">Years Experience</p>
               </div>
               <div className="rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-600/10 to-emerald-900/10 p-6 text-center">
                 <div className="font-display text-4xl font-bold text-white">$130M</div>
                 <p className="mt-2 text-sm text-slate-400">Revenue Track Record</p>
               </div>
               <div className="rounded-2xl border border-violet-500/20 bg-gradient-to-br from-violet-600/10 to-violet-900/10 p-6 text-center">
-                <div className="font-display text-4xl font-bold text-white">200+</div>
-                <p className="mt-2 text-sm text-slate-400">Businesses Served</p>
+                <div className="font-display text-4xl font-bold text-white">{INDUSTRIES.length}+</div>
+                <p className="mt-2 text-sm text-slate-400">Industry Playbooks</p>
               </div>
               <div className="rounded-2xl border border-amber-500/20 bg-gradient-to-br from-amber-600/10 to-amber-900/10 p-6 text-center">
-                <div className="font-display text-4xl font-bold text-white">4.9</div>
-                <p className="mt-2 text-sm text-slate-400">Average Client Rating</p>
+                <div className="font-display text-4xl font-bold text-white">100%</div>
+                <p className="mt-2 text-sm text-slate-400">U.S.-Based Platform</p>
               </div>
             </div>
           </div>
@@ -569,25 +553,25 @@ export default function HomePage() {
             <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-8">
               <h3 className="mb-3 text-lg font-bold text-white">Our Mission</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Give every business access to the same digital marketing firepower that
-                large corporations use — at a price point that makes sense. No fluff,
-                no vanity metrics, just more leads and more revenue.
+                Give every small business access to the same digital marketing firepower big
+                corporations use — at a price that actually fits a small business budget. No fluff,
+                no vanity metrics. More leads, more revenue.
               </p>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-8">
               <h3 className="mb-3 text-lg font-bold text-white">Our Approach</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                We build integrated systems, not isolated campaigns. Your AI receptionist,
-                your website, your SEO, your ads, and your automation all work together
-                as one revenue engine — managed by one team with full accountability.
+                One integrated system — website, voice receptionist, AI Search Optimization, reviews,
+                and nurture — working together as a single revenue engine. Built on AI so you pay
+                software prices, not agency prices.
               </p>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-8">
               <h3 className="mb-3 text-lg font-bold text-white">Our Guarantee</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                No long-term contracts. No setup fees on most services. Cancel anytime.
-                We earn your business every month by delivering results you can see in
-                your dashboard and feel in your bottom line.
+                No long-term contracts. $0 setup on every plan. Cancel anytime from your dashboard.
+                We earn the business every month by delivering results you can see — and feel in your
+                bottom line.
               </p>
             </div>
           </div>
@@ -614,7 +598,7 @@ export default function HomePage() {
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-lg text-slate-400 leading-relaxed">
               See exactly how your business appears online — Google reputation, website quality,
-              SEO health, AI search readiness. Takes 60 seconds.
+              AI search readiness, reviews, and more. Takes 60 seconds.
             </p>
             <a
               href="/audit"
@@ -649,7 +633,7 @@ export default function HomePage() {
               <div className="mb-3 text-3xl">📞</div>
               <h3 className="text-lg font-bold text-white">Call: (888) 972-1544</h3>
               <p className="mt-2 text-sm text-slate-400">
-                Our AI answers 24/7 — experience the product firsthand.
+                Holland answers 24/7 — experience the product firsthand.
               </p>
             </a>
           </div>

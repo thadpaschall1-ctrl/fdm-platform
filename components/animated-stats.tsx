@@ -1,14 +1,14 @@
 "use client";
 
 const STATS_ROW = [
-  { value: "10+", label: "Years in Business", icon: "🏢" },
-  { value: "200+", label: "Clients Served", icon: "👥" },
-  { value: "3.8x", label: "Average ROAS", icon: "📈" },
-  { value: "92%", label: "Client Retention", icon: "🤝" },
-  { value: "24/7", label: "AI Answering", icon: "🤖" },
+  { value: "$130M", label: "Revenue Track Record", icon: "💰" },
+  { value: "25+", label: "Years Experience", icon: "🏢" },
+  { value: "74+", label: "Industry Playbooks", icon: "🎯" },
+  { value: "24/7", label: "AI Answers Every Call", icon: "🤖" },
   { value: "<2s", label: "Page Load Speed", icon: "⚡" },
-  { value: "60s", label: "Voice AI Callback", icon: "📞" },
-  { value: "5 Days", label: "Website Delivery", icon: "🚀" },
+  { value: "5 Days", label: "Live Website", icon: "🚀" },
+  { value: "$0", label: "Setup Fees", icon: "✅" },
+  { value: "$47", label: "Plans Start At", icon: "💳" },
 ];
 
 export function AnimatedStats() {

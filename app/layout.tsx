@@ -23,16 +23,16 @@ export const metadata: Metadata = {
     template: "%s | Fast Digital Marketing",
   },
   description:
-    "Fast Digital Marketing helps businesses grow online with SEO, Google Ads, professional web design, and AI-powered marketing automation. Get measurable results — fast.",
+    "AI-delivered marketing platform for small businesses. Smart Websites, AI Voice Receptionist, AI Search Optimization, Review Autopilot, and Lead Nurture. From $47/mo. Live in 5 days.",
   metadataBase: new URL("https://fastdigitalmarketing.com"),
   alternates: {
     canonical: "https://fastdigitalmarketing.com",
   },
   openGraph: {
     siteName: "Fast Digital Marketing",
-    title: "Fast Digital Marketing | SEO, Google Ads & Web Design Agency",
+    title: "Fast Digital Marketing | AI-Delivered Marketing Platform",
     description:
-      "Grow your business online with SEO, paid ads, web design, and AI automation. Results-driven digital marketing for any industry.",
+      "Smart Websites, AI Voice Receptionist, AI Search Optimization, Review Autopilot. 75+ industry playbooks. Month-to-month from $47/mo. Live in 5 days.",
     url: "https://fastdigitalmarketing.com",
     type: "website",
     locale: "en_US",
@@ -41,15 +41,15 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Fast Digital Marketing - Digital Marketing Agency",
+        alt: "Fast Digital Marketing — AI-Delivered Marketing Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fast Digital Marketing | SEO, Google Ads & Web Design Agency",
+    title: "Fast Digital Marketing | AI-Delivered Marketing Platform",
     description:
-      "Grow your business online with SEO, paid ads, web design, and AI automation. Results-driven digital marketing for any industry.",
+      "Smart Websites, AI Voice Receptionist, AI Search Optimization, Review Autopilot. 75+ industry playbooks. Month-to-month from $47/mo. Live in 5 days.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -86,7 +86,7 @@ export default function RootLayout({
               logo: "https://fastdigitalmarketing.com/logo.png",
               image: "https://fastdigitalmarketing.com/og-image.png",
               description:
-                "Fast Digital Marketing is a full-service digital marketing agency specializing in SEO, Google Ads, web design, AI voice receptionists, and marketing automation for businesses across all industries.",
+                "Fast Digital Marketing is an AI-delivered digital marketing platform for small businesses. Smart Websites, AI Voice Receptionist, AI Search Optimization, Review Autopilot, and Lead Nurture — all self-service, month-to-month from $47/mo.",
               telephone: "+18889721544",
               email: "hello@fastdigitalmarketing.com",
               address: {
@@ -133,7 +133,7 @@ export default function RootLayout({
               },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Digital Marketing Services",
+                name: "AI-Delivered Marketing Services",
                 itemListElement: [
                   {
                     "@type": "Offer",
@@ -146,28 +146,28 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Search Engine Optimization",
+                      name: "AI Search Optimization",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Google Ads Management",
+                      name: "Smart Website Design & Development",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Web Design & Development",
+                      name: "Review Automation",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Marketing Automation",
+                      name: "Lead Nurture Automation",
                     },
                   },
                 ],
