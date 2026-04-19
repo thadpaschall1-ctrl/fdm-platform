@@ -177,7 +177,6 @@ async function upsertOneTimePrice(args: {
 async function main() {
   console.log("─".repeat(72));
   console.log("FDM Stripe Catalog Setup");
-  console.log("Target account:", (await stripe.accounts.retrieve()).id);
   console.log("─".repeat(72));
 
   const results: Record<string, StripeIds> = {};
