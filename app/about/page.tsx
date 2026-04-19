@@ -32,7 +32,7 @@ export default function AboutPage() {
           "Business owner with 25+ years of hands-on experience. Scaled a home-service business from a single truck to a $130 million enterprise.",
       },
       description:
-        "A U.S.-based, AI-delivered digital marketing platform serving small and mid-sized businesses across every industry. Smart Websites, AI Voice Receptionist, SEO, Review Autopilot, and Lead Nurture — all automated, all self-service, no contracts.",
+        "A U.S.-based, AI-delivered digital marketing platform serving small and mid-sized businesses across every industry. Smart Websites, AI Voice Receptionist, AI Search Optimization (ASO), Review Autopilot, and Lead Nurture — all automated, all self-service, no contracts.",
     },
   };
 
@@ -91,7 +91,7 @@ export default function AboutPage() {
                   $130 million enterprise. Along the way he wrote the checks
                   for websites that never ranked, ad agencies that burned
                   budget, and SEO firms that sent monthly PDFs full of charts
-                  but no customers.
+                  but never moved the phone.
                 </p>
                 <p>
                   He also figured out what actually works. Answer every call.
@@ -147,11 +147,12 @@ export default function AboutPage() {
               Our Philosophy
             </p>
             <h2 className="font-display text-3xl font-bold text-white sm:text-4xl tracking-tight leading-[1.15]">
-              Keep it{" "}
-              <span className="text-gradient-electric">stupid simple.</span>
+              Keep it simple,{" "}
+              <span className="text-gradient-electric">stupid.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 leading-relaxed">
-              Most marketing agencies win by making it look complicated so you
+              KISS. The oldest rule in business, and still the one most
+              agencies break. Most win by making it look complicated so you
               cannot leave. We win by making it so simple you stay because it
               works.
             </p>
@@ -220,6 +221,61 @@ export default function AboutPage() {
               <p className="mt-2 text-sm text-slate-400 leading-relaxed">
                 No buzzwords. No jargon. Every feature, every invoice, every
                 report — written so a ninth-grader gets it on the first read.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How we operate — Thad's operating principles */}
+      <section className="relative px-6 py-20">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-400">
+              How We Operate
+            </p>
+            <h2 className="font-display text-3xl font-bold text-white sm:text-4xl tracking-tight leading-[1.15]">
+              Always ask why.{" "}
+              <span className="text-gradient-blue">Then run fast.</span>
+            </h2>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-400 leading-relaxed">
+              The operating rules Thad built a $130M company on — the same
+              rules we build product on every day.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-7">
+              <div className="mb-3 text-3xl">❓</div>
+              <h3 className="text-lg font-bold text-white">
+                Always ask why
+              </h3>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                Why can&rsquo;t I do this? Why not? Why? Keep asking until the
+                real answer shows up. Most &ldquo;that&rsquo;s just how it
+                works&rdquo; falls apart on the third why.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-7">
+              <div className="mb-3 text-3xl">💪</div>
+              <h3 className="text-lg font-bold text-white">
+                Do what others won&rsquo;t
+              </h3>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                Answer at 11pm. Ship the price everyone else hides. Build the
+                feature other agencies charge extra for. Most of the edge is
+                just showing up where others stopped.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-7">
+              <div className="mb-3 text-3xl">🏃</div>
+              <h3 className="text-lg font-bold text-white">
+                Run fast. Don&rsquo;t look back
+              </h3>
+              <p className="mt-2 text-sm text-slate-400 leading-relaxed">
+                When the answer is yes, move. Speed beats perfect every time.
+                We ship in days what big agencies ship in quarters — because
+                momentum is the product.
               </p>
             </div>
           </div>
@@ -339,10 +395,10 @@ export default function AboutPage() {
                 Our Approach
               </h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                One integrated system — website, voice receptionist, SEO,
-                reviews, and nurture — working together as a single revenue
-                engine. Built on AI so you pay software prices, not agency
-                prices.
+                One integrated system — website, voice receptionist, AI Search
+                Optimization, reviews, and nurture — working together as a
+                single revenue engine. Built on AI so you pay software prices,
+                not agency prices.
               </p>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-slate-900 p-8">
@@ -371,8 +427,8 @@ export default function AboutPage() {
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-base text-slate-400 leading-relaxed">
             Get a free audit of your current online presence — website speed,
-            SEO, Google Business Profile, and missed-call risk. No sales
-            pitch, no strings.
+            AI search visibility, Google Business Profile, and missed-call
+            risk. No sales pitch, no strings.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
