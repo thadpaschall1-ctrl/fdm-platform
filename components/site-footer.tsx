@@ -28,10 +28,10 @@ export function SiteFooter() {
                 Free Audit →
               </a>
               <a
-                href="tel:+18889834449"
+                href="tel:+18889721544"
                 className="rounded-lg bg-white/5 border border-white/10 px-4 py-2 text-xs font-bold text-slate-300 hover:bg-white/10 transition-colors"
               >
-                (888) 983-4449
+                (888) 972-1544
               </a>
             </div>
           </div>
@@ -71,8 +71,8 @@ export function SiteFooter() {
               <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
               <li>
-                <a href="tel:+18889834449" className="hover:text-white transition-colors">
-                  (888) 983-4449
+                <a href="tel:+18889721544" className="hover:text-white transition-colors">
+                  (888) 972-1544
                 </a>
               </li>
             </ul>

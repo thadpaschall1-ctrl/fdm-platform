@@ -124,7 +124,7 @@ export default function HomePage() {
     dateModified: "2026-04-14",
     description:
       "Fast Digital Marketing is a U.S.-based full-service digital marketing agency specializing in SEO, Google Ads, web design, AI voice receptionists, and marketing automation for businesses across all industries.",
-    telephone: "+18889834449",
+    telephone: "+18889721544",
     email: "hello@fastdigitalmarketing.com",
     address: {
       "@type": "PostalAddress",
@@ -211,7 +211,7 @@ export default function HomePage() {
         name: "Can I try the AI receptionist before buying?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. You can try a live AI demo right on our website at no cost. You can also call our main number at (888) 983-4449 to experience the AI receptionist firsthand -- Holland answers 24/7. There is no obligation to buy.",
+          text: "Yes. You can try a live AI demo right on our website at no cost. You can also call our main number at (888) 972-1544 to experience the AI receptionist firsthand -- Holland answers 24/7. There is no obligation to buy.",
         },
       },
       {
@@ -475,7 +475,7 @@ export default function HomePage() {
               },
               {
                 q: "Can I try the AI receptionist before buying?",
-                a: "Yes. You can try a live AI demo right on our website at no cost. You can also call our main number at (888) 983-4449 to experience the AI receptionist firsthand -- Holland answers 24/7. There is no obligation to buy.",
+                a: "Yes. You can try a live AI demo right on our website at no cost. You can also call our main number at (888) 972-1544 to experience the AI receptionist firsthand -- Holland answers 24/7. There is no obligation to buy.",
               },
               {
                 q: "What is included in the Full Automation Stack?",
@@ -643,11 +643,11 @@ export default function HomePage() {
               </p>
             </Link>
             <a
-              href="tel:+18889834449"
+              href="tel:+18889721544"
               className="card-hover rounded-2xl border border-white/[0.08] bg-slate-900 p-8 text-center"
             >
               <div className="mb-3 text-3xl">📞</div>
-              <h3 className="text-lg font-bold text-white">Call: (888) 983-4449</h3>
+              <h3 className="text-lg font-bold text-white">Call: (888) 972-1544</h3>
               <p className="mt-2 text-sm text-slate-400">
                 Our AI answers 24/7 — experience the product firsthand.
               </p>

@@ -448,10 +448,10 @@ export default function AboutPage() {
           <p className="mt-6 text-xs text-slate-500">
             Or call us direct:{" "}
             <a
-              href="tel:+18889834449"
+              href="tel:+18889721544"
               className="text-slate-300 hover:text-white transition-colors"
             >
-              (888) 983-4449
+              (888) 972-1544
             </a>
           </p>
         </div>

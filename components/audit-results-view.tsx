@@ -440,14 +440,14 @@ export function AuditResults() {
       <div className="rounded-2xl border border-white/[0.08] bg-slate-900/80 p-8 text-center">
         <h2 className="font-display text-xl font-bold text-white">Prefer to Talk First?</h2>
         <p className="mt-2 text-slate-400 text-sm max-w-md mx-auto">
-          Call us at (888) 983-4449 — Alexandra answers 24/7. Or try a live voice demo to hear the AI in action.
+          Call us at (888) 972-1544 — Holland answers 24/7. Or try a live voice demo to hear the AI in action.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-6">
           <a
-            href="tel:+18889834449"
+            href="tel:+18889721544"
             className="rounded-xl border border-white/10 bg-white/5 px-6 py-3 text-sm font-bold text-white hover:bg-white/10 transition-colors"
           >
-            📞 Call (888) 983-4449
+            📞 Call (888) 972-1544
           </a>
           <a
             href="/demo"

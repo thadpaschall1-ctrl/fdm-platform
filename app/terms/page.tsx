@@ -288,10 +288,10 @@ export default function TermsPage() {
               <br />
               Phone:{" "}
               <a
-                href="tel:+18889834449"
+                href="tel:+18889721544"
                 className="text-blue-400 hover:text-blue-300 underline"
               >
-                (888) 983-4449
+                (888) 972-1544
               </a>
             </p>
           </section>

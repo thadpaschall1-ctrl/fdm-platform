@@ -147,7 +147,7 @@ function generateFallbackNarrative(report: FullAuditReport): NarrativeResult {
   const closingPitch = `If you'd rather have experts handle all of this, Fast Digital Marketing specializes in exactly these fixes. ` +
     `Our plans start at $197/mo and include implementation of every recommendation in this report. ` +
     `We also offer a complete done-for-you setup --website rebuild, schema implementation, AI search optimization, and ongoing management. ` +
-    `Visit fastdigitalmarketing.com or call (888) 983-4449 to get started.`;
+    `Visit fastdigitalmarketing.com or call (888) 972-1544 to get started.`;
 
   return { executiveSummary, pillarNarratives, actionPlan, closingPitch };
 }

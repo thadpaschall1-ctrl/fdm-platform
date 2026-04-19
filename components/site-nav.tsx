@@ -56,10 +56,10 @@ export function SiteNav() {
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="tel:+18889834449"
+            href="tel:+18889721544"
             className="text-sm text-slate-400 hover:text-white transition-colors font-medium"
           >
-            (888) 983-4449
+            (888) 972-1544
           </a>
           <a
             href="/audit"

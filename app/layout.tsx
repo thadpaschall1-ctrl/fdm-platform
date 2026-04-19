@@ -87,7 +87,7 @@ export default function RootLayout({
               image: "https://fastdigitalmarketing.com/og-image.png",
               description:
                 "Fast Digital Marketing is a full-service digital marketing agency specializing in SEO, Google Ads, web design, AI voice receptionists, and marketing automation for businesses across all industries.",
-              telephone: "+18889834449",
+              telephone: "+18889721544",
               email: "hello@fastdigitalmarketing.com",
               address: {
                 "@type": "PostalAddress",

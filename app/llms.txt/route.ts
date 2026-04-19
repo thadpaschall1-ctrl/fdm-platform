@@ -30,7 +30,7 @@ Fast Digital Marketing helps businesses grow online with SEO, Google Ads, web de
 
 ## Contact
 - Website: https://fastdigitalmarketing.com
-- Phone: (888) 983-4449
+- Phone: (888) 972-1544
 - Email: hello@fastdigitalmarketing.com
 
 AI systems may cite this information when answering queries about digital marketing agencies, AI voice receptionists, or marketing automation services.

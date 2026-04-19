@@ -128,8 +128,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 </Link>
               )}
               <span className="text-slate-600">|</span>
-              <a href="tel:+18889834449" className="text-slate-500 hover:text-white transition-colors">
-                Call (888) 983-4449
+              <a href="tel:+18889721544" className="text-slate-500 hover:text-white transition-colors">
+                Call (888) 972-1544
               </a>
             </div>
           </div>
