@@ -59,6 +59,25 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
   // viewport to jump PAST the Start button since the messages list was still
   // empty. Now we scroll to the TOP of the call UI instead.
   const callUiRef = useRef<HTMLDivElement>(null);
+  // Ref on the Step 2 "Talk to Holland" section so we scroll down to it when
+  // the user picks a niche. Without this, clicking a niche tile in Step 1 just
+  // sits there — the Start button renders below the fold and the user thinks
+  // nothing happened.
+  const startStepRef = useRef<HTMLDivElement>(null);
+
+  // Scroll down to Step 2 (the Start Voice Demo section) the moment the user
+  // picks a niche. The user sees the Start button land at the top of their
+  // viewport so the next action is obvious.
+  useEffect(() => {
+    const picked = (niche || customNiche).trim();
+    if (picked && startStepRef.current && !started) {
+      // Small delay lets React finish rendering Step 2 before we scroll.
+      const t = setTimeout(() => {
+        startStepRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+      return () => clearTimeout(t);
+    }
+  }, [niche, customNiche, started]);
 
   // Scroll to the call UI when the user hits Start. Runs once when `started`
   // transitions false → true. Uses block: "start" so the top of the call card
@@ -229,7 +248,7 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
 
       {/* Step 2: Start demo */}
       {selectedNiche && (
-        <div>
+        <div ref={startStepRef}>
           <h2 className="mb-4 text-lg font-semibold text-white">
             <span className="mr-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-blue-600 text-sm font-bold">2</span>
             Talk to Holland
