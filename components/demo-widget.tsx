@@ -53,10 +53,29 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
 
   const conversationRef = useRef<Awaited<ReturnType<typeof Conversation.startSession>> | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  // Ref on the top of the call UI — used to scroll TO the call card when the
+  // user hits Start. Previously we auto-scrolled to bottomRef (which is at the
+  // END of the messages area) the moment `started` flipped true, causing the
+  // viewport to jump PAST the Start button since the messages list was still
+  // empty. Now we scroll to the TOP of the call UI instead.
+  const callUiRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll messages
+  // Scroll to the call UI when the user hits Start. Runs once when `started`
+  // transitions false → true. Uses block: "start" so the top of the call card
+  // lands at the top of the viewport.
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (started && callUiRef.current) {
+      callUiRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [started]);
+
+  // Auto-scroll messages — ONLY once there are actual messages to scroll to.
+  // Without this guard, an early trigger (e.g. `isAgentSpeaking` flipping on
+  // connection, before the first message lands) scrolls the page to an empty
+  // conversation area and looks like the Start button "disappeared upward."
+  useEffect(() => {
+    if (messages.length === 0) return;
+    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, isAgentSpeaking]);
 
   // Cleanup on unmount
@@ -232,7 +251,7 @@ export function DemoWidget({ popularNiches }: DemoWidgetProps) {
                 🎙 Start Live Voice Demo
               </button>
             ) : (
-              <div className="rounded-xl border border-white/10 bg-slate-950 overflow-hidden">
+              <div ref={callUiRef} className="rounded-xl border border-white/10 bg-slate-950 overflow-hidden">
                 {/* Header */}
                 <div className="flex items-center justify-between bg-slate-800 px-5 py-3 border-b border-white/[0.06]">
                   <div className="flex items-center gap-3">
