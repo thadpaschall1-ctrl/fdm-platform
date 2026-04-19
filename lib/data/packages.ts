@@ -106,6 +106,8 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
       "Content updates available with paid support or by upgrading to Smart Website",
       "2 GB storage for photos",
     ],
+    stripeMonthlyPriceId: "price_1TO4aDCYqnJGmu57UySiACoV",
+    stripeAnnualPriceId: "price_1TO4aECYqnJGmu57wOIi8atM",
   },
   {
     slug: "smart",
@@ -168,6 +170,8 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
       "50 keywords/quarter refresh",
       "10 GB storage",
     ],
+    stripeMonthlyPriceId: "price_1TO4aFCYqnJGmu57LzfVM5NC",
+    stripeAnnualPriceId: "price_1TO4aFCYqnJGmu57by3U65Dv",
   },
   {
     slug: "voice",
@@ -209,6 +213,8 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
       "1,000 outbound SMS/month ($0.02/msg overage)",
       "Fair-use: 500 calls/month soft cap",
     ],
+    stripeMonthlyPriceId: "price_1TO4aGCYqnJGmu57cr3Vii8n",
+    stripeAnnualPriceId: "price_1TO4aHCYqnJGmu57mmgHM1v2",
   },
   {
     slug: "full",
@@ -246,6 +252,8 @@ export const UNIFIED_PACKAGES: PackageTier[] = [
       "1,000 active nurture sequences",
       "20 GB storage",
     ],
+    stripeMonthlyPriceId: "price_1TO4aHCYqnJGmu57ofWp1e54",
+    stripeAnnualPriceId: "price_1TO4aICYqnJGmu575nvg4tXA",
   },
 ];
 
@@ -260,6 +268,7 @@ export const ADD_ONS: AddOn[] = [
     price: 17,
     unit: "annual",
     description: "Auto-registered via our registrar partners. No DNS setup — we handle everything. Renews automatically.",
+    stripePriceId: "price_1TO4aJCYqnJGmu57PKdv1Ttd",
   },
   {
     slug: "content-velocity",
@@ -268,6 +277,7 @@ export const ADD_ONS: AddOn[] = [
     unit: "monthly",
     description: "4 additional AI-written blog posts per month (8 total), plus expanded keyword research (150 keywords vs. 50).",
     availableFor: ["smart", "voice", "full"],
+    stripePriceId: "price_1TO4aJCYqnJGmu57q6VBWaLt",
   },
   {
     slug: "client-reactivation",
@@ -277,6 +287,7 @@ export const ADD_ONS: AddOn[] = [
     description:
       "Automated dormant-customer drip campaigns. Identifies inactive customers in your CRM and brings them back via SMS + email. Available for dental, chiro, medspa, HVAC, pool, auto, salon, and fitness niches.",
     availableFor: ["smart", "voice", "full"],
+    stripePriceId: "price_1TO4aKCYqnJGmu57m9faH4sg",
   },
   {
     slug: "guided-gbp-setup",
@@ -286,6 +297,7 @@ export const ADD_ONS: AddOn[] = [
     description:
       "We pre-fill your Google Business Profile with everything we scraped, guide you through Google's verification, and sync hours + services + photos. Included free with Smart Site + Voice and Full Stack.",
     bundledWith: ["voice", "full"],
+    stripePriceId: "price_1TO4aLCYqnJGmu57YCzYCwGK",
   },
 ];
 

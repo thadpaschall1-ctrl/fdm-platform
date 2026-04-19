@@ -2,20 +2,22 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { createAdminClient, FDM_SITE_ID } from "@/lib/supabase";
 import { notifySale } from "@/lib/notify";
+import { UNIFIED_PACKAGES, PackageSlug } from "@/lib/data/packages";
 
 /**
  * POST /api/checkout
  *
- * Creates a Stripe Checkout Session for FDM products.
+ * Creates a Stripe Checkout Session for FDM purchases. Accepts two body shapes:
  *
- * Body: {
- *   plan: "full-report" | "starter" | "growth" | "pro",
- *   businessName: string,
- *   email: string,
- *   auditId?: string,  // link checkout to an existing audit
- * }
+ * 1) New subscription flow (preferred):
+ *    { tier: PackageSlug, interval: "month" | "year", email, businessName?, auditId? }
  *
- * Returns: { url: string } — redirect to Stripe Checkout
+ * 2) Legacy plan-based shape (still supported so existing buttons keep working):
+ *    { plan: "basic" | "smart" | "voice" | "full" | "full-report", email, businessName?, auditId? }
+ *    - "full-report" → one-time $97 full audit purchase
+ *    - any tier slug → monthly subscription to that tier
+ *
+ * Returns: { url: string } — redirect URL to Stripe Checkout.
  */
 
 function getStripe() {
@@ -24,145 +26,200 @@ function getStripe() {
   return new Stripe(key);
 }
 
-// Plan configurations — prices will be created on first use or use existing IDs
-const PLANS: Record<string, {
-  name: string;
-  mode: "payment" | "subscription";
-  lineItems: { description: string; amount: number; recurring?: boolean }[];
-}> = {
-  "full-report": {
-    name: "Full Business Report",
-    mode: "payment",
-    lineItems: [
-      { description: "Full AI Search Optimization Report", amount: 19700 },
-    ],
-  },
-  starter: {
-    name: "Starter Plan",
-    mode: "subscription",
-    lineItems: [
-      { description: "Starter Plan — AI Receptionist, Voice Callback, GBP", amount: 19700, recurring: true },
-    ],
-  },
-  growth: {
-    name: "Growth Plan",
-    mode: "subscription",
-    lineItems: [
-      { description: "Growth Plan Setup Fee", amount: 29700 },
-      { description: "Growth Plan — SEO, Reviews, Website + Starter", amount: 39700, recurring: true },
-    ],
-  },
-  pro: {
-    name: "Pro Plan",
-    mode: "subscription",
-    lineItems: [
-      { description: "Pro Plan Setup Fee", amount: 49700 },
-      { description: "Pro Plan — Ads, Social, Strategy + Growth", amount: 69700, recurring: true },
-    ],
-  },
-};
+const FULL_AUDIT_PRICE_CENTS = 9700; // $97 one-time — paid Full Business Audit
+
+function resolveTierPriceId(tier: PackageSlug, interval: "month" | "year"): string | null {
+  const t = UNIFIED_PACKAGES.find((p) => p.slug === tier);
+  if (!t) return null;
+  return interval === "year"
+    ? (t.stripeAnnualPriceId ?? null)
+    : (t.stripeMonthlyPriceId ?? null);
+}
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
-  const { plan, businessName, email, auditId } = body;
+  const body = await request.json().catch(() => ({}));
+  const {
+    tier: rawTier,
+    interval: rawInterval,
+    plan,
+    email,
+    businessName,
+    auditId,
+  } = body as {
+    tier?: PackageSlug;
+    interval?: "month" | "year";
+    plan?: string;
+    email?: string;
+    businessName?: string;
+    auditId?: string;
+  };
 
-  if (!plan || !PLANS[plan]) {
-    return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
   }
 
-  if (!email) {
-    return NextResponse.json({ error: "Email is required" }, { status: 400 });
-  }
-
-  const planConfig = PLANS[plan];
   const stripe = getStripe();
 
-  try {
-    // Build line items dynamically using Stripe price_data
-    const lineItems = planConfig.lineItems.map((item) => {
-      if (item.recurring) {
-        return {
-          price_data: {
-            currency: "usd" as const,
-            product_data: { name: item.description },
-            unit_amount: item.amount,
-            recurring: { interval: "month" as const },
+  // ── Route 1: One-time Full Audit purchase ───────────────────────────
+  if (plan === "full-report") {
+    try {
+      const session = await stripe.checkout.sessions.create({
+        mode: "payment",
+        customer_email: email,
+        line_items: [
+          {
+            price_data: {
+              currency: "usd",
+              product_data: {
+                name: "FDM — Full Business Audit",
+                description:
+                  "Deep-dive audit with page-by-page analysis, competitor benchmarking, and actionable recommendations. Delivered as a 20+ page PDF report.",
+              },
+              unit_amount: FULL_AUDIT_PRICE_CENTS,
+            },
+            quantity: 1,
           },
-          quantity: 1,
-        };
-      }
-      return {
-        price_data: {
-          currency: "usd" as const,
-          product_data: { name: item.description },
-          unit_amount: item.amount,
+        ],
+        success_url:
+          auditId
+            ? `https://fastdigitalmarketing.com/audit/full-report?id=${auditId}&checkout=success`
+            : `https://fastdigitalmarketing.com/checkout/success?type=full-audit`,
+        cancel_url: "https://fastdigitalmarketing.com/checkout/cancel",
+        allow_promotion_codes: true,
+        payment_intent_data: {
+          statement_descriptor: "FAST DIGITAL MKT",
+          description: "Fast Digital Marketing — Full Business Audit",
         },
-        quantity: 1,
-      };
-    });
+        metadata: {
+          site: "fdm",
+          product: "full-audit",
+          businessName: businessName || "",
+          auditId: auditId || "",
+        },
+      });
 
-    // Determine mode — if any item is recurring, use subscription
-    const hasRecurring = planConfig.lineItems.some((i) => i.recurring);
-    const mode = hasRecurring ? "subscription" : "payment";
+      try {
+        const db = createAdminClient();
+        await db.from("orders").insert({
+          site_id: FDM_SITE_ID,
+          stripe_session_id: session.id,
+          plan: "full-report",
+          business_name: businessName || "",
+          email,
+          audit_id: auditId || null,
+          status: "pending",
+          amount_cents: FULL_AUDIT_PRICE_CENTS,
+        });
+      } catch {
+        /* non-blocking */
+      }
 
-    const successUrl = plan === "full-report" && auditId
-      ? `https://fastdigitalmarketing.com/audit/full-report?id=${auditId}&checkout=success`
-      : `https://fastdigitalmarketing.com/checkout/success?plan=${plan}`;
+      notifySale({
+        businessName: businessName || "Unknown",
+        email,
+        plan: "Full Business Audit",
+        amount: "$97",
+      }).catch(() => {});
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const sessionParams: any = {
-      mode,
+      return NextResponse.json({ url: session.url });
+    } catch (err) {
+      console.error("[checkout] full-audit error:", err);
+      return NextResponse.json(
+        { error: err instanceof Error ? err.message : "Checkout failed" },
+        { status: 500 }
+      );
+    }
+  }
+
+  // ── Route 2: Subscription (4 tiers) ──────────────────────────────────
+  // Resolve tier from either new (`tier`) or legacy (`plan`) body shape.
+  const tierCandidate = (rawTier || plan) as string | undefined;
+  const tier = UNIFIED_PACKAGES.find((p) => p.slug === tierCandidate)?.slug;
+  if (!tier) {
+    return NextResponse.json(
+      {
+        error:
+          "Invalid tier. Pass tier: 'basic' | 'smart' | 'voice' | 'full' or plan: 'full-report' for one-time audit.",
+      },
+      { status: 400 }
+    );
+  }
+  const billingInterval = rawInterval === "year" ? "year" : "month";
+
+  const priceId = resolveTierPriceId(tier, billingInterval);
+  if (!priceId) {
+    return NextResponse.json(
+      {
+        error:
+          "Price not configured. Run `npm run setup-stripe` to populate Stripe price IDs in lib/data/packages.ts.",
+      },
+      { status: 500 }
+    );
+  }
+
+  const tierConfig = UNIFIED_PACKAGES.find((p) => p.slug === tier)!;
+
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: "subscription",
       customer_email: email,
-      line_items: lineItems,
-      success_url: successUrl,
-      cancel_url: `https://fastdigitalmarketing.com/checkout/cancel`,
+      line_items: [{ price: priceId, quantity: 1 }],
+      success_url: `https://fastdigitalmarketing.com/checkout/success?tier=${tier}&interval=${billingInterval}`,
+      cancel_url: `https://fastdigitalmarketing.com/checkout/cancel?tier=${tier}`,
+      allow_promotion_codes: true,
+      subscription_data: {
+        description: `Fast Digital Marketing — ${tierConfig.name} (${
+          billingInterval === "year" ? "annual" : "monthly"
+        })`,
+        metadata: {
+          site: "fdm",
+          tier,
+          interval: billingInterval,
+          auditId: auditId || "",
+        },
+      },
       metadata: {
-        plan,
+        site: "fdm",
+        tier,
+        interval: billingInterval,
         businessName: businessName || "",
         auditId: auditId || "",
-        site: "fdm",
       },
-      allow_promotion_codes: true,
-    };
+    });
 
-    // Add branding for one-time payments
-    if (mode === "payment") {
-      sessionParams.payment_intent_data = {
-        statement_descriptor: "FAST DIGITAL MKT",
-        description: `Fast Digital Marketing — ${planConfig.name}`,
-      };
-    }
-
-    const session = await stripe.checkout.sessions.create(sessionParams);
-
-    // Log to Supabase
     try {
       const db = createAdminClient();
       await db.from("orders").insert({
         site_id: FDM_SITE_ID,
         stripe_session_id: session.id,
-        plan,
+        plan: tier,
         business_name: businessName || "",
         email,
         audit_id: auditId || null,
         status: "pending",
-        amount_cents: planConfig.lineItems.reduce((sum, i) => sum + i.amount, 0),
+        amount_cents:
+          (billingInterval === "year" ? tierConfig.priceAnnual : tierConfig.priceMonthly) * 100,
       });
     } catch {
-      // Don't block checkout if DB write fails
+      /* non-blocking */
     }
 
-    // Notify
     notifySale({
       businessName: businessName || "Unknown",
       email,
-      plan: planConfig.name,
-      amount: plan === "full-report" ? "$197" : `$${(planConfig.lineItems.find(i => i.recurring)?.amount || 0) / 100}/mo`,
+      plan: tierConfig.name,
+      amount:
+        billingInterval === "year"
+          ? `$${tierConfig.priceAnnual}/yr`
+          : `$${tierConfig.priceMonthly}/mo`,
     }).catch(() => {});
 
     return NextResponse.json({ url: session.url });
   } catch (err) {
-    console.error("[checkout] Stripe error:", err);
-    return NextResponse.json({ error: "Failed to create checkout session" }, { status: 500 });
+    console.error("[checkout] subscription error:", err);
+    return NextResponse.json(
+      { error: err instanceof Error ? err.message : "Checkout failed" },
+      { status: 500 }
+    );
   }
 }
