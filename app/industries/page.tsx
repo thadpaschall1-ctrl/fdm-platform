@@ -301,7 +301,7 @@ export default function IndustriesIndexPage() {
         <div className="mx-auto max-w-6xl px-6">
           <nav
             aria-label="Industry categories"
-            className="flex gap-2 overflow-x-auto py-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="flex flex-wrap justify-center gap-2 py-3"
           >
             {CATEGORIES.map((cat) => {
               const accent = ACCENT_CLASSES[cat.accent] ?? ACCENT_CLASSES.blue;
