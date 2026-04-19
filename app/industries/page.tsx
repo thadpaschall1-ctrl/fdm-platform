@@ -44,6 +44,7 @@ const CATEGORIES: {
       "spray-foam-insulation",
       "foundation-repair",
       "crawl-space-encapsulation",
+      "solar-installers",
       "dryer-vent-cleaning",
       "biohazard-cleanup",
     ],
@@ -51,13 +52,14 @@ const CATEGORIES: {
   {
     name: "Concrete & Flooring",
     blurb:
-      "Specialty coatings and decorative concrete — residential and commercial. Quote-heavy, short close cycles.",
+      "Specialty coatings, decorative concrete, and paver block installs — residential and commercial.",
     accent: "amber",
     slugs: [
       "epoxy-flooring",
       "concrete-coatings",
       "polished-concrete",
       "decorative-concrete",
+      "paver-hardscape",
     ],
   },
   {
@@ -73,7 +75,6 @@ const CATEGORIES: {
       "paver-hardscape",
       "deck-builders",
       "artificial-turf",
-      "solar-installers",
       "landscaping",
     ],
   },
@@ -87,6 +88,7 @@ const CATEGORIES: {
       "home-cleaning",
       "commercial-pressure-washing",
       "pest-control",
+      "mosquito-control",
       "bathtub-reglazing",
     ],
   },
@@ -134,6 +136,7 @@ const CATEGORIES: {
       "real-estate",
       "insurance",
       "accounting",
+      "business-consultants",
       "photography",
     ],
   },

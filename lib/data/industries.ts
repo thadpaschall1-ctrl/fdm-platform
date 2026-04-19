@@ -1688,6 +1688,72 @@ export const INDUSTRIES: IndustryData[] = [
     ],
     redirectFrom: [],
   },
+  {
+    slug: "business-consultants",
+    name: "Business Consultants & Advisors",
+    metaTitle: "Business Consultant Marketing | AI Lead Gen for Consultants & Advisors | Fast Digital Marketing",
+    metaDescription: "Marketing automation for business consultants, management advisors, and strategy firms. AI voice agent qualifies discovery calls 24/7, AI Search Optimization for 'business consultant [city],' and nurture that converts long-cycle prospects into engagements.",
+    hero: "Qualify the Discovery Call. Close the Engagement.",
+    painPoints: [
+      "Discovery calls take 30–60 minutes — unqualified calls burn your week",
+      "Prospects research 4–12 weeks before signing and go cold without follow-up",
+      "Referral-based pipelines dry up when one quarter is slow and you have no inbound engine",
+      "LinkedIn and content marketing build awareness but rarely book the first call directly",
+      "Big consulting brands (McKinsey-adjacent boutiques, Big 4 advisory) rank above solo and boutique consultants",
+    ],
+    solutions: [
+      { title: "AI Voice Receptionist (Discovery-Qualifier)", description: "Holland answers every inquiry 24/7, qualifies industry, company size, revenue, challenge type (strategy / operations / M&A / turnaround / growth / exit planning), and books only pre-qualified discovery calls into your calendar — no more 'just picking your brain' calls." },
+      { title: "Authority-Intent AI Search Optimization", description: "Rank for 'business consultant [city],' 'management consultant [city],' 'growth consultant [industry],' 'exit planning advisor [city],' and AI-search queries like 'when should I hire a business consultant.' Pull decision-stage prospects." },
+      { title: "Long-Cycle Authority Nurture", description: "4–12-week decision cycles need patient touch. Our sequences deliver case studies, frameworks, industry-specific insights, and whitepaper downloads that build trust over weeks — then convert to a discovery call when the prospect is ready." },
+      { title: "Review + Testimonial Autopilot", description: "After every engagement, trigger a testimonial and case-study request calibrated for B2B context. Consultants with 20+ LinkedIn recommendations and Google reviews dominate 'best business consultant in [niche]' searches." },
+      { title: "Smart Website (Authority-Forward)", description: "Case studies by industry, results-forward testimonials, methodology explainer, whitepaper/framework library, discovery-call booking with pre-qualification intake, and LinkedIn-integrated bio. Built to convert researchers into booked calls." },
+    ],
+    stats: [
+      { value: "$5K–$250K+", label: "typical engagement value depending on scope + duration" },
+      { value: "$330B", label: "US management consulting market (2026)" },
+      { value: "4–12 wk", label: "typical decision cycle from first touch to signed engagement" },
+      { value: "3x", label: "call-to-close rate on pre-qualified discovery calls vs. open inbound" },
+    ],
+    faqs: [
+      { question: "Do you work with solo consultants, boutique firms, and specialty advisors?", answer: "All three. Solo management / strategy consultants, 3–25-person boutique firms, specialty advisors (M&A, turnaround, exit planning, fractional CXO), and industry-vertical specialists — each gets tuned messaging, AI discovery scripts, and SEO content." },
+      { question: "Can the AI qualify without being off-putting to high-value prospects?", answer: "Yes. Holland uses a professional, consultative tone — not a sales-funnel script. She captures only what's necessary to confirm the prospect is in your ICP, sends your framework overview, and books the discovery call on your calendar." },
+      { question: "How do you compete with McKinsey-adjacent brands and Big 4 advisory?", answer: "Specialist positioning, vertical-authority content, case-study velocity, LinkedIn visibility, and AI-search citations for niche-specific queries. Big brands win on logo safety; boutiques win on senior-partner attention — we put the senior-attention story in front of buyers first." },
+    ],
+    redirectFrom: [],
+  },
+  {
+    slug: "mosquito-control",
+    name: "Mosquito Control & Yard Pest Services",
+    metaTitle: "Mosquito Control Marketing | AI Lead Gen for Mosquito & Yard Pest Services | Fast Digital Marketing",
+    metaDescription: "Marketing automation for mosquito control and yard pest services. AI voice agent books seasonal plans 24/7, AI Search Optimization for 'mosquito control [city],' and recurring-route nurture that fills summer calendars.",
+    hero: "Fill the Summer Route. Lock In the Recurring Plan.",
+    painPoints: [
+      "Demand explodes May–Sept — your phone cannot keep up and homeowners call the next company on Google",
+      "One-time treatments should convert to seasonal plans but nobody follows up after the first visit",
+      "Mosquito Joe, Mosquito Shield, and Mosquito Authority franchises rank above local shops for 'mosquito control [city]'",
+      "Event treatments (weddings, backyard parties) need fast quotes or you lose the booking",
+      "Tick, flea, and no-see-um add-ons never get cross-sold to mosquito customers",
+    ],
+    solutions: [
+      { title: "AI Voice Receptionist (Seasonal-Scalable)", description: "Holland answers every call 24/7 and scales instantly in peak demand, captures yard size, treatment area (full yard vs. perimeter), recurring plan vs. one-time event, and books into your next zip-code route day so density stays tight." },
+      { title: "Local AI Search Optimization", description: "Rank for 'mosquito control [city],' 'mosquito spraying [city],' 'backyard mosquito treatment [city],' 'mosquito misting system [city],' and AI-search queries like 'are mosquito treatments safe for pets.' Pull seasonal searchers before they call a franchise." },
+      { title: "One-Time → Seasonal Plan Nurture", description: "Every one-time customer gets an automated sequence offering the 4-visit, 6-visit, or all-season recurring plan. Winter reactivation reminders ensure last year's customers rebook before your competitors reach them in spring." },
+      { title: "Review Autopilot", description: "After every treatment, trigger a review request — bonus prompts after the first bite-free weekend. Mosquito control shops with 150+ Google reviews dominate 'mosquito control near me' searches against the franchises." },
+      { title: "Smart Website (Plan-Forward)", description: "Seasonal plan pricing (4 / 6 / 8 treatments), pet-and-kid safety explainer, event-treatment booking, service-area zip map, and online recurring-plan signup. Built to convert one-time shoppers into full-season subscribers." },
+    ],
+    stats: [
+      { value: "$350–$800", label: "typical seasonal plan (4–8 treatments) per residential yard" },
+      { value: "$2.1B", label: "US mosquito control + outdoor pest services market (2026)" },
+      { value: "5x", label: "lifetime value of a seasonal-plan customer vs. a one-time treatment" },
+      { value: "May–Sept", label: "90% of mosquito-control revenue happens in this window" },
+    ],
+    faqs: [
+      { question: "Do you work with mosquito-only shops, tick/flea specialists, and full-service yard pest companies?", answer: "All three. Mosquito-only seasonal shops, tick/flea-heavy operators (New England, Midwest), and full-service yard pest companies (mosquito + tick + flea + no-see-um + ant + rodent) — each gets tuned AI scripts and SEO content." },
+      { question: "Can the AI handle pet-safety and organic-option questions?", answer: "Yes. Holland handles the basics — reentry windows, pet-safe products (pyrethroid vs. botanical / essential-oil alternatives), and pollinator-safety guidelines — without prescribing. She books the treatment; your tech confirms the product choice on arrival." },
+      { question: "How do you compete with Mosquito Joe and other franchises?", answer: "Local review velocity, locally-owned messaging, transparent seasonal plan pricing (franchises often hide it), and AI-search citations for safety and organic-option queries. Franchises win on TV ads; locals win on price and service — we put that comparison in front of the homeowner first." },
+    ],
+    redirectFrom: [],
+  },
 ];
 
 export function getIndustryBySlug(slug: string): IndustryData | undefined {
