@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AnimatedStats } from "@/components/animated-stats";
 import { ServiceCard } from "@/components/service-card";
 import { ProcessTimeline } from "@/components/process-timeline";
+import { INDUSTRIES as INDUSTRY_DATA } from "@/lib/data/industries";
 
 export const metadata: Metadata = {
   title: "Fast Digital Marketing | SEO, Google Ads & Web Design Agency",
@@ -104,28 +105,12 @@ const SERVICES = [
   },
 ];
 
-const INDUSTRIES = [
-  { name: "Security Companies", slug: "security-companies" },
-  { name: "Chiropractors", slug: "chiropractors" },
-  { name: "Dental Practices", slug: "dental" },
-  { name: "Plumbing Companies", slug: "plumbers" },
-  { name: "HVAC Companies", slug: "hvac" },
-  { name: "Electricians", slug: "electricians" },
-  { name: "Roofing Companies", slug: "roofers" },
-  { name: "Law Firms", slug: "law-firms" },
-  { name: "Medical Spas", slug: "medical-spas" },
-  { name: "Real Estate Agents", slug: "real-estate" },
-  { name: "Auto Repair Shops", slug: "auto-repair" },
-  { name: "Veterinary Clinics", slug: "veterinary" },
-  { name: "Insurance Agencies", slug: "insurance" },
-  { name: "Accounting Firms", slug: "accounting" },
-  { name: "Landscaping Companies", slug: "landscaping" },
-  { name: "Pest Control", slug: "pest-control" },
-  { name: "Home Cleaning Services", slug: "home-cleaning" },
-  { name: "Fitness Studios & Gyms", slug: "fitness" },
-  { name: "Photography Studios", slug: "photography" },
-  { name: "Window & Door Companies", slug: "windows-doors" },
-];
+// Industries grid is driven off lib/data/industries.ts so every niche with
+// a real landing page appears here — no more 404s from hardcoded names.
+// Sorted alphabetically for scannability.
+const INDUSTRIES = [...INDUSTRY_DATA]
+  .map((i) => ({ name: i.name, slug: i.slug }))
+  .sort((a, b) => a.name.localeCompare(b.name));
 
 export default function HomePage() {
   const schema = {
