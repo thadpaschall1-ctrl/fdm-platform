@@ -2447,6 +2447,39 @@ export const INDUSTRIES: IndustryData[] = [
     ],
     redirectFrom: [],
   },
+  {
+    slug: "remote-therapists",
+    name: "Remote Therapists & Online Counseling Practices",
+    metaTitle: "Remote Therapist Marketing | AI Lead Gen for Online Therapy Practices | Fast Digital Marketing",
+    metaDescription: "Marketing automation for remote therapists and online counseling practices. AI voice agent handles sensitive intake 24/7, AI Search Optimization for 'online therapist [state],' and nurture that fills your virtual caseload.",
+    hero: "Fill the Virtual Caseload. Keep the Boundaries.",
+    painPoints: [
+      "You're in session with a client and every missed inquiry goes to BetterHelp or Talkspace",
+      "Insurance credentialing, superbills, and out-of-network questions confuse prospective clients",
+      "Directory platforms (Psychology Today, Zocdoc, Alma, Headway) eat 30–40% of first-session revenue",
+      "State-by-state licensure (LCSW / LMFT / LPC / PsyD) questions waste time on ineligible leads",
+      "Session no-shows and late cancels kill your income and nobody re-books the slot",
+    ],
+    solutions: [
+      { title: "AI Voice Receptionist (Therapy-Sensitive)", description: "Holland answers every inquiry 24/7 with warmth and boundaries — no crisis-triage overreach. She captures state of residence, insurance situation, presenting concern (at a comfort level), and preferred session format, then books the 15-minute consultation call." },
+      { title: "Local + State AI Search Optimization", description: "Rank for 'online therapist [state],' 'virtual therapy [state],' 'telehealth counseling [state],' 'anxiety therapist [state],' 'trauma therapist [state],' and AI-search queries like 'how do I find a therapist.' Pull same-state searchers your license actually covers." },
+      { title: "Sensitive Intake Nurture", description: "Inquiries often sit for days before booking. Our sequences send what-to-expect content, payment / insurance guides, and short videos from the therapist — reducing friction and no-shows. Every sequence respects trauma-informed pacing, not sales urgency." },
+      { title: "Review Autopilot (Compliant)", description: "HIPAA-aware review prompts that never name clients or imply specific treatments. Therapists with compliant Google reviews dominate 'online therapist [state]' searches where most peers fear reviews entirely." },
+      { title: "Smart Website (Licensure + Insurance Forward)", description: "State-licensure map, insurance panels accepted (plus out-of-network / superbill explainer), therapist bio with video intro, specialty areas (anxiety / trauma / couples / ADHD), secure intake portal, and online consultation booking. Built to convert thoughtful researchers without feeling like a funnel." },
+    ],
+    stats: [
+      { value: "$120–$250/session", label: "typical private-pay remote therapy session fee" },
+      { value: "$36B", label: "US mental health services market (2026)" },
+      { value: "55%", label: "of US therapy sessions now delivered via telehealth" },
+      { value: "30–40%", label: "platform cut taken by BetterHelp / Talkspace-style directories" },
+    ],
+    faqs: [
+      { question: "Do you work with solo licensed therapists, group practices, and specialty counseling clinics?", answer: "All three. Solo licensed clinicians (LCSW / LMFT / LPC / LPCC / PsyD / PhD), group practices with multiple therapists across state lines, and specialty clinics (trauma / couples / eating disorders / neurodivergence-affirming) — each gets tuned AI scripts and HIPAA-conscious SEO content." },
+      { question: "Can the AI stay HIPAA-aware and avoid crisis-overreach?", answer: "Yes. Holland never captures specific diagnoses, medications, or session content. She recognizes crisis language (suicidal ideation, active harm) and immediately routes to 988 / your crisis protocol. For everything else she handles booking and consultation requests with a trauma-informed tone." },
+      { question: "How do I compete with BetterHelp, Talkspace, and Psychology Today?", answer: "Direct-to-therapist positioning (no platform middleman), therapist-brand authority, same-state licensure clarity, and AI-search citations for specialty-specific queries ('ADHD therapist who takes [insurance] in [state]'). Directories win on brand; direct-to-therapist wins on therapist fit and margin — we surface that for the clients who want to choose their person." },
+    ],
+    redirectFrom: [],
+  },
 ];
 
 export function getIndustryBySlug(slug: string): IndustryData | undefined {

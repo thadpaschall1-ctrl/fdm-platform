@@ -126,6 +126,7 @@ const CATEGORIES: {
       "dental",
       "medical-spas",
       "weight-loss-hrt",
+      "remote-therapists",
       "fitness",
       "hair-salons",
     ],
@@ -225,6 +226,15 @@ const ACCENT_CLASSES: Record<
   },
 };
 
+// Stable anchor id from category name for the submenu jump links.
+function catId(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 export default function IndustriesIndexPage() {
   // Surface any slug that hasn't been assigned to a category (safety net for
   // new niches added without category updates).
@@ -286,8 +296,37 @@ export default function IndustriesIndexPage() {
         </div>
       </section>
 
+      {/* Sticky category submenu — jumps to each section */}
+      <div className="sticky top-[72px] z-40 border-y border-white/[0.08] bg-slate-950/85 backdrop-blur-xl">
+        <div className="mx-auto max-w-6xl px-6">
+          <nav
+            aria-label="Industry categories"
+            className="flex gap-2 overflow-x-auto py-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {CATEGORIES.map((cat) => {
+              const accent = ACCENT_CLASSES[cat.accent] ?? ACCENT_CLASSES.blue;
+              const count = cat.slugs.filter((s) =>
+                getIndustryBySlug(s)
+              ).length;
+              return (
+                <a
+                  key={cat.name}
+                  href={`#${catId(cat.name)}`}
+                  className={`group shrink-0 rounded-full border px-4 py-1.5 text-xs font-bold uppercase tracking-widest transition-all hover:-translate-y-0.5 ${accent.pill} hover:brightness-125`}
+                >
+                  {cat.name}
+                  <span className="ml-2 rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-semibold text-white/70">
+                    {count}
+                  </span>
+                </a>
+              );
+            })}
+          </nav>
+        </div>
+      </div>
+
       {/* Category sections */}
-      <section className="relative px-6 pb-20">
+      <section className="relative px-6 pt-12 pb-20">
         <div className="mx-auto max-w-6xl space-y-16">
           {CATEGORIES.map((cat) => {
             const items = cat.slugs
@@ -299,7 +338,7 @@ export default function IndustriesIndexPage() {
             const accent = ACCENT_CLASSES[cat.accent] ?? ACCENT_CLASSES.blue;
 
             return (
-              <div key={cat.name}>
+              <div key={cat.name} id={catId(cat.name)} className="scroll-mt-32">
                 <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <p
