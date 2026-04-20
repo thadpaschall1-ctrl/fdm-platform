@@ -8,8 +8,9 @@
  *     - Annual price ($priceAnnual/yr, billed as 10× monthly = 2 months free)
  *   - 1 Product per add-on (Domain, Content Velocity, Client Reactivation, Guided GBP)
  *
- * All products are prefixed "FDM — " so they're easy to find in the Stripe dashboard
- * alongside products from other AISE brands (GYCP, callmabel, etc.).
+ * All products are prefixed "Fast Digital Marketing — " so customers see the full brand
+ * name in the Stripe Checkout line item (the account-level public business name applies to
+ * all AISE brands, so this is where brand identity lives at checkout).
  *
  * Idempotent: re-running won't duplicate products — it looks up by metadata.slug and
  * updates/reuses existing entries.
@@ -194,7 +195,7 @@ async function main() {
     console.log(`▸ ${tier.name}`);
     const product = await upsertProduct({
       slug: tier.slug,
-      name: `FDM — ${tier.name}`,
+      name: `Fast Digital Marketing — ${tier.name}`,
       description: tier.tagline,
       brand: "fdm",
     });
@@ -226,7 +227,7 @@ async function main() {
     console.log(`▸ ${addOn.name}`);
     const product = await upsertProduct({
       slug: `addon_${addOn.slug}`,
-      name: `FDM — ${addOn.name}`,
+      name: `Fast Digital Marketing — ${addOn.name}`,
       description: addOn.description,
       brand: "fdm",
     });
