@@ -54,6 +54,11 @@ interface StripeIds {
  * Find an existing product by metadata slug, or create a new one.
  * Returns the Stripe product.
  */
+// Statement descriptor shown on customer credit-card statements for ALL FDM products.
+// 5-22 ASCII chars, no special punctuation, represents the business. Overrides the
+// Stripe account-level default (which belongs to a different AISE brand).
+const FDM_STATEMENT_DESCRIPTOR = "FAST DIGITAL MKT";
+
 async function upsertProduct(args: {
   slug: string;
   name: string;
@@ -71,6 +76,7 @@ async function upsertProduct(args: {
       name: args.name,
       description: args.description,
       active: true,
+      statement_descriptor: FDM_STATEMENT_DESCRIPTOR,
     });
   }
 
@@ -78,6 +84,7 @@ async function upsertProduct(args: {
   return await stripe.products.create({
     name: args.name,
     description: args.description,
+    statement_descriptor: FDM_STATEMENT_DESCRIPTOR,
     metadata: {
       slug: args.slug,
       brand: args.brand,
