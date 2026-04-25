@@ -17,6 +17,7 @@
 import { ARCHETYPES, type DesignArchetype } from "@/lib/data/design-archetypes";
 import { getNicheDesign, type NicheDesignOverride } from "@/lib/data/niche-design";
 import { getNicheSiteContent } from "@/lib/data/niche-site-content";
+import { getNicheImage } from "@/lib/preview/load-images";
 import type { QaBusiness } from "@/lib/preview/load-business";
 
 interface PreviewSiteProps {
@@ -211,42 +212,56 @@ export function PreviewSite({ business }: PreviewSiteProps) {
               </div>
             </div>
 
-            {/* Hero visual — placeholder photo block tinted by archetype */}
-            {heroAlignment !== "centered" && (
-              <div
-                className="relative aspect-[4/5] rounded-2xl overflow-hidden"
-                style={{
-                  background: `linear-gradient(135deg, ${palette.primary}, ${palette.accent})`,
-                  border: `1px solid ${palette.border}`,
-                }}
-              >
+            {/* Hero visual — real AI-generated image when available, gradient fallback */}
+            {heroAlignment !== "centered" && (() => {
+              const heroImg = getNicheImage(business.niche_slug, "hero");
+              return (
                 <div
-                  className="absolute inset-0 flex items-center justify-center text-center p-6"
-                  style={{ color: palette.primaryFg }}
+                  className="relative aspect-[4/5] rounded-2xl overflow-hidden"
+                  style={{
+                    background: heroImg
+                      ? "transparent"
+                      : `linear-gradient(135deg, ${palette.primary}, ${palette.accent})`,
+                    border: `1px solid ${palette.border}`,
+                  }}
                 >
-                  <div>
-                    <div className="text-6xl mb-4">
-                      {archetype.hero.style === "drone"
-                        ? "🛩️"
-                        : archetype.hero.style === "before-after"
-                        ? "📐"
-                        : archetype.hero.style === "data"
-                        ? "📊"
-                        : archetype.hero.style === "portrait"
-                        ? "👤"
-                        : "✨"}
+                  {heroImg ? (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                      src={heroImg.url}
+                      alt={niche.imagery?.heroSubject || `${business.business_name} ${business.niche_name}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div
+                      className="absolute inset-0 flex items-center justify-center text-center p-6"
+                      style={{ color: palette.primaryFg }}
+                    >
+                      <div>
+                        <div className="text-6xl mb-4">
+                          {archetype.hero.style === "drone"
+                            ? "🛩️"
+                            : archetype.hero.style === "before-after"
+                            ? "📐"
+                            : archetype.hero.style === "data"
+                            ? "📊"
+                            : archetype.hero.style === "portrait"
+                            ? "👤"
+                            : "✨"}
+                        </div>
+                        <div className="text-sm font-semibold uppercase tracking-widest opacity-80">
+                          {niche.imagery?.heroSubject ||
+                            `${business.niche_name} hero photo`}
+                        </div>
+                        <div className="text-xs mt-2 opacity-70">
+                          ({archetype.hero.style} style · {archetype.hero.tone} tone)
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-sm font-semibold uppercase tracking-widest opacity-80">
-                      {niche.imagery?.heroSubject ||
-                        `${business.niche_name} hero photo`}
-                    </div>
-                    <div className="text-xs mt-2 opacity-70">
-                      ({archetype.hero.style} style · {archetype.hero.tone} tone)
-                    </div>
-                  </div>
+                  )}
                 </div>
-              </div>
-            )}
+              );
+            })()}
           </div>
         </section>
 
@@ -298,30 +313,52 @@ export function PreviewSite({ business }: PreviewSiteProps) {
               {content.servicesHeading}
             </h2>
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {content.services.map((s, i) => (
-                <div
-                  key={s.title}
-                  className="rounded-2xl p-6"
-                  style={{
-                    background: palette.surface,
-                    border: `1px solid ${palette.border}`,
-                  }}
-                >
+              {content.services.map((s, i) => {
+                const slot = `service${i + 1}` as
+                  | "service1"
+                  | "service2"
+                  | "service3"
+                  | "service4"
+                  | "service5"
+                  | "service6";
+                const tileImg = getNicheImage(business.niche_slug, slot);
+                return (
                   <div
-                    className="text-xs font-bold uppercase tracking-widest mb-3"
-                    style={{ color: palette.primary }}
+                    key={s.title}
+                    className="rounded-2xl overflow-hidden flex flex-col"
+                    style={{
+                      background: palette.surface,
+                      border: `1px solid ${palette.border}`,
+                    }}
                   >
-                    {String(i + 1).padStart(2, "0")}
+                    {tileImg && (
+                      <div className="relative aspect-[4/3] overflow-hidden">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={tileImg.url}
+                          alt={s.title}
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                      </div>
+                    )}
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div
+                        className="text-xs font-bold uppercase tracking-widest mb-3"
+                        style={{ color: palette.primary }}
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+                      <h3
+                        className="text-xl font-bold mb-2"
+                        style={{ fontFamily: archetype.typography.display }}
+                      >
+                        {s.title}
+                      </h3>
+                      <p style={{ color: palette.muted }}>{s.description}</p>
+                    </div>
                   </div>
-                  <h3
-                    className="text-xl font-bold mb-2"
-                    style={{ fontFamily: archetype.typography.display }}
-                  >
-                    {s.title}
-                  </h3>
-                  <p style={{ color: palette.muted }}>{s.description}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
