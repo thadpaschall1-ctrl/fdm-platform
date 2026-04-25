@@ -1,32 +1,28 @@
 /**
  * PreviewSite — renders a generated FDM site for a single (niche, business) tuple.
  *
+ * IMPORTANT VOICE: this site is the BUSINESS speaking to its CUSTOMERS — not
+ * FDM speaking to the business owner. Foundation-repair preview = a foundation
+ * repair company selling to homeowners. Plumber preview = a plumber selling to
+ * homeowners. Etc. We pull customer-facing copy from `niche-site-content.ts`,
+ * NOT from `industries.ts` (which is FDM's pitch to industry owners).
+ *
  * Combines:
  *   - Archetype design (color/typography/layout primitives)
  *   - Per-niche overrides (palette shifts, hero context, imagery hints)
- *   - Industry-level copy (painPoints/solutions/stats/faqs from industries.ts)
- *   - Business data (name, phone, address, city from qa-batch.json)
- *
- * Output: a fully-rendered single-page site that visually distinguishes itself
- * by niche AND personalizes for the specific business.
- *
- * Architecture intent: ONE component handles all archetypes + niches via prop-driven
- * configuration. We don't fork into "FoundationSite" / "PlumberSite" / etc. — the
- * differentiation comes from the design tokens, not from separate JSX trees.
+ *   - Niche site content (customer-facing copy)
+ *   - Business data (name, phone, address, city)
  */
 
 import { ARCHETYPES, type DesignArchetype } from "@/lib/data/design-archetypes";
 import { getNicheDesign, type NicheDesignOverride } from "@/lib/data/niche-design";
-import { getIndustryBySlug, type IndustryData } from "@/lib/data/industries";
+import { getNicheSiteContent } from "@/lib/data/niche-site-content";
 import type { QaBusiness } from "@/lib/preview/load-business";
 
 interface PreviewSiteProps {
   business: QaBusiness;
 }
 
-/**
- * Merge archetype palette with niche overrides. Niche wins on conflict.
- */
 function mergePalette(
   archetype: DesignArchetype,
   override: NicheDesignOverride
@@ -38,11 +34,9 @@ export function PreviewSite({ business }: PreviewSiteProps) {
   const niche = getNicheDesign(business.niche_slug);
   const archetype = ARCHETYPES[niche.archetype];
   const palette = mergePalette(archetype, niche);
-  const industry = getIndustryBySlug(business.niche_slug);
+  const content = getNicheSiteContent(business.niche_slug);
 
-  // Build inline CSS variables so Tailwind arbitrary classes can read them.
-  // This is how each preview gets its own isolated color world without us
-  // shipping a separate stylesheet per niche.
+  // CSS vars give each preview an isolated color world without per-niche stylesheets.
   const cssVars: React.CSSProperties = {
     ["--bg" as string]: palette.background,
     ["--fg" as string]: palette.foreground,
@@ -60,6 +54,10 @@ export function PreviewSite({ business }: PreviewSiteProps) {
   const phoneHref = business.phone
     ? `tel:${business.phone.replace(/[^\d+]/g, "")}`
     : "#";
+
+  // Override the niche tagline if niche-design.ts specified one (from heroContext);
+  // otherwise fall back to the niche-site-content default.
+  const heroTagline = niche.heroContext.tagline || content.heroTagline;
 
   return (
     <div
@@ -159,22 +157,18 @@ export function PreviewSite({ business }: PreviewSiteProps) {
                   className="inline-block h-1.5 w-1.5 rounded-full animate-pulse"
                   style={{ background: palette.primary }}
                 />
-                {business.city}
+                Serving {business.city}
               </div>
               <h1
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight"
                 style={{ fontFamily: archetype.typography.display }}
-                dangerouslySetInnerHTML={{
-                  __html: niche.heroContext.tagline ?? industry?.hero ?? "Your trusted local pro.",
-                }}
+                dangerouslySetInnerHTML={{ __html: heroTagline }}
               />
               <p
                 className="mt-6 max-w-xl text-lg leading-relaxed"
                 style={{ color: palette.muted }}
-              >
-                {industry?.metaDescription ||
-                  `${business.business_name} serves ${business.city} with quality work and clear pricing.`}
-              </p>
+                dangerouslySetInnerHTML={{ __html: content.heroSubtitle }}
+              />
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <a
                   href={phoneHref}
@@ -184,7 +178,7 @@ export function PreviewSite({ business }: PreviewSiteProps) {
                     color: palette.primaryFg,
                   }}
                 >
-                  📞 {business.phone || "Call Now"}
+                  📞 {business.phone || content.heroCta}
                 </a>
                 <a
                   href="#services"
@@ -194,29 +188,27 @@ export function PreviewSite({ business }: PreviewSiteProps) {
                     color: palette.foreground,
                   }}
                 >
-                  See What We Do
+                  {content.heroSecondaryCta}
                 </a>
               </div>
-              {industry?.stats && (
-                <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                  {industry.stats.slice(0, 4).map((s) => (
-                    <div key={s.label}>
-                      <div
-                        className="text-2xl font-bold"
-                        style={{
-                          color: palette.accent,
-                          fontFamily: archetype.typography.accent || archetype.typography.display,
-                        }}
-                      >
-                        {s.value}
-                      </div>
-                      <div className="text-xs mt-1" style={{ color: palette.muted }}>
-                        {s.label}
-                      </div>
+              <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {content.trustStats.map((s) => (
+                  <div key={s.label}>
+                    <div
+                      className="text-2xl font-bold"
+                      style={{
+                        color: palette.accent,
+                        fontFamily: archetype.typography.accent || archetype.typography.display,
+                      }}
+                    >
+                      {s.value}
                     </div>
-                  ))}
-                </div>
-              )}
+                    <div className="text-xs mt-1" style={{ color: palette.muted }}>
+                      {s.label}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Hero visual — placeholder photo block tinted by archetype */}
@@ -258,135 +250,167 @@ export function PreviewSite({ business }: PreviewSiteProps) {
           </div>
         </section>
 
-        {/* ── Pain Points (problem the niche solves) ──────── */}
-        {industry?.painPoints && (
-          <section className="px-6 py-20" style={{ background: palette.surface }}>
-            <div className="mx-auto max-w-5xl">
-              <h2
-                className="text-3xl sm:text-4xl font-bold tracking-tight"
-                style={{ fontFamily: archetype.typography.display }}
-              >
-                Sound familiar?
-              </h2>
-              <p className="mt-3 text-lg" style={{ color: palette.muted }}>
-                These are the problems we hear every week from {business.city.split(",")[0]} business owners.
-              </p>
-              <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-                {industry.painPoints.map((pp) => (
-                  <li
-                    key={pp}
-                    className="rounded-xl p-5 flex gap-3"
-                    style={{
-                      background: palette.background,
-                      border: `1px solid ${palette.border}`,
-                    }}
+        {/* ── Customer pains ────────────────────────────────── */}
+        <section className="px-6 py-20" style={{ background: palette.surface }}>
+          <div className="mx-auto max-w-5xl">
+            <h2
+              className="text-3xl sm:text-4xl font-bold tracking-tight"
+              style={{ fontFamily: archetype.typography.display }}
+            >
+              {content.customerPainsHeading}
+            </h2>
+            <p className="mt-3 text-lg" style={{ color: palette.muted }}>
+              These are the situations we help {business.city.split(",")[0]} customers solve every week.
+            </p>
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+              {content.customerPains.map((pp) => (
+                <li
+                  key={pp}
+                  className="rounded-xl p-5 flex gap-3"
+                  style={{
+                    background: palette.background,
+                    border: `1px solid ${palette.border}`,
+                  }}
+                >
+                  <span
+                    style={{ color: palette.accent }}
+                    className="text-xl shrink-0 leading-none"
                   >
-                    <span
-                      style={{ color: palette.accent }}
-                      className="text-xl shrink-0 leading-none"
-                    >
-                      ●
-                    </span>
-                    <span style={{ color: palette.foreground }}>{pp}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-        )}
+                    ●
+                  </span>
+                  <span
+                    style={{ color: palette.foreground }}
+                    dangerouslySetInnerHTML={{ __html: pp }}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
 
-        {/* ── Services / Solutions ─────────────────────────── */}
-        {industry?.solutions && (
-          <section id="services" className="px-6 py-20">
-            <div className="mx-auto max-w-6xl">
-              <h2
-                className="text-3xl sm:text-4xl font-bold tracking-tight"
-                style={{ fontFamily: archetype.typography.display }}
-              >
-                What {business.business_name} actually does.
-              </h2>
-              <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {industry.solutions.slice(0, 6).map((s, i) => (
+        {/* ── Services ─────────────────────────────────────── */}
+        <section id="services" className="px-6 py-20">
+          <div className="mx-auto max-w-6xl">
+            <h2
+              className="text-3xl sm:text-4xl font-bold tracking-tight"
+              style={{ fontFamily: archetype.typography.display }}
+            >
+              {content.servicesHeading}
+            </h2>
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {content.services.map((s, i) => (
+                <div
+                  key={s.title}
+                  className="rounded-2xl p-6"
+                  style={{
+                    background: palette.surface,
+                    border: `1px solid ${palette.border}`,
+                  }}
+                >
                   <div
-                    key={s.title}
-                    className="rounded-2xl p-6"
+                    className="text-xs font-bold uppercase tracking-widest mb-3"
+                    style={{ color: palette.primary }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h3
+                    className="text-xl font-bold mb-2"
+                    style={{ fontFamily: archetype.typography.display }}
+                  >
+                    {s.title}
+                  </h3>
+                  <p style={{ color: palette.muted }}>{s.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Why us ─────────────────────────────────────── */}
+        <section className="px-6 py-20" style={{ background: palette.surface }}>
+          <div className="mx-auto max-w-5xl">
+            <h2
+              className="text-3xl sm:text-4xl font-bold tracking-tight"
+              style={{ fontFamily: archetype.typography.display }}
+            >
+              {content.whyUsHeading}
+            </h2>
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {content.whyUs.map((reason) => (
+                <div
+                  key={reason.title}
+                  className="rounded-2xl p-6"
+                  style={{
+                    background: palette.background,
+                    border: `1px solid ${palette.border}`,
+                  }}
+                >
+                  <h3
+                    className="text-xl font-bold mb-2"
                     style={{
-                      background: palette.surface,
-                      border: `1px solid ${palette.border}`,
+                      fontFamily: archetype.typography.display,
+                      color: palette.primary,
                     }}
                   >
-                    <div
-                      className="text-xs font-bold uppercase tracking-widest mb-3"
-                      style={{ color: palette.primary }}
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </div>
-                    <h3
-                      className="text-xl font-bold mb-2"
-                      style={{ fontFamily: archetype.typography.display }}
-                    >
-                      {s.title}
-                    </h3>
-                    <p style={{ color: palette.muted }}>{s.description}</p>
-                  </div>
-                ))}
-              </div>
+                    {reason.title}
+                  </h3>
+                  <p style={{ color: palette.muted }}>{reason.description}</p>
+                </div>
+              ))}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
         {/* ── FAQ ──────────────────────────────────────────── */}
-        {industry?.faqs && (
-          <section className="px-6 py-20" style={{ background: palette.surface }}>
-            <div className="mx-auto max-w-3xl">
-              <h2
-                className="text-3xl sm:text-4xl font-bold tracking-tight"
-                style={{ fontFamily: archetype.typography.display }}
-              >
-                Common questions.
-              </h2>
-              <div className="mt-8 space-y-3">
-                {industry.faqs.map((f) => (
-                  <details
-                    key={f.question}
-                    className="rounded-xl p-5 group"
-                    style={{
-                      background: palette.background,
-                      border: `1px solid ${palette.border}`,
-                    }}
-                  >
-                    <summary className="flex items-center justify-between cursor-pointer font-semibold">
-                      {f.question}
-                      <span
-                        className="transition-transform group-open:rotate-45"
-                        style={{ color: palette.primary }}
-                      >
-                        +
-                      </span>
-                    </summary>
-                    <p className="mt-3" style={{ color: palette.muted }}>
-                      {f.answer}
-                    </p>
-                  </details>
-                ))}
-              </div>
+        <section className="px-6 py-20">
+          <div className="mx-auto max-w-3xl">
+            <h2
+              className="text-3xl sm:text-4xl font-bold tracking-tight"
+              style={{ fontFamily: archetype.typography.display }}
+            >
+              Common questions.
+            </h2>
+            <div className="mt-8 space-y-3">
+              {content.faqs.map((f) => (
+                <details
+                  key={f.question}
+                  className="rounded-xl p-5 group"
+                  style={{
+                    background: palette.surface,
+                    border: `1px solid ${palette.border}`,
+                  }}
+                >
+                  <summary className="flex items-center justify-between cursor-pointer font-semibold">
+                    {f.question}
+                    <span
+                      className="transition-transform group-open:rotate-45"
+                      style={{ color: palette.primary }}
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3" style={{ color: palette.muted }}>
+                    {f.answer}
+                  </p>
+                </details>
+              ))}
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
-        {/* ── CTA ──────────────────────────────────────────── */}
+        {/* ── Final CTA ──────────────────────────────────── */}
         <section className="px-6 py-20 text-center">
           <div className="mx-auto max-w-2xl">
             <h2
               className="text-3xl sm:text-4xl font-bold tracking-tight"
               style={{ fontFamily: archetype.typography.display }}
-            >
-              Ready when you are.
-            </h2>
-            <p className="mt-4" style={{ color: palette.muted }}>
-              {business.business_name} answers fast and shows up on time.
-              {business.formatted_address ? ` Based at ${business.formatted_address}.` : ""}
-            </p>
+              dangerouslySetInnerHTML={{ __html: content.finalCtaHeading }}
+            />
+            <p
+              className="mt-4 text-lg"
+              style={{ color: palette.muted }}
+              dangerouslySetInnerHTML={{ __html: content.finalCtaSubtitle }}
+            />
             <a
               href={phoneHref}
               className="mt-8 inline-block rounded-xl px-10 py-5 text-lg font-bold shadow-lg transition hover:-translate-y-0.5"
@@ -395,7 +419,7 @@ export function PreviewSite({ business }: PreviewSiteProps) {
                 color: palette.primaryFg,
               }}
             >
-              📞 {business.phone || "Call us"}
+              📞 {business.phone || content.finalCtaButton}
             </a>
           </div>
         </section>
