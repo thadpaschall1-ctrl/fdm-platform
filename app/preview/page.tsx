@@ -58,25 +58,29 @@ export default function PreviewIndexPage() {
 
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {items.map((item) => (
-                  <Link
+                  <div
                     key={item.previewId}
-                    href={`/preview/${item.previewId}`}
-                    className="group rounded-xl border border-white/[0.08] bg-slate-900/80 p-5 transition hover:border-blue-500/40 hover:bg-slate-900"
+                    className="group rounded-xl border border-white/[0.08] bg-slate-900/80 p-5 transition hover:border-blue-500/40 hover:bg-slate-900 flex flex-col"
                   >
-                    <div className="text-xs font-mono text-slate-500 mb-2">
-                      {item.previewId}
-                    </div>
-                    <h3 className="font-bold text-white group-hover:text-blue-300 transition-colors">
-                      {item.business.business_name}
-                    </h3>
-                    <div className="mt-2 text-sm text-slate-400 space-y-1">
-                      <div>📍 {item.business.city}</div>
-                      {item.business.phone && <div>📞 {item.business.phone}</div>}
-                      <div className="text-xs text-slate-500">
-                        ⭐ {item.business.rating?.toFixed(1) || "—"} ·{" "}
-                        {item.business.review_count} reviews
+                    <Link
+                      href={`/preview/${item.previewId}`}
+                      className="block flex-1"
+                    >
+                      <div className="text-xs font-mono text-slate-500 mb-2">
+                        {item.previewId}
                       </div>
-                    </div>
+                      <h3 className="font-bold text-white group-hover:text-blue-300 transition-colors">
+                        {item.business.business_name}
+                      </h3>
+                      <div className="mt-2 text-sm text-slate-400 space-y-1">
+                        <div>📍 {item.business.city}</div>
+                        {item.business.phone && <div>📞 {item.business.phone}</div>}
+                        <div className="text-xs text-slate-500">
+                          ⭐ {item.business.rating?.toFixed(1) || "—"} ·{" "}
+                          {item.business.review_count} reviews
+                        </div>
+                      </div>
+                    </Link>
                     {item.business.website && (
                       <div className="mt-3 pt-3 border-t border-white/[0.06]">
                         <a
@@ -84,13 +88,12 @@ export default function PreviewIndexPage() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-xs text-slate-500 hover:text-blue-400 underline truncate block"
-                          onClick={(e) => e.stopPropagation()}
                         >
                           Compare → {item.business.website}
                         </a>
                       </div>
                     )}
-                  </Link>
+                  </div>
                 ))}
               </div>
             </section>
