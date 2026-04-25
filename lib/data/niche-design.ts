@@ -24,7 +24,10 @@ export interface NicheDesignOverride {
     accent: string;
     accent2: string;
     background: string;
+    foreground: string;
     surface: string;
+    muted: string;
+    border: string;
   }>;
 
   /**
