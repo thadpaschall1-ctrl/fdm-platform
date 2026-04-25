@@ -181,7 +181,7 @@ const ROOFERS: ImagePrompt[] = [
     prompt:
       "Drone shot of professional roofing crew installing dark architectural shingles on a suburban home, dramatic sky after a recent storm clearing, golden afternoon light breaking through clouds, photorealistic aerial photography, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
@@ -228,7 +228,7 @@ const POOL_BUILDERS: ImagePrompt[] = [
     prompt:
       "Drone photograph of a luxury rectangular swimming pool at golden hour, modern home in background, lush landscaping, glassy water surface reflecting sky, magazine quality, architectural photography, photorealistic",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
@@ -271,7 +271,7 @@ const SOLAR_INSTALLERS: ImagePrompt[] = [
     prompt:
       "Drone photograph of completed black solar panel array on a modern suburban home rooftop at golden hour, clean composition, professional installation visible, photorealistic aerial photography, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
@@ -318,7 +318,7 @@ const POLISHED_CONCRETE: ImagePrompt[] = [
     prompt:
       "Wide angle photo of a vast polished concrete warehouse floor with mirror-like sheen, industrial steel beams overhead, dramatic perspective leading to vanishing point, professional architectural photography, clean atmospheric lighting",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
@@ -365,9 +365,8 @@ const DECORATIVE_CONCRETE: ImagePrompt[] = [
     prompt:
       "Beautifully stamped concrete patio with rich earthtone staining and slate pattern, outdoor furniture and landscaping, golden hour light casting long shadows, magazine quality outdoor lifestyle photography, photorealistic",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/recraft-v3",
+    model: "fal-ai/gpt-image-2",
     imageSize: "portrait_4_3",
-    style: "realistic_image",
   },
   {
     slot: "service1",
@@ -409,9 +408,8 @@ const HAIR_SALONS: ImagePrompt[] = [
     prompt:
       "Stylish modern hair salon interior with elegant chairs, soft natural light streaming through tall windows, terrazzo floors, brass fixtures, plants, editorial lifestyle photography, magazine quality, photorealistic, no people",
     negativePrompt: COMMON_NEGATIVE + ", crowded, cluttered",
-    model: "fal-ai/recraft-v3",
+    model: "fal-ai/gpt-image-2",
     imageSize: "portrait_4_3",
-    style: "realistic_image",
   },
   {
     slot: "service1",
@@ -453,9 +451,8 @@ const MEDICAL_SPAS: ImagePrompt[] = [
     prompt:
       "Bright modern medical spa treatment room with white walls and warm wood accents, sleek treatment chair, plants, soft natural light, clinical yet welcoming, photorealistic editorial photography, magazine quality, no people",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/recraft-v3",
+    model: "fal-ai/gpt-image-2",
     imageSize: "portrait_4_3",
-    style: "realistic_image",
   },
   {
     slot: "service1",
@@ -548,7 +545,7 @@ const MOBILE_PET_GROOMING: ImagePrompt[] = [
     prompt:
       "Smiling friendly groomer holding a happy clean groomed golden retriever in front of a branded mobile grooming van in a suburban driveway, sunny afternoon, joyful lifestyle photography, photorealistic, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
@@ -595,7 +592,7 @@ const FITNESS: ImagePrompt[] = [
     prompt:
       "Group fitness class mid-rep in a dark modern boutique gym with dramatic side lighting, sweat and intensity visible, real members not models, low-key gym aesthetic, photojournalism style, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
@@ -642,9 +639,8 @@ const STAIR_LIFT: ImagePrompt[] = [
     prompt:
       "Smiling senior man calmly riding a modern stair lift in a warm sunlit home staircase, elegant interior with framed family photos, lifestyle photography, dignified atmosphere, magazine quality, photorealistic",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/recraft-v3",
+    model: "fal-ai/gpt-image-2",
     imageSize: "portrait_4_3",
-    style: "realistic_image",
   },
   {
     slot: "service1",
@@ -690,9 +686,8 @@ const REAL_ESTATE: ImagePrompt[] = [
     prompt:
       "Professional real estate agent portrait, confident smile, modern blazer, suburban neighborhood softly blurred behind, golden hour lighting, magazine editorial portrait photography, photorealistic, sharp focus",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/recraft-v3",
+    model: "fal-ai/gpt-image-2",
     imageSize: "portrait_4_3",
-    style: "realistic_image",
   },
   {
     slot: "service1",

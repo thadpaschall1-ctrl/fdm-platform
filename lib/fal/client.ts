@@ -102,8 +102,13 @@ function buildBody(req: FalImageRequest): Record<string, unknown> {
 
   // Handle image size mapping per model
   if (req.imageSize) {
-    if (req.model === "fal-ai/flux-pro/v1.1-ultra") {
-      // ultra uses "aspect_ratio" with values like "16:9", "1:1", "4:3"
+    const usesAspectRatio =
+      req.model === "fal-ai/flux-pro/v1.1-ultra" ||
+      req.model === "fal-ai/gpt-image-2" ||
+      req.model === "fal-ai/gpt-image-1";
+
+    if (usesAspectRatio) {
+      // These models use "aspect_ratio" with values like "16:9", "1:1", "4:3"
       const ratioMap: Record<string, string> = {
         square_hd: "1:1",
         square: "1:1",
