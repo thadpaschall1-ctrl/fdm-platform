@@ -1,0 +1,46 @@
+#!/bin/sh
+# Pre-push hook — runs npm run qa-content if niche-site-content.ts or any
+# preview archetype layout changed since origin/main.
+#
+# Bypass with --no-verify only if you're shipping non-content fixes
+# (e.g. infra, hooks, scripts) and you genuinely cannot run the QA pass.
+#
+# Install via: npm run setup-hooks
+
+set -e
+
+# Files we care about — content data + layout components that hold customer copy
+WATCHED='lib/data/niche-site-content.ts components/preview/archetypes'
+
+# Find what changed between local HEAD and origin/main
+CHANGED=$(git diff --name-only origin/main..HEAD 2>/dev/null || echo "")
+
+# Did any watched file change?
+NEEDS_QA=0
+for path in $WATCHED; do
+  if echo "$CHANGED" | grep -q "^$path"; then
+    NEEDS_QA=1
+    break
+  fi
+done
+
+if [ "$NEEDS_QA" -eq 0 ]; then
+  echo "✓ pre-push: no customer-facing content changes detected, skipping QA pass"
+  exit 0
+fi
+
+echo "→ pre-push: customer content changed — running npm run qa-content..."
+echo ""
+
+if ! npm run qa-content; then
+  echo ""
+  echo "✗ pre-push BLOCKED: QA pass found issues."
+  echo "  Review:  data/qa-content-report.md"
+  echo "  Fix the issues, commit, then push again."
+  echo "  To bypass (NOT recommended): git push --no-verify"
+  exit 1
+fi
+
+echo ""
+echo "✓ pre-push: QA pass clean — pushing."
+exit 0

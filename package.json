@@ -10,7 +10,8 @@
     "setup-stripe": "tsx --env-file=.env.local scripts/create-stripe-products.ts",
     "qa-pull": "tsx --env-file=.env.local scripts/qa-batch-pull-urls.ts",
     "qa-images": "tsx --env-file=.env.local scripts/qa-generate-images.ts",
-    "qa-content": "tsx --env-file=.env.local scripts/qa-content.ts"
+    "qa-content": "tsx --env-file=.env.local scripts/qa-content.ts",
+    "setup-hooks": "powershell -ExecutionPolicy Bypass -File scripts/setup-hooks.ps1"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",
