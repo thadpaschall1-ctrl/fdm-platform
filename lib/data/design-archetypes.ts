@@ -136,7 +136,7 @@ export const ARCHETYPES: Record<ArchetypeId, DesignArchetype> = {
   "premium-outdoor-living": {
     id: "premium-outdoor-living",
     label: "Premium Outdoor Living",
-    feel: "Magazine spread. Drone photography hero. Slower scroll-driven reveal.",
+    feel: "Magazine spread. Drone photography hero dominates the page. Slower scroll-driven reveal.",
     palette: {
       background: "#fafaf9",
       foreground: "#1c1917",
@@ -152,7 +152,7 @@ export const ARCHETYPES: Record<ArchetypeId, DesignArchetype> = {
       body: "Source Sans 3",
     },
     layout: {
-      heroAlignment: "asymmetric",
+      heroAlignment: "centered",   // full-bleed banner — image leads, text below
       contentWidth: "wide",
       sectionDensity: "minimal",
       motion: "fluid",
