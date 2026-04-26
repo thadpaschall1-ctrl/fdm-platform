@@ -449,41 +449,41 @@ const MEDICAL_SPAS: ImagePrompt[] = [
   {
     slot: "hero",
     prompt:
-      "Bright modern medical spa treatment room with white walls and warm wood accents, sleek treatment chair, plants, soft natural light, clinical yet welcoming, photorealistic editorial photography, magazine quality, no people",
-    negativePrompt: COMMON_NEGATIVE,
+      "Empty modern medical spa treatment room interior, white walls with warm walnut wood accents, single sleek cream-colored treatment bed centered in frame, large potted fiddle leaf fig plant in corner, sheer curtains diffusing soft golden hour light, polished concrete floor, minimalist sculptural pendant light fixture, no people, no humans, no figures, architectural interior photography, magazine editorial quality, sharp focus, photorealistic, 8k",
+    negativePrompt: `${COMMON_NEGATIVE}, people, person, human, face, woman, man, model, hands, fingers, body parts`,
     model: "fal-ai/gpt-image-2",
     imageSize: "portrait_4_3",
   },
   {
     slot: "service1",
     prompt:
-      "Aesthetic dermatology product line including serums in glass dropper bottles arranged on a white marble surface, soft window light, editorial beauty photography",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux/schnell",
+      "Editorial product photograph of premium aesthetic dermatology skincare — three glass amber and clear dropper-bottle serums arranged at slight angles on a polished white Carrara marble countertop, single eucalyptus sprig laid beside them, soft golden window light from upper right creating subtle shadows, magazine beauty editorial styling, sharp focus, photorealistic, ultra-high detail. No people, no hands.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, hands, fingers`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "square_hd",
   },
   {
     slot: "service2",
     prompt:
-      "Modern laser treatment device on a clean medical spa counter, professional medical equipment, soft clinical lighting, technical product photography",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux/schnell",
+      "A modern medical-grade aesthetic laser device on a polished white counter in a bright clinical room, sleek white chassis with subtle LED indicator, neutral cool lighting, depth of field with the device sharp and the room softly blurred, professional product photography, magazine quality, photorealistic. No people, no hands.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, hands, fingers`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "square_hd",
   },
   {
     slot: "service3",
     prompt:
-      "Closeup of glowing healthy skin texture, beauty editorial photography, soft natural light, magazine quality",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux/schnell",
+      "Extreme macro photograph of a single dewdrop on a soft pink rose petal, water beading perfectly, delicate light refracting through the drop, ultra-shallow depth of field, magazine beauty editorial, photorealistic, ultra-sharp focus on the drop. No people, no faces, no skin.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, faces, skin texture, body parts`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "square_hd",
   },
   {
     slot: "service4",
     prompt:
-      "Medical spa lobby with white walls, modern leather lounge chairs, plants and natural light, lifestyle architectural photography",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux/schnell",
+      "Empty modern medical spa reception lobby — clean white walls, a sculptural marble reception desk centered in frame, two cream leather lounge chairs at soft angles, large fiddle leaf fig in a textured ceramic planter, polished concrete floor, golden hour light pouring through tall windows on the left, architectural lifestyle photography, magazine quality, sharp focus, photorealistic. No people.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, person`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "square_hd",
   },
 ];
@@ -543,41 +543,41 @@ const MOBILE_PET_GROOMING: ImagePrompt[] = [
   {
     slot: "hero",
     prompt:
-      "Joyful golden retriever looking directly at camera with happy expression, freshly groomed gleaming coat, sitting in soft natural light at the open door of a branded mobile grooming van interior visible behind with professional equipment, lifestyle pet photography, ultra-sharp focus on dog's eyes, warm afternoon light, photorealistic, magazine quality, 8k resolution",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+      "Branded white mobile pet grooming van parked on a tree-lined suburban street with the side door slightly open, professional vehicle wrap, warm afternoon golden hour light, dappled tree shadows on the van, residential neighborhood with green lawns, lifestyle commercial photography, sharp focus on the van, photorealistic, magazine quality, 8k. No animals visible, no people, just the van as the hero subject.",
+    negativePrompt: `${COMMON_NEGATIVE}, dog, dogs, animals, pets, people, person, paws, anatomy errors`,
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "landscape_16_9",
   },
   {
     slot: "service1",
     prompt:
-      "Closeup of a small dog being gently brushed during grooming session, soft natural lighting, lifestyle photography, peaceful expression on dog",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux/schnell",
+      "A handsome clean golden retriever standing in full side profile on a soft outdoor lawn with a freshly groomed gleaming coat, photographed from across the lawn with a telephoto lens — entire body in frame from nose to tail, all four legs clearly visible standing on the ground, ears alert, calm content expression, warm afternoon golden hour light, lifestyle pet photography, sharp focus on the dog's silhouette, photorealistic, magazine quality.",
+    negativePrompt: `${COMMON_NEGATIVE}, closeup paws, hands, fingers, anatomy errors, extra limbs, missing limbs, missing legs, deformed paws`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_4_3",
   },
   {
     slot: "service2",
     prompt:
-      "Interior of a clean professional mobile pet grooming van with hydraulic table and grooming tools, bright fluorescent lighting, technical interior photography",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux/schnell",
+      "Interior of a clean professional mobile pet grooming van — stainless-steel hydraulic grooming table centered in frame, neatly arranged brushes, scissors and clippers on a wall organizer, fresh towels stacked, bright daylight pouring through the open back door, technical interior photography, magazine quality, photorealistic. No animals, no people.",
+    negativePrompt: `${COMMON_NEGATIVE}, dogs, animals, people, hands, paws`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_4_3",
   },
   {
     slot: "service3",
     prompt:
-      "Doodle dog enjoying a bath in a professional pet grooming tub, gentle warm water, lifestyle pet photography, joyful atmosphere",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux/schnell",
+      "A small clean fluffy white poodle sitting in calm side profile on a soft cream towel against a neutral background, full body in frame from side view, head turned slightly toward camera, calm expression, ears soft and natural, no paws in extreme closeup, soft north-facing window light, lifestyle pet portrait photography, magazine quality, photorealistic, ultra-sharp focus.",
+    negativePrompt: `${COMMON_NEGATIVE}, closeup paws, hands, fingers, anatomy errors, missing legs, deformed limbs, multiple heads`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_4_3",
   },
   {
     slot: "service4",
     prompt:
-      "Groomer trimming a small dog's nails carefully, focus on hands and pet, professional pet care lifestyle photography",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux/schnell",
+      "Top-down flat-lay product photograph of professional pet grooming tools arranged on a warm-toned wood surface — a wooden-handle slicker brush, stainless grooming scissors, electric clippers with the cord coiled neatly, a glass bottle of pet shampoo, a fresh white towel folded beside them, soft golden natural light, magazine product editorial styling, photorealistic, sharp focus. No people, no hands, no animals.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, hands, fingers, dogs, animals, paws`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_4_3",
   },
 ];
