@@ -8,11 +8,15 @@
  * instant page loads with no per-pageview generation cost.
  *
  * USAGE:
- *   npm run qa-images               # generates all niches
- *   npm run qa-images foundation-repair plumbers  # generates only those
+ *   npm run qa-images                              # fill missing/failed slots across all niches (preserves existing successful generations)
+ *   npm run qa-images foundation-repair plumbers   # FORCE-regenerate every slot for these niches (use this after editing prompts)
+ *   npm run qa-images --fill plumbers              # fill missing/failed slots for plumbers only (preserves existing)
  *
- * Idempotent — re-running for a niche overwrites those entries. Niches not
- * passed as args are left untouched.
+ * Behavior:
+ *   - No args: fills missing slots only — never wastes $$ regenerating successful images
+ *   - With slug args: assumes you edited the prompts and want a fresh generation —
+ *     OVERWRITES every slot for those niches
+ *   - With --fill flag: forces preserve-existing behavior even when slugs are passed
  *
  * Cost estimate: ~$3–10 for the full batch depending on which premium model
  * tier each hero uses.
@@ -81,11 +85,15 @@ function saveFile(data: NicheImagesFile): void {
 async function generateForNiche(
   slug: string,
   prompts: ImagePrompt[],
-  existing: NicheImageEntry | undefined
-): Promise<NicheImageEntry> {
-  // Start from any existing successful generations — don't waste $$ regenerating
-  // slots that already worked. Re-run only fills in missing or failed slots.
-  const images: GeneratedImage[] = existing?.images.slice() ?? [];
+  existing: NicheImageEntry | undefined,
+  forceRegenerate: boolean
+): Promise<{ entry: NicheImageEntry; newCount: number }> {
+  // In force mode (slug passed explicitly without --fill), regenerate ALL slots
+  // and discard existing images for this niche. Otherwise preserve successful
+  // generations and only fill missing or failed slots.
+  const images: GeneratedImage[] = forceRegenerate
+    ? []
+    : existing?.images.slice() ?? [];
   const existingSlots = new Set(images.map((i) => i.slot));
 
   const todo = prompts.filter((p) => !existingSlots.has(p.slot));
@@ -93,10 +101,11 @@ async function generateForNiche(
 
   console.log(
     `\n▸ ${slug} — ${prompts.length} prompts, ${todo.length} to generate${
-      skipped > 0 ? ` (${skipped} already done)` : ""
+      forceRegenerate ? " (force-regenerate: discarding existing)" : skipped > 0 ? ` (${skipped} already done)` : ""
     }`
   );
 
+  let newCount = 0;
   for (const p of todo) {
     process.stdout.write(`  • ${p.slot.padEnd(10)} (${p.model})… `);
     try {
@@ -119,6 +128,7 @@ async function generateForNiche(
         model: p.model,
         generated_at: new Date().toISOString(),
       });
+      newCount++;
     } catch (err) {
       console.log(`✗ FAILED: ${err instanceof Error ? err.message : String(err)}`);
       // Skip this image, keep going for the rest
@@ -126,21 +136,31 @@ async function generateForNiche(
   }
 
   return {
-    slug,
-    generated_at: new Date().toISOString(),
-    images,
+    entry: {
+      slug,
+      generated_at: new Date().toISOString(),
+      images,
+    },
+    newCount,
   };
 }
 
 // ─── Main ──────────────────────────────────────────────────────
 
 async function main() {
-  const requestedNiches = process.argv.slice(2);
+  // Parse args. --fill flag forces preserve-existing even when slugs are passed.
+  const rawArgs = process.argv.slice(2);
+  const fillFlag = rawArgs.includes("--fill");
+  const requestedNiches = rawArgs.filter((a) => !a.startsWith("--"));
   const allNicheSlugs = Object.keys(NICHE_IMAGE_PROMPTS);
-  const targets =
-    requestedNiches.length > 0
-      ? requestedNiches.filter((s) => allNicheSlugs.includes(s))
-      : allNicheSlugs;
+  const explicitSlugsPassed = requestedNiches.length > 0;
+  const targets = explicitSlugsPassed
+    ? requestedNiches.filter((s) => allNicheSlugs.includes(s))
+    : allNicheSlugs;
+
+  // Force mode: when user passes specific niches WITHOUT --fill, they edited
+  // prompts and want a fresh regeneration. No-args runs are always fill-mode.
+  const forceRegenerate = explicitSlugsPassed && !fillFlag;
 
   if (targets.length === 0) {
     console.error("❌ No valid niche slugs. Available:");
@@ -157,18 +177,26 @@ async function main() {
   console.log(`FDM AI Site Generator — Image Generation`);
   console.log(`Niches: ${targets.length} (${targets.join(", ")})`);
   console.log(`Images: ${totalImages} total`);
+  console.log(`Mode:   ${forceRegenerate ? "FORCE REGENERATE (overwrites existing)" : "FILL (preserves existing successes)"}`);
   console.log("─".repeat(72));
 
   const data = loadExistingFile();
   const startTime = Date.now();
+  let totalNewlyGenerated = 0;
 
   for (const slug of targets) {
     const prompts = NICHE_IMAGE_PROMPTS[slug];
     if (!prompts) continue;
     const existing = data.niches[slug];
-    const entry = await generateForNiche(slug, prompts, existing);
+    const { entry, newCount } = await generateForNiche(
+      slug,
+      prompts,
+      existing,
+      forceRegenerate
+    );
     data.niches[slug] = entry;
     data.updated_at = new Date().toISOString();
+    totalNewlyGenerated += newCount;
     // Save after each niche so partial runs aren't lost on crash
     saveFile(data);
   }
@@ -180,8 +208,10 @@ async function main() {
   );
 
   console.log("\n" + "═".repeat(72));
-  console.log(`✅ Done — ${successCount}/${totalImages} images generated in ${elapsed}s`);
-  console.log(`   Saved to: data/niche-images.json`);
+  console.log(`✅ Done in ${elapsed}s`);
+  console.log(`   Newly generated: ${totalNewlyGenerated} image${totalNewlyGenerated === 1 ? "" : "s"}`);
+  console.log(`   Total in file:   ${successCount}/${totalImages}`);
+  console.log(`   Saved to:        data/niche-images.json`);
   console.log("═".repeat(72));
 
   // Per-niche summary
