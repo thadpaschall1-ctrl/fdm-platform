@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-26T22:38:02.804Z",
+  "updated_at": "2026-04-26T23:04:42.481Z",
   "niches": {
     "foundation-repair": {
       "slug": "foundation-repair",
@@ -463,52 +463,52 @@
     },
     "medical-spas": {
       "slug": "medical-spas",
-      "generated_at": "2026-04-26T22:38:02.803Z",
+      "generated_at": "2026-04-26T22:56:32.108Z",
       "images": [
         {
+          "slot": "hero",
+          "url": "https://v3b.fal.media/files/b/0a97dbc6/f5rsnGxld_4203BsyQWzH_Nup92Au4.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Empty modern medical spa treatment room interior, white walls with warm walnut wood accents, single sleek cream-colored treatment bed centered in frame, large potted fiddle leaf fig plant in corner, sheer curtains diffusing soft golden hour light, polished concrete floor, minimalist sculptural pendant light fixture, no people, no humans, no figures, architectural interior photography, magazine editorial quality, sharp focus, photorealistic, 8k",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T22:48:30.981Z"
+        },
+        {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b92a/XVos-S7ffZhwIRG4CU0xZ.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Aesthetic dermatology product line including serums in glass dropper bottles arranged on a white marble surface, soft window light, editorial beauty photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:09:44.005Z"
+          "url": "https://v3b.fal.media/files/b/0a97dbd3/nEk3DFopXqL0AGCuuF_Tu_iuiIsbfN.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Editorial product photograph of premium aesthetic dermatology skincare — three glass amber and clear dropper-bottle serums arranged at slight angles on a polished white Carrara marble countertop, single eucalyptus sprig laid beside them, soft golden window light from upper right creating subtle shadows, magazine beauty editorial styling, sharp focus, photorealistic, ultra-high detail. No people, no hands.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T22:50:42.412Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b92a/gw0djZLxRQVCbNQp_YtkR.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Modern laser treatment device on a clean medical spa counter, professional medical equipment, soft clinical lighting, technical product photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:09:45.689Z"
+          "url": "https://v3b.fal.media/files/b/0a97dbe0/8Jm43tYI0g6bcFXJLFFkg_ToGs1znK.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A modern medical-grade aesthetic laser device on a polished white counter in a bright clinical room, sleek white chassis with subtle LED indicator, neutral cool lighting, depth of field with the device sharp and the room softly blurred, professional product photography, magazine quality, photorealistic. No people, no hands.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T22:52:34.699Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b92a/IbK--1VUVTcY8CSJUpPap.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Closeup of glowing healthy skin texture, beauty editorial photography, soft natural light, magazine quality",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:09:47.379Z"
+          "url": "https://v3b.fal.media/files/b/0a97dbeb/L3I3LHxnryV9i274vGmrF_pk1OENGh.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Extreme macro photograph of a single dewdrop on a soft pink rose petal, water beading perfectly, delicate light refracting through the drop, ultra-shallow depth of field, magazine beauty editorial, photorealistic, ultra-sharp focus on the drop. No people, no faces, no skin.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T22:54:30.226Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b92a/Y5QzjtCYPXXGDVglzVonE.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Medical spa lobby with white walls, modern leather lounge chairs, plants and natural light, lifestyle architectural photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:09:49.072Z"
-        },
-        {
-          "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf28/SqVZwYxzntPOzWhJOyyTf_Fo7MiQ1j.png",
+          "url": "https://v3b.fal.media/files/b/0a97dbf7/iebwGUUmuFANAgPW9J4kt_EHVrwKnU.png",
           "width": 0,
           "height": 0,
-          "prompt": "Bright modern medical spa treatment room with white walls and warm wood accents, sleek treatment chair, plants, soft natural light, clinical yet welcoming, photorealistic editorial photography, magazine quality, no people",
+          "prompt": "Empty modern medical spa reception lobby — clean white walls, a sculptural marble reception desk centered in frame, two cream leather lounge chairs at soft angles, large fiddle leaf fig in a textured ceramic planter, polished concrete floor, golden hour light pouring through tall windows on the left, architectural lifestyle photography, magazine quality, sharp focus, photorealistic. No people.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T02:27:28.532Z"
+          "generated_at": "2026-04-26T22:56:32.108Z"
         }
       ]
     },
@@ -565,52 +565,52 @@
     },
     "mobile-pet-grooming": {
       "slug": "mobile-pet-grooming",
-      "generated_at": "2026-04-26T22:38:02.804Z",
+      "generated_at": "2026-04-26T23:04:42.481Z",
       "images": [
         {
+          "slot": "hero",
+          "url": "https://v3b.fal.media/files/b/0a97dc04/Kh0zr6zIQqE8-5hyDf5mg_4b752b3a9c0a4db38bdce949fdcbff4b.jpg",
+          "width": 2752,
+          "height": 1536,
+          "prompt": "Branded white mobile pet grooming van parked on a tree-lined suburban street with the side door slightly open, professional vehicle wrap, warm afternoon golden hour light, dappled tree shadows on the van, residential neighborhood with green lawns, lifestyle commercial photography, sharp focus on the van, photorealistic, magazine quality, 8k. No animals visible, no people, just the van as the hero subject.",
+          "model": "fal-ai/flux-pro/v1.1-ultra",
+          "generated_at": "2026-04-26T22:56:43.526Z"
+        },
+        {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b93d/b-_UxXsnuVvkxBexShebG.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Closeup of a small dog being gently brushed during grooming session, soft natural lighting, lifestyle photography, peaceful expression on dog",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:12:59.862Z"
+          "url": "https://v3b.fal.media/files/b/0a97dc04/9QUXst6P6pyF0qF4aPi_o_kwUwB2BR.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A handsome clean golden retriever standing in full side profile on a soft outdoor lawn with a freshly groomed gleaming coat, photographed from across the lawn with a telephoto lens — entire body in frame from nose to tail, all four legs clearly visible standing on the ground, ears alert, calm content expression, warm afternoon golden hour light, lifestyle pet photography, sharp focus on the dog's silhouette, photorealistic, magazine quality.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T22:58:33.401Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b93f/rfaGQolKeNcR-A4qca-Sd.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Interior of a clean professional mobile pet grooming van with hydraulic table and grooming tools, bright fluorescent lighting, technical interior photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:13:11.453Z"
+          "url": "https://v3b.fal.media/files/b/0a97dc0f/7JKggs_iTkO34H4AxQ_bx_KHQtMTbt.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Interior of a clean professional mobile pet grooming van — stainless-steel hydraulic grooming table centered in frame, neatly arranged brushes, scissors and clippers on a wall organizer, fresh towels stacked, bright daylight pouring through the open back door, technical interior photography, magazine quality, photorealistic. No animals, no people.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T23:00:51.162Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b93f/d1LjF1toAICqthMHavD-O.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Doodle dog enjoying a bath in a professional pet grooming tub, gentle warm water, lifestyle pet photography, joyful atmosphere",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:13:13.155Z"
+          "url": "https://v3b.fal.media/files/b/0a97dc1d/62Llqf8DOuXLe5uOuU-Gr_rSeDKNg7.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A small clean fluffy white poodle sitting in calm side profile on a soft cream towel against a neutral background, full body in frame from side view, head turned slightly toward camera, calm expression, ears soft and natural, no paws in extreme closeup, soft north-facing window light, lifestyle pet portrait photography, magazine quality, photorealistic, ultra-sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T23:02:29.743Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b93f/yoUu9tELsaIPrGs96ji95.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Groomer trimming a small dog's nails carefully, focus on hands and pet, professional pet care lifestyle photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:13:14.907Z"
-        },
-        {
-          "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97d6c7/oCNw-y2hC-CJ5TFmR_v8-_v8uz2EZs.png",
+          "url": "https://v3b.fal.media/files/b/0a97dc27/xbm0T0hi1C_wBVKPuh8ku_WuXM2TZZ.png",
           "width": 0,
           "height": 0,
-          "prompt": "Joyful golden retriever looking directly at camera with happy expression, freshly groomed gleaming coat, sitting in soft natural light at the open door of a branded mobile grooming van interior visible behind with professional equipment, lifestyle pet photography, ultra-sharp focus on dog's eyes, warm afternoon light, photorealistic, magazine quality, 8k resolution",
+          "prompt": "Top-down flat-lay product photograph of professional pet grooming tools arranged on a warm-toned wood surface — a wooden-handle slicker brush, stainless grooming scissors, electric clippers with the cord coiled neatly, a glass bottle of pet shampoo, a fresh white towel folded beside them, soft golden natural light, magazine product editorial styling, photorealistic, sharp focus. No people, no hands, no animals.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T19:15:40.263Z"
+          "generated_at": "2026-04-26T23:04:42.481Z"
         }
       ]
     },
