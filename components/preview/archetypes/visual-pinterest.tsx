@@ -60,17 +60,16 @@ export function VisualPinterestLayout({
           fontFamily: "Lato, sans-serif",
         }}
       >
-        {/* ── Header — magazine masthead ───────────────────────── */}
+        {/* ── Header — minimal magazine masthead, overlaid on hero ─ */}
         <header
-          className="border-b"
-          style={{ borderColor: palette.border, background: palette.background }}
+          className="absolute top-0 inset-x-0 z-50"
+          style={{ color: palette.primaryFg }}
         >
           <div className="mx-auto max-w-[1400px] px-8 lg:px-12 py-6 flex items-center justify-between">
             <div
               className="text-xl tracking-[0.2em] uppercase"
               style={{
                 fontFamily: "Cormorant Garamond, serif",
-                color: palette.foreground,
                 fontWeight: 500,
               }}
             >
@@ -80,7 +79,6 @@ export function VisualPinterestLayout({
               <a
                 href={phoneHref}
                 className="hidden md:inline-block text-xs tracking-[0.18em] uppercase"
-                style={{ color: palette.muted }}
               >
                 {business.phone}
               </a>
@@ -98,118 +96,118 @@ export function VisualPinterestLayout({
           </div>
         </header>
 
-        {/* ── Hero — asymmetric editorial spread ──────────────── */}
-        <section className="px-8 lg:px-16 pt-16 lg:pt-24 pb-20 lg:pb-32">
-          <div className="mx-auto max-w-[1400px]">
-            <p
-              className="text-xs tracking-[0.4em] uppercase mb-12 lg:mb-20"
-              style={{ color: palette.accent }}
-            >
-              Issue 01 · {business.city}, {business.state}
-            </p>
-            <div className="grid gap-12 lg:gap-20 lg:grid-cols-12 items-end">
-              {/* Headline — left 7 cols */}
-              <div className="lg:col-span-7">
-                <h1
-                  className="text-5xl sm:text-7xl lg:text-[100px] leading-[0.92]"
-                  style={{
-                    fontFamily: "Cormorant Garamond, serif",
-                    color: palette.foreground,
-                    fontWeight: 500,
-                    letterSpacing: "-0.02em",
-                  }}
-                  dangerouslySetInnerHTML={{ __html: heroTagline }}
-                />
-                <div className="mt-12 grid grid-cols-3 gap-8 max-w-md">
-                  {content.trustStats.slice(0, 3).map((s) => (
-                    <div key={s.label} className="border-t pt-4" style={{ borderColor: palette.border }}>
-                      <div
-                        className="text-2xl lg:text-3xl"
-                        style={{
-                          fontFamily: "Cormorant Garamond, serif",
-                          color: palette.primary,
-                          fontWeight: 600,
-                          letterSpacing: "-0.01em",
-                        }}
-                      >
-                        {s.value}
-                      </div>
-                      <p
-                        className="text-[10px] tracking-[0.2em] uppercase mt-2"
-                        style={{ color: palette.muted }}
-                      >
-                        {s.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        {/* ── Hero — full-bleed cinematic with text overlay ──── */}
+        <section className="relative h-screen min-h-[680px] overflow-hidden">
+          {heroImg ? (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={heroImg.url}
+              alt={`${business.business_name}`}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          ) : (
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(135deg, ${palette.primary}, ${palette.accent})`,
+              }}
+            />
+          )}
+          {/* Bottom-up gradient for legibility */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.7) 100%)`,
+            }}
+          />
 
-              {/* Image — right 5 cols, slightly offset down */}
-              <div className="lg:col-span-5 lg:translate-y-12">
-                {heroImg ? (
-                  <div className="relative aspect-[3/4] overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={heroImg.url}
-                      alt={`${business.business_name}`}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div
-                    className="aspect-[3/4]"
-                    style={{
-                      background: `linear-gradient(135deg, ${palette.primary}, ${palette.accent})`,
-                    }}
-                  />
-                )}
-                <p
-                  className="mt-4 text-[10px] tracking-[0.25em] uppercase italic"
-                  style={{
-                    color: palette.muted,
-                    fontFamily: "Cormorant Garamond, serif",
-                  }}
-                >
-                  {niche.imagery?.heroSubject || "From our portfolio"}
-                </p>
-              </div>
-            </div>
-
-            {/* Subtitle paragraph */}
-            <div className="mt-20 lg:mt-32 max-w-2xl">
+          {/* Hero text — bottom-left, magazine-poster style */}
+          <div className="absolute inset-x-0 bottom-0 px-8 lg:px-16 pb-20 lg:pb-28">
+            <div className="mx-auto max-w-[1400px]">
               <p
-                className="text-lg lg:text-xl leading-[1.7]"
+                className="mb-4 text-xs tracking-[0.4em] uppercase opacity-90"
+                style={{ color: palette.primaryFg }}
+              >
+                Issue 01 · {business.city}, {business.state}
+              </p>
+              <h1
+                className="text-5xl sm:text-7xl lg:text-[96px] font-medium leading-[0.95] max-w-5xl"
                 style={{
-                  color: palette.foreground,
+                  color: palette.primaryFg,
                   fontFamily: "Cormorant Garamond, serif",
-                  fontWeight: 400,
+                  letterSpacing: "-0.02em",
+                }}
+                dangerouslySetInnerHTML={{ __html: heroTagline }}
+              />
+            </div>
+          </div>
+
+          {/* Scroll indicator */}
+          <div
+            className="absolute bottom-6 right-8 lg:right-16 text-xs tracking-[0.3em] uppercase opacity-70"
+            style={{ color: palette.primaryFg }}
+          >
+            Scroll ↓
+          </div>
+        </section>
+
+        {/* ── Editorial Intro paragraph ───────────────────────── */}
+        <section className="px-8 lg:px-16 py-20 lg:py-28">
+          <div className="mx-auto max-w-3xl">
+            <div className="grid grid-cols-3 gap-8 mb-12 max-w-md">
+              {content.trustStats.slice(0, 3).map((s) => (
+                <div key={s.label} className="border-t pt-3" style={{ borderColor: palette.border }}>
+                  <div
+                    className="text-2xl lg:text-3xl"
+                    style={{
+                      fontFamily: "Cormorant Garamond, serif",
+                      color: palette.primary,
+                      fontWeight: 600,
+                      letterSpacing: "-0.01em",
+                    }}
+                  >
+                    {s.value}
+                  </div>
+                  <p
+                    className="text-[10px] tracking-[0.2em] uppercase mt-2"
+                    style={{ color: palette.muted }}
+                  >
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p
+              className="text-xl lg:text-2xl leading-[1.55]"
+              style={{
+                color: palette.foreground,
+                fontFamily: "Cormorant Garamond, serif",
+                fontWeight: 400,
+              }}
+            >
+              {content.heroSubtitle}
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-6">
+              <a
+                href={phoneHref}
+                className="px-8 py-4 text-xs tracking-[0.2em] uppercase font-medium transition-all hover:opacity-90"
+                style={{
+                  background: palette.primary,
+                  color: palette.primaryFg,
                 }}
               >
-                {content.heroSubtitle}
-              </p>
-              <div className="mt-10 flex items-center gap-6">
-                <a
-                  href={phoneHref}
-                  className="px-8 py-4 text-xs tracking-[0.2em] uppercase font-medium transition-all hover:opacity-90"
-                  style={{
-                    background: palette.primary,
-                    color: palette.primaryFg,
-                  }}
-                >
-                  {content.heroCta}
-                </a>
-                <a
-                  href="#services"
-                  className="text-xs tracking-[0.2em] uppercase font-medium border-b pb-1 transition-opacity hover:opacity-70"
-                  style={{
-                    color: palette.foreground,
-                    borderColor: palette.foreground,
-                  }}
-                >
-                  See the work
-                </a>
-              </div>
+                {content.heroCta}
+              </a>
+              <a
+                href="#services"
+                className="text-xs tracking-[0.2em] uppercase font-medium border-b pb-1 transition-opacity hover:opacity-70"
+                style={{
+                  color: palette.foreground,
+                  borderColor: palette.foreground,
+                }}
+              >
+                {content.heroSecondaryCta}
+              </a>
             </div>
           </div>
         </section>
