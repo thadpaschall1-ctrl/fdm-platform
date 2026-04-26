@@ -126,6 +126,28 @@ export function PreviewSite({ business }: PreviewSiteProps) {
           </div>
         </header>
 
+        {/* ── Centered hero — full-bleed image banner above text ─ */}
+        {heroAlignment === "centered" && (() => {
+          const heroImg = getNicheImage(business.niche_slug, "hero");
+          if (!heroImg) return null;
+          return (
+            <section className="relative overflow-hidden h-[60vh] min-h-[480px] max-h-[720px]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={heroImg.url}
+                alt={niche.imagery?.heroSubject || `${business.business_name}`}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: `linear-gradient(180deg, ${palette.background}00 40%, ${palette.background}cc 80%, ${palette.background} 100%)`,
+                }}
+              />
+            </section>
+          );
+        })()}
+
         {/* ── Hero ────────────────────────────────────────── */}
         <section className="relative overflow-hidden px-6 py-16 sm:py-24">
           <div
