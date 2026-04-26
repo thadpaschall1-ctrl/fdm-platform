@@ -226,9 +226,9 @@ const POOL_BUILDERS: ImagePrompt[] = [
   {
     slot: "hero",
     prompt:
-      "Drone photograph of a luxury rectangular swimming pool at golden hour, modern home in background, lush landscaping, glassy water surface reflecting sky, magazine quality, architectural photography, photorealistic",
+      "Drone aerial photograph of a stunning custom infinity-edge pool with vanishing edge cascading into landscape, vibrant turquoise water, custom waterfall feature, luxury Mediterranean home in background, twilight ambient lighting with pool lights illuminating water from below, lush tropical landscaping with palm trees, photorealistic architectural photography, Architectural Digest magazine quality, ultra-sharp details, 8k resolution, dramatic composition",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
@@ -269,9 +269,9 @@ const SOLAR_INSTALLERS: ImagePrompt[] = [
   {
     slot: "hero",
     prompt:
-      "Drone photograph of completed black solar panel array on a modern suburban home rooftop at golden hour, clean composition, professional installation visible, photorealistic aerial photography, magazine quality",
+      "Stunning low-angle photograph looking up at perfectly aligned high-tech monocrystalline solar panels glowing in golden hour sunlight, dramatic lens flare highlights, brilliant blue sky reflecting in panels, modern minimalist home architecture in foreground, professional commercial photography, ultra-sharp details, 8k resolution, dramatic composition, magazine quality, photorealistic",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
@@ -543,9 +543,9 @@ const MOBILE_PET_GROOMING: ImagePrompt[] = [
   {
     slot: "hero",
     prompt:
-      "Smiling friendly groomer holding a happy clean groomed golden retriever in front of a branded mobile grooming van in a suburban driveway, sunny afternoon, joyful lifestyle photography, photorealistic, magazine quality",
+      "Joyful golden retriever looking directly at camera with happy expression, freshly groomed gleaming coat, sitting in soft natural light at the open door of a branded mobile grooming van interior visible behind with professional equipment, lifestyle pet photography, ultra-sharp focus on dog's eyes, warm afternoon light, photorealistic, magazine quality, 8k resolution",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
