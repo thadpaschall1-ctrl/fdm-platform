@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-26T19:15:40.263Z",
+  "updated_at": "2026-04-26T22:38:02.804Z",
   "niches": {
     "foundation-repair": {
       "slug": "foundation-repair",
@@ -463,7 +463,7 @@
     },
     "medical-spas": {
       "slug": "medical-spas",
-      "generated_at": "2026-04-26T02:27:28.532Z",
+      "generated_at": "2026-04-26T22:38:02.803Z",
       "images": [
         {
           "slot": "service1",
@@ -565,7 +565,7 @@
     },
     "mobile-pet-grooming": {
       "slug": "mobile-pet-grooming",
-      "generated_at": "2026-04-26T19:15:40.263Z",
+      "generated_at": "2026-04-26T22:38:02.804Z",
       "images": [
         {
           "slot": "service1",
