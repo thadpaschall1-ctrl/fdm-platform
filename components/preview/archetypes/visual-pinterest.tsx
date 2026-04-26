@@ -136,6 +136,7 @@ export function VisualPinterestLayout({
                   color: palette.primaryFg,
                   fontFamily: "Cormorant Garamond, serif",
                   letterSpacing: "-0.02em",
+                  textWrap: "balance",
                 }}
                 dangerouslySetInnerHTML={{ __html: heroTagline }}
               />
@@ -183,6 +184,7 @@ export function VisualPinterestLayout({
                 color: palette.foreground,
                 fontFamily: "Cormorant Garamond, serif",
                 fontWeight: 400,
+                textWrap: "pretty",
               }}
             >
               {content.heroSubtitle}

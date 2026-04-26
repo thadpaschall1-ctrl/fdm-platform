@@ -128,12 +128,13 @@ export function BaseLayout({
                     fontFamily: `${archetype.typography.display}, serif`,
                     color: palette.foreground,
                     letterSpacing: "-0.02em",
+                    textWrap: "balance",
                   }}
                   dangerouslySetInnerHTML={{ __html: heroTagline }}
                 />
                 <p
                   className="mt-7 text-lg lg:text-xl leading-[1.65] max-w-xl"
-                  style={{ color: palette.muted }}
+                  style={{ color: palette.muted, textWrap: "pretty" }}
                   dangerouslySetInnerHTML={{ __html: content.heroSubtitle }}
                 />
                 <div className="mt-10 flex flex-wrap items-center gap-4">

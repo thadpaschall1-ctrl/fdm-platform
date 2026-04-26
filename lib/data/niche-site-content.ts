@@ -713,12 +713,12 @@ const SOLAR_INSTALLERS: NicheSiteContent = {
     {
       title: "Permit & Interconnection Handled",
       description:
-        "AHJ permits, FPL/Duke interconnection applications, post-install inspections — we handle every form, every appointment, every back-and-forth.",
+        "AHJ permits, utility interconnection applications, post-install inspections — we handle every form, every appointment, every back-and-forth.",
     },
     {
       title: "Local, Not National",
       description:
-        "Tampa-based crews. Tampa-based service. We’ll be here when your warranty matters in 15 years — most national installers won’t.",
+        "Local crews, local service. We’ll be here when your warranty matters in 15 years — most national installers won’t.",
     },
   ],
   faqs: [
@@ -733,7 +733,7 @@ const SOLAR_INSTALLERS: NicheSiteContent = {
         "Modern panels are rated to 140 mph wind loads. Mounting hardware is rated higher. We’ve installed thousands of systems through multiple Florida hurricane seasons with minimal damage. Insurance covers what little does happen.",
     },
     {
-      question: "Will I still pay FPL/Duke if I have solar?",
+      question: "Will I still pay my utility company if I have solar?",
       answer:
         "Yes — a small connection charge (~$8/month). You’ll generate excess during the day that flows to the grid for credit (1:1 net metering for now), then draw at night. Most customers cut their bill by 80–95%.",
     },
@@ -860,11 +860,11 @@ const DECORATIVE_CONCRETE: NicheSiteContent = {
 const HAIR_SALONS: NicheSiteContent = {
   heroTagline: "The chair where your hair finally gets understood.",
   heroSubtitle:
-    "Boutique full-service hair salon specializing in custom color, dimensional balayage, hand-tied extensions, and precision cutting. Tampa’s most-requested colorists. By appointment only.",
+    "Boutique full-service hair salon specializing in custom color, dimensional balayage, hand-tied extensions, and precision cutting. The colorists clients drive across town for. By appointment only.",
   heroCta: "Book Your Appointment",
   heroSecondaryCta: "Meet Our Stylists",
   trustStats: [
-    { value: "8 yrs", label: "In Tampa" },
+    { value: "8 yrs", label: "In Business" },
     { value: "300+", label: "Five-Star Reviews" },
     { value: "Custom", label: "Color Formulation" },
     { value: "L’Oréal", label: "Master Color Partner" },
@@ -1068,7 +1068,7 @@ const MEDICAL_SPAS: NicheSiteContent = {
 const MOBILE_PET_GROOMING: NicheSiteContent = {
   heroTagline: "We come to you. Your dog stays calm. Everyone wins.",
   heroSubtitle:
-    "Fully-equipped mobile grooming van service throughout Tampa Bay. Your dog gets a calm one-on-one groom in a familiar environment — no kennel time, no drop-off, no stress.",
+    "Fully-equipped mobile grooming van service that comes to your driveway. Your dog gets a calm one-on-one groom in a familiar environment — no kennel time, no drop-off, no stress.",
   heroCta: "Book Mobile Groom",
   heroSecondaryCta: "Service Areas",
   trustStats: [

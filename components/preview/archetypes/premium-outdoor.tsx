@@ -133,6 +133,7 @@ export function PremiumOutdoorLayout({
                   color: palette.primaryFg,
                   fontFamily: "Playfair Display, serif",
                   letterSpacing: "-0.02em",
+                  textWrap: "balance",
                 }}
                 dangerouslySetInnerHTML={{ __html: heroTagline }}
               />
@@ -162,6 +163,7 @@ export function PremiumOutdoorLayout({
               style={{
                 fontFamily: "Source Serif 4, serif",
                 color: palette.foreground,
+                textWrap: "pretty",
               }}
             >
               <span

@@ -543,9 +543,9 @@ const MOBILE_PET_GROOMING: ImagePrompt[] = [
   {
     slot: "hero",
     prompt:
-      "Branded white mobile pet grooming van parked on a tree-lined suburban street with the side door slightly open, professional vehicle wrap, warm afternoon golden hour light, dappled tree shadows on the van, residential neighborhood with green lawns, lifestyle commercial photography, sharp focus on the van, photorealistic, magazine quality, 8k. No animals visible, no people, just the van as the hero subject.",
-    negativePrompt: `${COMMON_NEGATIVE}, dog, dogs, animals, pets, people, person, paws, anatomy errors`,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+      "A clean unbranded white Mercedes Sprinter van parked on a tree-lined suburban street, completely plain white exterior with no signage, no logos, no text, no lettering, no decals, no graphics — just a pure white panel van. Side door slightly open showing professional grooming equipment inside. Warm afternoon golden hour light, dappled tree shadows on the pavement, residential neighborhood with manicured green lawns and mature oaks. Lifestyle commercial photography, sharp focus on the van, photorealistic, magazine quality, 8k. No animals, no people.",
+    negativePrompt: `${COMMON_NEGATIVE}, text, lettering, signage, writing, words, logos, decals, graphics, branding, phone number, website, vehicle wrap, dog, dogs, animals, pets, people, person, paws, anatomy errors`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "landscape_16_9",
   },
   {
