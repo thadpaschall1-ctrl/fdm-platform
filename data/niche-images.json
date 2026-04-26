@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-26T02:33:37.575Z",
+  "updated_at": "2026-04-26T19:15:40.263Z",
   "niches": {
     "foundation-repair": {
       "slug": "foundation-repair",
@@ -208,7 +208,7 @@
     },
     "pool-builders": {
       "slug": "pool-builders",
-      "generated_at": "2026-04-26T02:20:47.112Z",
+      "generated_at": "2026-04-26T19:10:55.943Z",
       "images": [
         {
           "slot": "service1",
@@ -248,18 +248,18 @@
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf0c/HPZygb_4zu-tRSSF6wWVk_e774e3b6dac94d028a22a865a3130d9c.jpg",
-          "width": 2752,
-          "height": 1536,
-          "prompt": "Drone photograph of a luxury rectangular swimming pool at golden hour, modern home in background, lush landscaping, glassy water surface reflecting sky, magazine quality, architectural photography, photorealistic",
-          "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-26T02:20:47.112Z"
+          "url": "https://v3b.fal.media/files/b/0a97d6ac/tEMvBycfS65ppBy04WVwg_benLt24j.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Drone aerial photograph of a stunning custom infinity-edge pool with vanishing edge cascading into landscape, vibrant turquoise water, custom waterfall feature, luxury Mediterranean home in background, twilight ambient lighting with pool lights illuminating water from below, lush tropical landscaping with palm trees, photorealistic architectural photography, Architectural Digest magazine quality, ultra-sharp details, 8k resolution, dramatic composition",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T19:10:55.942Z"
         }
       ]
     },
     "solar-installers": {
       "slug": "solar-installers",
-      "generated_at": "2026-04-26T02:20:57.322Z",
+      "generated_at": "2026-04-26T19:13:12.111Z",
       "images": [
         {
           "slot": "service1",
@@ -299,12 +299,12 @@
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf0d/GqNif6ZWNSt9zmjjSbLEY_5ed33fa5b3a44aa9aab8a2b25024e548.jpg",
-          "width": 2752,
-          "height": 1536,
-          "prompt": "Drone photograph of completed black solar panel array on a modern suburban home rooftop at golden hour, clean composition, professional installation visible, photorealistic aerial photography, magazine quality",
-          "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-26T02:20:57.322Z"
+          "url": "https://v3b.fal.media/files/b/0a97d6b9/rPfNIMwz63J5RN8PahBzU_G7O9DKpO.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Stunning low-angle photograph looking up at perfectly aligned high-tech monocrystalline solar panels glowing in golden hour sunlight, dramatic lens flare highlights, brilliant blue sky reflecting in panels, modern minimalist home architecture in foreground, professional commercial photography, ultra-sharp details, 8k resolution, dramatic composition, magazine quality, photorealistic",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T19:13:12.111Z"
         }
       ]
     },
@@ -565,7 +565,7 @@
     },
     "mobile-pet-grooming": {
       "slug": "mobile-pet-grooming",
-      "generated_at": "2026-04-26T02:27:48.224Z",
+      "generated_at": "2026-04-26T19:15:40.263Z",
       "images": [
         {
           "slot": "service1",
@@ -605,12 +605,12 @@
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf36/Uoe_lAPzMzP8TXNLjE1un_d5b72d466a144b81973da80ba91c20be.jpg",
-          "width": 2752,
-          "height": 1536,
-          "prompt": "Smiling friendly groomer holding a happy clean groomed golden retriever in front of a branded mobile grooming van in a suburban driveway, sunny afternoon, joyful lifestyle photography, photorealistic, magazine quality",
-          "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-26T02:27:48.224Z"
+          "url": "https://v3b.fal.media/files/b/0a97d6c7/oCNw-y2hC-CJ5TFmR_v8-_v8uz2EZs.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Joyful golden retriever looking directly at camera with happy expression, freshly groomed gleaming coat, sitting in soft natural light at the open door of a branded mobile grooming van interior visible behind with professional equipment, lifestyle pet photography, ultra-sharp focus on dog's eyes, warm afternoon light, photorealistic, magazine quality, 8k resolution",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-26T19:15:40.263Z"
         }
       ]
     },
