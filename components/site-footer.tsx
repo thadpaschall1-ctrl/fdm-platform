@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function SiteFooter() {
+  const pathname = usePathname();
   const year = new Date().getFullYear();
+
+  // Suppress FDM footer on customer-site showcase routes — same reason we
+  // suppress the nav. /examples gallery still gets it.
+  const isShowcase = /^\/examples\/[^/]+$/.test(pathname || "");
+  if (isShowcase) return null;
 
   return (
     <footer className="relative border-t border-white/[0.06] bg-slate-950 px-6 pt-16 pb-8">

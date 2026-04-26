@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "Services", href: "/#services" },
@@ -13,8 +14,14 @@ const NAV_LINKS = [
 ];
 
 export function SiteNav() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // Suppress FDM chrome on customer-site showcase routes — these are meant to
+  // look like real standalone customer sites, not "FDM pages with a customer
+  // site embedded in them". The /examples gallery itself keeps the nav.
+  const isShowcase = /^\/examples\/[^/]+$/.test(pathname || "");
 
   useEffect(() => {
     function onScroll() {
@@ -23,6 +30,8 @@ export function SiteNav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (isShowcase) return null;
 
   return (
     <header

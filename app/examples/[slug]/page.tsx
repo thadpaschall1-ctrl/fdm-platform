@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getFictionalBusiness, listFictionalBusinesses } from "@/lib/data/fictional-businesses";
 import { ExampleSite } from "@/components/preview/example-site";
+import { ShowcaseBackLink } from "@/components/showcase-back-link";
 
 export const dynamic = "force-static";
 
@@ -39,5 +40,10 @@ export default async function ExamplePage({ params }: PageProps) {
   const business = getFictionalBusiness(slug);
   if (!business) notFound();
 
-  return <ExampleSite business={business} />;
+  return (
+    <>
+      <ShowcaseBackLink />
+      <ExampleSite business={business} />
+    </>
+  );
 }
