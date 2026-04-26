@@ -78,11 +78,26 @@ function saveFile(data: NicheImagesFile): void {
   writeFileSync(file, JSON.stringify(data, null, 2));
 }
 
-async function generateForNiche(slug: string, prompts: ImagePrompt[]): Promise<NicheImageEntry> {
-  console.log(`\n▸ ${slug} — ${prompts.length} images`);
-  const images: GeneratedImage[] = [];
+async function generateForNiche(
+  slug: string,
+  prompts: ImagePrompt[],
+  existing: NicheImageEntry | undefined
+): Promise<NicheImageEntry> {
+  // Start from any existing successful generations — don't waste $$ regenerating
+  // slots that already worked. Re-run only fills in missing or failed slots.
+  const images: GeneratedImage[] = existing?.images.slice() ?? [];
+  const existingSlots = new Set(images.map((i) => i.slot));
 
-  for (const p of prompts) {
+  const todo = prompts.filter((p) => !existingSlots.has(p.slot));
+  const skipped = prompts.length - todo.length;
+
+  console.log(
+    `\n▸ ${slug} — ${prompts.length} prompts, ${todo.length} to generate${
+      skipped > 0 ? ` (${skipped} already done)` : ""
+    }`
+  );
+
+  for (const p of todo) {
     process.stdout.write(`  • ${p.slot.padEnd(10)} (${p.model})… `);
     try {
       const t0 = Date.now();
@@ -150,7 +165,8 @@ async function main() {
   for (const slug of targets) {
     const prompts = NICHE_IMAGE_PROMPTS[slug];
     if (!prompts) continue;
-    const entry = await generateForNiche(slug, prompts);
+    const existing = data.niches[slug];
+    const entry = await generateForNiche(slug, prompts, existing);
     data.niches[slug] = entry;
     data.updated_at = new Date().toISOString();
     // Save after each niche so partial runs aren't lost on crash

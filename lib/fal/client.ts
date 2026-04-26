@@ -16,7 +16,7 @@
 
 const FAL_QUEUE_BASE = "https://queue.fal.run";
 const POLL_INTERVAL_MS = 1500;
-const POLL_TIMEOUT_MS = 90_000;
+const POLL_TIMEOUT_MS = 300_000; // 5 minutes — GPT Image 2 can take 60-120s
 
 export type FalModelId =
   | "fal-ai/flux/schnell"

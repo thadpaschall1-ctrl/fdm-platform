@@ -95,7 +95,7 @@ const PLUMBERS: ImagePrompt[] = [
     prompt:
       "Professional plumber arriving at suburban front door at golden hour with toolkit, friendly approachable expression, clean uniform with company logo placeholder, photojournalism style, warm natural lighting, photorealistic, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "portrait_4_3",
   },
   {
@@ -138,7 +138,7 @@ const HVAC: ImagePrompt[] = [
     prompt:
       "HVAC technician in branded uniform installing a sleek modern outdoor condenser unit beside a suburban home, late afternoon golden light, calm focused expression, professional documentary photography, clean composition, sharp focus",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "portrait_4_3",
   },
   {
@@ -181,7 +181,7 @@ const ROOFERS: ImagePrompt[] = [
     prompt:
       "Drone shot of professional roofing crew installing dark architectural shingles on a suburban home, dramatic sky after a recent storm clearing, golden afternoon light breaking through clouds, photorealistic aerial photography, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "landscape_16_9",
   },
   {
@@ -228,7 +228,7 @@ const POOL_BUILDERS: ImagePrompt[] = [
     prompt:
       "Drone photograph of a luxury rectangular swimming pool at golden hour, modern home in background, lush landscaping, glassy water surface reflecting sky, magazine quality, architectural photography, photorealistic",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "landscape_16_9",
   },
   {
@@ -271,7 +271,7 @@ const SOLAR_INSTALLERS: ImagePrompt[] = [
     prompt:
       "Drone photograph of completed black solar panel array on a modern suburban home rooftop at golden hour, clean composition, professional installation visible, photorealistic aerial photography, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "landscape_16_9",
   },
   {
@@ -318,7 +318,7 @@ const POLISHED_CONCRETE: ImagePrompt[] = [
     prompt:
       "Wide angle photo of a vast polished concrete warehouse floor with mirror-like sheen, industrial steel beams overhead, dramatic perspective leading to vanishing point, professional architectural photography, clean atmospheric lighting",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "landscape_16_9",
   },
   {
@@ -498,7 +498,7 @@ const AUTO_BODY: ImagePrompt[] = [
     prompt:
       "Auto body technician in clean uniform polishing a freshly painted car fender to mirror finish, modern bright auto body shop interior, dramatic side lighting reflecting on car paint, professional photojournalism, sharp focus, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "portrait_4_3",
   },
   {
@@ -545,7 +545,7 @@ const MOBILE_PET_GROOMING: ImagePrompt[] = [
     prompt:
       "Smiling friendly groomer holding a happy clean groomed golden retriever in front of a branded mobile grooming van in a suburban driveway, sunny afternoon, joyful lifestyle photography, photorealistic, magazine quality",
     negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/gpt-image-2",
+    model: "fal-ai/flux-pro/v1.1-ultra",
     imageSize: "landscape_16_9",
   },
   {
