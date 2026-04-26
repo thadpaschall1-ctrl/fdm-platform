@@ -9,7 +9,8 @@
     "lint": "eslint",
     "setup-stripe": "tsx --env-file=.env.local scripts/create-stripe-products.ts",
     "qa-pull": "tsx --env-file=.env.local scripts/qa-batch-pull-urls.ts",
-    "qa-images": "tsx --env-file=.env.local scripts/qa-generate-images.ts"
+    "qa-images": "tsx --env-file=.env.local scripts/qa-generate-images.ts",
+    "qa-content": "tsx --env-file=.env.local scripts/qa-content.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.74.0",

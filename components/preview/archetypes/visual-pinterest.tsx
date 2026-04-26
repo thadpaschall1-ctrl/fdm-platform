@@ -334,8 +334,7 @@ export function VisualPinterestLayout({
                 fontWeight: 400,
               }}
             >
-              &ldquo;The chair where your hair finally gets understood&rdquo;
-              isn&rsquo;t a tagline. It&rsquo;s how every appointment ends.
+              &ldquo;{content.whyUs[0]?.description || content.heroSubtitle}&rdquo;
             </p>
             <p
               className="mt-12 text-xs tracking-[0.3em] uppercase"
