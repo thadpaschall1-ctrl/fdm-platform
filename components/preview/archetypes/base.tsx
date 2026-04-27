@@ -18,7 +18,7 @@ import type { DesignArchetype } from "@/lib/data/design-archetypes";
 import type { NicheDesignOverride } from "@/lib/data/niche-design";
 import type { NicheSiteContent } from "@/lib/data/niche-site-content";
 import type { FictionalBusiness } from "@/lib/data/fictional-businesses";
-import { getNicheImage } from "@/lib/preview/load-images";
+import { getNicheImage, getNicheHeroVideo } from "@/lib/preview/load-images";
 import { ShowcaseMap } from "@/components/preview/showcase-map";
 
 export interface BaseLayoutProps {
@@ -39,6 +39,7 @@ export function BaseLayout({
   cssVars,
 }: BaseLayoutProps) {
   const heroImg = getNicheImage(business.niche_slug, "hero");
+  const heroVideo = getNicheHeroVideo(business.niche_slug);
   const phoneHref = `tel:${business.phone_e164}`;
   const heroTagline = business.tagline || niche.heroContext.tagline || content.heroTagline;
   const yearsInBusiness = new Date().getFullYear() - business.year_founded;
@@ -190,14 +191,27 @@ export function BaseLayout({
               </div>
             </div>
 
-            {/* Image side */}
+            {/* Image / video side */}
             <div className="relative min-h-[560px] lg:min-h-[720px]">
+              {heroVideo ? (
+                <video
+                  src={heroVideo.url}
+                  poster={heroImg?.url}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover motion-reduce:hidden"
+                />
+              ) : null}
               {heroImg ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   src={heroImg.url}
                   alt={`${business.business_name}`}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className={`absolute inset-0 w-full h-full object-cover ${heroVideo ? "motion-reduce:block hidden" : ""}`}
                 />
               ) : (
                 <div

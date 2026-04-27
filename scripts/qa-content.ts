@@ -63,7 +63,10 @@ Output format: STRICT JSON only. Schema:
 
 If the niche is clean, return: { "issues": [] }
 
-Be ruthless. Flag real issues only. Do not flag stylistic preferences or things that are merely "could be better." Empty issues array is the right answer for clean content.`;
+Be ruthless. Flag real issues only. Do not flag stylistic preferences or things that are merely "could be better." Empty issues array is the right answer for clean content.
+
+CRITICAL — FALSE POSITIVE GUARD:
+Before adding any item to "issues", compare your "text" field against your "fix" field character-by-character. If they are byte-identical, DO NOT include that item — it means the content already has the fix you're suggesting. This applies especially to comma fixes ("calm, focused" already has the comma — do not flag it as missing). Same for spelling, capitalization, possessives, and any other fix where the "before" and "after" would look identical. Empty issues array is correct when no real fixes are needed.`;
 
 interface Issue {
   field: string;
