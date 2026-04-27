@@ -10,6 +10,7 @@
     "setup-stripe": "tsx --env-file=.env.local scripts/create-stripe-products.ts",
     "qa-pull": "tsx --env-file=.env.local scripts/qa-batch-pull-urls.ts",
     "qa-images": "tsx --env-file=.env.local scripts/qa-generate-images.ts",
+    "qa-videos": "tsx --env-file=.env.local scripts/qa-generate-videos.ts",
     "qa-content": "tsx --env-file=.env.local scripts/qa-content.ts",
     "setup-hooks": "powershell -ExecutionPolicy Bypass -File scripts/setup-hooks.ps1"
   },

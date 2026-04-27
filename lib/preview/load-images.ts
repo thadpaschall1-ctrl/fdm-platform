@@ -1,9 +1,9 @@
 /**
- * Load pre-generated niche images from data/niche-images.json.
+ * Load pre-generated niche images and hero videos from data/niche-images.json.
  *
- * Used by PreviewSite to find the right image URL for each (niche, slot) tuple.
- * If an image hasn't been generated yet for a niche, returns null and the
- * component falls back to the gradient placeholder.
+ * Used by archetype layouts to find the right asset URL for each (niche, slot)
+ * tuple. If an asset hasn't been generated yet, returns null and the component
+ * falls back to a still-image hero or a gradient placeholder.
  */
 
 import { readFileSync, existsSync } from "node:fs";
@@ -19,10 +19,27 @@ interface GeneratedImage {
   generated_at: string;
 }
 
+interface GeneratedVideo {
+  /** Always "hero" for now — service-tile loops are a future phase */
+  slot: "hero";
+  /** Public CDN URL of the generated video (mp4, hosted by fal) */
+  url: string;
+  /** Duration in seconds (5 or 10) */
+  durationSec: number;
+  /** Aspect ratio the video was rendered in */
+  aspectRatio?: string;
+  prompt: string;
+  model: string;
+  generated_at: string;
+}
+
 interface NicheImageEntry {
   slug: string;
   generated_at: string;
   images: GeneratedImage[];
+  /** Optional cinematic hero loop (Seedance 2). When present, the layout uses
+   *  it as a `<video>` and falls back to the still hero image as the poster. */
+  heroVideo?: GeneratedVideo;
 }
 
 interface NicheImagesFile {
@@ -69,4 +86,14 @@ export function getNicheImages(nicheSlug: string): GeneratedImage[] {
   const data = loadFile();
   if (!data) return [];
   return data.niches[nicheSlug]?.images ?? [];
+}
+
+/**
+ * Get the cinematic hero video for a niche, if one was generated.
+ * Returns null if no video — caller should fall back to the still hero image.
+ */
+export function getNicheHeroVideo(nicheSlug: string): GeneratedVideo | null {
+  const data = loadFile();
+  if (!data) return null;
+  return data.niches[nicheSlug]?.heroVideo ?? null;
 }
