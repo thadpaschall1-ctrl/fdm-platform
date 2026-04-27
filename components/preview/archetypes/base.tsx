@@ -238,6 +238,14 @@ export function BaseLayout({
           </div>
         </section>
 
+        {/* ── Voice section — try AI specialist live (placed up high) ── */}
+        <ShowcaseVoiceSection
+          nicheSlug={business.niche_slug}
+          nicheName={business.niche_name}
+          businessName={business.business_name}
+          palette={palette}
+        />
+
         {/* ── Customer Pains — Editorial section ──────────────── */}
         <section
           data-tour="trust-stats"
@@ -442,14 +450,6 @@ export function BaseLayout({
             </div>
           </div>
         </section>
-
-        {/* ── Voice section — try AI specialist live ─────────── */}
-        <ShowcaseVoiceSection
-          nicheSlug={business.niche_slug}
-          nicheName={business.niche_name}
-          businessName={business.business_name}
-          palette={palette}
-        />
 
         {/* ── FAQ ─────────────────────────────────────────────── */}
         <section data-tour="faqs" className="px-6 lg:px-16 py-20 lg:py-28">

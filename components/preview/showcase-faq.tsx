@@ -169,11 +169,11 @@ export function ShowcaseFAQ() {
 
   return (
     <>
-      {/* ═══════ FLOATING BUTTON — left edge, vertically centered ═══════ */}
+      {/* ═══════ FLOATING BUTTON — right edge, vertically centered ═══════ */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed left-3 top-1/2 -translate-y-1/2 z-[89] flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-all duration-200 hover:scale-105"
+          className="fixed right-3 top-1/2 -translate-y-1/2 z-[89] flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-all duration-200 hover:scale-105"
           style={{
             background: "rgba(15, 23, 42, 0.92)",
             border: "1px solid rgba(96, 165, 250, 0.4)",
@@ -207,7 +207,7 @@ export function ShowcaseFAQ() {
       {/* ═══════ SLIDE-OUT PANEL ═══════ */}
       {isOpen && (
         <div
-          className="fixed left-3 top-1/2 -translate-y-1/2 md:left-5 z-[91] w-[400px] max-w-[calc(100vw-1.5rem)] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
+          className="fixed right-3 top-1/2 -translate-y-1/2 md:right-5 z-[91] w-[400px] max-w-[calc(100vw-1.5rem)] rounded-2xl overflow-hidden shadow-2xl flex flex-col"
           style={{
             height: "min(640px, calc(100vh - 6rem))",
             boxShadow: "0 8px 40px rgba(0,0,0,0.45)",

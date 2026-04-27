@@ -232,6 +232,14 @@ export function VisualPinterestLayout({
           </div>
         </section>
 
+        {/* ── Voice section — try AI specialist live (placed up high) ── */}
+        <ShowcaseVoiceSection
+          nicheSlug={business.niche_slug}
+          nicheName={business.niche_name}
+          businessName={business.business_name}
+          palette={palette}
+        />
+
         {/* ── Services — Masonry-style image grid ──────────────── */}
         <section
           id="services"
@@ -428,14 +436,6 @@ export function VisualPinterestLayout({
             </div>
           </div>
         </section>
-
-        {/* ── Voice section — try AI specialist live ─────────── */}
-        <ShowcaseVoiceSection
-          nicheSlug={business.niche_slug}
-          nicheName={business.niche_name}
-          businessName={business.business_name}
-          palette={palette}
-        />
 
         {/* ── FAQ — refined single-column ───────────────────── */}
         <section data-tour="faqs" className="px-8 lg:px-16 py-24 lg:py-32">

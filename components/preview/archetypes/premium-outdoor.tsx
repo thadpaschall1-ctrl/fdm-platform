@@ -202,6 +202,14 @@ export function PremiumOutdoorLayout({
           </div>
         </section>
 
+        {/* ── Voice section — try AI specialist live (above the fold-ish) ─ */}
+        <ShowcaseVoiceSection
+          nicheSlug={business.niche_slug}
+          nicheName={business.niche_name}
+          businessName={business.business_name}
+          palette={palette}
+        />
+
         {/* ── Services — Alternating editorial rows ─────────────── */}
         <section
           id="services"
@@ -384,14 +392,6 @@ export function PremiumOutdoorLayout({
             </div>
           </div>
         </section>
-
-        {/* ── Voice section — try AI specialist live ─────────── */}
-        <ShowcaseVoiceSection
-          nicheSlug={business.niche_slug}
-          nicheName={business.niche_name}
-          businessName={business.business_name}
-          palette={palette}
-        />
 
         {/* ── FAQ — single-column elegance ──────────────────── */}
         <section data-tour="faqs" className="px-8 lg:px-16 py-24 lg:py-32">

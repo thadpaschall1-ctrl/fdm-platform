@@ -233,7 +233,7 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
       {!isActive && (
         <button
           onClick={handleStart}
-          className="fixed bottom-3 left-3 z-[90] flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white hover:scale-105 transition-all duration-200"
+          className="fixed bottom-3 right-3 z-[90] flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white hover:scale-105 transition-all duration-200"
           style={{
             background: "rgba(15, 23, 42, 0.92)",
             border: "1px solid rgba(96, 165, 250, 0.4)",
