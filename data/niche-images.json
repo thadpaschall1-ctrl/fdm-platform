@@ -1,172 +1,172 @@
 {
   "version": 1,
-  "updated_at": "2026-04-27T00:36:10.624Z",
+  "updated_at": "2026-04-27T16:49:30.317Z",
   "niches": {
     "foundation-repair": {
       "slug": "foundation-repair",
-      "generated_at": "2026-04-26T02:20:06.469Z",
+      "generated_at": "2026-04-27T15:31:48.281Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b8d1/3boUUYFhbLljI1pJvkBg6.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Industrial steel helical pier being installed by gloved worker hands, tight overhead closeup, dramatic side lighting, sharp focus on threading detail, construction documentary photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:55:00.572Z"
+          "url": "https://v3b.fal.media/files/b/0a97f31b/RrkLtPo94GVe7uz9ECJkM_1iIARj0j.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Industrial galvanized steel helical pier being driven into the soil beside a residential foundation, hydraulic drive head visible at the top of the pier, professional construction site, dramatic side lighting on threading detail, dusty atmosphere, photorealistic documentary photography, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:24:31.227Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b8d2/ZvJ3nXaJET4zNiwMDB5Ck.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Polyurethane injection gun applying epoxy resin into a vertical concrete foundation crack, professional contractor closeup, focused work, clean lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:55:02.363Z"
+          "url": "https://v3b.fal.media/files/b/0a97f32b/tZd1hm2FyJY9JTXUiA1W8_s10m4oTB.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Closeup of a polyurethane injection gun pressed against a vertical concrete foundation crack, expanding foam resin visibly filling the crack, professional contractor's gloved hand steady on the gun, basement workshop lighting, technical documentary photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:26:59.129Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b8d2/qKPuPKrRRCTtNRZYRoCh6.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Carbon fiber wall reinforcement strap being applied to a basement wall by professional contractor, clean modern basement, bright lighting, technical precision shot",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:55:04.161Z"
+          "url": "https://v3b.fal.media/files/b/0a97f33a/Be3FmK_-XnrpjgJlRb9Ft_DsSqKaf3.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A galvanized steel wall anchor plate bolted to a bowed basement foundation wall with the threaded rod and exterior earth anchor visible through a cutaway, vertical steel I-beam brace running floor to ceiling alongside, clean basement interior with concrete floor, technical engineering photography, dramatic side lighting, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:29:32.575Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b8d2/0zsXm4pBf0a5CWQxqma9U.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Sump pump installation with PVC pipes in a clean dry basement, professional plumbing work, technical photography, bright lighting, organized worksite",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:55:05.910Z"
+          "url": "https://v3b.fal.media/files/b/0a97f349/H4McwopwD0-bRX-tYo3R7_kpNPyPsD.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Interior basement waterproofing system in progress — a perforated drain tile pipe being laid in a freshly cut trench at the base of the foundation wall, a black dimpled vapor barrier membrane sealed against the wall above, a sump pit with new pump in the corner, fresh gravel beside the trench, bright work lights, technical construction photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:31:48.281Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97befc/3SoIyOJmz8UcCBaQ9LXJL_dzeUUZf1.png",
+          "url": "https://v3b.fal.media/files/b/0a97f30a/N1eU_w6ENTn9vawppb8g2_pWypTzv2.png",
           "width": 0,
           "height": 0,
           "prompt": "Photorealistic close-up of a structural foundation crack with a steel push pier installation in progress, professional construction site, dramatic warm afternoon lighting, dusty atmosphere, hands working with tools visible, suburban basement setting, magazine photography quality, shallow depth of field",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T02:20:06.469Z"
+          "generated_at": "2026-04-27T15:21:49.564Z"
         }
       ]
     },
     "plumbers": {
       "slug": "plumbers",
-      "generated_at": "2026-04-26T02:20:16.504Z",
+      "generated_at": "2026-04-27T15:42:23.456Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b8db/n1TTK4_uKkFqfWki7EfzD.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Skilled hands soldering a copper pipe joint with propane torch, focused work, dramatic warm flame light, professional plumbing closeup, sharp focus",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:56:38.680Z"
+          "url": "https://v3b.fal.media/files/b/0a97f357/pCtMUjm4iKQomr1PuxByM_obekgEn8.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Urgent plumbing emergency scene — water actively leaking from a burst copper pipe under a residential sink, a wrench and shutoff valve handle in clear focus, droplets caught mid-fall, harsh top-down work-light from a flashlight, sense of urgency, documentary photojournalism, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:34:22.814Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b8db/8cyiRDhUPcnEGerBq0fYE.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Drain cleaning auger snake feeding into a residential drain, professional plumber working, modern bathroom setting, clean editorial lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:56:40.380Z"
+          "url": "https://v3b.fal.media/files/b/0a97f367/aFC8XwnX-c626iIqfsasj_9NyD2CZI.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Heavy-duty drain cleaning auger snake feeding into a residential floor drain, the motorized cable spool visible beside it, professional plumber's tools laid out neatly nearby, clean garage workshop setting, side lighting, technical documentary photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:37:15.045Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b8dc/0CtIcPUu8KVpTYRhFEtsg.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Modern tankless water heater unit mounted on a clean utility room wall, professional installation, technical product photography, bright lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:56:42.082Z"
+          "url": "https://v3b.fal.media/files/b/0a97f377/Xr6D1IB_QGDj-aO8rTAL1_H6yzRkJE.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A modern tankless water heater unit mounted on a clean utility-room wall, copper supply lines and gas line cleanly run, technician's wrench resting on top, bright fluorescent overhead lighting, technical product photography, photorealistic, sharp focus. No people.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:39:57.694Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b8dc/gQYFjTkHF_t0T9SEFA6kB.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Plumber with leak detection equipment scanning a kitchen wall, modern home setting, professional technology in use, soft natural lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:56:43.872Z"
+          "url": "https://v3b.fal.media/files/b/0a97f387/2WNdEoVQuZjiJznjwM6An_ginbzoFG.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A professional plumber holding a thermal-imaging leak detection camera against a kitchen wall, the camera's screen showing a glowing orange-red hot spot indicating a hidden pipe leak, modern home interior softly blurred behind, technical inspection photography, sharp focus on the device, photorealistic, magazine quality.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:42:23.456Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf09/PQjVg1bILoIPsQQS922Om_734e37af21374c77b676feb82b839d37.jpg",
+          "url": "https://v3b.fal.media/files/b/0a97f357/cmsQbXjDzyzj4QNZ-j5wU_bad72665e3844d5c865d5c193faaf9c1.jpg",
           "width": 1792,
           "height": 2368,
           "prompt": "Professional plumber arriving at suburban front door at golden hour with toolkit, friendly approachable expression, clean uniform with company logo placeholder, photojournalism style, warm natural lighting, photorealistic, magazine quality",
           "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-26T02:20:16.504Z"
+          "generated_at": "2026-04-27T15:31:58.230Z"
         }
       ]
     },
     "hvac": {
       "slug": "hvac",
-      "generated_at": "2026-04-26T02:20:26.951Z",
+      "generated_at": "2026-04-27T15:53:50.245Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b8e5/jgoXQsumDuMcEC19kjWbZ.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Modern smart thermostat on a clean white wall with hand adjusting it, soft warm interior lighting, residential setting, lifestyle photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:58:17.159Z"
+          "url": "https://v3b.fal.media/files/b/0a97f397/Mz5JRvLvHQ8eysS7ISH8r_RyVvFWse.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A new outdoor AC condenser unit being installed beside a suburban home — the technician's wrench tightening a refrigerant line connection, gauges on a manifold set lying on the concrete pad, fresh copper line set running into the wall, late-afternoon golden light, technical documentary photography, photorealistic, sharp focus on the unit.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:45:36.965Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b8e5/iQ5J71hI7JnlaIY6HNnlo.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Heat pump outdoor unit on a concrete pad next to landscaping, golden hour lighting, suburban home setting, clean professional photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:58:20.541Z"
+          "url": "https://v3b.fal.media/files/b/0a97f3a9/UpcmJUglBG7vsQ0UALh_3_upCzAoBX.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A residential gas furnace in a basement utility room with the access panel removed, an HVAC technician's gloved hands inspecting the burner assembly with a flashlight, blue pilot flames visible, technical side lighting, documentary photography, sharp focus on the burners, photorealistic.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:48:34.756Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b8e6/VoxPT9rAn5OKNh8ek3N0n.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "HEPA air filter being installed in residential HVAC return, technician hands, clean utility room, technical detail photography, bright lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:58:22.280Z"
+          "url": "https://v3b.fal.media/files/b/0a97f3bb/2BHWSJViVMR2eWeZl50_M_HutTC5mK.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A high-MERV pleated HEPA air filter being slid into a residential HVAC return air vent, the technician's gloved hand guiding it home, the old dust-clogged filter visible on the floor beside for contrast, clean utility room, technical detail photography, bright lighting, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:51:14.700Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b8e6/njkNh_Jnqb-BkZaN4QOWy.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Modern ductwork installation in an attic, fresh sealed insulated ducts, technical photography, professional craftsmanship, bright work lights",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:58:24.021Z"
+          "url": "https://v3b.fal.media/files/b/0a97f3cb/-MhoT6l0GHH3de5hrIOG8_XHVyDxmp.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "An HVAC technician kneeling beside an outdoor condenser unit, performing a seasonal tune-up — refrigerant gauges connected to the service ports, a digital multimeter probe on the contactor, a clipboard with a maintenance checklist resting on top of the unit, branded service truck softly blurred in the background, golden afternoon light, documentary photography, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:53:50.245Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf0a/uOYOoCvWPf5kPrI40e0Qf_874f53fdec6f448a92bbc23c9848e41a.jpg",
+          "url": "https://v3b.fal.media/files/b/0a97f397/NbDPzoXJXrcSfcVLLQHih_b1f098634ce242e78c0991c3d301238c.jpg",
           "width": 1792,
           "height": 2368,
           "prompt": "HVAC technician in branded uniform installing a sleek modern outdoor condenser unit beside a suburban home, late afternoon golden light, calm focused expression, professional documentary photography, clean composition, sharp focus",
           "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-26T02:20:26.951Z"
+          "generated_at": "2026-04-27T15:42:33.356Z"
         }
       ]
     },
     "roofers": {
       "slug": "roofers",
-      "generated_at": "2026-04-26T02:20:37.192Z",
+      "generated_at": "2026-04-27T16:04:03.809Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b8ef/v-9RcHzqU6-c66CrOoHLL.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Closeup of architectural asphalt shingles being nailed in place by professional roofer hands with nail gun, sharp focus on shingle texture, golden afternoon light",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:59:57.246Z"
+          "url": "https://v3b.fal.media/files/b/0a97f3dc/hjECnt-CUll0KPCTn36oU_YSk195bx.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A residential roof immediately after a hailstorm — visible hail-strike pocks on dark architectural shingles, several shingles torn loose and curled at the corners, a blue tarp partially covering the damaged section, an insurance adjuster's clipboard and digital camera resting on the ridge, dramatic post-storm sky with breaking sunlight, documentary photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T15:56:36.258Z"
         },
         {
           "slot": "service2",
@@ -179,198 +179,198 @@
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b8f0/v4V3Ffma6Z5kLxxfmQQOj.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Seamless gutter installation on a residential home eave, professional contractor work, clean composition, bright daylight, technical photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:00:00.686Z"
+          "url": "https://v3b.fal.media/files/b/0a97f3fa/KAQe5tskPPjl_bkI9Evqz_Owohz6mu.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A roofer kneeling on a residential roof patching a small section of damaged shingles — fresh new shingles being slid into place beside a roofing nailer, a tube of roofing sealant and a putty knife resting beside, the surrounding existing roof still intact, focused detail work, sharp focus on the patch area, photojournalism, photorealistic.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:01:23.320Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b8f0/FWPaMVeyNXaHGycpgkMyG.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Skylight being sealed and flashed on a residential roof, professional waterproofing work, sunny day, technical detail photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:00:02.392Z"
+          "url": "https://v3b.fal.media/files/b/0a97f408/xlIa_k6ZGiRgIpoQRqymH_8PhA3IeD.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Wide-angle view of a flat commercial building roof under installation — large rolls of white TPO membrane being heat-welded into place by a roofing crew, mechanical HVAC units distributed across the roofline, parapet wall visible at the edge, distant city skyline beyond, blue sky, documentary commercial photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:04:03.809Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf0b/VA2gg-RB19g8QN4Nj43iF_8e910b7d3bb6441788cfbde0dd1059ba.jpg",
+          "url": "https://v3b.fal.media/files/b/0a97f3db/TpTugt7k7dqyGjiNfgKZm_a3602e76bc544640beb0375c8d3c58e3.jpg",
           "width": 2752,
           "height": 1536,
           "prompt": "Drone shot of professional roofing crew installing dark architectural shingles on a suburban home, dramatic sky after a recent storm clearing, golden afternoon light breaking through clouds, photorealistic aerial photography, magazine quality",
           "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-26T02:20:37.192Z"
+          "generated_at": "2026-04-27T15:54:00.170Z"
         }
       ]
     },
     "pool-builders": {
       "slug": "pool-builders",
-      "generated_at": "2026-04-26T19:10:55.943Z",
+      "generated_at": "2026-04-27T16:17:53.100Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b8f9/_Few883UlpgqXjcIG5YsQ.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Closeup of pristine pool tile mosaic in iridescent blues and teals, water rippling above, golden afternoon sunlight, luxury detail photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:01:35.629Z"
+          "url": "https://v3b.fal.media/files/b/0a97f429/dPVmmoEElfpf2KhH0L6Ka_4jU60uXv.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A stunning newly-completed custom geometric inground swimming pool with a perfectly clean rectangular shape and modern travertine coping, crystal clear bright turquoise water, raised spa with cascading sheer descent waterfall, manicured landscaping, modern Mediterranean home in background, photographed in beautiful golden afternoon light, photorealistic architectural photography, magazine quality, ultra-sharp focus on the pool design.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:09:28.103Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b8f9/KDcRLEztuA5uoCsJ6numW.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Modern travertine pool deck with lounge chairs and plants, golden hour, luxury backyard lifestyle photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:01:37.456Z"
+          "url": "https://v3b.fal.media/files/b/0a97f438/IBkxayb-Ia-xh7W298ZkX_K2U64Cdy.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "An older swimming pool mid-renovation — the pool has been drained and the interior plaster surface is being resurfaced with fresh material, professional pool renovation tools and a trowel resting on the deck, scaffolding visible at the edge, daytime documentary photography of pool restoration work in progress, photorealistic, magazine quality, no people visible.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:12:15.070Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b8f9/HFCBLBaHl_QQ6jvtKQOQa.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Pool being constructed with gunite shotcrete application in progress, professional crew, daylight, documentary construction photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:01:39.157Z"
+          "url": "https://v3b.fal.media/files/b/0a97f449/JR6od00J9w_I6xUOX6sHs_hrHjTrga.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "An integrated raised spa beside an inground pool with multiple water features active — a tall sheer-descent waterfall cascading from a stone wall into the pool, two scupper bowls flowing water in parallel, accent lighting beneath the waterfall, evening twilight setting with warm pool lights glowing, ultra-luxurious resort backyard, photorealistic, magazine architectural photography, sharp focus on the water features.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:15:05.823Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b8fa/6E_fJ5hYpXlbBSS6HRSyU.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Pool with waterfall feature and natural stone landscaping at twilight, accent lighting, luxurious magazine photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:01:40.852Z"
+          "url": "https://v3b.fal.media/files/b/0a97f45a/ZS9vCLsssNRrieZ7AWNzp_XoDAwpde.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A luxury built-in outdoor kitchen with stainless steel grill, polished stone countertop, integrated beverage refrigerator, and bar seating with modern stools, set within a covered lanai featuring a wood-beamed ceiling and overhead pendant lights, swimming pool visible in the background through the lanai opening, golden hour light, photorealistic architectural photography, magazine quality, no people.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:17:53.100Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97d6ac/tEMvBycfS65ppBy04WVwg_benLt24j.png",
+          "url": "https://v3b.fal.media/files/b/0a97f418/Fv3klWhFBmcz6GtfFkTAe_kqKFoi21.png",
           "width": 0,
           "height": 0,
           "prompt": "Drone aerial photograph of a stunning custom infinity-edge pool with vanishing edge cascading into landscape, vibrant turquoise water, custom waterfall feature, luxury Mediterranean home in background, twilight ambient lighting with pool lights illuminating water from below, lush tropical landscaping with palm trees, photorealistic architectural photography, Architectural Digest magazine quality, ultra-sharp details, 8k resolution, dramatic composition",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T19:10:55.942Z"
+          "generated_at": "2026-04-27T16:06:53.453Z"
         }
       ]
     },
     "solar-installers": {
       "slug": "solar-installers",
-      "generated_at": "2026-04-26T19:13:12.111Z",
+      "generated_at": "2026-04-27T16:30:00.382Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b903/5oZhAupYHCdLbveM6VhoV.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Solar panel array closeup with dramatic golden light reflecting off cells, technical detail photography, sharp focus on circuitry pattern",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:03:13.098Z"
+          "url": "https://v3b.fal.media/files/b/0a97f47a/mZcyB1xabB__1CLJw5Dlv_ONT0kjyo.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Drone aerial view of a complete residential solar panel array installed on a modern suburban rooftop, perfectly aligned dark monocrystalline panels covering most of the south-facing roof slope, manicured lawn and driveway visible below, brilliant blue sky, golden hour light, photorealistic architectural photography, magazine quality, sharp focus on the full array.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:22:16.596Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b903/IsBh5ufNViU9H2pgbqrWn.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Professional solar installer in safety gear on residential roof securing panel mounts, blue sky, photojournalism style, sharp focus",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:03:14.838Z"
+          "url": "https://v3b.fal.media/files/b/0a97f485/tfDyafNCVzBB1fx8GO-ZG_mRAazCpJ.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Two sleek modern home battery storage units mounted side by side on a clean garage wall, glowing LED status indicators, electrical conduit running cleanly between them and a circuit breaker panel, polished concrete floor below, soft cool overhead lighting, technical product photography, photorealistic, sharp focus on the batteries. No people.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:24:48.543Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b903/Aq8efwWfy21D4GpM31aTU.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Modern home battery storage system on a clean garage wall with electrical panel, technical product photography, bright lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:03:16.537Z"
+          "url": "https://v3b.fal.media/files/b/0a97f494/eoNvfaHLH9a4gV542xZ9i_YfUBjUbp.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A solar assessor standing on a residential roof with a measuring tape and digital tablet, evaluating the roof slope and surface condition, drone hovering nearby, marker chalk lines visible on the shingles indicating proposed panel layout, suburban neighborhood softly blurred below, blue sky, golden afternoon light, documentary professional photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:27:28.952Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b903/b2zR5OtjsPybT6KCV_Eam.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Hand using a smartphone showing solar production app dashboard with kWh data, modern interior background, lifestyle photography, bright clean lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:03:18.320Z"
+          "url": "https://v3b.fal.media/files/b/0a97f4a5/HhTRz8WLeoOvR-x11RBRQ_9kZe3aKK.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Top-down flat-lay of solar tax-credit paperwork on a desk — IRS Form 5695 in clear focus, a calculator with the display showing a rebate total, a pen, a folder labeled in plain text, a coffee cup beside, soft window light from upper right, organized professional financial-paperwork lifestyle photography, photorealistic, sharp focus, no readable text on documents.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:30:00.382Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97d6b9/rPfNIMwz63J5RN8PahBzU_G7O9DKpO.png",
+          "url": "https://v3b.fal.media/files/b/0a97f46b/dEdyzJ7ozBsXnWZpz7KzT_bDGkVjd5.png",
           "width": 0,
           "height": 0,
           "prompt": "Stunning low-angle photograph looking up at perfectly aligned high-tech monocrystalline solar panels glowing in golden hour sunlight, dramatic lens flare highlights, brilliant blue sky reflecting in panels, modern minimalist home architecture in foreground, professional commercial photography, ultra-sharp details, 8k resolution, dramatic composition, magazine quality, photorealistic",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T19:13:12.111Z"
+          "generated_at": "2026-04-27T16:20:28.056Z"
         }
       ]
     },
     "polished-concrete": {
       "slug": "polished-concrete",
-      "generated_at": "2026-04-26T02:21:07.337Z",
+      "generated_at": "2026-04-27T16:42:34.424Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b90d/Y9hzWGwacRkQxqPgsat1g.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Industrial concrete polishing machine in operation on a warehouse floor, sparks and slurry, professional concrete contractor, sharp focus, side lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:04:51.298Z"
+          "url": "https://v3b.fal.media/files/b/0a97f4c4/1jgPI1mVP7loQ5j_KAmwu_rmqR6uAC.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A heavy industrial concrete polishing machine in mid-operation on a vast warehouse floor — multiple diamond polishing pads spinning under the head, slurry water running off the slab, the operator's boots and the machine's handle visible, dramatic side lighting catching the wet surface, photojournalism, photorealistic, sharp focus on the polishing head.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:35:13.236Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b90d/IwtKNz-743WBP01dQeZ8l.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Closeup of high-gloss polished concrete floor surface with reflection of overhead industrial lights, sharp detail, professional photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:04:53.011Z"
+          "url": "https://v3b.fal.media/files/b/0a97f4d7/3NqskeoPPkyfp-6XOZajA_6iSMpSMi.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A concrete densifier being applied to a commercial floor — a wide pump-up sprayer wand depositing a clear lithium-silicate liquid that visibly soaks into the gray concrete surface in a fan pattern, the wet line clearly distinct from the dry untreated concrete beside it, the contractor's boots in frame at the edge, bright work lights, technical documentary photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:38:15.321Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b90d/XFttrFTH4Yx32tXgSofFu.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Modern retail store interior with polished stained concrete floor, contemporary architecture, daylight, lifestyle commercial photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:04:54.709Z"
+          "url": "https://v3b.fal.media/files/b/0a97f4e5/0CuB7Ib_AcUgRcAAwqHGa_xjOdFpG2.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Closeup of a control joint in a polished concrete warehouse floor being filled with a flexible gray polyurea joint sealant from a dual-cartridge applicator gun, the freshly extruded bead glistening, an excess-trim razor knife resting beside, the surrounding polished slab reflecting overhead industrial lights, technical detail photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:40:30.037Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b90d/1tZo_4tygbKRzNgyFu7qh.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Concrete densifier being applied to a commercial floor by professional contractor, technical documentary photography, clean lighting",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:04:56.535Z"
+          "url": "https://v3b.fal.media/files/b/0a97f4f3/TYRoYS58dBeBOV8lbxUQU_f4QdTsPq.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A richly stained polished concrete floor showing varied amber-bronze tones with naturally occurring marbling and color variation across the surface, photographed from a low angle to emphasize the glossy sheen and color depth, a stain applicator pump sprayer visible at the edge of frame, modern commercial space, dramatic side lighting, magazine architectural photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:42:34.424Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf0e/xPQqa7ConI4nvDUAoDucS_0e032ac0961e4051b9d875cc5f423fd7.jpg",
-          "width": 2752,
-          "height": 1536,
+          "url": "https://v3b.fal.media/files/b/0a97f4b4/QKyGyY1ZZH1HUV3w6HDuG_vYgmK8EB.png",
+          "width": 0,
+          "height": 0,
           "prompt": "Wide angle photo of a vast polished concrete warehouse floor with mirror-like sheen, industrial steel beams overhead, dramatic perspective leading to vanishing point, professional architectural photography, clean atmospheric lighting",
-          "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-26T02:21:07.337Z"
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:32:48.222Z"
         }
       ]
     },
     "decorative-concrete": {
       "slug": "decorative-concrete",
-      "generated_at": "2026-04-26T02:23:12.736Z",
+      "generated_at": "2026-04-27T16:49:30.289Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b916/b4G1Ktl63YlwbTDK-KchU.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Closeup of stamped concrete pattern in slate gray with rich texture detail, dramatic side lighting, architectural detail photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:06:28.539Z"
+          "url": "https://v3b.fal.media/files/b/0a97f50e/1Wu7zJqyLQPLyHgMbE8-3_zshksXiI.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Closeup of a stamped concrete patio surface in slate-gray tones with deeply embossed natural stone pattern, rich texture and grout lines clearly defined, outdoor furniture leg visible at the edge of frame, golden afternoon light raking across the surface to emphasize relief, architectural detail photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T16:47:16.377Z"
         },
         {
           "slot": "service2",
@@ -401,18 +401,18 @@
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf0e/jJZwvScNPaRmM-XZ5BNVL_vBqBp89l.png",
+          "url": "https://v3b.fal.media/files/b/0a97f4ff/-YLxPtqnwe55QykAnxFaF_Zk8uc9Wy.png",
           "width": 0,
           "height": 0,
           "prompt": "Beautifully stamped concrete patio with rich earthtone staining and slate pattern, outdoor furniture and landscaping, golden hour light casting long shadows, magazine quality outdoor lifestyle photography, photorealistic",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T02:23:12.736Z"
+          "generated_at": "2026-04-27T16:45:07.309Z"
         }
       ]
     },
     "hair-salons": {
       "slug": "hair-salons",
-      "generated_at": "2026-04-26T02:25:19.816Z",
+      "generated_at": "2026-04-27T16:49:30.294Z",
       "images": [
         {
           "slot": "service1",
@@ -463,7 +463,7 @@
     },
     "medical-spas": {
       "slug": "medical-spas",
-      "generated_at": "2026-04-26T22:56:32.108Z",
+      "generated_at": "2026-04-27T16:49:30.298Z",
       "images": [
         {
           "slot": "hero",
@@ -514,7 +514,7 @@
     },
     "auto-body": {
       "slug": "auto-body",
-      "generated_at": "2026-04-26T02:27:39.927Z",
+      "generated_at": "2026-04-27T16:49:30.302Z",
       "images": [
         {
           "slot": "service1",
@@ -565,7 +565,7 @@
     },
     "mobile-pet-grooming": {
       "slug": "mobile-pet-grooming",
-      "generated_at": "2026-04-27T00:36:10.623Z",
+      "generated_at": "2026-04-27T16:49:30.305Z",
       "images": [
         {
           "slot": "hero",
@@ -616,7 +616,7 @@
     },
     "fitness": {
       "slug": "fitness",
-      "generated_at": "2026-04-26T02:29:48.282Z",
+      "generated_at": "2026-04-27T16:49:30.308Z",
       "images": [
         {
           "slot": "service1",
@@ -667,7 +667,7 @@
     },
     "stair-lift": {
       "slug": "stair-lift",
-      "generated_at": "2026-04-26T02:31:46.927Z",
+      "generated_at": "2026-04-27T16:49:30.313Z",
       "images": [
         {
           "slot": "service1",
@@ -718,7 +718,7 @@
     },
     "real-estate": {
       "slug": "real-estate",
-      "generated_at": "2026-04-26T02:33:37.575Z",
+      "generated_at": "2026-04-27T16:49:30.316Z",
       "images": [
         {
           "slot": "service1",
