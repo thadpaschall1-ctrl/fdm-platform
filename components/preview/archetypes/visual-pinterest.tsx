@@ -20,6 +20,7 @@ import type { FictionalBusiness } from "@/lib/data/fictional-businesses";
 import { getNicheImage, getNicheHeroVideo } from "@/lib/preview/load-images";
 import { ShowcaseMap } from "@/components/preview/showcase-map";
 import { ShowcaseVoiceSection } from "@/components/preview/showcase-voice-section";
+import { ShowcaseBookingCTA } from "@/components/preview/showcase-booking-cta";
 
 export interface VisualPinterestProps {
   archetype: DesignArchetype;
@@ -206,16 +207,17 @@ export function VisualPinterestLayout({
               {content.heroSubtitle}
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-6">
-              <a
-                href={phoneHref}
+              <ShowcaseBookingCTA
+                business={business}
+                content={content}
+                palette={palette}
+                label={content.heroCta}
                 className="px-8 py-4 text-xs tracking-[0.2em] uppercase font-medium transition-all hover:opacity-90"
                 style={{
                   background: palette.primary,
                   color: palette.primaryFg,
                 }}
-              >
-                {content.heroCta}
-              </a>
+              />
               <a
                 href="#services"
                 className="text-xs tracking-[0.2em] uppercase font-medium border-b pb-1 transition-opacity hover:opacity-70"

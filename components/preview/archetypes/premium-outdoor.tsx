@@ -22,6 +22,7 @@ import type { FictionalBusiness } from "@/lib/data/fictional-businesses";
 import { getNicheImage, getNicheHeroVideo } from "@/lib/preview/load-images";
 import { ShowcaseMap } from "@/components/preview/showcase-map";
 import { ShowcaseVoiceSection } from "@/components/preview/showcase-voice-section";
+import { ShowcaseBookingCTA } from "@/components/preview/showcase-booking-cta";
 
 export interface PremiumOutdoorProps {
   archetype: DesignArchetype;
@@ -77,19 +78,22 @@ export function PremiumOutdoorLayout({
             >
               {business.business_name}
             </div>
-            <a
-              href={phoneHref}
+            <ShowcaseBookingCTA
+              business={business}
+              content={content}
+              palette={palette}
+              label={`${business.phone} · ${content.heroCta}`}
               className="hidden md:inline-block text-sm tracking-[0.15em] uppercase border-b pb-1 transition-opacity hover:opacity-70"
-              style={{ borderColor: palette.primaryFg }}
-            >
-              {business.phone} · Schedule a Visit
-            </a>
-            <a
-              href={phoneHref}
+              style={{ borderColor: palette.primaryFg, color: palette.primaryFg }}
+            />
+            <ShowcaseBookingCTA
+              business={business}
+              content={content}
+              palette={palette}
+              label={content.heroCta}
               className="md:hidden text-sm font-semibold underline underline-offset-4"
-            >
-              Call
-            </a>
+              style={{ color: palette.primaryFg }}
+            />
           </div>
         </header>
 

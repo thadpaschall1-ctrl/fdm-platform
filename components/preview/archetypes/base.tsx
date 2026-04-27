@@ -21,6 +21,7 @@ import type { FictionalBusiness } from "@/lib/data/fictional-businesses";
 import { getNicheImage, getNicheHeroVideo } from "@/lib/preview/load-images";
 import { ShowcaseMap } from "@/components/preview/showcase-map";
 import { ShowcaseVoiceSection } from "@/components/preview/showcase-voice-section";
+import { ShowcaseBookingCTA } from "@/components/preview/showcase-booking-cta";
 
 export interface BaseLayoutProps {
   archetype: DesignArchetype;
@@ -91,20 +92,23 @@ export function BaseLayout({
               >
                 {business.phone}
               </a>
-              <a
-                href={phoneHref}
+              <ShowcaseBookingCTA
+                business={business}
+                content={content}
+                palette={palette}
+                label={
+                  archetype.cta.style === "phone-first"
+                    ? "Call Now"
+                    : archetype.cta.style === "appointment-first"
+                      ? "Book"
+                      : "Get Quote"
+                }
                 className="rounded-md px-5 py-2.5 text-sm font-bold transition-all hover:opacity-90 hover:-translate-y-px"
                 style={{
                   background: palette.primary,
                   color: palette.primaryFg,
                 }}
-              >
-                {archetype.cta.style === "phone-first"
-                  ? "Call Now"
-                  : archetype.cta.style === "appointment-first"
-                  ? "Book"
-                  : "Get Quote"}
-              </a>
+              />
             </div>
           </div>
         </header>
