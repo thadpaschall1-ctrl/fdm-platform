@@ -107,7 +107,7 @@ export function BaseLayout({
         </header>
 
         {/* ── Hero — split layout with full-height image ──────── */}
-        <section className="relative">
+        <section data-tour="hero" className="relative">
           <div className="grid lg:grid-cols-[1.1fr_1fr]">
             {/* Text side */}
             <div className="px-6 lg:px-16 py-20 lg:py-32 flex flex-col justify-center">
@@ -220,6 +220,7 @@ export function BaseLayout({
 
         {/* ── Customer Pains — Editorial section ──────────────── */}
         <section
+          data-tour="trust-stats"
           className="px-6 lg:px-16 py-20 lg:py-28"
           style={{ background: palette.surface }}
         >
@@ -274,7 +275,7 @@ export function BaseLayout({
         </section>
 
         {/* ── Services — sophisticated grid ────────────────────── */}
-        <section id="services" className="px-6 lg:px-16 py-20 lg:py-28">
+        <section id="services" data-tour="services" className="px-6 lg:px-16 py-20 lg:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-8 lg:grid-cols-12 items-end mb-16">
               <div className="lg:col-span-7">
@@ -358,6 +359,7 @@ export function BaseLayout({
 
         {/* ── Why Us ─────────────────────────────────────────── */}
         <section
+          data-tour="why-us"
           className="px-6 lg:px-16 py-20 lg:py-28"
           style={{ background: palette.surface }}
         >
@@ -422,7 +424,7 @@ export function BaseLayout({
         </section>
 
         {/* ── FAQ ─────────────────────────────────────────────── */}
-        <section className="px-6 lg:px-16 py-20 lg:py-28">
+        <section data-tour="faqs" className="px-6 lg:px-16 py-20 lg:py-28">
           <div className="mx-auto max-w-3xl">
             <p
               className="text-xs uppercase tracking-[0.3em] mb-5 text-center"
@@ -478,6 +480,7 @@ export function BaseLayout({
 
         {/* ── Final CTA ─────────────────────────────────────── */}
         <section
+          data-tour="final-cta"
           className="relative px-6 lg:px-16 py-24 lg:py-32 text-center overflow-hidden"
           style={{ background: palette.surface }}
         >
@@ -572,6 +575,22 @@ export function BaseLayout({
               >
                 {yearsInBusiness}+ years · Archetype · {archetype.label}
               </p>
+              {/* AI SEO badge — tour spotlight target. Click expands JSON-LD. */}
+              <div
+                data-tour="schema-badge"
+                className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide"
+                style={{
+                  background: `${palette.primary}10`,
+                  color: palette.primary,
+                  border: `1px solid ${palette.primary}30`,
+                }}
+              >
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full animate-pulse"
+                  style={{ background: palette.primary }}
+                />
+                AI Search Optimized · Schema verified
+              </div>
             </div>
           </div>
         </footer>

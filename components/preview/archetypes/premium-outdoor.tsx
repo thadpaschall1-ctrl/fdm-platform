@@ -92,7 +92,7 @@ export function PremiumOutdoorLayout({
         </header>
 
         {/* ── Hero — Cinematic full-bleed (video if generated, still otherwise) ── */}
-        <section className="relative h-screen min-h-[680px] overflow-hidden">
+        <section data-tour="hero" className="relative h-screen min-h-[680px] overflow-hidden">
           {heroVideo ? (
             <video
               src={heroVideo.url}
@@ -164,7 +164,7 @@ export function PremiumOutdoorLayout({
         </section>
 
         {/* ── Editorial Intro with Drop Cap ───────────────────── */}
-        <section className="px-8 lg:px-16 py-24 lg:py-32">
+        <section data-tour="trust-stats" className="px-8 lg:px-16 py-24 lg:py-32">
           <div className="mx-auto max-w-3xl">
             <p
               className="text-xs tracking-[0.3em] uppercase mb-8"
@@ -199,6 +199,7 @@ export function PremiumOutdoorLayout({
         {/* ── Services — Alternating editorial rows ─────────────── */}
         <section
           id="services"
+          data-tour="services"
           className="px-8 lg:px-16 pb-24 lg:pb-32"
           style={{ background: palette.surface }}
         >
@@ -318,6 +319,7 @@ export function PremiumOutdoorLayout({
 
         {/* ── Why us — Three-column editorial card ────────────── */}
         <section
+          data-tour="why-us"
           className="px-8 lg:px-16 py-24 lg:py-32"
           style={{ background: palette.surface }}
         >
@@ -378,7 +380,7 @@ export function PremiumOutdoorLayout({
         </section>
 
         {/* ── FAQ — single-column elegance ──────────────────── */}
-        <section className="px-8 lg:px-16 py-24 lg:py-32">
+        <section data-tour="faqs" className="px-8 lg:px-16 py-24 lg:py-32">
           <div className="mx-auto max-w-3xl">
             <h2
               className="text-3xl lg:text-5xl mb-12 text-center"
@@ -431,6 +433,7 @@ export function PremiumOutdoorLayout({
 
         {/* ── Final CTA — Atmospheric ─────────────────────────── */}
         <section
+          data-tour="final-cta"
           className="relative px-8 lg:px-16 py-32 lg:py-44 text-center overflow-hidden"
           style={{
             background: `linear-gradient(180deg, ${palette.background}, ${palette.surface})`,
@@ -543,6 +546,22 @@ export function PremiumOutdoorLayout({
               >
                 Archetype · {archetype.label}
               </p>
+              {/* AI SEO badge — tour spotlight target. Click expands JSON-LD. */}
+              <div
+                data-tour="schema-badge"
+                className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide"
+                style={{
+                  background: `${palette.primary}10`,
+                  color: palette.primary,
+                  border: `1px solid ${palette.primary}30`,
+                }}
+              >
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full animate-pulse"
+                  style={{ background: palette.primary }}
+                />
+                AI Search Optimized · Schema verified
+              </div>
             </div>
           </div>
         </footer>

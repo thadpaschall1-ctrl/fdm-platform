@@ -98,7 +98,7 @@ export function VisualPinterestLayout({
         </header>
 
         {/* ── Hero — full-bleed cinematic (video if generated, still otherwise) ── */}
-        <section className="relative h-screen min-h-[680px] overflow-hidden">
+        <section data-tour="hero" className="relative h-screen min-h-[680px] overflow-hidden">
           {heroVideo ? (
             <video
               src={heroVideo.url}
@@ -169,7 +169,7 @@ export function VisualPinterestLayout({
         {/* ── Editorial Intro paragraph ───────────────────────── */}
         <section className="px-8 lg:px-16 py-20 lg:py-28">
           <div className="mx-auto max-w-3xl">
-            <div className="grid grid-cols-3 gap-8 mb-12 max-w-md">
+            <div data-tour="trust-stats" className="grid grid-cols-3 gap-8 mb-12 max-w-md">
               {content.trustStats.slice(0, 3).map((s) => (
                 <div key={s.label} className="border-t pt-3" style={{ borderColor: palette.border }}>
                   <div
@@ -231,6 +231,7 @@ export function VisualPinterestLayout({
         {/* ── Services — Masonry-style image grid ──────────────── */}
         <section
           id="services"
+          data-tour="services"
           className="px-8 lg:px-16 py-24 lg:py-32"
           style={{ background: palette.surface }}
         >
@@ -363,6 +364,7 @@ export function VisualPinterestLayout({
 
         {/* ── Why us — Three numbered editorial blocks ──────── */}
         <section
+          data-tour="why-us"
           className="px-8 lg:px-16 py-24 lg:py-32"
           style={{ background: palette.surface }}
         >
@@ -424,7 +426,7 @@ export function VisualPinterestLayout({
         </section>
 
         {/* ── FAQ — refined single-column ───────────────────── */}
-        <section className="px-8 lg:px-16 py-24 lg:py-32">
+        <section data-tour="faqs" className="px-8 lg:px-16 py-24 lg:py-32">
           <div className="mx-auto max-w-3xl">
             <h2
               className="text-3xl lg:text-5xl mb-12 leading-[1.05]"
@@ -477,6 +479,7 @@ export function VisualPinterestLayout({
 
         {/* ── Final CTA ──────────────────────────────────── */}
         <section
+          data-tour="final-cta"
           className="px-8 lg:px-16 py-32 lg:py-44 text-center"
           style={{ background: palette.surface }}
         >
@@ -586,6 +589,22 @@ export function VisualPinterestLayout({
               >
                 {yearsInBusiness}+ years · Archetype · {archetype.label}
               </p>
+              {/* AI SEO badge — tour spotlight target. Click expands JSON-LD. */}
+              <div
+                data-tour="schema-badge"
+                className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide"
+                style={{
+                  background: `${palette.primary}10`,
+                  color: palette.primary,
+                  border: `1px solid ${palette.primary}30`,
+                }}
+              >
+                <span
+                  className="inline-block h-1.5 w-1.5 rounded-full animate-pulse"
+                  style={{ background: palette.primary }}
+                />
+                AI Search Optimized · Schema verified
+              </div>
             </div>
           </div>
         </footer>

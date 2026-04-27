@@ -7,6 +7,7 @@ import {
 import { getNicheSiteContent } from "@/lib/data/niche-site-content";
 import { ExampleSite } from "@/components/preview/example-site";
 import { ShowcaseBackLink } from "@/components/showcase-back-link";
+import { ShowcaseTour } from "@/components/preview/showcase-tour";
 import { buildShowcaseSchema } from "@/lib/preview/showcase-schema";
 
 const SITE_URL = "https://www.fastdigitalmarketing.com";
@@ -76,6 +77,10 @@ export default async function ExamplePage({ params }: PageProps) {
       />
       <ShowcaseBackLink />
       <ExampleSite business={business} />
+      {/* Guided Tour — bottom-left pill that walks visitors through the
+          AI SEO + cinematic + voice-AI features. Includes a live JSON-LD
+          inspector so prospects can SEE the schema, not just take our word. */}
+      <ShowcaseTour schema={schema} />
     </>
   );
 }
