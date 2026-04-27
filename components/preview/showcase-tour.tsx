@@ -24,7 +24,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
  * FDM SHOWS it. Strong conversion lever.
  */
 
-interface TourStop {
+export interface TourStop {
   /** [data-tour="X"] selector value to spotlight */
   target: string;
   /** Bold headline shown in the card */
@@ -64,7 +64,7 @@ const TOUR_STOPS: TourStop[] = [
     description:
       "This isn't a stock photo or a static image — it's a 5-second AI-generated cinematic loop, built from a still that was also AI-generated.",
     insight:
-      "Static beautiful sites read as templates. Subtle cinematic motion is what makes a site feel custom-built. Premium real estate, hotel, and luxury brand sites all use this. Now small businesses can too — for $297/mo.",
+      "Static beautiful sites read as templates. Subtle cinematic motion is what makes a site feel custom-built. Premium real estate, hotel, and luxury brand sites all use this. Smart Websites at Fast Digital Marketing start at $197/mo and include this kind of motion.",
     category: "design",
   },
   {
@@ -104,12 +104,21 @@ const TOUR_STOPS: TourStop[] = [
     category: "ai-search",
   },
   {
+    target: "map",
+    title: "Live Google Map + Local SEO",
+    description:
+      "A real Google Maps embed showing the exact business location, plus structured PostalAddress data so search engines know where to put you on the map.",
+    insight:
+      "Local pack rankings (the map results above the regular listings) are pulled from this exact data — address, phone, service area. Your real customer site uses your actual address — this preview just shows what it'll look like.",
+    category: "ai-search",
+  },
+  {
     target: "schema-badge",
     title: "Live JSON-LD — Click to Inspect",
     description:
       "Most agencies claim 'we do schema.' This button shows you the actual JSON-LD graph rendered on this exact page right now.",
     insight:
-      "Every Fast Digital Marketing site ships with full schema graphs (LocalBusiness + Service + FAQPage + BreadcrumbList + AggregateRating + WebPage) baked into the static HTML. Your competitors are paying $1,500/mo for less.",
+      "Every Fast Digital Marketing site ships with full schema graphs (LocalBusiness + Service + FAQPage + BreadcrumbList + AggregateRating + WebPage) baked into the static HTML. Most competitors charge $1,500/mo for less; FDM Smart Websites start at $197/mo.",
     category: "trust",
   },
   {
@@ -118,7 +127,7 @@ const TOUR_STOPS: TourStop[] = [
     description:
       "Click-to-call here doesn't just dial a number — it routes through Holland (the AI receptionist), Review Autopilot kicks in after every job, and Lead Nurture follows up automatically.",
     insight:
-      "Everything you see is one Fast Digital Marketing subscription. Smart Site + Voice + Reviews + AI Search Optimization = $397/mo. Live in 5 days. Month-to-month, no setup fee.",
+      "Fast Digital Marketing tiers: Basic Website $47/mo · Smart Website $197/mo · Smart Site + Voice $297/mo · Full Automation Stack $397/mo (everything you see on this page). Live in 5 days. Month-to-month, no setup fee, no contracts.",
     category: "automation",
   },
 ];

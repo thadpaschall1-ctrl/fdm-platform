@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-27T18:26:12.538Z",
+  "updated_at": "2026-04-27T20:09:00.936Z",
   "niches": {
     "foundation-repair": {
       "slug": "foundation-repair",
@@ -51,7 +51,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-27T15:21:49.564Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9a5/VK2SsSK3bY5hFneRZqXVI_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Subtle warm afternoon light slowly shifting across the construction scene with the steel pier, fine dust motes floating in the light shafts, atmospheric documentary photography, no large body movement, no facial expression changes, photorealistic, smooth meditative motion.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:00:55.726Z"
+      }
     },
     "plumbers": {
       "slug": "plumbers",
@@ -102,7 +111,16 @@
           "model": "fal-ai/flux-pro/v1.1-ultra",
           "generated_at": "2026-04-27T15:31:58.230Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9a9/KJSgeHxyKOdqJa46q9pOq_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Subtle warm golden hour light slowly shifting across the front porch and the plumber's uniform, gentle leaves on nearby plants barely swaying in a soft breeze, person remains completely still with no facial expression changes and no body motion, lifestyle photojournalism cinematography, smooth and meditative.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:01:36.808Z"
+      }
     },
     "hvac": {
       "slug": "hvac",
@@ -153,7 +171,16 @@
           "model": "fal-ai/flux-pro/v1.1-ultra",
           "generated_at": "2026-04-27T15:42:33.356Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9ad/ylVuZNxOejCR9ZaCSn95y_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Subtle warm afternoon light slowly shifting across the outdoor condenser unit and surrounding landscaping, gentle leaves swaying in a soft breeze, technician remains completely still with no facial expression changes or body motion, documentary cinematography, smooth and atmospheric.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:02:16.285Z"
+      }
     },
     "roofers": {
       "slug": "roofers",
@@ -204,7 +231,16 @@
           "model": "fal-ai/flux-pro/v1.1-ultra",
           "generated_at": "2026-04-27T15:54:00.170Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9b2/xoMonvbi9tm72EE3BHF0R_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "16:9",
+        "prompt": "Very subtle aerial drone camera pull-back, slow cloud movement in the post-storm sky, golden afternoon light slowly deepening across the roof, crew members remain completely still with no body motion, magazine aerial cinematography, smooth and meditative.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:03:11.437Z"
+      }
     },
     "pool-builders": {
       "slug": "pool-builders",
@@ -315,7 +351,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-27T16:20:28.056Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9b6/DctYOJsV-K_uIrwzy21fv_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "16:9",
+        "prompt": "Extremely subtle cinematic camera pull-back, solar panels gleaming with shifting golden hour light reflections, subtle lens flare moving slowly across the frame, distant clouds barely drifting, blue sky deepening, no abrupt motion, ultra-premium real-estate ad cinematography.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:03:50.912Z"
+      }
     },
     "polished-concrete": {
       "slug": "polished-concrete",
@@ -366,7 +411,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-27T16:32:48.222Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9bb/Lv8ZNND3kvjplXGQOSDBt_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "16:9",
+        "prompt": "Slow cinematic camera glide forward through the vast polished concrete warehouse floor, fine dust motes drifting in shafts of overhead industrial light, subtle reflections shifting on the polished surface, no people, atmospheric and meditative industrial cinematography.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:04:38.191Z"
+      }
     },
     "decorative-concrete": {
       "slug": "decorative-concrete",
@@ -417,7 +471,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-27T16:45:07.309Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9bf/uyBqW3IwjW4mQZZSwUlFo_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Subtle dappled tree shadow shifting slowly across the stamped concrete patio surface, gentle breeze in surrounding leaves, golden hour light gradient slowly deepening from amber to warm copper, ultra-luxurious outdoor lifestyle cinematography, no abrupt motion, no people.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:05:14.565Z"
+      }
     },
     "hair-salons": {
       "slug": "hair-salons",
@@ -468,7 +531,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-26T02:25:19.816Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9c2/25KECp4lzdUBwmlSAYAum_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Very slow cinematic dolly forward into the empty salon interior, sheer window curtains gently breathing in a soft breeze, soft natural light slowly shifting across the terrazzo floor and brass fixtures, plant leaves barely moving, magazine editorial cinematography, no people, smooth and meditative.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:05:44.645Z"
+      }
     },
     "medical-spas": {
       "slug": "medical-spas",
@@ -579,7 +651,16 @@
           "model": "fal-ai/flux-pro/v1.1-ultra",
           "generated_at": "2026-04-26T02:27:39.927Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9c6/8q3TK56RGike7dDyqX2t2_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Subtle bright shop lighting slowly shifting across the polished car fender, fine reflective highlights moving along the paint surface, technician remains completely still with no facial expression changes or large body motion, documentary photojournalism cinematography, smooth and atmospheric.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:06:24.191Z"
+      }
     },
     "mobile-pet-grooming": {
       "slug": "mobile-pet-grooming",
@@ -630,7 +711,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-27T00:36:10.623Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9ca/kWTAkbOno8gdAfgcrIyVM_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "16:9",
+        "prompt": "Subtle dappled tree shadow shifting slowly across the white van and pavement, gentle leaves rustling in a soft breeze on the surrounding trees, golden afternoon light slowly deepening, ultra-luxurious lifestyle cinematography, vehicle remains still and stationary, no people, no animals, no abrupt motion.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:07:09.995Z"
+      }
     },
     "fitness": {
       "slug": "fitness",
@@ -681,7 +771,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-26T02:29:48.282Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9ce/xf8YhlGHIOtuIz0IrHkfl_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "16:9",
+        "prompt": "Subtle dramatic side lighting slowly shifting across the dark boutique gym, fine chalk dust drifting and floating in the air, members remain completely still in their training pose with no large body motion, gritty atmospheric photojournalism cinematography, smooth and intense.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:07:44.863Z"
+      }
     },
     "stair-lift": {
       "slug": "stair-lift",
@@ -732,7 +831,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-26T02:31:46.927Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9d2/IEway-CICot84D1rOgNSM_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Subtle warm sunlight slowly shifting through the window across the home staircase, gentle dust motes floating in the light beams, senior person remains completely still with no facial expression changes or movement, dignified lifestyle cinematography, smooth and warm.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:08:24.352Z"
+      }
     },
     "real-estate": {
       "slug": "real-estate",
@@ -783,7 +891,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-26T02:33:37.575Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f9d5/BufQ-2pVO7v5nd4_U8iXR_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Subtle warm golden hour light slowly shifting across the suburban background and softly blurred trees behind the agent, gentle breeze in the trees, agent remains completely still with no facial expression changes, no eye movement, and no body motion, magazine editorial portrait cinematography, smooth and refined.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T20:09:00.936Z"
+      }
     }
   }
 }

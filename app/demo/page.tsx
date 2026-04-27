@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DemoWidget } from "@/components/demo-widget";
+import { DemoTour } from "@/components/demo-tour";
 
 export const metadata: Metadata = {
   title: "Live AI Voice Demo | Try It For Your Business",
@@ -212,7 +213,7 @@ export default function DemoPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(DEMO_SCHEMA) }}
       />
       {/* Hero */}
-      <section className="relative overflow-hidden px-6 py-20 text-center">
+      <section data-tour="demo-hero" className="relative overflow-hidden px-6 py-20 text-center">
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div className="absolute top-1/4 left-1/4 h-[500px] w-[500px] rounded-full bg-blue-600/15 blur-[120px] animate-[float_8s_ease-in-out_infinite]" />
           <div className="absolute bottom-1/4 right-1/4 h-[400px] w-[400px] rounded-full bg-violet-600/10 blur-[100px] animate-[float_10s_ease-in-out_infinite_2s]" />
@@ -238,12 +239,12 @@ export default function DemoPage() {
       </section>
 
       {/* Demo Widget */}
-      <section className="mx-auto max-w-4xl px-6 py-12">
+      <section data-tour="demo-niches" className="mx-auto max-w-4xl px-6 py-12">
         <DemoWidget popularNiches={POPULAR_NICHES} />
       </section>
 
       {/* What You're Experiencing */}
-      <section className="relative overflow-hidden px-6 py-20">
+      <section data-tour="demo-features" className="relative overflow-hidden px-6 py-20">
         <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-20" />
         <div className="relative mx-auto max-w-4xl">
           <h2 className="mb-12 text-center font-display text-3xl font-bold text-white tracking-tight">
@@ -268,7 +269,7 @@ export default function DemoPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 py-16">
+      <section data-tour="demo-cta" className="px-6 py-16">
         <div className="mx-auto max-w-2xl">
           <div className="border-gradient rounded-3xl bg-slate-900 p-12 text-center">
             <h2 className="font-display text-3xl font-bold text-white tracking-tight">Ready to Put This to Work?</h2>
@@ -287,6 +288,10 @@ export default function DemoPage() {
           </div>
         </div>
       </section>
+
+      {/* Floating tour pill — bottom-right. Walks visitors through what
+          this page is, what makes Holland different, and how to sign up. */}
+      <DemoTour />
     </div>
   );
 }

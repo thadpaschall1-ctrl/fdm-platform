@@ -18,6 +18,7 @@ import type { NicheDesignOverride } from "@/lib/data/niche-design";
 import type { NicheSiteContent } from "@/lib/data/niche-site-content";
 import type { FictionalBusiness } from "@/lib/data/fictional-businesses";
 import { getNicheImage, getNicheHeroVideo } from "@/lib/preview/load-images";
+import { ShowcaseMap } from "@/components/preview/showcase-map";
 
 export interface VisualPinterestProps {
   archetype: DesignArchetype;
@@ -526,6 +527,9 @@ export function VisualPinterestLayout({
             </p>
           </div>
         </section>
+
+        {/* ── Map + Visit Us ───────────────────────────────────── */}
+        <ShowcaseMap business={business} palette={palette} variant="editorial" />
 
         {/* ── Footer ──────────────────────────────────────── */}
         <footer

@@ -20,6 +20,7 @@ import type { NicheDesignOverride } from "@/lib/data/niche-design";
 import type { NicheSiteContent } from "@/lib/data/niche-site-content";
 import type { FictionalBusiness } from "@/lib/data/fictional-businesses";
 import { getNicheImage, getNicheHeroVideo } from "@/lib/preview/load-images";
+import { ShowcaseMap } from "@/components/preview/showcase-map";
 
 export interface PremiumOutdoorProps {
   archetype: DesignArchetype;
@@ -484,6 +485,9 @@ export function PremiumOutdoorLayout({
             </a>
           </div>
         </section>
+
+        {/* ── Map + Visit Us ───────────────────────────────────── */}
+        <ShowcaseMap business={business} palette={palette} variant="premium" />
 
         {/* ── Footer — Editorial credit ───────────────────────── */}
         <footer

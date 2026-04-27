@@ -8,6 +8,9 @@ import { getNicheSiteContent } from "@/lib/data/niche-site-content";
 import { ExampleSite } from "@/components/preview/example-site";
 import { ShowcaseBackLink } from "@/components/showcase-back-link";
 import { ShowcaseTour } from "@/components/preview/showcase-tour";
+import { ShowcaseVoiceWidget } from "@/components/preview/showcase-voice-widget";
+import { ShowcaseExplainer } from "@/components/preview/showcase-explainer";
+import { ShowcaseFAQ } from "@/components/preview/showcase-faq";
 import { buildShowcaseSchema } from "@/lib/preview/showcase-schema";
 
 const SITE_URL = "https://www.fastdigitalmarketing.com";
@@ -77,10 +80,21 @@ export default async function ExamplePage({ params }: PageProps) {
       />
       <ShowcaseBackLink />
       <ExampleSite business={business} />
-      {/* Guided Tour — bottom-left pill that walks visitors through the
-          AI SEO + cinematic + voice-AI features. Includes a live JSON-LD
-          inspector so prospects can SEE the schema, not just take our word. */}
+      {/* Floating sales chrome — five interactive elements positioned around
+          the page edges so they don't compete with each other:
+            top-left      ShowcaseExplainer  ("Preview · What is this?")
+            top-right     ShowcaseBackLink   ("← Demo by FDM")  (above)
+            left-middle   ShowcaseFAQ        ("Business Owner?")
+            bottom-left   ShowcaseTour       ("Tour this site")
+            bottom-right  ShowcaseVoiceWidget ("Talk to Holland") */}
+      <ShowcaseExplainer />
+      <ShowcaseFAQ />
       <ShowcaseTour schema={schema} />
+      <ShowcaseVoiceWidget
+        nicheSlug={business.niche_slug}
+        nicheName={business.niche_name}
+        businessName={business.business_name}
+      />
     </>
   );
 }
