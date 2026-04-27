@@ -20,6 +20,7 @@ import type { NicheSiteContent } from "@/lib/data/niche-site-content";
 import type { FictionalBusiness } from "@/lib/data/fictional-businesses";
 import { getNicheImage, getNicheHeroVideo } from "@/lib/preview/load-images";
 import { ShowcaseMap } from "@/components/preview/showcase-map";
+import { ShowcaseVoiceSection } from "@/components/preview/showcase-voice-section";
 
 export interface BaseLayoutProps {
   archetype: DesignArchetype;
@@ -437,6 +438,14 @@ export function BaseLayout({
             </div>
           </div>
         </section>
+
+        {/* ── Voice section — try AI specialist live ─────────── */}
+        <ShowcaseVoiceSection
+          nicheSlug={business.niche_slug}
+          nicheName={business.niche_name}
+          businessName={business.business_name}
+          palette={palette}
+        />
 
         {/* ── FAQ ─────────────────────────────────────────────── */}
         <section data-tour="faqs" className="px-6 lg:px-16 py-20 lg:py-28">

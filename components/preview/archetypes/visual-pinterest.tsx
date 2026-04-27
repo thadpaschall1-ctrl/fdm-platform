@@ -19,6 +19,7 @@ import type { NicheSiteContent } from "@/lib/data/niche-site-content";
 import type { FictionalBusiness } from "@/lib/data/fictional-businesses";
 import { getNicheImage, getNicheHeroVideo } from "@/lib/preview/load-images";
 import { ShowcaseMap } from "@/components/preview/showcase-map";
+import { ShowcaseVoiceSection } from "@/components/preview/showcase-voice-section";
 
 export interface VisualPinterestProps {
   archetype: DesignArchetype;
@@ -425,6 +426,14 @@ export function VisualPinterestLayout({
             </div>
           </div>
         </section>
+
+        {/* ── Voice section — try AI specialist live ─────────── */}
+        <ShowcaseVoiceSection
+          nicheSlug={business.niche_slug}
+          nicheName={business.niche_name}
+          businessName={business.business_name}
+          palette={palette}
+        />
 
         {/* ── FAQ — refined single-column ───────────────────── */}
         <section data-tour="faqs" className="px-8 lg:px-16 py-24 lg:py-32">

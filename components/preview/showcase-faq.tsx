@@ -173,41 +173,34 @@ export function ShowcaseFAQ() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed left-4 top-1/2 -translate-y-1/2 z-[89] flex items-center gap-2.5 rounded-full pl-3.5 pr-5 py-3 transition-all duration-300 hover:scale-105"
+          className="fixed left-3 top-1/2 -translate-y-1/2 z-[89] flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-all duration-200 hover:scale-105"
           style={{
             background: "rgba(15, 23, 42, 0.92)",
-            border: "1.5px solid rgba(96, 165, 250, 0.4)",
+            border: "1px solid rgba(96, 165, 250, 0.4)",
             boxShadow: pulsed
-              ? "0 4px 20px rgba(59,130,246,0.4), 0 0 0 4px rgba(59,130,246,0.2)"
-              : "0 4px 15px rgba(0,0,0,0.4), 0 0 24px rgba(59, 130, 246, 0.25)",
+              ? "0 2px 12px rgba(59,130,246,0.35), 0 0 0 3px rgba(59,130,246,0.18)"
+              : "0 2px 10px rgba(0,0,0,0.4), 0 0 16px rgba(59, 130, 246, 0.2)",
             backdropFilter: "blur(12px)",
             animation: pulsed ? "showcaseFaqPulse 2s ease-in-out infinite" : "none",
           }}
           aria-label="Business Owner? Questions answered"
         >
-          <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shrink-0">
-            <svg
-              className="w-4 h-4 text-white"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-          <div className="text-left">
-            <p className="text-[11px] font-bold text-white leading-tight tracking-wide">
-              Business Owner?
-            </p>
-            <p className="text-[10px] text-blue-300 leading-tight">
-              Your questions answered
-            </p>
-          </div>
+          <svg
+            className="w-3.5 h-3.5 text-blue-300 shrink-0"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span className="text-[11px] font-semibold text-white tracking-wide whitespace-nowrap">
+            Business Owner?
+          </span>
         </button>
       )}
 

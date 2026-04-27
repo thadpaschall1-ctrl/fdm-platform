@@ -51,53 +51,39 @@ export function ShowcaseExplainer() {
     return (
       <button
         onClick={() => setExpanded(true)}
-        className="fixed top-4 left-4 z-[88] group flex items-center gap-2.5 px-5 py-3 rounded-full text-white hover:scale-105 transition-all duration-300"
+        className="fixed top-3 left-3 z-[88] flex items-center gap-2 px-3 py-1.5 rounded-full text-white hover:scale-105 transition-all duration-200"
         style={{
           background: "rgba(15, 23, 42, 0.92)",
-          border: "1.5px solid rgba(96, 165, 250, 0.4)",
+          border: "1px solid rgba(96, 165, 250, 0.4)",
           boxShadow:
-            "0 4px 15px rgba(0,0,0,0.4), 0 0 24px rgba(59, 130, 246, 0.25)",
+            "0 2px 10px rgba(0,0,0,0.4), 0 0 16px rgba(59, 130, 246, 0.2)",
           backdropFilter: "blur(12px)",
         }}
         aria-label="About this preview site"
       >
-        <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-          <svg
-            className="w-4 h-4 text-white"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </div>
-        <div className="text-left leading-tight">
-          <div className="text-sm font-bold">Preview</div>
-          <div className="text-[10px] text-blue-300 font-medium">
-            What is this?
-          </div>
-        </div>
         <svg
-          className="w-4 h-4 text-blue-300 group-hover:translate-x-1 transition-transform"
+          className="w-3.5 h-3.5 text-blue-300"
           fill="none"
           stroke="currentColor"
           strokeWidth="2.5"
           viewBox="0 0 24 24"
         >
-          <path d="M9 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
+        <span className="text-[11px] font-semibold tracking-wide">
+          What is this?
+        </span>
       </button>
     );
   }
 
   return (
     <div
-      className="fixed top-4 left-4 z-[88] w-[340px] max-w-[calc(100vw-32px)] rounded-2xl border border-blue-500/30 bg-slate-950/95 backdrop-blur-xl shadow-2xl"
+      className="fixed top-3 left-3 z-[88] w-[320px] max-w-[calc(100vw-24px)] rounded-2xl border border-blue-500/30 bg-slate-950/95 backdrop-blur-xl shadow-2xl"
       style={{ animation: "showcaseExplainerIn 0.25s ease-out" }}
     >
       <div className="flex items-start justify-between px-4 py-3 border-b border-slate-800">

@@ -8,7 +8,6 @@ import { getNicheSiteContent } from "@/lib/data/niche-site-content";
 import { ExampleSite } from "@/components/preview/example-site";
 import { ShowcaseBackLink } from "@/components/showcase-back-link";
 import { ShowcaseTour } from "@/components/preview/showcase-tour";
-import { ShowcaseVoiceWidget } from "@/components/preview/showcase-voice-widget";
 import { ShowcaseExplainer } from "@/components/preview/showcase-explainer";
 import { ShowcaseFAQ } from "@/components/preview/showcase-faq";
 import { buildShowcaseSchema } from "@/lib/preview/showcase-schema";
@@ -80,21 +79,18 @@ export default async function ExamplePage({ params }: PageProps) {
       />
       <ShowcaseBackLink />
       <ExampleSite business={business} />
-      {/* Floating sales chrome — five interactive elements positioned around
+      {/* Floating sales chrome — four interactive elements positioned around
           the page edges so they don't compete with each other:
             top-left      ShowcaseExplainer  ("Preview · What is this?")
             top-right     ShowcaseBackLink   ("← Demo by FDM")  (above)
             left-middle   ShowcaseFAQ        ("Business Owner?")
             bottom-left   ShowcaseTour       ("Tour this site")
-            bottom-right  ShowcaseVoiceWidget ("Talk to Holland") */}
+          The voice demo is rendered INLINE inside the page (between Why Us
+          and FAQ) via <ShowcaseVoiceSection> — embedded into the natural
+          scroll flow instead of competing as a 5th floating button. */}
       <ShowcaseExplainer />
       <ShowcaseFAQ />
       <ShowcaseTour schema={schema} />
-      <ShowcaseVoiceWidget
-        nicheSlug={business.niche_slug}
-        nicheName={business.niche_name}
-        businessName={business.business_name}
-      />
     </>
   );
 }
