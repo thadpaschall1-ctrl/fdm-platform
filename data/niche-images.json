@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-27T16:49:30.317Z",
+  "updated_at": "2026-04-27T18:26:12.538Z",
   "niches": {
     "foundation-repair": {
       "slug": "foundation-repair",
@@ -255,7 +255,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-27T16:06:53.453Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f766/WQ5AYCNnk7kNS3UKZ04Oz_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "16:9",
+        "prompt": "Extremely slow cinematic drone push-in over the pool, gentle water surface ripples catching reflected light, twilight ambient light slowly deepening from gold to blue, pool lights from below subtly pulsing brighter, palm fronds barely swaying in a gentle breeze, magazine real-estate ad cinematography, smooth and luxurious motion, no abrupt cuts.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T18:25:11.497Z"
+      }
     },
     "solar-installers": {
       "slug": "solar-installers",
@@ -510,7 +519,16 @@
           "model": "fal-ai/gpt-image-2",
           "generated_at": "2026-04-26T22:56:32.108Z"
         }
-      ]
+      ],
+      "heroVideo": {
+        "slot": "hero",
+        "url": "https://v3b.fal.media/files/b/0a97f76c/8ySLnqX4lAMjGGiIYg76T_video.mp4",
+        "durationSec": 5,
+        "aspectRatio": "3:4",
+        "prompt": "Extremely slow cinematic dolly forward into the treatment room, sheer curtains gently breathing in a soft breeze, golden hour light very slowly shifting across the warm walnut wall paneling, fine dust motes floating in the light beam, the fiddle leaf fig leaves barely moving, ultra-luxurious spa cinematography, smooth and meditative, no abrupt motion.",
+        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
+        "generated_at": "2026-04-27T18:26:12.538Z"
+      }
     },
     "auto-body": {
       "slug": "auto-body",
