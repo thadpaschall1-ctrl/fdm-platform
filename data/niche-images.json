@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-27T00:10:08.888Z",
+  "updated_at": "2026-04-27T00:36:10.624Z",
   "niches": {
     "foundation-repair": {
       "slug": "foundation-repair",
@@ -565,25 +565,52 @@
     },
     "mobile-pet-grooming": {
       "slug": "mobile-pet-grooming",
-      "generated_at": "2026-04-27T00:10:08.888Z",
+      "generated_at": "2026-04-27T00:36:10.623Z",
       "images": [
         {
+          "slot": "hero",
+          "url": "https://v3b.fal.media/files/b/0a97de0f/2LebEBhyPZxbAZV-EmT8a_cTi9zfch.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A clean unbranded white Mercedes Sprinter van parked on a tree-lined suburban street, completely plain white exterior with no signage, no logos, no text, no lettering, no decals, no graphics — just a pure white panel van. Side door slightly open showing professional grooming equipment inside. Warm afternoon golden hour light, dappled tree shadows on the pavement, residential neighborhood with manicured green lawns and mature oaks. Lifestyle commercial photography, sharp focus on the van, photorealistic, magazine quality, 8k. No animals, no people.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T00:26:25.010Z"
+        },
+        {
+          "slot": "service1",
+          "url": "https://v3b.fal.media/files/b/0a97de1e/hDfQWf9EyoxSmv_WjP2EJ_YMirBqGy.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "A handsome clean golden retriever standing in full side profile on a soft outdoor lawn with a freshly groomed gleaming coat, photographed from across the lawn with a telephoto lens — entire body in frame from nose to tail, all four legs clearly visible standing on the ground, ears alert, calm content expression, warm afternoon golden hour light, lifestyle pet photography, sharp focus on the dog's silhouette, photorealistic, magazine quality.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T00:28:39.393Z"
+        },
+        {
+          "slot": "service2",
+          "url": "https://v3b.fal.media/files/b/0a97de2c/jFGcxKcJYwWr02eAYn4_k_iycgTnhE.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Interior of a clean professional mobile pet grooming van — stainless-steel hydraulic grooming table centered in frame, neatly arranged brushes, scissors and clippers on a wall organizer, fresh towels stacked, bright daylight pouring through the open back door, technical interior photography, magazine quality, photorealistic. No animals, no people.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-27T00:31:14.739Z"
+        },
+        {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97dd9d/_2C6qjywOgy2gXYYKbzTb_sTlN7xxA.png",
+          "url": "https://v3b.fal.media/files/b/0a97de3b/W6rwPAqM1OQj2O1tQ9wc0_9tDnT6oo.png",
           "width": 0,
           "height": 0,
           "prompt": "A small clean fluffy white poodle sitting in calm side profile on a soft cream towel against a neutral background, full body in frame from side view, head turned slightly toward camera, calm expression, ears soft and natural, no paws in extreme closeup, soft north-facing window light, lifestyle pet portrait photography, magazine quality, photorealistic, ultra-sharp focus.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T00:07:26.397Z"
+          "generated_at": "2026-04-27T00:33:06.902Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97ddac/N5_zmxuTdPr-68wDQNza9_0Cso7mMh.png",
+          "url": "https://v3b.fal.media/files/b/0a97de46/FkF3lOvvsNZFqFUUttewO_pH99FPKZ.png",
           "width": 0,
           "height": 0,
           "prompt": "Top-down flat-lay product photograph of professional pet grooming tools arranged on a warm-toned wood surface — a wooden-handle slicker brush, stainless grooming scissors, electric clippers with the cord coiled neatly, a glass bottle of pet shampoo, a fresh white towel folded beside them, soft golden natural light, magazine product editorial styling, photorealistic, sharp focus. No people, no hands, no animals.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T00:10:08.887Z"
+          "generated_at": "2026-04-27T00:36:10.623Z"
         }
       ]
     },
