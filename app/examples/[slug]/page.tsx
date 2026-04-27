@@ -11,6 +11,7 @@ import { ShowcaseTour } from "@/components/preview/showcase-tour";
 import { ShowcaseExplainer } from "@/components/preview/showcase-explainer";
 import { ShowcaseFAQ } from "@/components/preview/showcase-faq";
 import { buildShowcaseSchema } from "@/lib/preview/showcase-schema";
+import { getNichePalette } from "@/lib/preview/get-niche-palette";
 
 const SITE_URL = "https://www.fastdigitalmarketing.com";
 
@@ -67,6 +68,10 @@ export default async function ExamplePage({ params }: PageProps) {
 
   const content = getNicheSiteContent(slug);
   const schema = buildShowcaseSchema({ business, content, siteUrl: SITE_URL });
+  // Resolve the niche's merged palette so floating chrome (back-link, tour,
+  // FAQ, explainer pills) inherits each business's brand colors instead of
+  // looking generic-FDM-blue on every showcase.
+  const palette = getNichePalette(slug);
 
   return (
     <>
@@ -77,20 +82,21 @@ export default async function ExamplePage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <ShowcaseBackLink />
+      <ShowcaseBackLink palette={palette} />
       <ExampleSite business={business} />
-      {/* Floating sales chrome — four interactive elements positioned around
-          the page edges so they don't compete with each other:
-            top-left      ShowcaseExplainer  ("Preview · What is this?")
-            top-right     ShowcaseBackLink   ("← Demo by FDM")  (above)
-            left-middle   ShowcaseFAQ        ("Business Owner?")
-            bottom-left   ShowcaseTour       ("Tour this site")
-          The voice demo is rendered INLINE inside the page (between Why Us
-          and FAQ) via <ShowcaseVoiceSection> — embedded into the natural
-          scroll flow instead of competing as a 5th floating button. */}
-      <ShowcaseExplainer />
-      <ShowcaseFAQ />
-      <ShowcaseTour schema={schema} />
+      {/* Floating sales chrome — four niche-themed pills positioned around
+          the page edges:
+            top-left      ShowcaseExplainer  ("What is this?")
+            top-right     ShowcaseBackLink   ("← FDM Demo")
+            right-middle  ShowcaseFAQ        ("Business Owner?")
+            bottom-right  ShowcaseTour       ("Tour this site · 8 stops")
+          All four take the niche's `palette` so their borders, glows, icon
+          gradients, and accent text adopt the business's brand identity.
+          The voice demo is rendered INLINE inside the page (right after the
+          editorial intro) via <ShowcaseVoiceSection>. */}
+      <ShowcaseExplainer palette={palette} />
+      <ShowcaseFAQ palette={palette} />
+      <ShowcaseTour schema={schema} palette={palette} />
     </>
   );
 }

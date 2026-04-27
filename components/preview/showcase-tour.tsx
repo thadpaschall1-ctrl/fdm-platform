@@ -1,6 +1,18 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import type { ShowcasePalette } from "@/lib/preview/get-niche-palette";
+
+const FDM_FALLBACK: ShowcasePalette = {
+  background: "#0f172a",
+  foreground: "#f8fafc",
+  surface: "#1e293b",
+  muted: "#94a3b8",
+  border: "#334155",
+  primary: "#60a5fa",
+  primaryFg: "#0f172a",
+  accent: "#3b82f6",
+};
 
 /**
  * Showcase Tour — interactive walkthrough overlay for /examples/[slug] showcase
@@ -145,9 +157,14 @@ interface ShowcaseTourProps {
   /** The full JSON-LD @graph for this page — passed in so the inspect panel
    *  can show it without re-fetching */
   schema: object;
+  /** Niche palette so the tour pill, spotlight ring, info card border, and
+   *  step progress bar all adopt the niche's brand colors. Falls back to FDM
+   *  blue when not provided. */
+  palette?: ShowcasePalette;
 }
 
-export function ShowcaseTour({ schema }: ShowcaseTourProps) {
+export function ShowcaseTour({ schema, palette }: ShowcaseTourProps) {
+  const p = palette ?? FDM_FALLBACK;
   const [isActive, setIsActive] = useState(false);
   const [currentStop, setCurrentStop] = useState(0);
   const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
@@ -236,13 +253,13 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
           className="fixed bottom-3 right-3 z-[90] flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white hover:scale-105 transition-all duration-200"
           style={{
             background: "rgba(15, 23, 42, 0.92)",
-            border: "1px solid rgba(96, 165, 250, 0.4)",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.4), 0 0 16px rgba(59, 130, 246, 0.2)",
+            border: `1px solid ${p.primary}66`,
+            boxShadow: `0 2px 10px rgba(0,0,0,0.4), 0 0 16px ${p.primary}33`,
             backdropFilter: "blur(12px)",
             animation: "showcaseSlideIn 0.5s ease-out 0.5s both",
           }}
         >
-          <svg className="w-3.5 h-3.5 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5" style={{ color: p.primary }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
             <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
@@ -273,14 +290,14 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
 
           {/* Spotlight ring */}
           <div
-            className="fixed z-[81] pointer-events-none rounded-2xl border-2 border-blue-400 transition-all duration-500"
+            className="fixed z-[81] pointer-events-none rounded-2xl border-2 transition-all duration-500"
             style={{
               left: targetRect.left - 12,
               top: targetRect.top - 12,
               width: targetRect.width + 24,
               height: targetRect.height + 24,
-              boxShadow:
-                "0 0 0 4px rgba(96, 165, 250, 0.18), 0 0 30px rgba(59, 130, 246, 0.35)",
+              borderColor: p.primary,
+              boxShadow: `0 0 0 4px ${p.primary}2e, 0 0 30px ${p.primary}59`,
             }}
           />
 
@@ -293,8 +310,8 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
           ].map((pos, i) => (
             <div
               key={i}
-              className="fixed z-[82] w-2 h-2 rounded-full bg-blue-400 pointer-events-none"
-              style={{ ...pos, animation: `showcasePulse 2s ease-in-out infinite ${i * 0.3}s` }}
+              className="fixed z-[82] w-2 h-2 rounded-full pointer-events-none"
+              style={{ ...pos, background: p.primary, animation: `showcasePulse 2s ease-in-out infinite ${i * 0.3}s` }}
             />
           ))}
 
@@ -313,21 +330,31 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
               animation: "showcaseCardIn 0.4s ease-out",
             }}
           >
-            <div className="rounded-2xl border border-blue-500/30 bg-slate-950/95 backdrop-blur-xl shadow-2xl overflow-hidden">
+            <div
+              className="rounded-2xl bg-slate-950/95 backdrop-blur-xl shadow-2xl overflow-hidden"
+              style={{ border: `1px solid ${p.primary}4d` }}
+            >
               {/* Progress bar */}
               <div className="h-1 bg-slate-800">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-400 to-blue-600 transition-all duration-500 ease-out"
-                  style={{ width: `${((currentStop + 1) / TOUR_STOPS.length) * 100}%` }}
+                  className="h-full transition-all duration-500 ease-out"
+                  style={{
+                    width: `${((currentStop + 1) / TOUR_STOPS.length) * 100}%`,
+                    background: `linear-gradient(to right, ${p.accent}, ${p.primary})`,
+                  }}
                 />
               </div>
 
               <div className="p-5">
                 {/* Category badge + step counter */}
                 <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/15">
+                  <div
+                    className="flex items-center gap-1.5 px-2.5 py-1 rounded-full"
+                    style={{ background: `${p.primary}26` }}
+                  >
                     <svg
-                      className="w-3.5 h-3.5 text-blue-300"
+                      className="w-3.5 h-3.5"
+                      style={{ color: p.primary }}
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
@@ -339,7 +366,10 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-blue-300">
+                    <span
+                      className="text-[11px] font-bold uppercase tracking-wider"
+                      style={{ color: p.primary }}
+                    >
                       {CATEGORY_LABELS[stop.category]}
                     </span>
                   </div>
@@ -352,10 +382,26 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
                 <p className="text-sm text-slate-300 leading-relaxed mb-3">{stop.description}</p>
 
                 {/* Insight box */}
-                <div className="rounded-xl bg-blue-500/10 border border-blue-500/30 p-3.5 mb-4">
+                <div
+                  className="rounded-xl p-3.5 mb-4"
+                  style={{
+                    background: `${p.primary}1a`,
+                    border: `1px solid ${p.primary}4d`,
+                  }}
+                >
                   <div className="flex gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <div
+                      className="w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5"
+                      style={{ background: `${p.primary}33` }}
+                    >
+                      <svg
+                        className="w-3 h-3"
+                        style={{ color: p.primary }}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        viewBox="0 0 24 24"
+                      >
                         <path
                           d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                           strokeLinecap="round"
@@ -363,7 +409,10 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
                         />
                       </svg>
                     </div>
-                    <p className="text-xs leading-relaxed text-blue-100 font-medium">
+                    <p
+                      className="text-xs leading-relaxed font-medium"
+                      style={{ color: `${p.primary}f0` }}
+                    >
                       {stop.insight}
                     </p>
                   </div>
@@ -373,7 +422,11 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
                 {isSchemaStop && (
                   <button
                     onClick={() => setShowSchemaPanel(true)}
-                    className="w-full mb-4 px-4 py-2.5 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white text-xs font-bold transition-all"
+                    className="w-full mb-4 px-4 py-2.5 rounded-lg text-xs font-bold transition-all hover:opacity-90"
+                    style={{
+                      background: `linear-gradient(to right, ${p.accent}, ${p.primary})`,
+                      color: p.primaryFg,
+                    }}
                   >
                     👁  View Live JSON-LD Schema
                   </button>
@@ -391,14 +444,18 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
                     {currentStop > 0 && (
                       <button
                         onClick={handlePrev}
-                        className="px-4 py-2 rounded-full border border-slate-700 text-xs font-medium text-slate-300 hover:bg-slate-800 hover:border-blue-500/40 transition-colors"
+                        className="px-4 py-2 rounded-full border border-slate-700 text-xs font-medium text-slate-300 hover:bg-slate-800 transition-colors"
                       >
                         &larr; Back
                       </button>
                     )}
                     <button
                       onClick={handleNext}
-                      className="px-5 py-2 rounded-full bg-blue-500 hover:bg-blue-400 text-white text-xs font-bold transition-all shadow-sm hover:shadow-[0_8px_20px_rgba(59,130,246,0.5)]"
+                      className="px-5 py-2 rounded-full text-xs font-bold transition-all shadow-sm hover:opacity-90"
+                      style={{
+                        background: p.primary,
+                        color: p.primaryFg,
+                      }}
                     >
                       {currentStop === TOUR_STOPS.length - 1 ? "Finish Tour ✓" : "Next →"}
                     </button>
@@ -409,11 +466,12 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
 
             {/* Pointer arrow */}
             <div
-              className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-slate-950/95 border border-blue-500/30 ${
+              className={`absolute left-1/2 -translate-x-1/2 w-4 h-4 rotate-45 bg-slate-950/95 ${
                 cardPosition === "bottom"
                   ? "-top-2 border-b-0 border-r-0"
                   : "-bottom-2 border-t-0 border-l-0"
               }`}
+              style={{ borderTop: `1px solid ${p.primary}4d`, borderLeft: `1px solid ${p.primary}4d` }}
             />
           </div>
 
@@ -423,10 +481,16 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
             style={{ animation: "showcaseSlideIn 0.3s ease-out" }}
           >
             <div className="max-w-4xl mx-auto px-4">
-              <div className="flex items-center justify-between bg-slate-950/95 backdrop-blur-md rounded-xl px-4 py-2.5 shadow-xl border border-blue-500/20">
+              <div
+                className="flex items-center justify-between bg-slate-950/95 backdrop-blur-md rounded-xl px-4 py-2.5 shadow-xl"
+                style={{ border: `1px solid ${p.primary}33` }}
+              >
                 <div className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <div
+                    className="w-7 h-7 rounded-full flex items-center justify-center"
+                    style={{ background: `linear-gradient(135deg, ${p.accent}, ${p.primary})` }}
+                  >
+                    <svg className="w-4 h-4" style={{ color: p.primaryFg }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path
                         d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
@@ -445,13 +509,16 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
                     <button
                       key={i}
                       onClick={() => setCurrentStop(i)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        i === currentStop
-                          ? "bg-blue-400 w-6"
-                          : i < currentStop
-                            ? "bg-white/50 w-2"
-                            : "bg-white/20 w-2"
-                      }`}
+                      className="h-2 rounded-full transition-all duration-300"
+                      style={{
+                        width: i === currentStop ? 24 : 8,
+                        background:
+                          i === currentStop
+                            ? p.primary
+                            : i < currentStop
+                              ? "rgba(255,255,255,0.5)"
+                              : "rgba(255,255,255,0.2)",
+                      }}
                     />
                   ))}
                 </div>
@@ -477,13 +544,17 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
           onClick={() => setShowSchemaPanel(false)}
         >
           <div
-            className="relative w-full max-w-3xl max-h-[80vh] rounded-2xl border border-blue-500/30 bg-slate-950 shadow-2xl overflow-hidden"
+            className="relative w-full max-w-3xl max-h-[80vh] rounded-2xl bg-slate-950 shadow-2xl overflow-hidden"
+            style={{ border: `1px solid ${p.primary}4d` }}
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between px-5 py-3 border-b border-slate-800">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-full bg-blue-500/20 flex items-center justify-center">
-                  <svg className="w-4 h-4 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <div
+                  className="w-7 h-7 rounded-full flex items-center justify-center"
+                  style={{ background: `${p.primary}33` }}
+                >
+                  <svg className="w-4 h-4" style={{ color: p.primary }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                     <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
@@ -505,7 +576,10 @@ export function ShowcaseTour({ schema }: ShowcaseTourProps) {
             </div>
 
             <div className="p-5 overflow-auto max-h-[calc(80vh-60px)]">
-              <pre className="text-[11px] leading-relaxed text-blue-100 font-mono whitespace-pre-wrap break-words">
+              <pre
+                className="text-[11px] leading-relaxed font-mono whitespace-pre-wrap break-words"
+                style={{ color: `${p.primary}f0` }}
+              >
                 {JSON.stringify(schema, null, 2)}
               </pre>
             </div>

@@ -1,26 +1,33 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import type { ShowcasePalette } from "@/lib/preview/get-niche-palette";
 
 /**
- * Showcase FAQ — left-edge floating "Business Owner? Your questions answered"
+ * Showcase FAQ — right-edge floating "Business Owner? Your questions answered"
  * panel on every /examples/[slug] page.
  *
  * 16 prospect-evaluating-the-preview FAQs covering: customization, branding,
  * cost, timeline, AI search, AI voice, contracts, migration, industries.
  *
- * Adapted from leadgen-platform/components/redesign/preview-faq.tsx (which
- * already had FDM-branded content built in via brand="fdm"). We strip out
- * the chiro variant and lock to FDM-only.
+ * Adopts the niche's palette so the pill, panel, gradient, and CTA all
+ * inherit the niche's brand colors. Falls back to FDM blue when no palette
+ * is provided.
  *
- * Position: vertically centered on the left edge. Doesn't conflict with:
- *   - top-left explainer ("Preview · What is this?")
- *   - top-right back-link ("← Demo by Fast Digital Marketing")
- *   - bottom-left tour ("Tour this site")
- *   - bottom-right voice widget ("Talk to Holland")
- *
+ * Position: vertically centered on the right edge.
  * Auto-pulses 3 seconds after page load to draw attention, stops once opened.
  */
+
+const FDM_FALLBACK: ShowcasePalette = {
+  background: "#0f172a",
+  foreground: "#f8fafc",
+  surface: "#1e293b",
+  muted: "#94a3b8",
+  border: "#334155",
+  primary: "#60a5fa",
+  primaryFg: "#0f172a",
+  accent: "#3b82f6",
+};
 
 type FAQ = { q: string; a: string; icon: string };
 
@@ -111,10 +118,12 @@ function FAQItem({
   item,
   isOpen,
   onToggle,
+  primary,
 }: {
   item: FAQ;
   isOpen: boolean;
   onToggle: () => void;
+  primary: string;
 }) {
   return (
     <div className="border-b border-slate-800 last:border-b-0">
@@ -123,13 +132,19 @@ function FAQItem({
         className="w-full flex items-center gap-3 py-3.5 text-left group"
       >
         <span className="text-base shrink-0">{item.icon}</span>
-        <span className="flex-1 text-[13px] font-semibold text-white group-hover:text-blue-300 transition-colors leading-snug">
+        <span
+          className="flex-1 text-[13px] font-semibold text-white transition-colors leading-snug group-hover:opacity-80"
+          style={{
+            // Use the niche's primary color on hover via CSS variable + group-hover
+          }}
+        >
           {item.q}
         </span>
         <svg
-          className={`w-4 h-4 shrink-0 text-blue-400 transition-transform duration-300 ${
+          className={`w-4 h-4 shrink-0 transition-transform duration-300 ${
             isOpen ? "rotate-180" : ""
           }`}
+          style={{ color: primary }}
           fill="none"
           stroke="currentColor"
           strokeWidth="2.5"
@@ -153,7 +168,12 @@ function FAQItem({
   );
 }
 
-export function ShowcaseFAQ() {
+interface ShowcaseFAQProps {
+  palette?: ShowcasePalette;
+}
+
+export function ShowcaseFAQ({ palette }: ShowcaseFAQProps = {}) {
+  const p = palette ?? FDM_FALLBACK;
   const [isOpen, setIsOpen] = useState(false);
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   const [pulsed, setPulsed] = useState(false);
@@ -176,17 +196,20 @@ export function ShowcaseFAQ() {
           className="fixed right-3 top-1/2 -translate-y-1/2 z-[89] flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-all duration-200 hover:scale-105"
           style={{
             background: "rgba(15, 23, 42, 0.92)",
-            border: "1px solid rgba(96, 165, 250, 0.4)",
+            border: `1px solid ${p.primary}66`,
+            // CSS custom property so the keyframes animation can reference niche color
+            ["--faq-glow" as string]: p.primary,
             boxShadow: pulsed
-              ? "0 2px 12px rgba(59,130,246,0.35), 0 0 0 3px rgba(59,130,246,0.18)"
-              : "0 2px 10px rgba(0,0,0,0.4), 0 0 16px rgba(59, 130, 246, 0.2)",
+              ? `0 2px 12px ${p.primary}59, 0 0 0 3px ${p.primary}2e`
+              : `0 2px 10px rgba(0,0,0,0.4), 0 0 16px ${p.primary}33`,
             backdropFilter: "blur(12px)",
             animation: pulsed ? "showcaseFaqPulse 2s ease-in-out infinite" : "none",
           }}
           aria-label="Business Owner? Questions answered"
         >
           <svg
-            className="w-3.5 h-3.5 text-blue-300 shrink-0"
+            className="w-3.5 h-3.5 shrink-0"
+            style={{ color: p.primary }}
             fill="none"
             stroke="currentColor"
             strokeWidth="2.5"
@@ -216,14 +239,23 @@ export function ShowcaseFAQ() {
         >
           {/* Header */}
           <div
-            className="px-5 py-4 shrink-0 border-b border-blue-500/25"
-            style={{ background: "rgba(15, 23, 42, 0.98)" }}
+            className="px-5 py-4 shrink-0"
+            style={{
+              background: "rgba(15, 23, 42, 0.98)",
+              borderBottom: `1px solid ${p.primary}40`,
+            }}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center shadow-inner">
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center shadow-inner"
+                  style={{
+                    background: `linear-gradient(135deg, ${p.accent}, ${p.primary})`,
+                  }}
+                >
                   <svg
-                    className="w-5 h-5 text-white"
+                    className="w-5 h-5"
+                    style={{ color: p.primaryFg }}
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2.5"
@@ -240,7 +272,10 @@ export function ShowcaseFAQ() {
                   <p className="text-white text-sm font-bold leading-tight">
                     Questions About This Website?
                   </p>
-                  <p className="text-blue-300/80 text-[11px] mt-0.5">
+                  <p
+                    className="text-[11px] mt-0.5"
+                    style={{ color: `${p.primary}cc` }}
+                  >
                     For business owners evaluating this preview
                   </p>
                 </div>
@@ -271,6 +306,7 @@ export function ShowcaseFAQ() {
                 item={item}
                 isOpen={openIdx === i}
                 onToggle={() => setOpenIdx(openIdx === i ? null : i)}
+                primary={p.primary}
               />
             ))}
           </div>
@@ -279,9 +315,11 @@ export function ShowcaseFAQ() {
           <div className="px-5 py-4 bg-slate-950/95 border-t border-slate-800 shrink-0">
             <a
               href="/pricing"
-              className="block w-full py-3 rounded-xl text-center font-bold text-sm text-white transition-all hover:shadow-[0_8px_20px_rgba(59,130,246,0.5)]"
+              className="block w-full py-3 rounded-xl text-center font-bold text-sm transition-all hover:opacity-90"
               style={{
-                background: "linear-gradient(135deg, #60a5fa, #2563eb)",
+                background: `linear-gradient(135deg, ${p.accent}, ${p.primary})`,
+                color: p.primaryFg,
+                boxShadow: `0 4px 12px ${p.primary}40`,
               }}
             >
               See Smart Website Plans →
@@ -293,7 +331,8 @@ export function ShowcaseFAQ() {
         </div>
       )}
 
-      {/* Animations */}
+      {/* Animations — keyframes use --faq-glow CSS custom property set on each
+          button instance so each niche's pulse uses its own primary color. */}
       <style jsx global>{`
         @keyframes showcaseFaqSlideUp {
           from {
@@ -307,10 +346,12 @@ export function ShowcaseFAQ() {
         }
         @keyframes showcaseFaqPulse {
           0%, 100% {
-            box-shadow: 0 4px 15px rgba(59,130,246,0.25), 0 0 0 0px rgba(59,130,246,0.3);
+            box-shadow: 0 4px 15px color-mix(in srgb, var(--faq-glow, #60a5fa) 25%, transparent),
+                        0 0 0 0px color-mix(in srgb, var(--faq-glow, #60a5fa) 30%, transparent);
           }
           50% {
-            box-shadow: 0 4px 20px rgba(59,130,246,0.45), 0 0 0 6px rgba(59,130,246,0.15);
+            box-shadow: 0 4px 20px color-mix(in srgb, var(--faq-glow, #60a5fa) 45%, transparent),
+                        0 0 0 6px color-mix(in srgb, var(--faq-glow, #60a5fa) 15%, transparent);
           }
         }
       `}</style>
