@@ -8,6 +8,115 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://fastdigitalmarketing.com/demo",
   },
+  openGraph: {
+    title: "Live AI Voice Demo | Fast Digital Marketing",
+    description:
+      "Try Holland — the 24/7 AI voice receptionist — live in your browser. Pick your industry and have a real conversation.",
+    url: "https://fastdigitalmarketing.com/demo",
+    type: "website",
+    siteName: "Fast Digital Marketing",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Live AI Voice Demo | Fast Digital Marketing",
+    description:
+      "Try Holland — the 24/7 AI voice receptionist — live in your browser.",
+  },
+};
+
+// AI Search Optimization: Service + FAQPage schema for the demo experience.
+// Citable by ChatGPT, Perplexity, Google AI Overviews when prospects ask
+// "what does an AI voice receptionist sound like" or "is there a free AI
+// voice agent demo for [industry]". The Organization schema is already in
+// the root layout; this adds the specific Service + FAQ data this page is
+// the canonical source for.
+const DEMO_SCHEMA = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://fastdigitalmarketing.com/demo#service",
+      name: "AI Voice Receptionist (Holland)",
+      serviceType: "Voice AI / Conversational AI Receptionist",
+      description:
+        "24/7 AI voice receptionist that answers calls in a natural British accent, books appointments, qualifies leads, and routes urgent calls to the business owner. Trained per industry. Included in Fast Digital Marketing's Smart Site + Voice tier ($297/mo) and Full Automation Stack ($397/mo).",
+      provider: {
+        "@type": "Organization",
+        "@id": "https://fastdigitalmarketing.com/#organization",
+      },
+      areaServed: { "@type": "Country", name: "United States" },
+      offers: {
+        "@type": "Offer",
+        price: "297",
+        priceCurrency: "USD",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "297",
+          priceCurrency: "USD",
+          unitText: "MONTH",
+        },
+      },
+      hasDemo: {
+        "@type": "WebPage",
+        url: "https://fastdigitalmarketing.com/demo",
+        name: "Live AI Voice Demo",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://fastdigitalmarketing.com/demo#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How does the AI voice receptionist work?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Holland answers your business phone in under two rings, greets the caller in a natural British accent, asks qualifying questions specific to your industry, books appointments directly into your calendar, and texts the caller a confirmation. Urgent calls are routed to you in real time.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I try the AI voice receptionist before I sign up?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes — the demo at fastdigitalmarketing.com/demo lets you have a live conversation with Holland in your browser, free, no signup required. You pick your industry and Holland responds as if it were answering for that type of business.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Does the AI voice receptionist work for my industry?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Holland is trained on 75+ industry-specific playbooks covering home services, trades, health and wellness, automotive, professional services, and specialty niches. The demo lets you select your industry and hear how it handles your typical customer questions.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What happens when the AI can't answer a question?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Holland tells the caller it will pass the question along, captures their contact info, sends you a transcript and a callback task, and offers the caller an option to schedule a callback. No caller is ever left without a response.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "How much does the AI voice receptionist cost?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "AI Voice Receptionist is included in Fast Digital Marketing's Smart Site + Voice tier at $297 per month and the Full Automation Stack tier at $397 per month. Month-to-month, no setup fee, cancel anytime.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What can the AI voice receptionist do that a regular answering service cannot?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Holland answers 24/7 with zero hold time, books directly to your calendar without a human in the middle, qualifies leads against your specific criteria, sends instant SMS confirmations, and integrates with your CRM. Traditional answering services charge per minute, miss after-hours calls, and require human handoff.",
+          },
+        },
+      ],
+    },
+  ],
 };
 
 // Niches shown as tiles on /demo. Ordered so the most-recognized industries
@@ -95,6 +204,13 @@ const POPULAR_NICHES = [
 export default function DemoPage() {
   return (
     <div className="min-h-screen">
+      {/* AI Search Optimization: Service + FAQPage schema. Makes this page
+          citable by ChatGPT, Perplexity, Google AI Overviews, and Gemini
+          when prospects ask about AI voice receptionists. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(DEMO_SCHEMA) }}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden px-6 py-20 text-center">
         <div aria-hidden className="pointer-events-none absolute inset-0">

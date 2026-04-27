@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getFictionalBusiness, listFictionalBusinesses } from "@/lib/data/fictional-businesses";
+import {
+  getFictionalBusiness,
+  listFictionalBusinesses,
+} from "@/lib/data/fictional-businesses";
+import { getNicheSiteContent } from "@/lib/data/niche-site-content";
 import { ExampleSite } from "@/components/preview/example-site";
 import { ShowcaseBackLink } from "@/components/showcase-back-link";
+import { buildShowcaseSchema } from "@/lib/preview/showcase-schema";
+
+const SITE_URL = "https://www.fastdigitalmarketing.com";
 
 export const dynamic = "force-static";
 
@@ -16,17 +23,32 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!business) {
     return { title: "Example not found", robots: { index: false, follow: false } };
   }
+  const pageUrl = `${SITE_URL}/examples/${slug}`;
+  const title = `${business.niche_name} Website Example — AI-Built by Fast Digital Marketing`;
+  const description = `Live reference site for an AI-built ${business.niche_name.toLowerCase()} website. Includes Smart Website, AI Voice Receptionist, AI Search Optimization, Review Autopilot. Demonstrates the full Fast Digital Marketing stack.`;
+
   return {
-    title: `${business.niche_name} Website Example | Fast Digital Marketing`,
-    description: `Example ${business.niche_name.toLowerCase()} website built by Fast Digital Marketing. AI-generated, niche-specific design with all FDM tools embedded.`,
-    alternates: {
-      canonical: `https://www.fastdigitalmarketing.com/examples/${slug}`,
-    },
+    title,
+    description,
+    alternates: { canonical: pageUrl },
     openGraph: {
-      title: `${business.niche_name} Website Example | Fast Digital Marketing`,
-      description: `See what an AI-built ${business.niche_name.toLowerCase()} website looks like with FDM's full service stack.`,
-      url: `https://www.fastdigitalmarketing.com/examples/${slug}`,
+      title,
+      description,
+      url: pageUrl,
       type: "website",
+      siteName: "Fast Digital Marketing",
+      locale: "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    other: {
+      // Hint to AI crawlers that this is a showcase / reference example, not
+      // a real local business page they should pitch as a service provider.
+      "ai-content-type": "showcase-reference",
+      "ai-pitch-target": "Fast Digital Marketing platform",
     },
   };
 }
@@ -40,8 +62,18 @@ export default async function ExamplePage({ params }: PageProps) {
   const business = getFictionalBusiness(slug);
   if (!business) notFound();
 
+  const content = getNicheSiteContent(slug);
+  const schema = buildShowcaseSchema({ business, content, siteUrl: SITE_URL });
+
   return (
     <>
+      {/* AI Search Optimization: full @graph with LocalBusiness + Service[] +
+          FAQPage + BreadcrumbList + WebPage. Citable by ChatGPT, Perplexity,
+          Google AI Overviews, and Gemini. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <ShowcaseBackLink />
       <ExampleSite business={business} />
     </>
