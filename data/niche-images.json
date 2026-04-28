@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-27T20:09:00.936Z",
+  "updated_at": "2026-04-28T02:23:15.163Z",
   "niches": {
     "foundation-repair": {
       "slug": "foundation-repair",
@@ -124,123 +124,123 @@
     },
     "hvac": {
       "slug": "hvac",
-      "generated_at": "2026-04-27T15:53:50.245Z",
+      "generated_at": "2026-04-28T01:53:16.031Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97f397/Mz5JRvLvHQ8eysS7ISH8r_RyVvFWse.png",
+          "url": "https://v3b.fal.media/files/b/0a9801a7/eYYXoprZb1l4HkOU9DzNp_pYWWndDa.png",
           "width": 0,
           "height": 0,
           "prompt": "A new outdoor AC condenser unit being installed beside a suburban home — the technician's wrench tightening a refrigerant line connection, gauges on a manifold set lying on the concrete pad, fresh copper line set running into the wall, late-afternoon golden light, technical documentary photography, photorealistic, sharp focus on the unit.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T15:45:36.965Z"
+          "generated_at": "2026-04-28T01:45:02.490Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97f3a9/UpcmJUglBG7vsQ0UALh_3_upCzAoBX.png",
+          "url": "https://v3b.fal.media/files/b/0a9801b6/KRcC7f6UgC7O7h4KIo7N0_AYnYioFY.png",
           "width": 0,
           "height": 0,
           "prompt": "A residential gas furnace in a basement utility room with the access panel removed, an HVAC technician's gloved hands inspecting the burner assembly with a flashlight, blue pilot flames visible, technical side lighting, documentary photography, sharp focus on the burners, photorealistic.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T15:48:34.756Z"
+          "generated_at": "2026-04-28T01:47:42.509Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97f3bb/2BHWSJViVMR2eWeZl50_M_HutTC5mK.png",
+          "url": "https://v3b.fal.media/files/b/0a9801c6/ipvv4lsanO5lZz-MRQhTX_GdrsVz7v.png",
           "width": 0,
           "height": 0,
           "prompt": "A high-MERV pleated HEPA air filter being slid into a residential HVAC return air vent, the technician's gloved hand guiding it home, the old dust-clogged filter visible on the floor beside for contrast, clean utility room, technical detail photography, bright lighting, photorealistic, sharp focus.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T15:51:14.700Z"
+          "generated_at": "2026-04-28T01:50:20.287Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97f3cb/-MhoT6l0GHH3de5hrIOG8_XHVyDxmp.png",
+          "url": "https://v3b.fal.media/files/b/0a9801d6/zpULg2UI7KSxruK8Mtejm_HHk4KLPW.png",
           "width": 0,
           "height": 0,
           "prompt": "An HVAC technician kneeling beside an outdoor condenser unit, performing a seasonal tune-up — refrigerant gauges connected to the service ports, a digital multimeter probe on the contactor, a clipboard with a maintenance checklist resting on top of the unit, branded service truck softly blurred in the background, golden afternoon light, documentary photography, sharp focus.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T15:53:50.245Z"
+          "generated_at": "2026-04-28T01:53:16.031Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97f397/NbDPzoXJXrcSfcVLLQHih_b1f098634ce242e78c0991c3d301238c.jpg",
-          "width": 1792,
-          "height": 2368,
-          "prompt": "HVAC technician in branded uniform installing a sleek modern outdoor condenser unit beside a suburban home, late afternoon golden light, calm focused expression, professional documentary photography, clean composition, sharp focus",
-          "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-27T15:42:33.356Z"
+          "url": "https://v3b.fal.media/files/b/0a980197/eeCo27so89COWUpb4rTTx_rvPCzfYV.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Wide-angle architectural photo of a brand-new sleek modern outdoor AC condenser unit installed on a clean concrete pad beside a beautiful suburban home, fresh copper line set running cleanly into the wall, manicured landscaping with mature shrubs, late afternoon golden light, no people in the shot, no hands, no body parts, professional architectural exterior photography, magazine real-estate ad quality, photorealistic, sharp focus on the condenser.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-28T01:42:30.165Z"
         }
-      ],
-      "heroVideo": {
-        "slot": "hero",
-        "url": "https://v3b.fal.media/files/b/0a97f9ad/ylVuZNxOejCR9ZaCSn95y_video.mp4",
-        "durationSec": 5,
-        "aspectRatio": "3:4",
-        "prompt": "Subtle warm afternoon light slowly shifting across the outdoor condenser unit and surrounding landscaping, gentle leaves swaying in a soft breeze, technician remains completely still with no facial expression changes or body motion, documentary cinematography, smooth and atmospheric.",
-        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
-        "generated_at": "2026-04-27T20:02:16.285Z"
-      }
+      ]
     },
     "roofers": {
       "slug": "roofers",
-      "generated_at": "2026-04-27T16:04:03.809Z",
+      "generated_at": "2026-04-28T02:08:30.099Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97f3dc/hjECnt-CUll0KPCTn36oU_YSk195bx.png",
+          "url": "https://v3b.fal.media/files/b/0a9801e8/fXsXefzUJTGWihTntx43U_Mg3ICrpI.png",
           "width": 0,
           "height": 0,
           "prompt": "A residential roof immediately after a hailstorm — visible hail-strike pocks on dark architectural shingles, several shingles torn loose and curled at the corners, a blue tarp partially covering the damaged section, an insurance adjuster's clipboard and digital camera resting on the ridge, dramatic post-storm sky with breaking sunlight, documentary photography, photorealistic, sharp focus.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T15:56:36.258Z"
+          "generated_at": "2026-04-28T01:56:09.050Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b8ef/GEGLcYialElMOG9QZxuQp.jpg",
-          "width": 1024,
-          "height": 768,
-          "prompt": "Professional roof inspection with tablet documenting storm damage, suburban home, dramatic sky, contractor in branded uniform, photojournalism style",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T21:59:58.958Z"
+          "url": "https://v3b.fal.media/files/b/0a9801f9/dny1NYzPmq9ecnBGrhqC__3HbxURU1.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Mid-tear-off scene on a suburban home — half the roof has been stripped down to bare plywood decking, the other half still has old worn shingles, a debris chute running to a dumpster in the driveway, professional crew working with nail guns visible, golden afternoon light, documentary aerial photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-28T01:58:42.850Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97f3fa/KAQe5tskPPjl_bkI9Evqz_Owohz6mu.png",
+          "url": "https://v3b.fal.media/files/b/0a980208/B2M5BybdmqwwYXuLmD_ms_17BX5ff3.png",
           "width": 0,
           "height": 0,
           "prompt": "A roofer kneeling on a residential roof patching a small section of damaged shingles — fresh new shingles being slid into place beside a roofing nailer, a tube of roofing sealant and a putty knife resting beside, the surrounding existing roof still intact, focused detail work, sharp focus on the patch area, photojournalism, photorealistic.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T16:01:23.320Z"
+          "generated_at": "2026-04-28T02:00:50.136Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97f408/xlIa_k6ZGiRgIpoQRqymH_8PhA3IeD.png",
+          "url": "https://v3b.fal.media/files/b/0a980215/U_3qaQKOWQS2iuQYRQUnY_vdvrQEk3.png",
           "width": 0,
           "height": 0,
           "prompt": "Wide-angle view of a flat commercial building roof under installation — large rolls of white TPO membrane being heat-welded into place by a roofing crew, mechanical HVAC units distributed across the roofline, parapet wall visible at the edge, distant city skyline beyond, blue sky, documentary commercial photography, photorealistic, sharp focus.",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-27T16:04:03.809Z"
+          "generated_at": "2026-04-28T02:03:34.835Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97f3db/TpTugt7k7dqyGjiNfgKZm_a3602e76bc544640beb0375c8d3c58e3.jpg",
+          "url": "https://v3b.fal.media/files/b/0a9801e8/e4-ockg5Jr5da0z10aLzX_df091a9218cf4e3987380639eab9ed0c.jpg",
           "width": 2752,
           "height": 1536,
           "prompt": "Drone shot of professional roofing crew installing dark architectural shingles on a suburban home, dramatic sky after a recent storm clearing, golden afternoon light breaking through clouds, photorealistic aerial photography, magazine quality",
           "model": "fal-ai/flux-pro/v1.1-ultra",
-          "generated_at": "2026-04-27T15:54:00.170Z"
+          "generated_at": "2026-04-28T01:53:27.239Z"
+        },
+        {
+          "slot": "service5",
+          "url": "https://v3b.fal.media/files/b/0a980225/xeWpL5S8sRBMVMjhD8Eqw_pFrcYCRV.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Closeup of seamless aluminum gutters and soffit panels recently installed on a beautiful suburban home eave, clean white soffit with subtle ventilation perforations, dark bronze gutter run with downspout connecting cleanly, manicured landscaping below, golden afternoon light, residential exterior photography, photorealistic, sharp focus on the gutter line.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-28T02:06:24.396Z"
+        },
+        {
+          "slot": "service6",
+          "url": "https://v3b.fal.media/files/b/0a980236/7QtC8ftl36IQz0lPuYvf-_lCztAAfP.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Architectural photo of a freshly installed residential skylight on a sloped asphalt-shingle roof — flashing cleanly sealed around the perimeter, glass panel sparkling clean, ridge vent running along the peak in the background, blue sky reflecting off the skylight glass, golden afternoon light, photorealistic, sharp focus on the skylight assembly.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-28T02:08:30.098Z"
         }
-      ],
-      "heroVideo": {
-        "slot": "hero",
-        "url": "https://v3b.fal.media/files/b/0a97f9b2/xoMonvbi9tm72EE3BHF0R_video.mp4",
-        "durationSec": 5,
-        "aspectRatio": "16:9",
-        "prompt": "Very subtle aerial drone camera pull-back, slow cloud movement in the post-storm sky, golden afternoon light slowly deepening across the roof, crew members remain completely still with no body motion, magazine aerial cinematography, smooth and meditative.",
-        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
-        "generated_at": "2026-04-27T20:03:11.437Z"
-      }
+      ]
     },
     "pool-builders": {
       "slug": "pool-builders",
@@ -484,123 +484,105 @@
     },
     "hair-salons": {
       "slug": "hair-salons",
-      "generated_at": "2026-04-27T16:49:30.294Z",
+      "generated_at": "2026-04-28T02:23:15.163Z",
       "images": [
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97b920/77euWm6vG2QoUB0nDTZXv.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Hair color formulation flatlay on white marble — bowls of color, brushes, foils, in soft natural light, editorial product photography, sharp focus",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:08:06.379Z"
+          "url": "https://v3b.fal.media/files/b/0a980264/DsB-n4MzaRh146v3yAhBz_HNUxVvot.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Editorial flat-lay of custom hair color formulation on a white marble counter — three professional ceramic mixing bowls each holding a different hair color shade, professional tint brushes resting in each, foil sheets neatly stacked beside, a measuring scale partially visible at the edge, a single eucalyptus sprig for styling, soft golden window light from upper right, magazine beauty editorial photography, photorealistic, sharp focus.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-28T02:16:33.880Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97b920/bxG8xnSStWoAIAthfHFNK.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Closeup of glossy salon-styled wavy hair with sun-kissed highlights, behind portrait lighting, beauty editorial photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:08:08.071Z"
+          "url": "https://v3b.fal.media/files/b/0a980273/6ZQWY3OWozN5mQIk5W-sU_7jpN3KKI.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Closeup of beautifully dimensional balayage — long wavy hair with hand-painted highlights creating a natural sun-kissed gradient from cooler dark roots to warm caramel-blonde tips, soft beauty lighting from behind catching the highlights, magazine editorial beauty photography, photorealistic, ultra-sharp focus on the dimensional color.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-28T02:19:04.764Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b921/YvStidjEs7R0aW2m302q1.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Hair extensions in subtle balayage tones laid out on a marble surface, soft window light, editorial beauty product photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:08:11.495Z"
+          "url": "https://v3b.fal.media/files/b/0a980282/2ijFGKClNKVvcI05xeDE3_ihpFEqjO.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Premium hand-tied hair extension wefts laid out on a white marble surface — long wefts of hair in a balayage gradient from dark to caramel blonde, the hand-tied weft band clearly visible at the top showing the careful stitching, a small clear gel comb resting beside, professional installation tools nearby, soft natural window light, magazine beauty product photography, photorealistic, sharp focus on the weft construction.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-28T02:20:50.073Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97b920/V0LSMiSfJ9jw51H1l-hSA.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Premium salon shampoo and conditioner products arranged on a white marble counter with eucalyptus, soft natural window light, lifestyle product photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:08:09.803Z"
+          "url": "https://v3b.fal.media/files/b/0a98028d/Q5FtFZJfFX-kNY5ICLcD__jyX4q6Wt.png",
+          "width": 0,
+          "height": 0,
+          "prompt": "Editorial flat-lay of premium salon-grade hair-care products on a white marble counter — three tall glass shampoo and conditioner bottles in soft warm tones, a small jar of hair mask, a leave-in spray bottle, a single eucalyptus sprig laid for styling, soft golden window light from upper right, magazine beauty product photography, ultra-sharp focus on the bottles, photorealistic. No people, no hands.",
+          "model": "fal-ai/gpt-image-2",
+          "generated_at": "2026-04-28T02:23:15.163Z"
         },
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97bf1b/gYAvj7xyvnpTomEZSEKVY_ocFgXy7x.png",
+          "url": "https://v3b.fal.media/files/b/0a980254/zNN9FM_T1bze6WCV8Yv1k_jobXEbuO.png",
           "width": 0,
           "height": 0,
           "prompt": "Stylish modern hair salon interior with elegant chairs, soft natural light streaming through tall windows, terrazzo floors, brass fixtures, plants, editorial lifestyle photography, magazine quality, photorealistic, no people",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T02:25:19.816Z"
+          "generated_at": "2026-04-28T02:13:59.713Z"
         }
-      ],
-      "heroVideo": {
-        "slot": "hero",
-        "url": "https://v3b.fal.media/files/b/0a97f9c2/25KECp4lzdUBwmlSAYAum_video.mp4",
-        "durationSec": 5,
-        "aspectRatio": "3:4",
-        "prompt": "Very slow cinematic dolly forward into the empty salon interior, sheer window curtains gently breathing in a soft breeze, soft natural light slowly shifting across the terrazzo floor and brass fixtures, plant leaves barely moving, magazine editorial cinematography, no people, smooth and meditative.",
-        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
-        "generated_at": "2026-04-27T20:05:44.645Z"
-      }
+      ]
     },
     "medical-spas": {
       "slug": "medical-spas",
-      "generated_at": "2026-04-27T16:49:30.298Z",
+      "generated_at": "2026-04-28T02:11:21.167Z",
       "images": [
         {
           "slot": "hero",
-          "url": "https://v3b.fal.media/files/b/0a97dbc6/f5rsnGxld_4203BsyQWzH_Nup92Au4.png",
+          "url": "https://v3b.fal.media/files/b/0a980243/ZQo1xkbi4UP4Npc0WTBtl_B0IXXcAw.png",
           "width": 0,
           "height": 0,
           "prompt": "Empty modern medical spa treatment room interior, white walls with warm walnut wood accents, single sleek cream-colored treatment bed centered in frame, large potted fiddle leaf fig plant in corner, sheer curtains diffusing soft golden hour light, polished concrete floor, minimalist sculptural pendant light fixture, no people, no humans, no figures, architectural interior photography, magazine editorial quality, sharp focus, photorealistic, 8k",
           "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T22:48:30.981Z"
+          "generated_at": "2026-04-28T02:10:47.309Z"
         },
         {
           "slot": "service1",
-          "url": "https://v3b.fal.media/files/b/0a97dbd3/nEk3DFopXqL0AGCuuF_Tu_iuiIsbfN.png",
+          "url": "https://v3b.fal.media/files/b/0a980250/Gk3vNAfCnTuMMhpJXe-6a_9Woy7QEZ.png",
           "width": 0,
           "height": 0,
-          "prompt": "Editorial product photograph of premium aesthetic dermatology skincare — three glass amber and clear dropper-bottle serums arranged at slight angles on a polished white Carrara marble countertop, single eucalyptus sprig laid beside them, soft golden window light from upper right creating subtle shadows, magazine beauty editorial styling, sharp focus, photorealistic, ultra-high detail. No people, no hands.",
-          "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T22:50:42.412Z"
+          "prompt": "Professional editorial flat-lay product photograph showing the tools of cosmetic injectable treatments arranged on a polished white marble surface — three small clear medical syringes with fine needles attached lying neatly in a row, a tiny clear unlabeled vial of clear liquid, a sterile alcohol prep pad in a white wrapper, white nitrile gloves folded beside, soft golden side light from upper right, magazine medical-spa editorial styling, ultra-sharp focus on the syringes, photorealistic, 8k.",
+          "model": "fal-ai/nano-banana",
+          "generated_at": "2026-04-28T02:10:56.977Z"
         },
         {
           "slot": "service2",
-          "url": "https://v3b.fal.media/files/b/0a97dbe0/8Jm43tYI0g6bcFXJLFFkg_ToGs1znK.png",
+          "url": "https://v3b.fal.media/files/b/0a980251/JN1LYzoKihu0RzzOl6pdr_YUJnxaZ7.png",
           "width": 0,
           "height": 0,
-          "prompt": "A modern medical-grade aesthetic laser device on a polished white counter in a bright clinical room, sleek white chassis with subtle LED indicator, neutral cool lighting, depth of field with the device sharp and the room softly blurred, professional product photography, magazine quality, photorealistic. No people, no hands.",
-          "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T22:52:34.699Z"
+          "prompt": "Editorial flat-lay product photograph of dermal filler injectable products on a white marble surface — a clear glass hyaluronic-acid filler syringe with a fine needle attached resting on a small sterile cloth, a sealed sterile package beside it, a small ceramic dish, a single fresh white rose laid at the corner for visual softness, soft natural window light, magazine medical aesthetic editorial photography, ultra-sharp focus on the syringe, photorealistic, 8k.",
+          "model": "fal-ai/nano-banana",
+          "generated_at": "2026-04-28T02:11:06.606Z"
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97dbeb/L3I3LHxnryV9i274vGmrF_pk1OENGh.png",
+          "url": "https://v3b.fal.media/files/b/0a980252/RBY1q6dZWKkUmRNkaRMTz_56X6eKPD.png",
           "width": 0,
           "height": 0,
-          "prompt": "Extreme macro photograph of a single dewdrop on a soft pink rose petal, water beading perfectly, delicate light refracting through the drop, ultra-shallow depth of field, magazine beauty editorial, photorealistic, ultra-sharp focus on the drop. No people, no faces, no skin.",
-          "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T22:54:30.226Z"
+          "prompt": "A modern medical-grade aesthetic laser treatment device on a polished white counter in a bright clinical med-spa room — sleek white chassis with a subtle blue LED indicator glowing, the articulated arm and treatment handpiece resting in their cradle, depth of field with the device sharp and the room softly blurred behind, neutral cool clinical lighting, professional medical product photography, magazine quality, photorealistic, 8k. No people, no hands.",
+          "model": "fal-ai/nano-banana",
+          "generated_at": "2026-04-28T02:11:14.666Z"
         },
         {
           "slot": "service4",
-          "url": "https://v3b.fal.media/files/b/0a97dbf7/iebwGUUmuFANAgPW9J4kt_EHVrwKnU.png",
+          "url": "https://v3b.fal.media/files/b/0a980253/quADyC1ZZbK6aQmpkI-9G_x0i7zFEr.png",
           "width": 0,
           "height": 0,
-          "prompt": "Empty modern medical spa reception lobby — clean white walls, a sculptural marble reception desk centered in frame, two cream leather lounge chairs at soft angles, large fiddle leaf fig in a textured ceramic planter, polished concrete floor, golden hour light pouring through tall windows on the left, architectural lifestyle photography, magazine quality, sharp focus, photorealistic. No people.",
-          "model": "fal-ai/gpt-image-2",
-          "generated_at": "2026-04-26T22:56:32.108Z"
+          "prompt": "A professional medical-grade microneedling pen device on a polished white marble counter — sleek white-and-rose-gold cylindrical device with a small disposable needle cartridge attached at the tip, a sealed sterile replacement cartridge in clear packaging beside it, a small amber-glass bottle of hyaluronic-acid serum, soft natural window light from upper left, magazine medical-aesthetic product photography, ultra-sharp focus on the pen device tip showing the micro-needle cartridge, photorealistic, 8k. No people, no faces, no skin in frame.",
+          "model": "fal-ai/nano-banana",
+          "generated_at": "2026-04-28T02:11:21.167Z"
         }
-      ],
-      "heroVideo": {
-        "slot": "hero",
-        "url": "https://v3b.fal.media/files/b/0a97f76c/8ySLnqX4lAMjGGiIYg76T_video.mp4",
-        "durationSec": 5,
-        "aspectRatio": "3:4",
-        "prompt": "Extremely slow cinematic dolly forward into the treatment room, sheer curtains gently breathing in a soft breeze, golden hour light very slowly shifting across the warm walnut wall paneling, fine dust motes floating in the light beam, the fiddle leaf fig leaves barely moving, ultra-luxurious spa cinematography, smooth and meditative, no abrupt motion.",
-        "model": "fal-ai/bytedance/seedance/v1/lite/image-to-video",
-        "generated_at": "2026-04-27T18:26:12.538Z"
-      }
+      ]
     },
     "auto-body": {
       "slug": "auto-body",
