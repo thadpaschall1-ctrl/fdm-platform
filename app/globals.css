@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Hide GHL chat widget DOM nodes on showcase routes. The GHLChatWidget client
+   component sets data-hide-ghl on <body> when pathname matches /examples/[slug],
+   covering the case where the script was already loaded on a previous route
+   and the iframe + button are persisted in the DOM after client-side nav. */
+body[data-hide-ghl] #leadconnector-chat-widget,
+body[data-hide-ghl] [class*="leadconnector"],
+body[data-hide-ghl] [id*="leadconnector"],
+body[data-hide-ghl] iframe[src*="leadconnectorhq"] {
+  display: none !important;
+}
+
 @theme inline {
   --font-sans: var(--font-geist);
   --font-display: var(--font-cabinet);

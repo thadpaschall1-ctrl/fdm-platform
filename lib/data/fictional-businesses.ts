@@ -220,10 +220,10 @@ export const FICTIONAL_BUSINESSES: Record<string, FictionalBusiness> = {
     state: "NC",
     phone: "(704) 555-0181",
     phone_e164: "+17045550181",
-    street_address: "Mobile service throughout Mecklenburg County",
+    street_address: "1820 South Blvd, Suite 110",
     zip: "28203",
     email: "hello@tailandtonic.example",
-    service_area: "Charlotte, Matthews, Ballantyne & Lake Norman",
+    service_area: "Mobile service: Charlotte, Matthews, Ballantyne & Lake Norman (we come to you)",
     tagline: "We come to you. Your dog stays calm. Everyone wins.",
   },
 

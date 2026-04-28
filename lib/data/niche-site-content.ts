@@ -895,9 +895,9 @@ const HAIR_SALONS: NicheSiteContent = {
         "Beaded weft, tape-in, and hand-tied extensions in 100% Remy human hair. Color-matched to your existing tone. 6–8 week maintenance cycle. Removable, reusable.",
     },
     {
-      title: "Precision Cuts & Styling",
+      title: "Take-Home Products & Pro Care",
       description:
-        "Detail-oriented cuts that grow out with intention, not chaos. Curtain bangs, layered lobs, blunt bobs, long-layered, pixie. Every cut customized to face shape and lifestyle.",
+        "Salon-grade shampoo, conditioner, masks, leave-ins, and styling products curated for your hair type. Olaplex, K18, Oribe, Davines — formulated to extend your color and protect your investment between visits.",
     },
     {
       title: "Smoothing & Keratin Treatments",

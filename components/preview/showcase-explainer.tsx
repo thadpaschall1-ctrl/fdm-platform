@@ -62,7 +62,7 @@ export function ShowcaseExplainer({ palette }: ShowcaseExplainerProps = {}) {
     return (
       <button
         onClick={() => setExpanded(true)}
-        className="fixed top-3 left-3 z-[88] flex items-center gap-2 px-3 py-1.5 rounded-full text-white hover:scale-105 transition-all duration-200"
+        className="fixed top-20 left-4 z-[88] flex items-center gap-2 px-3 py-1.5 rounded-full text-white hover:scale-105 transition-all duration-200"
         style={{
           background: "rgba(15, 23, 42, 0.92)",
           border: `1px solid ${p.primary}66`,
@@ -73,7 +73,7 @@ export function ShowcaseExplainer({ palette }: ShowcaseExplainerProps = {}) {
       >
         <svg
           className="w-3.5 h-3.5"
-          style={{ color: p.primary }}
+          style={{ color: p.accent }}
           fill="none"
           stroke="currentColor"
           strokeWidth="2.5"
@@ -94,7 +94,7 @@ export function ShowcaseExplainer({ palette }: ShowcaseExplainerProps = {}) {
 
   return (
     <div
-      className="fixed top-3 left-3 z-[88] w-[320px] max-w-[calc(100vw-24px)] rounded-2xl backdrop-blur-xl shadow-2xl"
+      className="fixed top-20 left-4 z-[88] w-[320px] max-w-[calc(100vw-32px)] rounded-2xl backdrop-blur-xl shadow-2xl"
       style={{
         background: "rgba(15, 23, 42, 0.95)",
         border: `1px solid ${p.primary}66`,
@@ -112,7 +112,7 @@ export function ShowcaseExplainer({ palette }: ShowcaseExplainerProps = {}) {
           >
             <svg
               className="w-4 h-4"
-              style={{ color: p.primary }}
+              style={{ color: p.accent }}
               fill="none"
               stroke="currentColor"
               strokeWidth="2.5"

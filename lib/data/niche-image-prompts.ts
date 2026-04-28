@@ -154,9 +154,9 @@ const HVAC: ImagePrompt[] = [
   {
     slot: "hero",
     prompt:
-      "HVAC technician in branded uniform installing a sleek modern outdoor condenser unit beside a suburban home, late afternoon golden light, calm focused expression, professional documentary photography, clean composition, sharp focus",
-    negativePrompt: COMMON_NEGATIVE,
-    model: "fal-ai/flux-pro/v1.1-ultra",
+      "Wide-angle architectural photo of a brand-new sleek modern outdoor AC condenser unit installed on a clean concrete pad beside a beautiful suburban home, fresh copper line set running cleanly into the wall, manicured landscaping with mature shrubs, late afternoon golden light, no people in the shot, no hands, no body parts, professional architectural exterior photography, magazine real-estate ad quality, photorealistic, sharp focus on the condenser.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, person, hands, fingers, technician inside unit, body parts in machinery, anatomy errors`,
+    model: "fal-ai/gpt-image-2",
     imageSize: "portrait_4_3",
   },
   // service1 = "AC Repair & Installation"
@@ -240,6 +240,24 @@ const ROOFERS: ImagePrompt[] = [
     prompt:
       "Wide-angle view of a flat commercial building roof under installation — large rolls of white TPO membrane being heat-welded into place by a roofing crew, mechanical HVAC units distributed across the roofline, parapet wall visible at the edge, distant city skyline beyond, blue sky, documentary commercial photography, photorealistic, sharp focus.",
     negativePrompt: `${COMMON_NEGATIVE}, residential, sloped roof, asphalt shingles`,
+    model: "fal-ai/gpt-image-2",
+    imageSize: "landscape_4_3",
+  },
+  // service5 = "Gutters & Soffit"
+  {
+    slot: "service5",
+    prompt:
+      "Closeup of seamless aluminum gutters and soffit panels recently installed on a beautiful suburban home eave, clean white soffit with subtle ventilation perforations, dark bronze gutter run with downspout connecting cleanly, manicured landscaping below, golden afternoon light, residential exterior photography, photorealistic, sharp focus on the gutter line.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, hands, ladder, full house wide shot`,
+    model: "fal-ai/gpt-image-2",
+    imageSize: "landscape_4_3",
+  },
+  // service6 = "Skylights & Vents"
+  {
+    slot: "service6",
+    prompt:
+      "Architectural photo of a freshly installed residential skylight on a sloped asphalt-shingle roof — flashing cleanly sealed around the perimeter, glass panel sparkling clean, ridge vent running along the peak in the background, blue sky reflecting off the skylight glass, golden afternoon light, photorealistic, sharp focus on the skylight assembly.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, hands, interior view, ceiling`,
     model: "fal-ai/gpt-image-2",
     imageSize: "landscape_4_3",
   },
@@ -486,12 +504,12 @@ const HAIR_SALONS: ImagePrompt[] = [
     model: "fal-ai/gpt-image-2",
     imageSize: "square_hd",
   },
-  // service4 = "Precision Cuts & Styling"
+  // service4 = "Take-Home Products & Pro Care"
   {
     slot: "service4",
     prompt:
-      "Editorial closeup of professional hair-cutting in motion — sharp Japanese-style hairdressing shears mid-cut on a clean section of dark hair, a fine-tooth comb in the stylist's other hand holding tension, the precision-cut bluntly straight edge visible, soft beauty lighting, sharp focus on the shears and freshly cut line, magazine editorial photography, photorealistic.",
-    negativePrompt: `${COMMON_NEGATIVE}, hair extensions, weft, product flat-lay`,
+      "Editorial flat-lay of premium salon-grade hair-care products on a white marble counter — three tall glass shampoo and conditioner bottles in soft warm tones, a small jar of hair mask, a leave-in spray bottle, a single eucalyptus sprig laid for styling, soft golden window light from upper right, magazine beauty product photography, ultra-sharp focus on the bottles, photorealistic. No people, no hands.",
+    negativePrompt: `${COMMON_NEGATIVE}, scissors, cutting, hair extensions, weft, people, hands, fingers`,
     model: "fal-ai/gpt-image-2",
     imageSize: "square_hd",
   },
@@ -507,40 +525,42 @@ const MEDICAL_SPAS: ImagePrompt[] = [
     model: "fal-ai/gpt-image-2",
     imageSize: "portrait_4_3",
   },
-  // service1 = "Botox & Dysport"
+  // service1 = "Botox & Dysport" — Nano Banana 2 (Google Gemini Flash 2 Image)
+  // is more permissive on medical/syringe imagery than GPT Image 2, so the
+  // medical-spa service tiles use it instead.
   {
     slot: "service1",
     prompt:
-      "Editorial flat-lay of injectable aesthetic medicine prep on a polished white marble countertop — a slim insulin-style syringe in clear focus, a small unlabeled vial, a sterile alcohol prep pad, white nitrile gloves folded neatly, soft golden side light from upper right, magazine medical-aesthetic editorial photography, ultra-sharp focus on the syringe, photorealistic. No people, no faces, no skin.",
-    negativePrompt: `${COMMON_NEGATIVE}, people, faces, skin, hands, body, dropper bottles, serum`,
-    model: "fal-ai/gpt-image-2",
+      "Professional editorial flat-lay product photograph showing the tools of cosmetic injectable treatments arranged on a polished white marble surface — three small clear medical syringes with fine needles attached lying neatly in a row, a tiny clear unlabeled vial of clear liquid, a sterile alcohol prep pad in a white wrapper, white nitrile gloves folded beside, soft golden side light from upper right, magazine medical-spa editorial styling, ultra-sharp focus on the syringes, photorealistic, 8k.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, faces, skin, hands holding, body parts, dropper bottles only, serums`,
+    model: "fal-ai/nano-banana",
     imageSize: "square_hd",
   },
-  // service2 = "Dermal Fillers"
+  // service2 = "Dermal Fillers" — Nano Banana 2
   {
     slot: "service2",
     prompt:
-      "Editorial flat-lay of dermal-filler treatment products on a white marble surface — a small clear hyaluronic-acid syringe with a fine needle attached, a sealed sterile package beside it, a single fresh white rose laid for visual softness, soft natural window light, magazine beauty editorial photography, ultra-sharp focus on the syringe, photorealistic. No people, no faces.",
-    negativePrompt: `${COMMON_NEGATIVE}, people, faces, lips, body parts, laser device`,
-    model: "fal-ai/gpt-image-2",
+      "Editorial flat-lay product photograph of dermal filler injectable products on a white marble surface — a clear glass hyaluronic-acid filler syringe with a fine needle attached resting on a small sterile cloth, a sealed sterile package beside it, a small ceramic dish, a single fresh white rose laid at the corner for visual softness, soft natural window light, magazine medical aesthetic editorial photography, ultra-sharp focus on the syringe, photorealistic, 8k.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, faces, lips closeup, body parts, laser device, microneedling pen`,
+    model: "fal-ai/nano-banana",
     imageSize: "square_hd",
   },
-  // service3 = "Laser Treatments"
+  // service3 = "Laser Treatments" — Nano Banana 2
   {
     slot: "service3",
     prompt:
-      "A modern medical-grade aesthetic laser treatment device on a polished white counter in a bright clinical room, sleek white chassis with a subtle blue LED indicator glowing, the articulated arm and treatment handpiece resting in their cradle, neutral cool lighting, depth of field with the device sharp and the room softly blurred, professional product photography, magazine quality, photorealistic. No people, no hands.",
-    negativePrompt: `${COMMON_NEGATIVE}, people, hands, fingers, rose petal`,
-    model: "fal-ai/gpt-image-2",
+      "A modern medical-grade aesthetic laser treatment device on a polished white counter in a bright clinical med-spa room — sleek white chassis with a subtle blue LED indicator glowing, the articulated arm and treatment handpiece resting in their cradle, depth of field with the device sharp and the room softly blurred behind, neutral cool clinical lighting, professional medical product photography, magazine quality, photorealistic, 8k. No people, no hands.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, hands, fingers, rose petal, syringe`,
+    model: "fal-ai/nano-banana",
     imageSize: "square_hd",
   },
-  // service4 = "Microneedling & RF"
+  // service4 = "Microneedling & RF" — Nano Banana 2
   {
     slot: "service4",
     prompt:
-      "A professional microneedling pen device resting on a sterile white tray on a polished marble counter — sleek white-and-rose-gold device with the disposable needle cartridge attached, a sterile sealed cartridge package beside, a small bottle of hyaluronic-acid serum, soft window light, magazine medical-aesthetic editorial product photography, ultra-sharp focus on the device, photorealistic. No people, no faces, no skin treatment in progress.",
-    negativePrompt: `${COMMON_NEGATIVE}, people, faces, skin, hands, lobby, reception`,
-    model: "fal-ai/gpt-image-2",
+      "A professional medical-grade microneedling pen device on a polished white marble counter — sleek white-and-rose-gold cylindrical device with a small disposable needle cartridge attached at the tip, a sealed sterile replacement cartridge in clear packaging beside it, a small amber-glass bottle of hyaluronic-acid serum, soft natural window light from upper left, magazine medical-aesthetic product photography, ultra-sharp focus on the pen device tip showing the micro-needle cartridge, photorealistic, 8k. No people, no faces, no skin in frame.",
+    negativePrompt: `${COMMON_NEGATIVE}, people, faces, skin, hands, lobby, reception, dropper bottle`,
+    model: "fal-ai/nano-banana",
     imageSize: "square_hd",
   },
 ];

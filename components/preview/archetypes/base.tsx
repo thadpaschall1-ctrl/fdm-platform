@@ -96,13 +96,7 @@ export function BaseLayout({
                 business={business}
                 content={content}
                 palette={palette}
-                label={
-                  archetype.cta.style === "phone-first"
-                    ? "Call Now"
-                    : archetype.cta.style === "appointment-first"
-                      ? "Book"
-                      : "Get Quote"
-                }
+                label="Book an Appointment"
                 className="rounded-md px-5 py-2.5 text-sm font-bold transition-all hover:opacity-90 hover:-translate-y-px"
                 style={{
                   background: palette.primary,
@@ -147,11 +141,13 @@ export function BaseLayout({
                 <div className="mt-10 flex flex-wrap items-center gap-4">
                   <a
                     href={phoneHref}
-                    className="rounded-md px-7 py-4 text-base font-bold transition-all hover:-translate-y-0.5"
+                    className="rounded-md px-7 py-4 text-base font-bold text-white transition-all hover:-translate-y-0.5"
                     style={{
-                      background: palette.primary,
-                      color: palette.primaryFg,
-                      boxShadow: `0 10px 30px ${palette.primary}30`,
+                      // Gradient + forced white text so the CTA stays legible
+                      // on dark-themed niches (real-estate, fitness, auto-body)
+                      // where palette.primary alone could be dark.
+                      background: `linear-gradient(135deg, ${palette.accent}, ${palette.primary})`,
+                      boxShadow: `0 10px 30px ${palette.primary}55`,
                     }}
                   >
                     📞 {business.phone}
@@ -536,11 +532,10 @@ export function BaseLayout({
             />
             <a
               href={phoneHref}
-              className="mt-10 inline-block rounded-md px-10 py-5 text-lg font-bold transition-all hover:-translate-y-0.5"
+              className="mt-10 inline-block rounded-md px-10 py-5 text-lg font-bold text-white transition-all hover:-translate-y-0.5"
               style={{
-                background: palette.primary,
-                color: palette.primaryFg,
-                boxShadow: `0 20px 50px ${palette.primary}40`,
+                background: `linear-gradient(135deg, ${palette.accent}, ${palette.primary})`,
+                boxShadow: `0 20px 50px ${palette.primary}55`,
               }}
             >
               📞 {business.phone}

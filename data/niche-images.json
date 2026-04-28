@@ -506,21 +506,21 @@
         },
         {
           "slot": "service3",
-          "url": "https://v3b.fal.media/files/b/0a97b920/V0LSMiSfJ9jw51H1l-hSA.jpg",
-          "width": 1024,
-          "height": 1024,
-          "prompt": "Premium salon shampoo and conditioner products arranged on a white marble counter with eucalyptus, soft natural window light, lifestyle product photography",
-          "model": "fal-ai/flux/schnell",
-          "generated_at": "2026-04-25T22:08:09.803Z"
-        },
-        {
-          "slot": "service4",
           "url": "https://v3b.fal.media/files/b/0a97b921/YvStidjEs7R0aW2m302q1.jpg",
           "width": 1024,
           "height": 1024,
           "prompt": "Hair extensions in subtle balayage tones laid out on a marble surface, soft window light, editorial beauty product photography",
           "model": "fal-ai/flux/schnell",
           "generated_at": "2026-04-25T22:08:11.495Z"
+        },
+        {
+          "slot": "service4",
+          "url": "https://v3b.fal.media/files/b/0a97b920/V0LSMiSfJ9jw51H1l-hSA.jpg",
+          "width": 1024,
+          "height": 1024,
+          "prompt": "Premium salon shampoo and conditioner products arranged on a white marble counter with eucalyptus, soft natural window light, lifestyle product photography",
+          "model": "fal-ai/flux/schnell",
+          "generated_at": "2026-04-25T22:08:09.803Z"
         },
         {
           "slot": "hero",

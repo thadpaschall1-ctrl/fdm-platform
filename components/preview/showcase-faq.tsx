@@ -209,7 +209,7 @@ export function ShowcaseFAQ({ palette }: ShowcaseFAQProps = {}) {
         >
           <svg
             className="w-3.5 h-3.5 shrink-0"
-            style={{ color: p.primary }}
+            style={{ color: p.accent }}
             fill="none"
             stroke="currentColor"
             strokeWidth="2.5"

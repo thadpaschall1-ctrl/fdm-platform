@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { TrackingScripts } from "@/components/tracking-scripts";
+import { GHLChatWidget } from "@/components/ghl-chat-widget";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -179,13 +180,8 @@ export default function RootLayout({
         <SiteNav />
         <main className="flex-1">{children}</main>
         <SiteFooter />
-        {/* GHL Chat Widget */}
-        <script
-          src="https://beta.leadconnectorhq.com/loader.js"
-          data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
-          data-widget-id="67e5cb8c14647189c01cde65"
-          async
-        />
+        {/* GHL Chat Widget — auto-suppressed on /examples/[slug] showcase routes */}
+        <GHLChatWidget />
       </body>
     </html>
   );

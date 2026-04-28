@@ -117,14 +117,14 @@ export function ShowcaseBookingDemo({
 
   return (
     <div
-      className="fixed inset-0 z-[95] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-[95] flex items-start sm:items-center justify-center p-4 bg-black/70 backdrop-blur-sm overflow-y-auto"
       onClick={handleClose}
       role="dialog"
       aria-modal="true"
       aria-label="Book an appointment"
     >
       <div
-        className="relative w-full max-w-xl max-h-[92vh] overflow-hidden rounded-2xl shadow-2xl flex flex-col"
+        className="relative w-full max-w-xl my-4 sm:my-0 sm:max-h-[92vh] overflow-hidden rounded-2xl shadow-2xl flex flex-col"
         style={{
           background: palette.background,
           border: `1px solid ${palette.border}`,

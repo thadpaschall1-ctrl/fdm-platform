@@ -213,22 +213,18 @@ export function ShowcaseVoiceSection({
               <button
                 onClick={startConversation}
                 disabled={isConnecting}
-                className="inline-flex items-center gap-3 px-7 py-4 rounded-full text-base font-bold shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center gap-3 px-7 py-4 rounded-full text-base font-bold text-white shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
-                  background: palette.primary,
-                  color: palette.primaryFg,
-                  boxShadow: `0 10px 30px ${palette.primary}40`,
+                  // Force white text + bright accent gradient so the CTA stays
+                  // legible on dark-themed niches (real-estate, fitness, etc.)
+                  // where palette.primary itself can be dark.
+                  background: `linear-gradient(135deg, ${palette.accent}, ${palette.primary})`,
+                  boxShadow: `0 10px 30px ${palette.primary}66`,
                 }}
               >
                 <span className="relative flex h-2.5 w-2.5">
-                  <span
-                    className="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
-                    style={{ background: palette.primaryFg }}
-                  />
-                  <span
-                    className="relative inline-flex h-2.5 w-2.5 rounded-full"
-                    style={{ background: palette.primaryFg }}
-                  />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/75" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-white" />
                 </span>
                 Start the Conversation
               </button>

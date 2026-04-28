@@ -82,7 +82,7 @@ export function PremiumOutdoorLayout({
               business={business}
               content={content}
               palette={palette}
-              label={`${business.phone} · ${content.heroCta}`}
+              label={`${business.phone} · Book an Appointment`}
               className="hidden md:inline-block text-sm tracking-[0.15em] uppercase border-b pb-1 transition-opacity hover:opacity-70"
               style={{ borderColor: palette.primaryFg, color: palette.primaryFg }}
             />
@@ -90,7 +90,7 @@ export function PremiumOutdoorLayout({
               business={business}
               content={content}
               palette={palette}
-              label={content.heroCta}
+              label="Book"
               className="md:hidden text-sm font-semibold underline underline-offset-4"
               style={{ color: palette.primaryFg }}
             />

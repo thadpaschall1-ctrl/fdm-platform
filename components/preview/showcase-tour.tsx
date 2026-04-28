@@ -250,7 +250,7 @@ export function ShowcaseTour({ schema, palette }: ShowcaseTourProps) {
       {!isActive && (
         <button
           onClick={handleStart}
-          className="fixed bottom-3 right-3 z-[90] flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white hover:scale-105 transition-all duration-200"
+          className="fixed top-20 right-4 z-[90] flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white hover:scale-105 transition-all duration-200"
           style={{
             background: "rgba(15, 23, 42, 0.92)",
             border: `1px solid ${p.primary}66`,
@@ -259,7 +259,7 @@ export function ShowcaseTour({ schema, palette }: ShowcaseTourProps) {
             animation: "showcaseSlideIn 0.5s ease-out 0.5s both",
           }}
         >
-          <svg className="w-3.5 h-3.5" style={{ color: p.primary }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg className="w-3.5 h-3.5" style={{ color: p.accent }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
             <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
