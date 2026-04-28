@@ -544,7 +544,7 @@ function placeholder(nicheName: string, customerNoun: string): NicheSiteContent 
 const POOL_BUILDERS: NicheSiteContent = {
   heroTagline: "Backyards that take your breath away — every time you walk outside.",
   heroSubtitle:
-    "Custom-designed inground pools, spas, and outdoor living spaces. From concept to completion, every detail considered. Florida-licensed, fully insured, lifetime structural warranty.",
+    "Custom-designed inground pools, spas, and outdoor living spaces. From concept to completion, every detail considered. Fully licensed, fully insured, lifetime structural warranty.",
   heroCta: "Book Free Design Consult",
   heroSecondaryCta: "View Our Portfolio",
   trustStats: [
@@ -621,12 +621,12 @@ const POOL_BUILDERS: NicheSiteContent = {
     {
       question: "How much does a custom pool actually cost?",
       answer:
-        "Florida custom pools typically run $65K–$180K depending on size, materials, and features. A 14×28 with basic equipment, paver deck, and standard tile starts around $75K. Add spa, water features, premium tile, or larger size and you climb from there. Free design consult includes a written estimate.",
+        "Custom pools typically run $65K–$180K depending on size, materials, and features. A 14×28 with basic equipment, paver deck, and standard tile starts around $75K. Add spa, water features, premium tile, or larger size and you climb from there. Free design consult includes a written estimate.",
     },
     {
       question: "How long does the build take?",
       answer:
-        "Permitting takes 4–6 weeks (Florida HOA + county). Once permits are issued, the build itself takes 10–14 weeks for a typical custom pool. Total project: 4–5 months from design to swim.",
+        "Permitting takes 4–6 weeks (HOA + county/municipal). Once permits are issued, the build itself takes 10–14 weeks for a typical custom pool. Total project: 4–5 months from design to swim.",
     },
     {
       question: "Do you handle permits and HOA approval?",
@@ -648,7 +648,7 @@ const POOL_BUILDERS: NicheSiteContent = {
 const SOLAR_INSTALLERS: NicheSiteContent = {
   heroTagline: "Lock in your kWh rate before the next utility hike.",
   heroSubtitle:
-    "Residential solar installation, battery storage, and energy-monitoring systems. Florida-licensed, NABCEP-certified installers. Federal tax credit + utility rebate paperwork handled for you.",
+    "Residential solar, battery storage, and energy monitoring. NABCEP-certified installers. We handle your federal tax credit and utility rebate paperwork start to finish.",
   heroCta: "Get Solar Estimate",
   heroSecondaryCta: "See Savings Calculator",
   trustStats: [
@@ -698,7 +698,7 @@ const SOLAR_INSTALLERS: NicheSiteContent = {
         "25-year production warranty on panels, 10-year inverter, 12.5-year battery. We handle all warranty claims with the manufacturer — you never call them.",
     },
   ],
-  whyUsHeading: "Why Florida homeowners pick us.",
+  whyUsHeading: "Why homeowners pick us.",
   whyUs: [
     {
       title: "Honest Sizing",
@@ -725,12 +725,12 @@ const SOLAR_INSTALLERS: NicheSiteContent = {
     {
       question: "How much does solar actually cost?",
       answer:
-        "Average Florida residential system (8–12kW) runs $22K–$36K before incentives. After 30% federal credit, net cost is roughly $15K–$25K. Most homeowners see payback in 7–9 years and free electricity for the next 16+ years.",
+        "Average residential system (8–12kW) runs $22K–$36K before incentives. After 30% federal credit, net cost is roughly $15K–$25K. Most homeowners see payback in 7–9 years and free electricity for the next 16+ years.",
     },
     {
       question: "What about hurricanes?",
       answer:
-        "Modern panels are rated to 140 mph wind loads. Mounting hardware is rated higher. We’ve installed thousands of systems through multiple Florida hurricane seasons with minimal damage. Insurance covers what little does happen.",
+        "Modern panels are rated to 140 mph wind loads. Mounting hardware is rated higher. We’ve installed thousands of systems through severe weather with minimal damage. Insurance covers what little does happen.",
     },
     {
       question: "Will I still pay my utility company if I have solar?",
@@ -770,7 +770,7 @@ const DECORATIVE_CONCRETE: NicheSiteContent = {
     "You’ve seen stamped concrete that started peeling within two seasons",
     "Color samples online never match what gets poured at your house",
     "You want something custom, not the same three patterns every contractor offers",
-    "Pool decks need to be cool to the touch — not every product handles Florida heat",
+    "Pool decks need to be cool to the touch — not every product handles summer heat",
     "Concrete cracks. You don’t know which contractor will cover them vs. blame you",
   ],
   servicesHeading: "What we pour & finish.",
@@ -798,7 +798,7 @@ const DECORATIVE_CONCRETE: NicheSiteContent = {
     {
       title: "Cool-Deck Pool Surfaces",
       description:
-        "Florida-specific cool-deck and Kool-Deck installations that stay 15–30°F cooler than standard concrete in direct sun. Bare-foot friendly all summer.",
+        "Cool-deck and Kool-Deck pool surface installations that stay 15–30°F cooler than standard concrete in direct sun. Bare-foot friendly all summer.",
     },
     {
       title: "Sealing & Maintenance",
@@ -902,7 +902,7 @@ const HAIR_SALONS: NicheSiteContent = {
     {
       title: "Smoothing & Keratin Treatments",
       description:
-        "Brazilian Blowout, Cezanne, and Keratin Express treatments. Frizz reduction, shine boost, and humidity-resistance for Florida weather. Lasts 3–6 months.",
+        "Brazilian Blowout, Cezanne, and Keratin Express treatments. Frizz reduction, shine boost, and humidity-resistance for summer weather. Lasts 3–6 months.",
     },
     {
       title: "Bridal & Special Event Styling",
